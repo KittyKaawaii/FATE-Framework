@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
+using FATE.FATECombat.Runtime.Data;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Characters

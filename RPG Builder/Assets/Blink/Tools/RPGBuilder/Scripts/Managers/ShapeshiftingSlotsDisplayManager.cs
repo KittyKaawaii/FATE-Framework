@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Managers;
+using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
+using FATE.FATECombat.Runtime.Manager;
 using UnityEngine;
 
 public class ShapeshiftingSlotsDisplayManager : MonoBehaviour
@@ -50,8 +53,8 @@ public class ShapeshiftingSlotsDisplayManager : MonoBehaviour
         {
             if (!ability.known) continue;
             RPGAbility abREF = GameDatabase.Instance.GetAbilities()[ability.ID];
-            RPGAbility.RPGAbilityRankData rankREF = abREF.ranks[RPGBuilderUtilities.GetCharacterAbilityRank(ability.ID)];
-            if (!CombatManager.Instance.AbilityHasTag(rankREF, RPGAbility.ABILITY_TAGS.shapeshifting)) continue;
+            RPGAbilityRankData rankREF = abREF.ranks[RPGBuilderUtilities.GetCharacterAbilityRank(ability.ID)];
+            if (!CombatManager.Instance.AbilityHasTag(rankREF, AbilityTags.Shapeshifting)) continue;
             GameObject newShapeshiftSlot = Instantiate(shapeshiftSlotPrefab, transform);
             ShapeshiftSlot slotREF = newShapeshiftSlot.GetComponent<ShapeshiftSlot>();
             slotREF.ThisAbility = abREF;
@@ -61,7 +64,7 @@ public class ShapeshiftingSlotsDisplayManager : MonoBehaviour
 
         foreach (var slot in slots)
         {
-            RPGAbility.RPGAbilityRankData rankREF =
+            RPGAbilityRankData rankREF =
                 slot.ThisAbility.ranks[RPGBuilderUtilities.GetCharacterAbilityRank(slot.ThisAbility.ID)];
             slot.border.enabled = RPGBuilderUtilities.GETActiveShapeshiftingEffectID(GameState.playerEntity) ==
                                   RPGBuilderUtilities.getShapeshiftingTagEffectID(rankREF);

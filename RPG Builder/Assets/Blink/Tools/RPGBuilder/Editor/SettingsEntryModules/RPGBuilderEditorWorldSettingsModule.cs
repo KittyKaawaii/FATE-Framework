@@ -1,5 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FATE.FATEDatabase.Editor.EntryModule;
+using FATE.FATEDatabase.Editor.Manager;
+using FATE.FATEDatabase.Editor.Utility;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEditor.SceneManagement;

@@ -1,5 +1,9 @@
 ﻿using System;
 using BLINK.RPGBuilder.Combat;
+using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
+using FATE.FATECombat.Runtime.Utility;
+using FATE.FATECombo.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
@@ -31,10 +35,10 @@ public class CombatEvents : MonoBehaviour
     public static event Action<CombatEntity, int> StateRefreshed;
     
     // COMBAT ACTIONS
-    public static event Action<CombatEntity, RPGAbility, RPGAbility.RPGAbilityRankData, float> StartedCastingAbility;
+    public static event Action<CombatEntity, RPGAbility, RPGAbilityRankData, float> StartedCastingAbility;
     public static event Action<CombatEntity> StoppedCastingAbility;
     
-    public static event Action<CombatEntity, RPGAbility, RPGAbility.RPGAbilityRankData, float> StartedChannelingAbility;
+    public static event Action<CombatEntity, RPGAbility, RPGAbilityRankData, float> StartedChannelingAbility;
     public static event Action<CombatEntity> StoppedChannelingAbility;
     
     public static event Action PlayerStartedActiveBlocking;
@@ -165,7 +169,7 @@ public class CombatEvents : MonoBehaviour
     #endregion
         
     #region CASTING
-    public virtual void OnStartedCastingAbility(CombatEntity entity, RPGAbility ability, RPGAbility.RPGAbilityRankData abilityRank, float castDuration)
+    public virtual void OnStartedCastingAbility(CombatEntity entity, RPGAbility ability, RPGAbilityRankData abilityRank, float castDuration)
     {
         if(entity != null && ability != null && abilityRank != null) StartedCastingAbility?.Invoke(entity, ability, abilityRank, castDuration);
     }
@@ -176,7 +180,7 @@ public class CombatEvents : MonoBehaviour
     #endregion
 
     #region CHANNELING
-    public virtual void OnStartedChannelingAbility(CombatEntity entity, RPGAbility ability, RPGAbility.RPGAbilityRankData abilityRank, float castDuration)
+    public virtual void OnStartedChannelingAbility(CombatEntity entity, RPGAbility ability, RPGAbilityRankData abilityRank, float castDuration)
     {
         if(entity != null && ability != null && abilityRank != null) StartedChannelingAbility?.Invoke(entity, ability, abilityRank, castDuration);
     }

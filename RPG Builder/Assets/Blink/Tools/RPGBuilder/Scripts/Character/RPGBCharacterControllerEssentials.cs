@@ -3,6 +3,8 @@ using System.Collections;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
+using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Characters
@@ -484,19 +486,19 @@ namespace BLINK.RPGBuilder.Characters
             Destroy(builtInController);
         }
 
-        public virtual void AbilityInitActions(RPGAbility.RPGAbilityRankData rankREF)
+        public virtual void AbilityInitActions(RPGAbilityRankData rankREF)
         {
             if (builtInController.CurrentController == RPGBCharacterController.ControllerType.ClickMove
-             && (rankREF.targetType == RPGAbility.TARGET_TYPES.CONE ||
-                 rankREF.targetType == RPGAbility.TARGET_TYPES.LINEAR ||
-                 rankREF.targetType == RPGAbility.TARGET_TYPES.PROJECTILE
-                 || rankREF.targetType == RPGAbility.TARGET_TYPES.TARGET_INSTANT ||
-                 rankREF.targetType == RPGAbility.TARGET_TYPES.TARGET_PROJECTILE))
+             && (rankREF.targetType == TARGET_TYPES.CONE ||
+                 rankREF.targetType == TARGET_TYPES.LINEAR ||
+                 rankREF.targetType == TARGET_TYPES.PROJECTILE
+                 || rankREF.targetType == TARGET_TYPES.TARGET_INSTANT ||
+                 rankREF.targetType == TARGET_TYPES.TARGET_PROJECTILE))
             {
                 builtInController.PlayerLookAtCursor();
             }
         }
-        public virtual void AbilityEndCastActions(RPGAbility.RPGAbilityRankData rankREF)
+        public virtual void AbilityEndCastActions(RPGAbilityRankData rankREF)
         {
         }
         

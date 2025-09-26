@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.World;
+using FATE.FATESave.Runtime.Saver;
 using UnityEngine;
 
 

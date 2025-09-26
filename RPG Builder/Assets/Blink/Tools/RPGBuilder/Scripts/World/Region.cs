@@ -1,5 +1,6 @@
 ﻿using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATERegion.Runtime.Manager;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder._THMSV.RPGBuilder.Scripts.World

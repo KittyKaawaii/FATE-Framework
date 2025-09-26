@@ -1,6 +1,7 @@
 ﻿using BLINK.RPGBuilder.DisplayHandler;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UI;
+using FATE.FATEEffect.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;

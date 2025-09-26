@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATECurrency.Runtime.DatabaseEntry;
+using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;
+using FATE.FATETalentTree.Runtime.DatabaseEntity;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Logic

@@ -6,11 +6,19 @@ using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
 using FATE.FATEClass.Runtime.DatabaseEntry;
+using FATE.FATECombat.Runtime.Data;
+using FATE.FATECombo.Runtime.DatabaseEntry;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATECurrency.Runtime.DatabaseEntry;
+using FATE.FATEDatabase.Editor.EntryModule;
+using FATE.FATEDatabase.Editor.Manager;
+using FATE.FATEDatabase.Editor.Utility;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEDialogue.Runtime.DatabaseEntry;
+using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEEnchantment.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using FATE.FATEGathering.Runtime.DatabaseEntry;
@@ -23,7 +31,9 @@ using FATE.FATEQuest.Runtime.Manager;
 using FATE.FATERace.Runtime.DatabaseEntry;
 using FATE.FATEShop.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;
+using FATE.FATESpecies.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
+using FATE.FATETalentTree.Runtime.DatabaseEntity;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -164,20 +174,20 @@ public class RPGBuilderEditorFields : Editor
         return removedEntry;
     }
 
-    public static List<RPGAbility.AbilityEffectsApplied> DrawEffectsAppliedList(List<RPGAbility.AbilityEffectsApplied> effectsApplied, bool margin)
+    public static List<AbilityEffectsApplied> DrawEffectsAppliedList(List<AbilityEffectsApplied> effectsApplied, bool margin)
     {
         if(margin) RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
         for (var a = 0; a < effectsApplied.Count; a++)
         {
             GUILayout.Space(5);
-            if (DrawHorizontalEntryRemoveButton( effectsApplied[a].effectID, "Effect"))
+            if (DrawHorizontalEntryRemoveButton( effectsApplied[a].EffectID, "Effect"))
             {
                 effectsApplied.RemoveAt(a);
                 return effectsApplied;
             }
 
-            effectsApplied[a].effectID = DrawDatabaseEntryField(effectsApplied[a].effectID, "Effect", "Effect", "");
-            effectsApplied[a].effectRank = DrawEffectRankIndexField(effectsApplied[a].effectID, effectsApplied[a].effectRank);
+            effectsApplied[a].EffectID = DrawDatabaseEntryField(effectsApplied[a].EffectID, "Effect", "Effect", "");
+            effectsApplied[a].effectRank = DrawEffectRankIndexField(effectsApplied[a].EffectID, effectsApplied[a].effectRank);
             effectsApplied[a].target = (RPGCombatDATA.TARGET_TYPE) DrawHorizontalEnum("Applied On", "", (int)effectsApplied[a].target,
                 Enum.GetNames(typeof(RPGCombatDATA.TARGET_TYPE)));
             effectsApplied[a].chance = DrawHorizontalFloatFillBar("Chance", "", effectsApplied[a].chance);

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
+using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +30,7 @@ public class CharacterChannelingBar : MonoBehaviour
         CombatEvents.StoppedChannelingAbility -= ResetChannelingBar;
     }
 
-    protected virtual void InitChannelingBar(CombatEntity entity, RPGAbility ability, RPGAbility.RPGAbilityRankData abilityRank, float castDuration)
+    protected virtual void InitChannelingBar(CombatEntity entity, RPGAbility ability, RPGAbilityRankData abilityRank, float castDuration)
     {
         if (!entity.IsPlayer()) return;
         if (!abilityRank.castBarVisible) return;

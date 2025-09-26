@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
+using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
+using FATE.FATEItem.Runtime.Data;
 using UnityEngine;
 
 public class RPGWeaponTemplate : RPGBuilderDatabaseEntry

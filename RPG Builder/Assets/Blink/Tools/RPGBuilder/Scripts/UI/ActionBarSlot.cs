@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UI;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
+using FATE.FATECombat.Runtime.Manager;
 using FATE.FATEInventory.Runtime.Manager;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.UI;

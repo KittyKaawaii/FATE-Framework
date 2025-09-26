@@ -1,5 +1,6 @@
 ﻿using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.LogicMono;
+using FATE.FATEInput.Runtime.Manager;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

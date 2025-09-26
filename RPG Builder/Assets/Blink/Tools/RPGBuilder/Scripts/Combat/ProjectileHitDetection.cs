@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
+using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
+using FATE.FATECombat.Runtime.Manager;
+using FATE.FATECombat.Runtime.Utility;
 using FATE.FATEFaction.Runtime.Manager;
 using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
@@ -23,7 +27,7 @@ namespace BLINK.RPGBuilder.LogicMono
         public List<CombatEntity> alreadyHitNodes = new List<CombatEntity>();
 
         private Vector3 initPos;
-        private RPGAbility.RPGAbilityRankData rankREF;
+        private RPGAbilityRankData rankREF;
         private int curRankIndex;
         private RPGAbility abREF;
 
@@ -40,7 +44,7 @@ namespace BLINK.RPGBuilder.LogicMono
         public CombatEntity targettedProjectileTarget;
         public Transform targettedProjectileTargetTransform;
 
-        public void InitProjectile(CombatEntity caster, RPGAbility ab, RPGAbility.RPGAbilityRankData rank)
+        public void InitProjectile(CombatEntity caster, RPGAbility ab, RPGAbilityRankData rank)
         {
             casterNode = caster;
             casterTransform = caster.transform;
@@ -86,7 +90,7 @@ namespace BLINK.RPGBuilder.LogicMono
                 return;
             }
 
-            if (rankREF.targetType == RPGAbility.TARGET_TYPES.TARGET_PROJECTILE) return;
+            if (rankREF.targetType == TARGET_TYPES.TARGET_PROJECTILE) return;
             CombatEntity nodeREF = other.gameObject.GetComponent<CombatEntity>();
             if (nodeREF == null) return;
             FactionManager.CanHitResult hitResult =
@@ -98,7 +102,7 @@ namespace BLINK.RPGBuilder.LogicMono
 
         private void lookForNextUnit()
         {
-            RPGAbility.RPGAbilityRankData rank = casterNode.GetCurrentAbilityRank(abREF, true);
+            RPGAbilityRankData rank = casterNode.GetCurrentAbilityRank(abREF, true);
             if (curNearbyUnitsHit < rank.projectileNearbyUnitMaxHit)
             {
                 curNearbyUnitsHit++;
@@ -137,7 +141,7 @@ namespace BLINK.RPGBuilder.LogicMono
                         CombatManager.Instance.SpawnHitEffect(hitNodeRef, rankREF);
                     }
                     
-                    if (rankREF.targetType == RPGAbility.TARGET_TYPES.TARGET_PROJECTILE)
+                    if (rankREF.targetType == TARGET_TYPES.TARGET_PROJECTILE)
                     {
                         Destroy(gameObject);
                     }
@@ -210,13 +214,13 @@ namespace BLINK.RPGBuilder.LogicMono
                 }
             }
 
-            if (rankREF.useCustomCollision && !rankREF.isProjectileNearbyUnit && rankREF.targetType != RPGAbility.TARGET_TYPES.TARGET_PROJECTILE)
+            if (rankREF.useCustomCollision && !rankREF.isProjectileNearbyUnit && rankREF.targetType != TARGET_TYPES.TARGET_PROJECTILE)
             {
                 HandleMovement();
                 CheckCollisions();
             }
 
-            if (rankREF.targetType == RPGAbility.TARGET_TYPES.TARGET_PROJECTILE)
+            if (rankREF.targetType == TARGET_TYPES.TARGET_PROJECTILE)
             {
                 HandleTargettedProjectile();
             }

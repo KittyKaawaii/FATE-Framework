@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FATE.FATESave.Runtime.Saver;
+using UnityEngine;
 
 namespace BLINK.RPGBuilder.WorldPersistence
 {

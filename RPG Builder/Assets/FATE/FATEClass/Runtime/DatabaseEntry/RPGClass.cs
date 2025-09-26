@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
+using FATE.FATEClass.Runtime.Data;
+using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
+using FATE.FATEItem.Runtime.Data;
 using UnityEngine;
 
 namespace FATE.FATEClass.Runtime.DatabaseEntry
@@ -18,16 +21,6 @@ namespace FATE.FATEClass.Runtime.DatabaseEntry
 
         [AbilityID] public int autoAttackAbilityID = -1;
 
-        [Serializable]
-        public class CLASS_STATS_DATA
-        {
-            public string statName;
-            [StatID] public int statID = -1;
-            public float amount;
-            public bool isPercent;
-            public float bonusPerLevel;
-        }
-
         [RPGDataList] public List<CLASS_STATS_DATA> stats = new List<CLASS_STATS_DATA>();
         [RPGDataList] public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
         public bool UseStatListTemplate;
@@ -35,19 +28,7 @@ namespace FATE.FATEClass.Runtime.DatabaseEntry
 
         [LevelsID] public int levelTemplateID = -1;
 
-        [Serializable]
-        public class TalentTreesDATA
-        {
-            [TalentTreeID] public int talentTreeID = -1;
-        }
-
         [RPGDataList] public List<TalentTreesDATA> talentTrees = new List<TalentTreesDATA>();
-
-        [Serializable]
-        public class SpellbookDATA
-        {
-            [SpellbookID] public int spellbookID = -1;
-        }
 
         [RPGDataList] public List<SpellbookDATA> spellbooks = new List<SpellbookDATA>();
     

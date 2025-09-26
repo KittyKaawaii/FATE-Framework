@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
+using FATE.FATEClass.Runtime.Data;
+using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
+using FATE.FATEItem.Runtime.Data;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -20,13 +24,7 @@ namespace FATE.FATESkill.Runtime.DatabaseEntry
         [FormerlySerializedAs("automaticlyAdded")] public bool automaticallyAdded;
         public int MaxLevel;
         [LevelsID] public int levelTemplateID = -1;
-
-        [Serializable]
-        public class TalentTreesDATA
-        {
-            [TalentTreeID] public int talentTreeID = -1;
-        }
-
+        
         [RPGDataList] public List<TalentTreesDATA> talentTrees = new List<TalentTreesDATA>();
 
         [Serializable]

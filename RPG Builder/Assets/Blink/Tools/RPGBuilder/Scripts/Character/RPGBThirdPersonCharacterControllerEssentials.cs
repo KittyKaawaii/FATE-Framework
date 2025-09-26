@@ -3,6 +3,9 @@ using System.Collections;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
+using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
+using FATE.FATECombat.Runtime.Utility;
 using UnityEngine;
 
 namespace BLINK.Controller
@@ -561,10 +564,10 @@ namespace BLINK.Controller
             Destroy(charController);
         }
         
-        public override void AbilityInitActions(RPGAbility.RPGAbilityRankData rankREF)
+        public override void AbilityInitActions(RPGAbilityRankData rankREF)
         {
         }
-        public override void AbilityEndCastActions(RPGAbility.RPGAbilityRankData rankREF)
+        public override void AbilityEndCastActions(RPGAbilityRankData rankREF)
         {
             if (rankREF.standTimeDuration > 0)
             {

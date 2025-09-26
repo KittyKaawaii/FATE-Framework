@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
+using FATE.FATEEffect.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public class RPGBonus : RPGBuilderDatabaseEntry

@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-using BLINK.RPGBuilder.AI;
 using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.WorldPersistence;
+using FATE.FATEAI.Runtime.Data;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
+using FATE.FATESpawn.Runtime.Spawner;
+using FATE.FATESpecies.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;

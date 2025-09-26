@@ -1,4 +1,5 @@
 ﻿using BLINK.RPGBuilder.Managers;
+using FATE.FATEInput.Runtime.Manager;
 using TMPro;
 using UnityEngine;
 

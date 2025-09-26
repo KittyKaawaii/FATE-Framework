@@ -4,6 +4,8 @@ using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Managers;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATEInventory.Runtime.Manager;
+using FATE.FATELeveling.Runtime.Manager;
+using FATE.FATETalentTree.Runtime.DatabaseEntity;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

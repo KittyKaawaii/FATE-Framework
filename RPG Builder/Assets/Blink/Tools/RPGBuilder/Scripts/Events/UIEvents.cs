@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
+using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
+using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
 using FATE.FATEShop.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
+using FATE.FATETalentTree.Runtime.DatabaseEntity;
 using UnityEngine;
 
 [Serializable]
@@ -96,7 +100,7 @@ public class UIEvents : MonoBehaviour
     // TOOLTIPS
     public static event Action<RPGStat> ShowCharacterPanelStatTooltip;
     public static event Action HideCharacterPanelStatTooltip;
-    public static event Action<CombatEntity, RPGAbility, RPGAbility.RPGAbilityRankData> ShowAbilityTooltip;
+    public static event Action<CombatEntity, RPGAbility, RPGAbilityRankData> ShowAbilityTooltip;
     public static event Action<CombatEntity, RPGBonus, RPGBonus.RPGBonusRankDATA> ShowBonusTooltip;
     public static event Action<CombatEntity, RPGEffect, RPGEffect.RPGEffectRankData> ShowEffectTooltip;
     public static event Action HideAbilityTooltip;
@@ -424,7 +428,7 @@ public class UIEvents : MonoBehaviour
     #endregion
     
     #region TOOLTIPS
-    public virtual void OnShowAbilityTooltip(CombatEntity entity, RPGAbility ability, RPGAbility.RPGAbilityRankData rank)
+    public virtual void OnShowAbilityTooltip(CombatEntity entity, RPGAbility ability, RPGAbilityRankData rank)
     {
         ShowAbilityTooltip?.Invoke(entity, ability, rank);
     }

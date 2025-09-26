@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATERegion.Runtime.Manager;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

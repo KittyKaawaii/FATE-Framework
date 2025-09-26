@@ -1,4 +1,5 @@
 ﻿using BLINK.RPGBuilder.Managers;
+using FATE.FATECombat.Runtime.Manager;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Characters

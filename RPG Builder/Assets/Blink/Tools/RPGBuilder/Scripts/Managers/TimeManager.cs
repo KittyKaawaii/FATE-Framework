@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Characters;
+using FATE.FATERegion.Runtime.Manager;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

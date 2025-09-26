@@ -3,6 +3,7 @@ using System.Linq;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.LogicMono;
+using FATE.FATECombat.Runtime.Data;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

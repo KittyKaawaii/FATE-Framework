@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Characters;
+using FATE.FATESave.Runtime.Saver;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.WorldPersistence

@@ -2,13 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using BLINK.RPGBuilder.AI;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Data;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.World;
 using BLINK.RPGBuilder.WorldPersistence;
+using FATE.FATESpawn.Runtime.Spawner;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

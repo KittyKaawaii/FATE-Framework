@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using FATE.FATESave.Runtime.Template;
 
 namespace BLINK.RPGBuilder.WorldPersistence
 {

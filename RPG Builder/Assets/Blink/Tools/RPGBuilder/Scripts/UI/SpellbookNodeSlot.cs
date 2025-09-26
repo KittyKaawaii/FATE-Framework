@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UI;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
+using FATE.FATECombat.Runtime.Utility;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;

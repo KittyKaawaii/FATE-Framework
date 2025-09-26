@@ -2,9 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using BLINK.RPGBuilder.AI;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAI.Runtime.Data;
+using FATE.FATECombat.Runtime.Data;
+using FATE.FATEDatabase.Editor.EntryModule;
+using FATE.FATEDatabase.Editor.Manager;
+using FATE.FATEDatabase.Editor.Utility;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;

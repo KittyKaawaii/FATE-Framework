@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
+using FATE.FATEAttribute.Runtime.Attribute;
+using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 

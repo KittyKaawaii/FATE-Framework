@@ -3,7 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
+using FATE.FATEDatabase.Editor.EntryModule;
+using FATE.FATEDatabase.Editor.Manager;
+using FATE.FATEDatabase.Editor.Utility;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
+using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 using UnityEditor;
@@ -364,14 +370,14 @@ public class RPGBuilderEditorEffectModule : RPGBuilderEditorModule
                             }
 
                             currentEntry.ranks[i].hitValueType =
-                                (RPGAbility.COST_TYPES) RPGBuilderEditorFields.DrawHorizontalEnum("Hit Type",
+                                (COST_TYPES) RPGBuilderEditorFields.DrawHorizontalEnum("Hit Type",
                                     "Is this a flat value, or a percentage of the altered stat?",
                                     (int) currentEntry.ranks[i].hitValueType,
-                                    Enum.GetNames(typeof(RPGAbility.COST_TYPES)));
+                                    Enum.GetNames(typeof(COST_TYPES)));
 
-                            if ((currentEntry.ranks[i].hitValueType == RPGAbility.COST_TYPES.PERCENT_OF_MAX ||
+                            if ((currentEntry.ranks[i].hitValueType == COST_TYPES.PERCENT_OF_MAX ||
                                  currentEntry.ranks[i].hitValueType ==
-                                 RPGAbility.COST_TYPES.PERCENT_OF_CURRENT) &&
+                                 COST_TYPES.PERCENT_OF_CURRENT) &&
                                 currentEntry.ranks[i].Damage < 0)
                             {
                                 currentEntry.ranks[i].Damage = 0;
@@ -508,14 +514,14 @@ public class RPGBuilderEditorEffectModule : RPGBuilderEditorModule
                             }
 
                             currentEntry.ranks[i].hitValueType =
-                                (RPGAbility.COST_TYPES) RPGBuilderEditorFields.DrawHorizontalEnum("Hit Type",
+                                (COST_TYPES) RPGBuilderEditorFields.DrawHorizontalEnum("Hit Type",
                                     "Is this a flat value, or a percentage of the altered stat?",
                                     (int) currentEntry.ranks[i].hitValueType,
-                                    Enum.GetNames(typeof(RPGAbility.COST_TYPES)));
+                                    Enum.GetNames(typeof(COST_TYPES)));
 
-                            if ((currentEntry.ranks[i].hitValueType == RPGAbility.COST_TYPES.PERCENT_OF_MAX ||
+                            if ((currentEntry.ranks[i].hitValueType == COST_TYPES.PERCENT_OF_MAX ||
                                  currentEntry.ranks[i].hitValueType ==
-                                 RPGAbility.COST_TYPES.PERCENT_OF_CURRENT) &&
+                                 COST_TYPES.PERCENT_OF_CURRENT) &&
                                 currentEntry.ranks[i].Damage < 0)
                             {
                                 currentEntry.ranks[i].Damage = 0;
@@ -1054,7 +1060,7 @@ public class RPGBuilderEditorEffectModule : RPGBuilderEditorModule
                             GUILayout.Space(10);
                             if (RPGBuilderEditorFields.DrawHorizontalAddButton("Add Effect", true))
                             {
-                                currentEntry.ranks[i].nestedEffects.Add(new RPGAbility.AbilityEffectsApplied());
+                                currentEntry.ranks[i].nestedEffects.Add(new AbilityEffectsApplied());
                             }
 
                             currentEntry.ranks[i].nestedEffects =
@@ -1124,7 +1130,7 @@ public class RPGBuilderEditorEffectModule : RPGBuilderEditorModule
                             GUILayout.Space(10);
                             if (RPGBuilderEditorFields.DrawHorizontalAddButton("Add Effect", true))
                             {
-                                currentEntry.ranks[i].nestedEffects.Add(new RPGAbility.AbilityEffectsApplied());
+                                currentEntry.ranks[i].nestedEffects.Add(new AbilityEffectsApplied());
                             }
 
                             currentEntry.ranks[i].nestedEffects =
@@ -1194,7 +1200,7 @@ public class RPGBuilderEditorEffectModule : RPGBuilderEditorModule
                             RPGBuilderEditorFields.DrawTitleLabelExpanded("Extras:", "", true);
                             if (RPGBuilderEditorFields.DrawHorizontalAddButton("Add Effect", true))
                             {
-                                currentEntry.ranks[i].nestedEffects.Add(new RPGAbility.AbilityEffectsApplied());
+                                currentEntry.ranks[i].nestedEffects.Add(new AbilityEffectsApplied());
                             }
 
                             currentEntry.ranks[i].nestedEffects =

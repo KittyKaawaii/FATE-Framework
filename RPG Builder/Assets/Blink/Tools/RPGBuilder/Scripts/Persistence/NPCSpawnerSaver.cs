@@ -1,6 +1,7 @@
 ﻿using System;
-using BLINK.RPGBuilder.AI;
 using BLINK.RPGBuilder.Characters;
+using FATE.FATESave.Runtime.Saver;
+using FATE.FATESpawn.Runtime.Spawner;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.WorldPersistence

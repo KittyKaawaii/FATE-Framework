@@ -1,5 +1,6 @@
 ﻿using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.LogicMono;
+using FATE.FATECombat.Runtime.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

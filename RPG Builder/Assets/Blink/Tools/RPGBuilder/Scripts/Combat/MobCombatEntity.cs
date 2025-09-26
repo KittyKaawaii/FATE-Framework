@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BLINK.RPGBuilder.AI;
 using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
+using FATE.FATEAI.Runtime.Entity;
+using FATE.FATECombat.Runtime.Data;
+using FATE.FATECombat.Runtime.Manager;
+using FATE.FATECombat.Runtime.Utility;
 using FATE.FATEFaction.Runtime.Manager;
+using FATE.FATELeveling.Runtime.Manager;
 using FATE.FATENPC.Runtime.DatabaseEntry;
+using FATE.FATESpawn.Runtime.Spawner;
 using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -228,7 +235,7 @@ namespace BLINK.RPGBuilder.Combat
         #endregion
         #region COMBAT INFO
 
-        public override RPGAbility.RPGAbilityRankData GetCurrentAbilityRank(RPGAbility ability, bool abMustBeKnown)
+        public override RPGAbilityRankData GetCurrentAbilityRank(RPGAbility ability, bool abMustBeKnown)
         {
             return ability.ranks[0];
         }
@@ -238,7 +245,7 @@ namespace BLINK.RPGBuilder.Combat
             return Time.timeSinceLevelLoad >= AIEntity.GetAbilities()[ability.ID].nextUse;
         }
 
-        public override void StartAbilityCooldown(RPGAbility.RPGAbilityRankData rank, int abilityID)
+        public override void StartAbilityCooldown(RPGAbilityRankData rank, int abilityID)
         {
             var finalCD = rank.cooldown;
             float CDRecoverySpeed = CombatUtilities.GetTotalOfStatType(this, RPGStat.STAT_TYPE.CD_RECOVERY_SPEED);
@@ -281,7 +288,7 @@ namespace BLINK.RPGBuilder.Combat
             return true;
         }
 
-        public override void InitCasting(RPGAbility thisAbility, RPGAbility.RPGAbilityRankData rankREF)
+        public override void InitCasting(RPGAbility thisAbility, RPGAbilityRankData rankREF)
         {
             base.InitCasting(thisAbility, rankREF);
         }
@@ -290,8 +297,8 @@ namespace BLINK.RPGBuilder.Combat
         {
             EndAbility(CurrentAbilityCastedCurRank.AIAttackTime);
             
-            if ((CurrentAbilityCastedCurRank.targetType == RPGAbility.TARGET_TYPES.TARGET_PROJECTILE ||
-                 CurrentAbilityCastedCurRank.targetType == RPGAbility.TARGET_TYPES.TARGET_INSTANT)
+            if ((CurrentAbilityCastedCurRank.targetType == TARGET_TYPES.TARGET_PROJECTILE ||
+                 CurrentAbilityCastedCurRank.targetType == TARGET_TYPES.TARGET_INSTANT)
                 && CurrentTargetCasted.IsDead())
             {
                 ResetCasting();
@@ -325,7 +332,7 @@ namespace BLINK.RPGBuilder.Combat
             AIEntity.SetInCombatState(false);
         }
 
-        public override void SetProjectileRotation(GameObject projectile, RPGAbility.RPGAbilityRankData rank,
+        public override void SetProjectileRotation(GameObject projectile, RPGAbilityRankData rank,
             float yOffset)
         {
             projectile.transform.LookAt(new Vector3(CurrentTarget.transform.position.x, CurrentTarget.transform.position.y + 1, CurrentTarget.transform.position.z));
@@ -413,7 +420,7 @@ namespace BLINK.RPGBuilder.Combat
 
         #region COMBAT EVENTS
 
-        public override void InitAbility(RPGAbility ab, RPGAbility.RPGAbilityRankData rank)
+        public override void InitAbility(RPGAbility ab, RPGAbilityRankData rank)
         {
             
         }
@@ -423,7 +430,7 @@ namespace BLINK.RPGBuilder.Combat
             AIEntity.StartCoroutine(AIEntity.EndAttackState(attackTime));
         }
         
-        public override void TakeDamage(CombatCalculations.DamageResult result, RPGAbility.RPGAbilityRankData abilityRank, int alteredStatID)
+        public override void TakeDamage(CombatCalculations.DamageResult result, RPGAbilityRankData abilityRank, int alteredStatID)
         {
             base.TakeDamage(result, abilityRank, alteredStatID);
 
@@ -536,12 +543,12 @@ namespace BLINK.RPGBuilder.Combat
             AIEntity.StartMovement();
         }
         
-        public override void InitStandTime(RPGAbility.RPGAbilityRankData rank)
+        public override void InitStandTime(RPGAbilityRankData rank)
         {
             
         }
         
-        public override void InitCastSlow(RPGAbility.RPGAbilityRankData rank)
+        public override void InitCastSlow(RPGAbilityRankData rank)
         {
             
         }

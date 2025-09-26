@@ -4,6 +4,8 @@ using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.WorldPersistence;
+using FATE.FATECombat.Runtime.Data;
+using FATE.FATESave.Runtime.Template;
 using UnityEngine;
 
 

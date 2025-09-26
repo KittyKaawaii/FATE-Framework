@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FATE.FATEAttribute.Runtime.Attribute;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Templates

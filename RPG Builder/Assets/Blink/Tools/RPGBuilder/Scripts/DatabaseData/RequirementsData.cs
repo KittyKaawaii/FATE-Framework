@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
+using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.Manager;
 
 public static class RequirementsData
