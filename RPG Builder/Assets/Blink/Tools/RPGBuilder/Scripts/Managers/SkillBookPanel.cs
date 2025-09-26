@@ -2,6 +2,7 @@
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.UIElements;
 using FATE.FATESkill.Runtime.DatabaseEntry;
+using FATE.FATESkill.Runtime.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

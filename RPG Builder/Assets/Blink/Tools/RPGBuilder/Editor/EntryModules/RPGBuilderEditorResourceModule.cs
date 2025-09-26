@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
+using FATE.FATEGathering.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEngine;
 

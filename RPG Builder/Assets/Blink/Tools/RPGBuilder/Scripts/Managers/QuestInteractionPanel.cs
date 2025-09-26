@@ -4,8 +4,12 @@ using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.UI;
 using BLINK.RPGBuilder.UIElements;
+using FATE.FATEFaction.Runtime.Manager;
+using FATE.FATEInventory.Runtime.Manager;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
+using FATE.FATEQuest.Runtime.Manager;
+using FATE.FATEQuest.Runtime.UI;
 using TMPro;
 using UnityEngine;
 

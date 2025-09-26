@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
+using FATE.FATEShop.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEngine;
 

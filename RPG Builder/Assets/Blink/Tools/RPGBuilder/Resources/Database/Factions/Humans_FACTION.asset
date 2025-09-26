@@ -23,5 +23,32 @@ MonoBehaviour:
   displayName: 
   description: 
   icon: {fileID: 0}
-  factionStances: []
-  factionInteractions: []
+  factionStances:
+  - stance: 
+    FactionStance: {fileID: 11400000, guid: a2530e37c92091642b659d4dcec5dbd5, type: 2}
+    pointsRequired: 100
+    playerAlignment: 0
+    AlignementToPlayer: 2
+  - stance: 
+    FactionStance: {fileID: 11400000, guid: e39c84c8531ef034982093c69f9f5621, type: 2}
+    pointsRequired: 100
+    playerAlignment: 0
+    AlignementToPlayer: 1
+  - stance: 
+    FactionStance: {fileID: 11400000, guid: ed6a9d682982b9047b47add0beb6586c, type: 2}
+    pointsRequired: 100
+    playerAlignment: 0
+    AlignementToPlayer: 0
+  factionInteractions:
+  - factionID: 0
+    defaultStance: 
+    DefaultFactionStance: {fileID: 11400000, guid: e39c84c8531ef034982093c69f9f5621, type: 2}
+    startingPoints: 0
+  - factionID: 1
+    defaultStance: 
+    DefaultFactionStance: {fileID: 11400000, guid: a2530e37c92091642b659d4dcec5dbd5, type: 2}
+    startingPoints: 0
+  - factionID: 2
+    defaultStance: 
+    DefaultFactionStance: {fileID: 11400000, guid: ed6a9d682982b9047b47add0beb6586c, type: 2}
+    startingPoints: 0

@@ -8,6 +8,7 @@ using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.WorldPersistence;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATECurrency.Runtime.DatabaseEntry;
+using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;

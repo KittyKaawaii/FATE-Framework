@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
+using FATE.FATEShop.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEngine;
 

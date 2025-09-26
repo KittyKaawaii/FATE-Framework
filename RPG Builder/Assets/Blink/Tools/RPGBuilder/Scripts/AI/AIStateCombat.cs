@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
+using FATE.FATEFaction.Runtime.Manager;
 using UnityEngine;
 namespace BLINK.RPGBuilder.AI
 {

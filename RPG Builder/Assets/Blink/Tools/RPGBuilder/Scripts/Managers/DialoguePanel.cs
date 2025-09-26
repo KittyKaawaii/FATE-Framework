@@ -7,6 +7,7 @@ using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
 using FATE.FATEDialogue.Runtime.DatabaseEntry;
+using FATE.FATEDialogue.Runtime.Node;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

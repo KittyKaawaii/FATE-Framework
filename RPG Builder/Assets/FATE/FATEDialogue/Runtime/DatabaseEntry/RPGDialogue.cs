@@ -1,4 +1,5 @@
 ﻿using FATE.FATEDatabase.Runtime.DatabaseEntry;
+using FATE.FATEDialogue.Runtime.Node;
 using UnityEngine;
 
 namespace FATE.FATEDialogue.Runtime.DatabaseEntry

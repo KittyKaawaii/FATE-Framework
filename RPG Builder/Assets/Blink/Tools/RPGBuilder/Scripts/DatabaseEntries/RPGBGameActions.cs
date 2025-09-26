@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATECurrency.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
+using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;

@@ -9,6 +9,7 @@ using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.Utility;
 using BLINK.RPGBuilder.World;
+using FATE.FATEFaction.Runtime.Manager;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;

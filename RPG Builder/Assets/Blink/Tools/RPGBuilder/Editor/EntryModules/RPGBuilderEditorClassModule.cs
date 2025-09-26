@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEClass.Runtime.DatabaseEntry;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEngine;
