@@ -1,4 +1,5 @@
 ﻿using BLINK.RPGBuilder.Data;
+using FATE.FATEDatabase.Runtime.DatabaseEntry;
 
 public class RPGBItemType : RPGBuilderDatabaseEntry
 {

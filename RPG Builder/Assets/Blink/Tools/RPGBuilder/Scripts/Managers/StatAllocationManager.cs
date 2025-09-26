@@ -4,6 +4,7 @@ using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
+using FATE.FATERace.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 

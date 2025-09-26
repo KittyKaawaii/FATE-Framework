@@ -6,7 +6,9 @@ using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.World;
 using BLINK.RPGBuilder.WorldPersistence;
+using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
+using FATE.FATESkill.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEngine;
 

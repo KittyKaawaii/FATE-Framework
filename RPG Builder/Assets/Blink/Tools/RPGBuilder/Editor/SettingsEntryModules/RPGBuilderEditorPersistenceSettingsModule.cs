@@ -1,4 +1,5 @@
 ﻿using BLINK.RPGBuilder.WorldPersistence;
+using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;

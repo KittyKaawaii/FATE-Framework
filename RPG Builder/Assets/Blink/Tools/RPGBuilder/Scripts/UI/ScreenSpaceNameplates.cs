@@ -6,9 +6,11 @@ using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UIElements;
 using BLINK.RPGBuilder.Utility;
+using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
+using FATE.FATESkill.Runtime.DatabaseEntry;
 using UnityEngine;
 using UnityEngine.Serialization;
 

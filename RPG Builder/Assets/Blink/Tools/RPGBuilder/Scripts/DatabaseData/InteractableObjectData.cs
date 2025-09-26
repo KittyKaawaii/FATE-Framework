@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
+using FATE.FATESkill.Runtime.DatabaseEntry;
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -3,6 +3,8 @@ using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.UI;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
+using FATE.FATEQuest.Runtime.DatabaseEntry;
+using FATE.FATESkill.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

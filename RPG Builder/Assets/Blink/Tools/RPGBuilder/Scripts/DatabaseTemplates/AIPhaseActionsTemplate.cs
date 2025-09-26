@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BLINK.RPGBuilder.AI;
+using FATE.FATEDatabase.Runtime.DatabaseEntry;
 
 namespace BLINK.RPGBuilder.Templates
 {

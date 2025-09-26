@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using FATE.FATEDatabase.Runtime.DatabaseEntry;
+using UnityEditor;
 using UnityEngine;
 
 public class RPGBuilderEditorCharactersSettingsModule : RPGBuilderEditorModule

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
+using FATE.FATEQuest.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public static class WorldUtilities
