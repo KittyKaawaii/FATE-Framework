@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -17,7 +16,7 @@ public class RPGGameScene : RPGBuilderDatabaseEntry
     public Bounds mapBounds;
     public Vector2 mapSize;
 
-    [CoordinateID] public int startPositionID = -1;
+    public int startPositionID = -1;
 
     public bool isProceduralScene;
     public string SpawnPointName;
@@ -59,7 +58,7 @@ public class RPGGameScene : RPGBuilderDatabaseEntry
         public GameObject cameraParticle;
         
         // MUSIC SETTINGS
-        [RPGDataList] public List<AudioClip> musicClips = new List<AudioClip>();
+        public List<AudioClip> musicClips = new List<AudioClip>();
         
         // COMBAT MODE SETTINGS
         public bool combatEnabled;
@@ -72,11 +71,11 @@ public class RPGGameScene : RPGBuilderDatabaseEntry
         public float welcomeMessageDuration;
         
         // GAME ACTIONS SETTINGS
-        [RPGDataList] public List<RPGBGameActions> GameActionsList = new List<RPGBGameActions>();
+        public List<RPGBGameActions> GameActionsList = new List<RPGBGameActions>();
 
     }
 
-    [RPGDataList] public List<REGION_DATA> regions = new List<REGION_DATA>();
+    public List<REGION_DATA> regions = new List<REGION_DATA>();
 
     public RegionTemplate DefaultRegion;
 

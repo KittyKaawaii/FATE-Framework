@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ namespace FATE.FATEGathering.Runtime.DatabaseEntry
     
     
         public bool learnedByDefault;
-        [SkillID] public int skillRequiredID = -1;
+        public int skillRequiredID = -1;
 
         [Serializable]
         public class RPGResourceNodeRankData
@@ -23,7 +22,7 @@ namespace FATE.FATEGathering.Runtime.DatabaseEntry
             public bool ShowedInEditor;
             public int unlockCost;
 
-            [LootTableID] public int lootTableID = -1;
+            public int lootTableID = -1;
 
             public int skillLevelRequired;
 

@@ -1,5 +1,4 @@
-﻿using FATE.FATEAttribute.Runtime.Attribute;
-using FATE.FATEDatabase.Runtime.DatabaseEntry;
+﻿using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace FATE.FATEQuest.Runtime.DatabaseEntry
@@ -31,15 +30,15 @@ namespace FATE.FATEQuest.Runtime.DatabaseEntry
         public TASK_TYPE taskType;
 
         public string sceneName;
-        [AbilityID] public int abilityToLearnID = -1;
-        [NPCID] public int npcToKillID = -1;
-        [ItemID] public int itemToGetID = -1;
+        public int abilityToLearnID = -1;
+        public int npcToKillID = -1;
+        public int itemToGetID = -1;
         public bool keepItems;
-        [ClassID] public int classRequiredID = -1;
-        [SkillID] public int skillRequiredID = -1;
-        [ItemID] public int itemToUseID = -1;
-        [NPCID] public int npcToTalkToID = -1;
-        [WeaponTemplateID] public int weaponTemplateRequiredID = -1;
+        public int classRequiredID = -1;
+        public int skillRequiredID = -1;
+        public int itemToUseID = -1;
+        public int npcToTalkToID = -1;
+        public int weaponTemplateRequiredID = -1;
         public int taskValue;
 
         public RPGBNPCFamily NPCFamily;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -14,9 +13,9 @@ public class RPGGearSet : RPGBuilderDatabaseEntry
     [Serializable]
     public class itemInSet
     {
-        [ItemID] public int itemID = -1;
+        public int itemID = -1;
     }
-    [RPGDataList] public List<itemInSet> itemsInSet = new List<itemInSet>();
+    public List<itemInSet> itemsInSet = new List<itemInSet>();
     
     [Serializable]
     public class GearSetTier
@@ -26,14 +25,14 @@ public class RPGGearSet : RPGBuilderDatabaseEntry
         [Serializable]
         public class GearSetTierStat
         {
-            [StatID] public int statID = -1;
+            public int statID = -1;
             public float amount;
             public bool isPercent;
         }
-        [RPGDataList] public List<GearSetTierStat> gearSetTierStats = new List<GearSetTierStat>();
+        public List<GearSetTierStat> gearSetTierStats = new List<GearSetTierStat>();
         
     }
-    [RPGDataList] public List<GearSetTier> gearSetTiers = new List<GearSetTier>();
+    public List<GearSetTier> gearSetTiers = new List<GearSetTier>();
 
     public void UpdateEntryData(RPGGearSet newEntryData)
     {

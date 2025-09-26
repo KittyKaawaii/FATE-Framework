@@ -4,7 +4,6 @@ using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
 using FATE.FATEAbility.Runtime.Data;
 using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATECombo.Runtime.DatabaseEntry;
 using FATE.FATECombo.Runtime.UI;
 using FATE.FATEEffect.Runtime.DatabaseEntry;
@@ -53,7 +52,7 @@ namespace FATE.FATECombat.Runtime.Data
         [Serializable]
         public class CustomStatValues
         {
-            [StatID] public int statID = -1;
+            public int statID = -1;
             public bool overrideMinValue;
             public float minValue;
             public bool overrideMaxValue;
@@ -64,7 +63,7 @@ namespace FATE.FATECombat.Runtime.Data
             public float valuePerLevel;
             public bool Percent;
             public float chance = 100;
-            [RPGDataList] public List<RPGStat.VitalityActions> vitalityActions = new List<RPGStat.VitalityActions>();
+            public List<RPGStat.VitalityActions> vitalityActions = new List<RPGStat.VitalityActions>();
         }
 
         #endregion

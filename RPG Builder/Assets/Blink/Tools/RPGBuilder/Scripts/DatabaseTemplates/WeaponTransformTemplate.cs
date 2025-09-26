@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace BLINK.RPGBuilder.Templates
 {
     public class WeaponTransformTemplate : RPGBuilderDatabaseEntry
     {
-        [RPGDataList] public List<WeaponTransform> WeaponTransforms = new List<WeaponTransform>();
+        public List<WeaponTransform> WeaponTransforms = new List<WeaponTransform>();
 
         public void UpdateEntryData(WeaponTransformTemplate newEntryData)
         {

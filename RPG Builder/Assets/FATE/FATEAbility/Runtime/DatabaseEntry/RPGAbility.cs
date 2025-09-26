@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
 using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
@@ -22,7 +21,7 @@ namespace FATE.FATEAbility.Runtime.DatabaseEntry
         public AbilityType abilityType;
 
 
-        [RPGDataList] public List<RPGAbilityRankData> ranks = new List<RPGAbilityRankData>();
+        public List<RPGAbilityRankData> ranks = new List<RPGAbilityRankData>();
 
         public void UpdateEntryData(RPGAbility newEntryData)
         {

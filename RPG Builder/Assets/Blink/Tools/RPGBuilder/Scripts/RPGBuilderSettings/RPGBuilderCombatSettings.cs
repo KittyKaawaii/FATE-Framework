@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -18,7 +17,7 @@ public class RPGBuilderCombatSettings : RPGBuilderDatabaseEntry
 
     public bool AutomaticCombatStates = true;
     
-    [StatID] public int HealthStatID = -1;
+    public int HealthStatID = -1;
 
     public AIBehaviorTemplate DefaultAIBehaviorTemplate;
     public GameObject DefaultAILogicTemplate;

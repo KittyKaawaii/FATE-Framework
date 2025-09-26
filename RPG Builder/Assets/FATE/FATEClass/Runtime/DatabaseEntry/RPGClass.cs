@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEClass.Runtime.Data;
 using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
@@ -19,27 +18,27 @@ namespace FATE.FATEClass.Runtime.DatabaseEntry
         [HideInInspector] public Sprite icon;
     
 
-        [AbilityID] public int autoAttackAbilityID = -1;
+        public int autoAttackAbilityID = -1;
 
-        [RPGDataList] public List<CLASS_STATS_DATA> stats = new List<CLASS_STATS_DATA>();
-        [RPGDataList] public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
+        public List<CLASS_STATS_DATA> stats = new List<CLASS_STATS_DATA>();
+        public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
         public bool UseStatListTemplate;
         public StatListTemplate StatListTemplate;
 
-        [LevelsID] public int levelTemplateID = -1;
+        public int levelTemplateID = -1;
 
-        [RPGDataList] public List<TalentTreesDATA> talentTrees = new List<TalentTreesDATA>();
+        public List<TalentTreesDATA> talentTrees = new List<TalentTreesDATA>();
 
-        [RPGDataList] public List<SpellbookDATA> spellbooks = new List<SpellbookDATA>();
+        public List<SpellbookDATA> spellbooks = new List<SpellbookDATA>();
     
-        [RPGDataList] public List<RPGItemDATA.StartingItemsDATA> startItems = new List<RPGItemDATA.StartingItemsDATA>();
+        public List<RPGItemDATA.StartingItemsDATA> startItems = new List<RPGItemDATA.StartingItemsDATA>();
 
-        [RPGDataList] public List<RPGCombatDATA.ActionAbilityDATA> actionAbilities = new List<RPGCombatDATA.ActionAbilityDATA>();
+        public List<RPGCombatDATA.ActionAbilityDATA> actionAbilities = new List<RPGCombatDATA.ActionAbilityDATA>();
     
         public int allocationStatPoints;
-        [RPGDataList] public List<CharacterEntries.AllocatedStatEntry> allocatedStatsEntries = new List<CharacterEntries.AllocatedStatEntry>();
+        public List<CharacterEntries.AllocatedStatEntry> allocatedStatsEntries = new List<CharacterEntries.AllocatedStatEntry>();
     
-        [RPGDataList] public List<CharacterEntries.AllocatedStatEntry> allocatedStatsEntriesGame = new List<CharacterEntries.AllocatedStatEntry>();
+        public List<CharacterEntries.AllocatedStatEntry> allocatedStatsEntriesGame = new List<CharacterEntries.AllocatedStatEntry>();
         public void UpdateEntryData(RPGClass newEntryData)
         {
             ID = newEntryData.ID;

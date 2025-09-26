@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATECombat.Runtime.Data;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using UnityEngine;
@@ -41,7 +40,7 @@ namespace FATE.FATEAbility.Runtime.Data
 
         public bool canUseWhileMounted;
 
-        [RPGDataList] public List<RequirementsData.RequirementGroup> Requirements =
+        public List<RequirementsData.RequirementGroup> Requirements =
             new List<RequirementsData.RequirementGroup>();
 
         public bool UseRequirementsTemplate;
@@ -230,27 +229,27 @@ namespace FATE.FATEAbility.Runtime.Data
 
         public RPGBAbilityCooldownTag abilityCooldownTag;
 
-        [RPGDataList] public List<AbilityEffectsApplied> effectsApplied = new List<AbilityEffectsApplied>();
+        public List<AbilityEffectsApplied> effectsApplied = new List<AbilityEffectsApplied>();
 
-        [RPGDataList] public List<AbilityEffectsApplied> casterEffectsApplied = new List<AbilityEffectsApplied>();
+        public List<AbilityEffectsApplied> casterEffectsApplied = new List<AbilityEffectsApplied>();
 
 
         public List<CombatData.AbilityAction> Actions = new List<CombatData.AbilityAction>();
 
-        [RPGDataList] public List<VisualEffectEntry> VisualEffectEntries = new List<VisualEffectEntry>();
+        public List<VisualEffectEntry> VisualEffectEntries = new List<VisualEffectEntry>();
 
-        [RPGDataList] public List<AnimationEntry> AnimationEntries = new List<AnimationEntry>();
+        public List<AnimationEntry> AnimationEntries = new List<AnimationEntry>();
 
-        [RPGDataList] public List<SoundEntry> SoundEntries = new List<SoundEntry>();
+        public List<SoundEntry> SoundEntries = new List<SoundEntry>();
 
-        [RPGDataList] public List<RPGCombatDATA.CombatVisualEffect> visualEffects = new List<RPGCombatDATA.CombatVisualEffect>();
+        public List<RPGCombatDATA.CombatVisualEffect> visualEffects = new List<RPGCombatDATA.CombatVisualEffect>();
 
-        [RPGDataList] public List<RPGCombatDATA.CombatVisualAnimation> visualAnimations =
+        public List<RPGCombatDATA.CombatVisualAnimation> visualAnimations =
             new List<RPGCombatDATA.CombatVisualAnimation>();
 
-        [RPGDataList] public List<AbilityTagsData> tagsData = new List<AbilityTagsData>();
+        public List<AbilityTagsData> tagsData = new List<AbilityTagsData>();
 
-        [AbilityID] public int extraAbilityExecutedID;
+        public int extraAbilityExecutedID;
 
         public RPGCombatDATA.CombatVisualActivationType extraAbilityExecutedActivationType;
 

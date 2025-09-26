@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -12,11 +11,11 @@ public class RPGBuilderCharacterSettings : RPGBuilderDatabaseEntry
     public bool NoClasses = true;
     public bool CanTargetPlayerOnClick = true;
     
-    [PointID] public int StatAllocationPointID = -1;
+    public int StatAllocationPointID = -1;
     public bool MustSpendAllStatPointsToCreateCharacter;
     public bool CanRefundStatPointInGame;
 
-    [StatID] public int SprintStatDrainID = -1;
+    public int SprintStatDrainID = -1;
     public int SprintStatDrainAmount;
     public float SprintStatDrainInterval;
     

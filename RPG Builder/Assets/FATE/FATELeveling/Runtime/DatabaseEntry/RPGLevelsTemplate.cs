@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -25,7 +24,7 @@ namespace FATE.FATELeveling.Runtime.DatabaseEntry
             public int XPRequired;
         }
 
-        [RPGDataList] public List<LEVELS_DATA> allLevels = new List<LEVELS_DATA>();
+        public List<LEVELS_DATA> allLevels = new List<LEVELS_DATA>();
 
         public void UpdateEntryData(RPGLevelsTemplate newEntryData)
         {

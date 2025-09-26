@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
 using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEEffect.Runtime.DatabaseEntry;
 using UnityEngine;
@@ -57,19 +55,19 @@ namespace FATE.FATEStat.Runtime.DatabaseEntry
 
             public GameActionsTemplate GameActionsTemplate;
         }
-        [RPGDataList] public List<VitalityActions> vitalityActions = new List<VitalityActions>();
+        public List<VitalityActions> vitalityActions = new List<VitalityActions>();
     
         [Serializable]
         public class OnHitEffectsData
         {
-            [EffectID] public int effectID = -1;
+            public int effectID = -1;
             public int effectRank;
             public RPGCombatDATA.TARGET_TYPE targetType;
             public AbilityTags tagType;
             public float chance = 100f;
         }
     
-        [RPGDataList] public List<OnHitEffectsData> onHitEffectsData = new List<OnHitEffectsData>();
+        public List<OnHitEffectsData> onHitEffectsData = new List<OnHitEffectsData>();
 
 
         public bool isVitalityStat;
@@ -81,11 +79,11 @@ namespace FATE.FATEStat.Runtime.DatabaseEntry
             public RPGEffect.MainDamageTypes MainDamageType;
             public RPGBDamageType CustomDamageType;
             public RPGBHealingType CustomHealingType;
-            [StatID] public int ResistanceStatID = -1;
-            [StatID] public int PenetrationStatID = -1;
-            [StatID] public int statID = -1;
+            public int ResistanceStatID = -1;
+            public int PenetrationStatID = -1;
+            public int statID = -1;
         }
-        [RPGDataList] public List<StatBonusData> statBonuses = new List<StatBonusData>();
+        public List<StatBonusData> statBonuses = new List<StatBonusData>();
     
         public enum STAT_TYPE
         {

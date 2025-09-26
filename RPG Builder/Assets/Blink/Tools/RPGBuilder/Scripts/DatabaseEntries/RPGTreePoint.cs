@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -31,15 +30,15 @@ public class RPGTreePoint : RPGBuilderDatabaseEntry
         public TreePointGainRequirementTypes gainType;
         public int amountGained;
 
-        [ClassID] public int classRequiredID = -1;
-        [SkillID] public int skillRequiredID = -1;
-        [ItemID] public int itemRequiredID = -1;
+        public int classRequiredID = -1;
+        public int skillRequiredID = -1;
+        public int itemRequiredID = -1;
         public int itemRequiredCount;
-        [NPCID] public int npcRequiredID = -1;
-        [WeaponTemplateID] public int weaponTemplateRequiredID = -1;
+        public int npcRequiredID = -1;
+        public int weaponTemplateRequiredID = -1;
     }
 
-    [RPGDataList] public List<GainRequirements> gainPointRequirements = new List<GainRequirements>();
+    public List<GainRequirements> gainPointRequirements = new List<GainRequirements>();
 
     public void UpdateEntryData(RPGTreePoint newEntryData)
     {

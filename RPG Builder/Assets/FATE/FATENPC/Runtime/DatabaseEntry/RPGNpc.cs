@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
 using FATE.FATEAI.Runtime.Data;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
@@ -41,14 +39,14 @@ namespace FATE.FATENPC.Runtime.DatabaseEntry
     
         public bool isDummyTarget;
 
-        [FactionID] public int factionID = -1;
+        public int factionID = -1;
     
-        [SpeciesID] public int speciesID = -1;
+        public int speciesID = -1;
     
-        [MerchantTableID] public int merchantTableID = -1;
-        [RPGDataList] public List<AIData.NPCMerchantTable> MerchantTables = new List<AIData.NPCMerchantTable>();
+        public int merchantTableID = -1;
+        public List<AIData.NPCMerchantTable> MerchantTables = new List<AIData.NPCMerchantTable>();
     
-        [DialogueID] public int dialogueID = -1;
+        public int dialogueID = -1;
 
         [Serializable]
         public class NPC_QUEST_DATA
@@ -56,8 +54,8 @@ namespace FATE.FATENPC.Runtime.DatabaseEntry
             public int questID = -1;
         }
 
-        [RPGDataList] public List<NPC_QUEST_DATA> questGiven = new List<NPC_QUEST_DATA>();
-        [RPGDataList] public List<NPC_QUEST_DATA> questCompleted = new List<NPC_QUEST_DATA>();
+        public List<NPC_QUEST_DATA> questGiven = new List<NPC_QUEST_DATA>();
+        public List<NPC_QUEST_DATA> questCompleted = new List<NPC_QUEST_DATA>();
 
         public float MinRespawn = 60;
         public float MaxRespawn = 120;
@@ -82,28 +80,28 @@ namespace FATE.FATENPC.Runtime.DatabaseEntry
         [Serializable]
         public class NPC_STATS_DATA
         {
-            [StatID] public int statID = -1;
+            public int statID = -1;
             public float minValue;
             public float maxValue;
             public float baseValue;
             public float bonusPerLevel;
         
-            [RPGDataList] public List<RPGStat.VitalityActions> vitalityActions = new List<RPGStat.VitalityActions>();
+            public List<RPGStat.VitalityActions> vitalityActions = new List<RPGStat.VitalityActions>();
         }
-        [RPGDataList] public List<NPC_STATS_DATA> stats = new List<NPC_STATS_DATA>();
+        public List<NPC_STATS_DATA> stats = new List<NPC_STATS_DATA>();
     
-        [RPGDataList] public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
+        public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
         public bool UseStatListTemplate;
         public StatListTemplate StatListTemplate;
 
         [Serializable]
         public class LOOT_TABLES
         {
-            [LootTableID] public int lootTableID = -1;
+            public int lootTableID = -1;
             public float dropRate = 100f;
         }
 
-        [RPGDataList] public List<LOOT_TABLES> lootTables = new List<LOOT_TABLES>();
+        public List<LOOT_TABLES> lootTables = new List<LOOT_TABLES>();
 
         public bool isCombatEnabled = true;
         public bool isMovementEnabled = true;
@@ -152,12 +150,12 @@ namespace FATE.FATENPC.Runtime.DatabaseEntry
         public class NPC_AGGRO_LINK
         {
             public AIData.AggroLinkType type;
-            [NPCID] public int npcID = -1;
+            public int npcID = -1;
             public RPGBNPCFamily npcFamily;
             public float maxDistance;
         }
 
-        [RPGDataList] public List<NPC_AGGRO_LINK> aggroLinks = new List<NPC_AGGRO_LINK>();
+        public List<NPC_AGGRO_LINK> aggroLinks = new List<NPC_AGGRO_LINK>();
 
         public bool SetLayer;
         public bool SetTag;

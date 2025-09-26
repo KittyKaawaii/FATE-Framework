@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -18,9 +17,9 @@ namespace FATE.FATECrafting.Runtime.DatabaseEntry
         [System.Serializable]
         public class CraftSkillsDATA
         {
-            [SkillID] public int craftSkillID = -1;
+            public int craftSkillID = -1;
         }
-        [RPGDataList] public List<CraftSkillsDATA> craftSkills = new List<CraftSkillsDATA>();
+        public List<CraftSkillsDATA> craftSkills = new List<CraftSkillsDATA>();
 
         public void UpdateEntryData(RPGCraftingStation newEntryData)
         {

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -101,7 +100,7 @@ public class RPGGameModifier : RPGBuilderDatabaseEntry
     [System.Serializable]
     public class StatDataModifier
     {
-        [StatID] public int statID = -1;
+        public int statID = -1;
         public DataModifierType dataModifierType;
         public UnitType unitType;
         public bool checkMin, checkMax;
@@ -337,7 +336,7 @@ public class RPGGameModifier : RPGBuilderDatabaseEntry
         
         // STATS
         public StatModifierType statModifierType;
-        [RPGDataList] public List<StatDataModifier> statModifierData = new List<StatDataModifier>();
+        public List<StatDataModifier> statModifierData = new List<StatDataModifier>();
         
         // NPC
         public NPCModifierType npcModifierType;
@@ -396,7 +395,7 @@ public class RPGGameModifier : RPGBuilderDatabaseEntry
         public WorldSettingModifierType worldSettingModifierType;
     }
 
-    [RPGDataList] public List<GameModifierDATA> gameModifiersList = new List<GameModifierDATA>();
+    public List<GameModifierDATA> gameModifiersList = new List<GameModifierDATA>();
     
     
     public void UpdateEntryData(RPGGameModifier newEntryData)

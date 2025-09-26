@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -16,7 +15,7 @@ namespace FATE.FATETalentTree.Runtime.DatabaseEntity
 
     
         public int TiersAmount;
-        [PointID] public int treePointAcceptedID = -1;
+        public int treePointAcceptedID = -1;
 
         public enum TalentTreeNodeType
         {
@@ -31,8 +30,8 @@ namespace FATE.FATETalentTree.Runtime.DatabaseEntity
         {
             public TalentTreeNodeType nodeType;
             public string nodeName;
-            [AbilityID] public int abilityID = -1;
-            [RecipeID] public int recipeID = -1;
+            public int abilityID = -1;
+            public int recipeID = -1;
             public int resourceNodeID = -1;
             public int bonusID = -1;
             public int Tier;
@@ -41,7 +40,7 @@ namespace FATE.FATETalentTree.Runtime.DatabaseEntity
             public RequirementsTemplate RequirementsTemplate;
         }
 
-        [RPGDataList] public List<Node_DATA> nodeList = new List<Node_DATA>();
+        public List<Node_DATA> nodeList = new List<Node_DATA>();
 
 
         public void UpdateEntryData(RPGTalentTree newEntryData)

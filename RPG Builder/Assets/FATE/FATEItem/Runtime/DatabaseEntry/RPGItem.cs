@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.Data;
 using UnityEngine;
@@ -36,7 +35,7 @@ namespace FATE.FATEItem.Runtime.DatabaseEntry
         [Serializable]
         public class WeaponPositionData
         {
-            [RaceID] public int raceID = -1;
+            public int raceID = -1;
 
             [Serializable]
             public class GenderPositionData
@@ -55,11 +54,11 @@ namespace FATE.FATEItem.Runtime.DatabaseEntry
                 public Vector3 RestRotationInSlot2 = Vector3.zero;
                 public Vector3 RestScaleInSlot2 = Vector3.one;
             }
-            [RPGDataList] public List<GenderPositionData> genderPositionDatas = new List<GenderPositionData>();
+            public List<GenderPositionData> genderPositionDatas = new List<GenderPositionData>();
         }
-        [RPGDataList] public List<WeaponPositionData> weaponPositionDatas = new List<WeaponPositionData>();
+        public List<WeaponPositionData> weaponPositionDatas = new List<WeaponPositionData>();
         public bool showWeaponPositionData;
-        [RPGDataList] public List<WeaponTransform> WeaponTransforms = new List<WeaponTransform>();
+        public List<WeaponTransform> WeaponTransforms = new List<WeaponTransform>();
         public bool UseWeaponTransformTemplate;
         public WeaponTransformTemplate WeaponTransformTemplate;
     
@@ -67,26 +66,26 @@ namespace FATE.FATEItem.Runtime.DatabaseEntry
         public int minDamage;
         public int maxDamage;
 
-        [AbilityID] public int autoAttackAbilityID = -1;
+        public int autoAttackAbilityID = -1;
 
         [Serializable]
         public class ITEM_STATS
         {
-            [StatID] public int statID = -1;
+            public int statID = -1;
             public float amount;
             public bool isPercent;
         }
 
-        [RPGDataList] public List<ITEM_STATS> stats = new List<ITEM_STATS>();
+        public List<ITEM_STATS> stats = new List<ITEM_STATS>();
 
-        [RPGDataList] public List<RPGItemDATA.RandomizedStatData> randomStats = new List<RPGItemDATA.RandomizedStatData>();
+        public List<RPGItemDATA.RandomizedStatData> randomStats = new List<RPGItemDATA.RandomizedStatData>();
         public int randomStatsMax;
     
         public int sellPrice;
-        [CurrencyID] public int convertToCurrency = -1;
-        [CurrencyID] public int sellCurrencyID = -1;
+        public int convertToCurrency = -1;
+        public int sellCurrencyID = -1;
         public int buyPrice;
-        [CurrencyID] public int buyCurrencyID = -1;
+        public int buyCurrencyID = -1;
         public int stackLimit = 1;
         public string description;
 
@@ -95,7 +94,7 @@ namespace FATE.FATEItem.Runtime.DatabaseEntry
         public float durationInWorld = 60f;
         public int worldInteractableLayer;
 
-        [EnchantmentID] public int enchantmentID = -1;
+        public int enchantmentID = -1;
         public bool isEnchantmentConsumed;
     
         [Serializable]
@@ -104,7 +103,7 @@ namespace FATE.FATEItem.Runtime.DatabaseEntry
             [HideInInspector] public string socketType;
             public RPGBGemSocketType GemSocketType;
         }
-        [RPGDataList] public List<SOCKETS_DATA> sockets = new List<SOCKETS_DATA>();
+        public List<SOCKETS_DATA> sockets = new List<SOCKETS_DATA>();
     
         [Serializable]
         public class GEM_DATA
@@ -115,11 +114,11 @@ namespace FATE.FATEItem.Runtime.DatabaseEntry
             [Serializable]
             public class GEM_STATS
             {
-                [StatID] public int statID = -1;
+                public int statID = -1;
                 public float amount;
                 public bool isPercent;
             }
-            [RPGDataList] public List<GEM_STATS> gemStats = new List<GEM_STATS>();
+            public List<GEM_STATS> gemStats = new List<GEM_STATS>();
         }
         public GEM_DATA gemData = new GEM_DATA();
     
@@ -127,9 +126,9 @@ namespace FATE.FATEItem.Runtime.DatabaseEntry
         public bool UseRequirementsTemplate;
         public RequirementsTemplate RequirementsTemplate;
     
-        [RPGDataList] public List<RPGCombatDATA.ActionAbilityDATA> actionAbilities = new List<RPGCombatDATA.ActionAbilityDATA>();
+        public List<RPGCombatDATA.ActionAbilityDATA> actionAbilities = new List<RPGCombatDATA.ActionAbilityDATA>();
 
-        [RPGDataList] public List<GameActionsData.GameAction> GameActions = new List<GameActionsData.GameAction>();
+        public List<GameActionsData.GameAction> GameActions = new List<GameActionsData.GameAction>();
         public bool UseGameActionsTemplate;
         public GameActionsTemplate GameActionsTemplate;
 

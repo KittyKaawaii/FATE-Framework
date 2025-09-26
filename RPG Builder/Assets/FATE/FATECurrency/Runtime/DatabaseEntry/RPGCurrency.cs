@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -21,17 +20,17 @@ namespace FATE.FATECurrency.Runtime.DatabaseEntry
 
         public int AmountToConvert;
 
-        [CurrencyID] public int convertToCurrencyID = -1;
+        public int convertToCurrencyID = -1;
 
-        [CurrencyID] public int lowestCurrencyID = -1;
+        public int lowestCurrencyID = -1;
 
         [Serializable]
         public class AboveCurrencyDATA
         {
-            [CurrencyID] public int currencyID = -1;
+            public int currencyID = -1;
         }
 
-        [RPGDataList] public List<AboveCurrencyDATA> aboveCurrencies = new List<AboveCurrencyDATA>();
+        public List<AboveCurrencyDATA> aboveCurrencies = new List<AboveCurrencyDATA>();
 
         public void UpdateEntryData(RPGCurrency newEntryData)
         {

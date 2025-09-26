@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
@@ -11,7 +10,7 @@ namespace BLINK.RPGBuilder.Templates
 {
     public class StatListTemplate : RPGBuilderDatabaseEntry
     {
-        [RPGDataList] public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
+        public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
         
         public void UpdateEntryData(StatListTemplate newEntryData)
         {

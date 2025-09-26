@@ -1,5 +1,4 @@
 using System;
-using FATE.FATEAttribute.Runtime.Attribute;
 
 namespace FATE.FATEClass.Runtime.Data
 {
@@ -9,7 +8,7 @@ namespace FATE.FATEClass.Runtime.Data
     {
         public string statName;
 
-        [StatID] public int statID = -1;
+        public int statID = -1;
 
         public float amount;
 
