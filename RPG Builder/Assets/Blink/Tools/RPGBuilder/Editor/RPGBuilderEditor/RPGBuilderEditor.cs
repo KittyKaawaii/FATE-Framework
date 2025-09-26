@@ -5,6 +5,11 @@ using UnityEditor;
 using System.Linq;
 using System.Reflection;
 using System;
+using FATE.FATEFaction.Runtime.DatabaseEntry;
+using FATE.FATEItem.Runtime.DatabaseEntry;
+using FATE.FATENPC.Runtime.DatabaseEntry;
+using FATE.FATEQuest.Runtime.DatabaseEntry;
+using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 

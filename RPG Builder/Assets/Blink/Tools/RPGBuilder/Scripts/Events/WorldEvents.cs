@@ -3,6 +3,8 @@ using BLINK.RPGBuilder._THMSV.RPGBuilder.Scripts.World;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.UIElements;
+using FATE.FATENPC.Runtime.DatabaseEntry;
+using FATE.FATEQuest.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public class WorldEvents : MonoBehaviour

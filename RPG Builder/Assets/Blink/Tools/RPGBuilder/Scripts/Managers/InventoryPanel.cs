@@ -2,6 +2,7 @@
 using System.Linq;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.UIElements;
+using FATE.FATEItem.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

@@ -4,6 +4,7 @@ using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Data;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UIElements;
+using FATE.FATEItem.Runtime.DatabaseEntry;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;

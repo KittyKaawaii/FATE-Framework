@@ -5,6 +5,7 @@ using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UIElements;
 using BLINK.RPGBuilder.Utility;
+using FATE.FATEItem.Runtime.DatabaseEntry;
 using UnityEngine;
 using UnityEngine.Serialization;
 
