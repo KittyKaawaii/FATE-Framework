@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.UIElements;
-using FATE.FATEShop.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

@@ -1,5 +1,4 @@
-﻿using FATE.FATEInventory.Runtime.Manager;
-using FATE.FATEItem.Runtime.DatabaseEntry;
+﻿using FATE.FATEItem.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEngine;
 

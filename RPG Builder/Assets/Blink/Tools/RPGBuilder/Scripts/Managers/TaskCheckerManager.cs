@@ -4,7 +4,6 @@ using BLINK.RPGBuilder.UI;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
-using FATE.FATEQuest.Runtime.Manager;
 using FATE.FATESkill.Runtime.DatabaseEntry;
 using UnityEngine;
 

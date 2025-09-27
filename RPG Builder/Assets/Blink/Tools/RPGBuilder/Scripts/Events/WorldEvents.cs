@@ -6,7 +6,6 @@ using BLINK.RPGBuilder.UIElements;
 using FATE.FATEDialogue.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
-using FATE.FATEQuest.Runtime.UI;
 using UnityEngine;
 
 public class WorldEvents : MonoBehaviour

@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEEnchantment.Runtime.DatabaseEntry;
-using FATE.FATEInventory.Runtime.Manager;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using UnityEngine;
 

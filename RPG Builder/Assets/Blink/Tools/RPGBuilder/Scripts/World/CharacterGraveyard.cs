@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using FATE.FATEClass.Runtime.DatabaseEntry;
 using FATE.FATERace.Runtime.DatabaseEntry;
 using UnityEngine;
 

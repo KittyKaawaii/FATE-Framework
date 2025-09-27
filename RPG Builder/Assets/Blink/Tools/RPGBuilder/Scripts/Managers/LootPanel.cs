@@ -3,8 +3,6 @@ using System.Linq;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.UI;
 using BLINK.RPGBuilder.UIElements;
-using FATE.FATEItem.Runtime.UI;
-using FATE.FATELoot.Runtime.UI;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

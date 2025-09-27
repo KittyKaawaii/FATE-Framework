@@ -5,8 +5,6 @@ using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.LogicMono;
-using FATE.FATEFaction.Runtime.Manager;
-using FATE.FATEInventory.Runtime.Manager;
 using UnityEngine;
 using Random = System.Random;
 

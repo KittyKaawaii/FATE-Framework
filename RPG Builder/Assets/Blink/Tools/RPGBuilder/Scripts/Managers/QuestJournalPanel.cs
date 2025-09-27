@@ -3,8 +3,6 @@ using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.UIElements;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
-using FATE.FATEQuest.Runtime.Manager;
-using FATE.FATEQuest.Runtime.UI;
 using TMPro;
 using UnityEngine;
 

@@ -5,8 +5,6 @@ using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.UIElements;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
-using FATE.FATEGathering.Runtime.DatabaseEntry;
-using FATE.FATELoot.Runtime.UI;
 using FATE.FATESkill.Runtime.DatabaseEntry;
 using UnityEngine;
 

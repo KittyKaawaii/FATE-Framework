@@ -1,12 +1,9 @@
 ﻿using System.Linq;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEClass.Runtime.DatabaseEntry;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATECurrency.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATEGathering.Runtime.DatabaseEntry;
-using FATE.FATELeveling.Runtime.DatabaseEntry;
 using FATE.FATERace.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;
 using UnityEngine;

@@ -5,7 +5,6 @@ using System.Linq;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEFaction.Runtime.Manager;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;

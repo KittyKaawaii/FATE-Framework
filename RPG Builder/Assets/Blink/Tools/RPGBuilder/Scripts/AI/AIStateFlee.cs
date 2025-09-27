@@ -2,7 +2,6 @@
 using System.Collections;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEFaction.Runtime.Manager;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

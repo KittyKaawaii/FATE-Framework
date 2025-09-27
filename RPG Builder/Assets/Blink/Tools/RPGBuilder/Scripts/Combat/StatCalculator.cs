@@ -5,8 +5,6 @@ using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Data;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEClass.Runtime.DatabaseEntry;
-using FATE.FATEEnchantment.Runtime.DatabaseEntry;
 using FATE.FATERace.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;

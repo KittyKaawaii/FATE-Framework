@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using BLINK.RPGBuilder.Characters;
-using FATE.FATEGathering.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

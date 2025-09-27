@@ -1,7 +1,6 @@
 ﻿using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Logic;
-using FATE.FATELeveling.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
