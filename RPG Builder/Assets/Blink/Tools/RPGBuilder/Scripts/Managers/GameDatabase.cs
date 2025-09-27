@@ -1,11 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATEItem.Runtime.DatabaseEntry;
-using FATE.FATENPC.Runtime.DatabaseEntry;
-using FATE.FATEQuest.Runtime.DatabaseEntry;
-using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

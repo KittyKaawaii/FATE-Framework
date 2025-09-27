@@ -6,7 +6,6 @@ using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.LogicMono;
-using FATE.FATENPC.Runtime.DatabaseEntry;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

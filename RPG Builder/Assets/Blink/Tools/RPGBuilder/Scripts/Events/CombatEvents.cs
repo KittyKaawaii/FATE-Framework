@@ -1,8 +1,5 @@
 ﻿using System;
 using BLINK.RPGBuilder.Combat;
-using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATENPC.Runtime.DatabaseEntry;
-using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public class CombatEvents : MonoBehaviour

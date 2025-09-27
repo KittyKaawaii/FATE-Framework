@@ -2,8 +2,6 @@
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATENPC.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

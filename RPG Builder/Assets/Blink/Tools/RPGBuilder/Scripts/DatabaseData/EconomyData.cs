@@ -1,6 +1,5 @@
 ﻿using System;
 using BLINK.RPGBuilder.World;
-using FATE.FATEItem.Runtime.DatabaseEntry;
 
 namespace BLINK.RPGBuilder.Data
 {

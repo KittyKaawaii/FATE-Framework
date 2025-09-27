@@ -8,10 +8,6 @@ using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.UI;
 using BLINK.RPGBuilder.UIElements;
-using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATEItem.Runtime.DatabaseEntry;
-using FATE.FATENPC.Runtime.DatabaseEntry;
-using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

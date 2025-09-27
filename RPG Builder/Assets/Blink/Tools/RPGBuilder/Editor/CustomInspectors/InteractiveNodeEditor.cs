@@ -7,7 +7,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEQuest.Runtime.DatabaseEntry;
 using UnityEditor.SceneManagement;
 using UnityEngine.Events;
 

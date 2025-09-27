@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.UIElements;
-using FATE.FATENPC.Runtime.DatabaseEntry;
-using FATE.FATEQuest.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEngine;
 

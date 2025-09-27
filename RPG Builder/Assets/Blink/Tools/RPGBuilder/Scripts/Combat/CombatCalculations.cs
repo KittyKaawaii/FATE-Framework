@@ -2,7 +2,6 @@
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Data;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public static class CombatCalculations

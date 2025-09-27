@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEItem.Runtime.DatabaseEntry;
-using FATE.FATENPC.Runtime.DatabaseEntry;
-using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Combat

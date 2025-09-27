@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATEItem.Runtime.DatabaseEntry;
-using FATE.FATENPC.Runtime.DatabaseEntry;
-using FATE.FATEQuest.Runtime.DatabaseEntry;
-using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public class RPGBuilderEditorFilters : ScriptableObject

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.UIElements;
-using FATE.FATEQuest.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEngine;
 

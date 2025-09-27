@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a04fd70077244b685878b50b994c701, type: 3}
+  m_Script: {fileID: 11500000, guid: 47c086f2887225c45ae2cb4bb470fc24, type: 3}
   m_Name: Beasts_FACTION
   m_EditorClassIdentifier: 
   ID: 1
   entryName: Beasts
   entryFileName: Beasts_FACTION
   entryDisplayName: Beasts
-  entryIcon: {fileID: 21300000, guid: fba5a7b305a50024c927e13d7040dc0b, type: 3}
-  entryDescription: Beasts
+  entryIcon: {fileID: 21300000, guid: e1a44b80e3b98504c99ea07a2fc6244e, type: 3}
+  entryDescription: 
   _name: 
   _fileName: 
   displayName: 
@@ -40,15 +40,18 @@ MonoBehaviour:
     playerAlignment: 0
     AlignementToPlayer: 0
   factionInteractions:
-  - factionID: 1
-    defaultStance: 
-    DefaultFactionStance: {fileID: 11400000, guid: a2530e37c92091642b659d4dcec5dbd5, type: 2}
-    startingPoints: 0
   - factionID: 0
     defaultStance: 
-    DefaultFactionStance: {fileID: 11400000, guid: a2530e37c92091642b659d4dcec5dbd5, type: 2}
+    DefaultFactionStance: {fileID: 11400000, guid: a2530e37c92091642b659d4dcec5dbd5,
+      type: 2}
     startingPoints: 0
   - factionID: 2
     defaultStance: 
-    DefaultFactionStance: {fileID: 11400000, guid: a2530e37c92091642b659d4dcec5dbd5, type: 2}
+    DefaultFactionStance: {fileID: 11400000, guid: a2530e37c92091642b659d4dcec5dbd5,
+      type: 2}
+    startingPoints: 0
+  - factionID: 1
+    defaultStance: 
+    DefaultFactionStance: {fileID: 11400000, guid: ed6a9d682982b9047b47add0beb6586c,
+      type: 2}
     startingPoints: 0

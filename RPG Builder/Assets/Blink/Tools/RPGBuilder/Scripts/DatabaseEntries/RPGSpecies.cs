@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public class RPGSpecies : RPGBuilderDatabaseEntry

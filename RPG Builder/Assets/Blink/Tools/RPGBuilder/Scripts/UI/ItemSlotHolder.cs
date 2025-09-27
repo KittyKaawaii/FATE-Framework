@@ -11,7 +11,6 @@ using BLINK.RPGBuilder.Data;
 using BLINK.RPGBuilder.DisplayHandler;
 using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.WorldPersistence;
-using FATE.FATEItem.Runtime.DatabaseEntry;
 using UnityEngine.Serialization;
 
 namespace BLINK.RPGBuilder.UIElements

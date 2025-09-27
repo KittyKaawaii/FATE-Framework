@@ -8,7 +8,6 @@ using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UI;
 using BLINK.RPGBuilder.WorldPersistence;
-using FATE.FATEItem.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;

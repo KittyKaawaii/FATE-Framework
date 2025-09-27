@@ -7,9 +7,6 @@ using BLINK.RPGBuilder.Data;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UIElements;
 using BLINK.RPGBuilder.World;
-using FATE.FATEItem.Runtime.DatabaseEntry;
-using FATE.FATENPC.Runtime.DatabaseEntry;
-using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public static class EconomyUtilities

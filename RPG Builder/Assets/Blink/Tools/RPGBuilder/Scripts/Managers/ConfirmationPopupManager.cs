@@ -1,5 +1,4 @@
-﻿using FATE.FATEItem.Runtime.DatabaseEntry;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers
