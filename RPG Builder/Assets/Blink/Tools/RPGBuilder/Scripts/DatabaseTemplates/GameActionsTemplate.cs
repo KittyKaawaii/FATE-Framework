@@ -10,8 +10,8 @@ namespace BLINK.RPGBuilder.Templates
 
         public void UpdateEntryData(GameActionsTemplate newEntryData)
         {
-            entryName = newEntryData.entryName;
-            entryFileName = newEntryData.entryFileName;
+            EntryName = newEntryData.EntryName;
+            EntryFileName = newEntryData.EntryFileName;
 
             GameActions = new List<GameActionsData.GameAction>();
             foreach (var gameAction in newEntryData.GameActions)

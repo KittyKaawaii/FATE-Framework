@@ -13,7 +13,7 @@ public class EnchantSlotHolder : MonoBehaviour
     
     public void InitSlot(int index, RPGEnchantment enchant)
     {
-        nameText.text = enchant.entryDisplayName;
+        nameText.text = enchant.EntryDisplayName;
         thisEnchant = enchant;
         thisEnchantmentINDEX = index;
     }

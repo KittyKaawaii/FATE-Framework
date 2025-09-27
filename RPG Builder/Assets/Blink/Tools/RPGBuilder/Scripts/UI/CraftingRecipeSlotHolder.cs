@@ -16,10 +16,10 @@ namespace BLINK.RPGBuilder.UIElements
 
         public void InitSlot(RPGCraftingRecipe recipe)
         {
-            icon.sprite = recipe.entryIcon;
+            icon.sprite = recipe.EntryIcon;
             background.sprite = GameDatabase.Instance.GetItems()[recipe.ranks[RPGBuilderUtilities.getRecipeRank(recipe.ID)].allCraftedItems[0]
                     .craftedItemID].ItemRarity.background;
-            nameText.text = recipe.entryDisplayName;
+            nameText.text = recipe.EntryDisplayName;
             thisRecipe = recipe;
         }
 

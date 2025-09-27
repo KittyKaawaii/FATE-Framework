@@ -8,9 +8,9 @@ public class RPGBItemRarity : RPGBuilderDatabaseEntry
     
     public void UpdateEntryData(RPGBItemRarity newEntryData)
     {
-        entryName = newEntryData.entryName;
-        entryFileName = newEntryData.entryFileName;
-        entryDisplayName = newEntryData.entryDisplayName;
+        EntryName = newEntryData.EntryName;
+        EntryFileName = newEntryData.EntryFileName;
+        EntryDisplayName = newEntryData.EntryDisplayName;
         background = newEntryData.background;
         color = newEntryData.color;
     }

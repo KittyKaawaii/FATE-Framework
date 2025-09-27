@@ -69,12 +69,12 @@ public class RPGBuilderEditorNPCPresetModule : RPGBuilderEditorModule
 
     public override bool SaveConditionsMet()
     {
-        if (string.IsNullOrEmpty(currentEntry.entryName))
+        if (string.IsNullOrEmpty(currentEntry.EntryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
             return false;
         }
-        if (ContainsInvalidCharacters(currentEntry.entryName))
+        if (ContainsInvalidCharacters(currentEntry.EntryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
             return false;
@@ -126,13 +126,13 @@ public class RPGBuilderEditorNPCPresetModule : RPGBuilderEditorModule
 
         RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
         EditorGUILayout.BeginHorizontal();
-        currentEntry.entryIcon =
-            RPGBuilderEditorFields.DrawIcon(currentEntry.entryIcon, 45, 45);
-        currentEntry.entryName = RPGBuilderEditorFields.DrawHorizontalTextField("",
-            "", RPGBuilderEditor.Instance.FieldHeight + 15, currentEntry.entryName);
+        currentEntry.EntryIcon =
+            RPGBuilderEditorFields.DrawIcon(currentEntry.EntryIcon, 45, 45);
+        currentEntry.EntryName = RPGBuilderEditorFields.DrawHorizontalTextField("",
+            "", RPGBuilderEditor.Instance.FieldHeight + 15, currentEntry.EntryName);
         EditorGUILayout.EndHorizontal();
             
-        currentEntry.entryFileName = currentEntry.entryName + AssetNameSuffix;
+        currentEntry.EntryFileName = currentEntry.EntryName + AssetNameSuffix;
             RPGBuilderEditorFields.DrawTitleLabelExpanded("Visual:", "", true);
             currentEntry.Prefab = (GameObject) RPGBuilderEditorFields.DrawHorizontalObject<GameObject>("Prefab", "",
                 currentEntry.Prefab);

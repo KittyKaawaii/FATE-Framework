@@ -10,9 +10,9 @@ public class RPGBGender : RPGBuilderDatabaseEntry
     
     public void UpdateEntryData(RPGBGender newEntryData)
     {
-        entryName = newEntryData.entryName;
-        entryFileName = newEntryData.entryFileName;
-        entryDisplayName = newEntryData.entryDisplayName;
+        EntryName = newEntryData.EntryName;
+        EntryFileName = newEntryData.EntryFileName;
+        EntryDisplayName = newEntryData.EntryDisplayName;
         background = newEntryData.background;
         color = newEntryData.color;
     }

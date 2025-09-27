@@ -165,11 +165,11 @@ namespace FATE.FATEStat.Runtime.DatabaseEntry
         public void UpdateEntryData(RPGStat newEntryData)
         {
             ID = newEntryData.ID;
-            entryName = newEntryData.entryName;
-            entryFileName = newEntryData.entryFileName;
-            entryDisplayName = newEntryData.entryDisplayName;
-            entryIcon = newEntryData.entryIcon;
-            entryDescription = newEntryData.entryDescription;
+            EntryName = newEntryData.EntryName;
+            EntryFileName = newEntryData.EntryFileName;
+            EntryDisplayName = newEntryData.EntryDisplayName;
+            EntryIcon = newEntryData.EntryIcon;
+            EntryDescription = newEntryData.EntryDescription;
         
             isShiftingInSprint = newEntryData.isShiftingInSprint;
             isShiftingInBlock = newEntryData.isShiftingInBlock;

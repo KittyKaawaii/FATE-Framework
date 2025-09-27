@@ -35,7 +35,7 @@ public class CharacterCastingBar : MonoBehaviour
         if (!abilityRank.castBarVisible) return;
         RPGBuilderUtilities.EnableCG(thisCG);
         if(castingBarImage != null) castingBarImage.fillAmount = 0f / 1f;
-        if(abilityNameText != null) abilityNameText.text = ability.entryDisplayName;
+        if(abilityNameText != null) abilityNameText.text = ability.EntryDisplayName;
         if(castTimeText != null) castTimeText.text = 0 + "";
         currentCastDuration = castDuration;
         isCasting = true;

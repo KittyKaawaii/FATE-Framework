@@ -23,7 +23,7 @@ namespace FATE.FATEInventory.Runtime.UI
         {
             thisItem = item;
             bagIndex = bag_index;
-            icon.sprite = item.entryIcon;
+            icon.sprite = item.EntryIcon;
             Sprite itemQualitySprite = item.ItemRarity.background;
             if (itemQualitySprite != null)
             {
@@ -67,7 +67,7 @@ namespace FATE.FATEInventory.Runtime.UI
             curDraggedItem = Instantiate(InventoryManager.Instance.draggedItemImage, transform.position,
                 Quaternion.identity);
             curDraggedItem.transform.SetParent(InventoryManager.Instance.draggedItemParent);
-            curDraggedItem.GetComponent<Image>().sprite = thisItem.entryIcon;
+            curDraggedItem.GetComponent<Image>().sprite = thisItem.EntryIcon;
         }
 
         public void OnDrag(PointerEventData eventData)

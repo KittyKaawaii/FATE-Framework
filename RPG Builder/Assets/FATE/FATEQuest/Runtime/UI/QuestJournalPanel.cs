@@ -154,8 +154,8 @@ namespace FATE.FATEQuest.Runtime.UI
             AbandonQuestButton.SetActive(false);
             TurnInQuestButton.SetActive(false);
 
-            questNameText.text = ClickedQuest.entryDisplayName;
-            descriptionText.text = ClickedQuest.entryDescription;
+            questNameText.text = ClickedQuest.EntryDisplayName;
+            descriptionText.text = ClickedQuest.EntryDescription;
 
             repeatableText.text = ClickedQuest.repeatable ? "<color=green>This quest can be repeated." : "<color=red>This quest cannot be repeated.";
 

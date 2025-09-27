@@ -602,7 +602,7 @@ public static class CharacterUpdater
     {
         var newEntry = new CharacterEntries.AbilityEntry();
         RPGAbility entryREF = GameDatabase.Instance.GetAbilities()[ID];
-        newEntry.name = entryREF.entryName;
+        newEntry.name = entryREF.EntryName;
         newEntry.ID = ID;
         if (entryREF.learnedByDefault)
         {
@@ -651,7 +651,7 @@ public static class CharacterUpdater
     {
         var newEntry = new CharacterEntries.RecipeEntry();
         RPGCraftingRecipe entryREF = GameDatabase.Instance.GetRecipes()[ID];
-        newEntry.name = entryREF.entryName;
+        newEntry.name = entryREF.EntryName;
         newEntry.ID = ID;
         if (entryREF.learnedByDefault)
         {
@@ -666,7 +666,7 @@ public static class CharacterUpdater
     {
         var newEntry = new CharacterEntries.ResourceNodeEntry();
         RPGResourceNode entryREF = GameDatabase.Instance.GetResources()[ID];
-        newEntry.name = entryREF.entryName;
+        newEntry.name = entryREF.EntryName;
         newEntry.ID = ID;
         if (entryREF.learnedByDefault)
         {
@@ -681,7 +681,7 @@ public static class CharacterUpdater
     {
         var newEntry = new CharacterEntries.BonusEntry();
         RPGBonus entryREF = GameDatabase.Instance.GetBonuses()[ID];
-        newEntry.name = entryREF.entryName;
+        newEntry.name = entryREF.EntryName;
         newEntry.ID = ID;
         if (entryREF.learnedByDefault)
         {
@@ -733,15 +733,15 @@ public static class CharacterUpdater
     {
         var newEntry = new CharacterEntries.FactionEntry();
         RPGFaction entryREF = GameDatabase.Instance.GetFactions()[ID];
-        newEntry.name = entryREF.entryName;
+        newEntry.name = entryREF.EntryName;
         newEntry.ID = ID;
         newEntry.currentStance = "";
         var ts = GameDatabase.Instance.GetFactions()[
-            GameDatabase.Instance.GetRaces()[Character.Instance.CharacterData.RaceID].factionID].factionInteractions;
+            GameDatabase.Instance.GetRaces()[Character.Instance.CharacterData.RaceID].factionID].FactionInteractions;
         for (var index = 0; index < ts.Count; index++)
         {
             var t = ts[index];
-            if (t.factionID != ID) continue;
+            if (t.FactionID != ID) continue;
             newEntry.stanceIndex = index;
         }
 

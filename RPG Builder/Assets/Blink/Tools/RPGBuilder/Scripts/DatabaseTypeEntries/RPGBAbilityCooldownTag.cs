@@ -8,8 +8,8 @@ public class RPGBAbilityCooldownTag : RPGBuilderDatabaseEntry
     
     public void UpdateEntryData(RPGBAbilityCooldownTag newEntryData)
     {
-        entryName = newEntryData.entryName;
-        entryFileName = newEntryData.entryFileName;
-        entryDisplayName = newEntryData.entryDisplayName;
+        EntryName = newEntryData.EntryName;
+        EntryFileName = newEntryData.EntryFileName;
+        EntryDisplayName = newEntryData.EntryDisplayName;
     }
 }

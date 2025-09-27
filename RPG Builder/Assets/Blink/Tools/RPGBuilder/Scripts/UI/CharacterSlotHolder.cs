@@ -16,7 +16,7 @@ namespace BLINK.RPGBuilder.UIElements
             if (!GameDatabase.Instance.GetCharacterSettings().NoClasses)
             {
                 LevelText.text = "LvL. " + character.Level;
-                ClassText.text = GameDatabase.Instance.GetClasses()[character.ClassID].entryDisplayName;
+                ClassText.text = GameDatabase.Instance.GetClasses()[character.ClassID].EntryDisplayName;
             }
             else
             {
@@ -24,7 +24,7 @@ namespace BLINK.RPGBuilder.UIElements
                 ClassText.text = "";
             }
 
-            RaceText.text = GameDatabase.Instance.GetRaces()[character.RaceID].entryDisplayName;
+            RaceText.text = GameDatabase.Instance.GetRaces()[character.RaceID].EntryDisplayName;
         }
 
         public void SelectCharacter()

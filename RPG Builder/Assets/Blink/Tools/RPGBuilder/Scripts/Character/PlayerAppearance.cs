@@ -92,7 +92,7 @@ namespace BLINK.RPGBuilder.Characters
                     if(hiddenPart.raceID != Character.Instance.CharacterData.RaceID) continue;
                     foreach (var value in hiddenPart.Values)
                     {
-                        if (value.Gender.entryName != Character.Instance.CharacterData.Gender) continue;
+                        if (value.Gender.EntryName != Character.Instance.CharacterData.Gender) continue;
                         foreach (var part in value.BodyParts)
                         {
                             if (part != bodyPart.bodyPart) continue;
@@ -114,7 +114,7 @@ namespace BLINK.RPGBuilder.Characters
                     if(hiddenPart.raceID != Character.Instance.CharacterData.RaceID) continue;
                     foreach (var value in hiddenPart.Values)
                     {
-                        if (value.Gender.entryName != Character.Instance.CharacterData.Gender) continue;
+                        if (value.Gender.EntryName != Character.Instance.CharacterData.Gender) continue;
                         foreach (var part in value.BodyParts)
                         {
                             if (part != bodyPart.bodyPart) continue;
@@ -196,7 +196,7 @@ namespace BLINK.RPGBuilder.Characters
                 if (t.raceID != Character.Instance.CharacterData.RaceID) continue;
                 foreach (var t1 in t.transformValues)
                 {
-                    if (t1.gender.entryName != Character.Instance.CharacterData.Gender) continue;
+                    if (t1.gender.EntryName != Character.Instance.CharacterData.Gender) continue;
                     if (inCombat)
                     {
                         weaponPositionData[0] = mainHand ? t1.CombatPosition : t1.CombatPosition2;

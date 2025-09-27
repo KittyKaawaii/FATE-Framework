@@ -130,7 +130,7 @@ namespace BLINK.RPGBuilder.Managers
 
         private void ShowFactionPointText(RPGFaction faction, int amount)
         {
-            ScreenEventHandler("FACTION_POINT", faction.entryDisplayName + " Faction + " + amount, GameState.playerEntity.gameObject);
+            ScreenEventHandler("FACTION_POINT", faction.EntryDisplayName + " Faction + " + amount, GameState.playerEntity.gameObject);
         }
         
         private void ShowWeaponTemplateExperienceText(RPGWeaponTemplate weaponTemplate, int amount)

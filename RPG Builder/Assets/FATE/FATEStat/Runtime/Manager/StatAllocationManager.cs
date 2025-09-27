@@ -31,7 +31,7 @@ namespace FATE.FATEStat.Runtime.Manager
 
             StatAllocationSlot dataHolder = newStatSlot.GetComponent<StatAllocationSlot>();
             dataHolder.thisStat = statREF;
-            dataHolder.statNameText.text = statREF.entryDisplayName;
+            dataHolder.statNameText.text = statREF.EntryDisplayName;
             dataHolder.slotType = slotType;
                 
             holderList.Add(dataHolder);
@@ -127,7 +127,7 @@ namespace FATE.FATEStat.Runtime.Manager
             {
                 CharacterEntries.AllocatedStatData newAllocatedStat = new CharacterEntries.AllocatedStatData
                 {
-                    statID = statID, statName = statREF.entryName
+                    statID = statID, statName = statREF.EntryName
                 };
                 if (slotType == StatAllocationSlot.SlotType.Game)
                 {

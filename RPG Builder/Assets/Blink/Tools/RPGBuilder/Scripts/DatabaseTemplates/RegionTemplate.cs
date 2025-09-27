@@ -40,9 +40,9 @@ namespace BLINK.RPGBuilder.Templates
         
         public void UpdateEntryData(RegionTemplate newEntryData)
         {
-            entryName = newEntryData.entryName;
-            entryDisplayName = newEntryData.entryDisplayName;
-            entryFileName = newEntryData.entryFileName;
+            EntryName = newEntryData.EntryName;
+            EntryDisplayName = newEntryData.EntryDisplayName;
+            EntryFileName = newEntryData.EntryFileName;
             
             fogChange = newEntryData.fogChange;
             lightningChange = newEntryData.lightningChange;

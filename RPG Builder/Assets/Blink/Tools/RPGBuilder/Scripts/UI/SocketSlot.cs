@@ -20,13 +20,13 @@ public class SocketSlot : MonoBehaviour
     {
         thisGemSocketType = socketType;
         if(curGemItemGO!=null) Destroy(curGemItemGO);
-        socketNameText.text = socketType.entryDisplayName;
+        socketNameText.text = socketType.EntryDisplayName;
 
         if (gemItemREF == null) return;
         curGemItemGO = Instantiate(itemSlotPrefab, gemItemParent);
         var slotREF = curGemItemGO.GetComponent<EnchantCostSlotHolder>();
         var itemREF = GameDatabase.Instance.GetItems()[gemItemREF.ID];
-        slotREF.InitSlot(itemREF.entryIcon, true, 0, itemREF, false, -1);
+        slotREF.InitSlot(itemREF.EntryIcon, true, 0, itemREF, false, -1);
     }
 
     

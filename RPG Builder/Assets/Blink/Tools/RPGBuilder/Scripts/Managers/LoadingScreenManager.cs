@@ -33,8 +33,8 @@ namespace BLINK.RPGBuilder.Managers
             loadingCanvas.enabled = true;
             loadingBackground.sprite = gameScene.loadingBG;
             loadingProgressImage.fillAmount = 0;
-            gameSceneNameText.text = gameScene.entryDisplayName;
-            gameSceneDescriptionText.text = gameScene.entryDescription;
+            gameSceneNameText.text = gameScene.EntryDisplayName;
+            gameSceneDescriptionText.text = gameScene.EntryDescription;
 
             loadingProgressText.text = 0 + " %";
 
@@ -72,7 +72,7 @@ namespace BLINK.RPGBuilder.Managers
 
         IEnumerator AsyncLoad(RPGGameScene gameSscene)
         {
-            asyncLoad = SceneManager.LoadSceneAsync(gameSscene.entryName);
+            asyncLoad = SceneManager.LoadSceneAsync(gameSscene.EntryName);
             asyncLoad.allowSceneActivation = !GameDatabase.Instance.GetGeneralSettings().clickToLoadScene;
 
             isSceneLoading = true;

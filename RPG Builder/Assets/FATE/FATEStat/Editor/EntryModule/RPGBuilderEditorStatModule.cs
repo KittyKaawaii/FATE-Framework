@@ -93,12 +93,12 @@ namespace FATE.FATEStat.Editor.EntryModule
 
         public override bool SaveConditionsMet()
         {
-            if (string.IsNullOrEmpty(currentEntry.entryName))
+            if (string.IsNullOrEmpty(currentEntry.EntryName))
             {
                 RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
                 return false;
             }
-            if (ContainsInvalidCharacters(currentEntry.entryName))
+            if (ContainsInvalidCharacters(currentEntry.EntryName))
             {
                 RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
                 return false;
@@ -150,7 +150,7 @@ namespace FATE.FATEStat.Editor.EntryModule
                 oppositeType = RPGStat.STAT_TYPE.PENETRATION;
 
             var statList = new List<string> {"NONE"};
-            foreach (var t in entries.Values) statList.AddRange(from t1 in t.statBonuses where t1.statType == oppositeType select t.entryName);
+            foreach (var t in entries.Values) statList.AddRange(from t1 in t.statBonuses where t1.statType == oppositeType select t.EntryName);
 
             return statList.ToArray();
         }
@@ -190,19 +190,19 @@ namespace FATE.FATEStat.Editor.EntryModule
                 GUILayout.Space(10);
                 RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
                 RPGBuilderEditorFields.DrawID(currentEntry.ID);
-                currentEntry.entryName =
+                currentEntry.EntryName =
                     RPGBuilderEditorFields.DrawHorizontalTextField("Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                        currentEntry.entryName);
-                currentEntry.entryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
+                        currentEntry.EntryName);
+                currentEntry.EntryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
                     "Display Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.entryDisplayName);
-                currentEntry.entryFileName = RPGBuilderEditorFields.DrawFileNameField("File Name",
+                    currentEntry.EntryDisplayName);
+                currentEntry.EntryFileName = RPGBuilderEditorFields.DrawFileNameField("File Name",
                     "", RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.entryName + AssetNameSuffix);
-                currentEntry.entryDescription =
+                    currentEntry.EntryName + AssetNameSuffix);
+                currentEntry.EntryDescription =
                     RPGBuilderEditorFields.DrawHorizontalDescriptionField("Description", "",
                         RPGBuilderEditor.Instance.FieldHeight,
-                        currentEntry.entryDescription);
+                        currentEntry.EntryDescription);
                 RPGBuilderEditorUtility.EndHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
             }
 
@@ -513,12 +513,12 @@ namespace FATE.FATEStat.Editor.EntryModule
             foreach (var entry in allEntries)
             {
                 EditorUtility.SetDirty(entry);
-                entry.entryName = entry._name;
+                entry.EntryName = entry._name;
                 AssetDatabase.RenameAsset(RPGBuilderEditor.Instance.EditorData.ResourcePath + 
-                                          RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.entryName + AssetNameSuffix);
-                entry.entryFileName = entry.entryName + AssetNameSuffix;
-                entry.entryDisplayName = entry.displayName;
-                entry.entryDescription = entry.description;
+                                          RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.EntryName + AssetNameSuffix);
+                entry.EntryFileName = entry.EntryName + AssetNameSuffix;
+                entry.EntryDisplayName = entry.displayName;
+                entry.EntryDescription = entry.description;
                 EditorUtility.SetDirty(entry);
             }
         

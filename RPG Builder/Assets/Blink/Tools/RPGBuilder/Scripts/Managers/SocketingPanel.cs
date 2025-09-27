@@ -90,7 +90,7 @@ namespace BLINK.RPGBuilder.Managers
             socketSlot.curGemItemGO = Instantiate(itemSlotPrefab, socketSlot.gemItemParent);
             var slotREF = socketSlot.curGemItemGO.GetComponent<EnchantCostSlotHolder>();
             var itemREF = GameDatabase.Instance.GetItems()[gemItemREF.ID];
-            slotREF.InitSlot(itemREF.entryIcon, true, 0, itemREF, false, -1);
+            slotREF.InitSlot(itemREF.EntryIcon, true, 0, itemREF, false, -1);
             
             curSocketedItemData.socketsData[getSocketSlotIndex(socketSlot)].gemItemRef = gemItemREF;
         }
@@ -112,7 +112,7 @@ namespace BLINK.RPGBuilder.Managers
             var socketedItemSlot = Instantiate(itemSlotPrefab, socketedItemParent);
             var slotREF = socketedItemSlot.GetComponent<EnchantCostSlotHolder>();
             var itemREF = GameDatabase.Instance.GetItems()[item.ID];
-            slotREF.InitSlot(itemREF.entryIcon, true, 0, itemREF, false, itemDataID);
+            slotREF.InitSlot(itemREF.EntryIcon, true, 0, itemREF, false, itemDataID);
             
             curSocketedItemData.item = item;
             curSocketedItemData.itemDataID = itemDataID;

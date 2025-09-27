@@ -307,7 +307,7 @@ namespace FATE.FATEAI.Runtime.Entity
             AIData.ActiveState newState = new AIData.ActiveState {State = Instantiate(state), StateTemplate = template};
             if (newState.State == null)
             {
-                Debug.LogError("STATE was missing on NPC " + ThisCombatEntity.GetNPCData().entryName + " so we destroyed it");
+                Debug.LogError("STATE was missing on NPC " + ThisCombatEntity.GetNPCData().EntryName + " so we destroyed it");
                 Destroy(gameObject);
             }
             ActiveStates.Add(state.name, newState);
@@ -492,7 +492,7 @@ namespace FATE.FATEAI.Runtime.Entity
         {
             if (ThisCombatEntity.GetNPCData().Phases.Count == 0)
             {
-                Debug.LogError("PHASE COULD NOT BE FOUND FOR NPC " + ThisCombatEntity.GetNPCData().entryName + " SO IT WAS DESTROYED");
+                Debug.LogError("PHASE COULD NOT BE FOUND FOR NPC " + ThisCombatEntity.GetNPCData().EntryName + " SO IT WAS DESTROYED");
                 Destroy(gameObject);
             }
 
@@ -530,7 +530,7 @@ namespace FATE.FATEAI.Runtime.Entity
 
             if (BehaviorTemplate == null)
             {
-                Debug.LogError("BEHAVIOR TEMPLATE COULD NOT BE FOUND FOR NPC " + ThisCombatEntity.GetNPCData().entryName + " SO IT WAS DESTROYED");
+                Debug.LogError("BEHAVIOR TEMPLATE COULD NOT BE FOUND FOR NPC " + ThisCombatEntity.GetNPCData().EntryName + " SO IT WAS DESTROYED");
                 Destroy(gameObject);
             }
 

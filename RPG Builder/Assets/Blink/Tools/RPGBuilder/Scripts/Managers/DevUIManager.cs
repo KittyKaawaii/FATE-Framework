@@ -90,7 +90,7 @@ namespace BLINK.RPGBuilder.Managers
         public void SetSelectedStat(RPGStat stat)
         {
             selectedStat = stat;
-            selectStatText.text = stat.entryName;
+            selectStatText.text = stat.EntryName;
         }
         public void selectCategory(string categoryName)
         {
@@ -157,7 +157,7 @@ namespace BLINK.RPGBuilder.Managers
             var currencyOptions = new List<TMP_Dropdown.OptionData>();
             foreach (var currency in GameDatabase.Instance.GetCurrencies().Values)
             {
-                var newOption = new TMP_Dropdown.OptionData {text = currency.entryName, image = currency.entryIcon};
+                var newOption = new TMP_Dropdown.OptionData {text = currency.EntryName, image = currency.EntryIcon};
                 currencyOptions.Add(newOption);
             }
 
@@ -170,7 +170,7 @@ namespace BLINK.RPGBuilder.Managers
             var options = new List<TMP_Dropdown.OptionData>();
             foreach (var treePoint in GameDatabase.Instance.GetPoints().Values)
             {
-                var newOption = new TMP_Dropdown.OptionData {text = treePoint.entryName, image = treePoint.entryIcon};
+                var newOption = new TMP_Dropdown.OptionData {text = treePoint.EntryName, image = treePoint.EntryIcon};
                 options.Add(newOption);
             }
 
@@ -183,7 +183,7 @@ namespace BLINK.RPGBuilder.Managers
             var options = new List<TMP_Dropdown.OptionData>();
             foreach (var skill in GameDatabase.Instance.GetSkills().Values)
             {
-                var newOption = new TMP_Dropdown.OptionData {text = skill.entryName, image = skill.entryIcon};
+                var newOption = new TMP_Dropdown.OptionData {text = skill.EntryName, image = skill.EntryIcon};
                 options.Add(newOption);
             }
 
@@ -197,7 +197,7 @@ namespace BLINK.RPGBuilder.Managers
             foreach (var gameScene in GameDatabase.Instance.GetGameScenes().Values)
             {
                 var newOption = new TMP_Dropdown.OptionData();
-                newOption.text = gameScene.entryName;
+                newOption.text = gameScene.EntryName;
                 newOption.image = gameScene.minimapImage;
                 options.Add(newOption);
             }
@@ -211,7 +211,7 @@ namespace BLINK.RPGBuilder.Managers
             var options = new List<TMP_Dropdown.OptionData>();
             foreach (var faction in GameDatabase.Instance.GetFactions().Values)
             {
-                var newOption = new TMP_Dropdown.OptionData {text = faction.entryName, image = faction.entryIcon};
+                var newOption = new TMP_Dropdown.OptionData {text = faction.EntryName, image = faction.EntryIcon};
                 options.Add(newOption);
             }
 
@@ -224,7 +224,7 @@ namespace BLINK.RPGBuilder.Managers
             var options = new List<TMP_Dropdown.OptionData>();
             foreach (var wpTemplate in GameDatabase.Instance.GetWeaponTemplates().Values)
             {
-                var newOption = new TMP_Dropdown.OptionData {text = wpTemplate.entryName, image = wpTemplate.entryIcon};
+                var newOption = new TMP_Dropdown.OptionData {text = wpTemplate.EntryName, image = wpTemplate.EntryIcon};
                 options.Add(newOption);
             }
 
@@ -391,7 +391,7 @@ namespace BLINK.RPGBuilder.Managers
             if (curSearch.Length > 0 && !string.IsNullOrEmpty(curSearch) && !string.IsNullOrWhiteSpace(curSearch))
                 foreach (var t in allItems)
                 {
-                    var itemNameToCheck = t.entryName;
+                    var itemNameToCheck = t.EntryName;
                     itemNameToCheck = itemNameToCheck.ToLower();
                     curSearch = curSearch.ToLower();
 
@@ -406,7 +406,7 @@ namespace BLINK.RPGBuilder.Managers
                 var newGetItemSlot = Instantiate(getItemSlotPrefab, itemsParent);
                 var newGetItemSlotRef = newGetItemSlot.GetComponent<GetItemSlot>();
                 newGetItemSlotRef.thisitem = t;
-                newGetItemSlotRef.icon.sprite = t.entryIcon;
+                newGetItemSlotRef.icon.sprite = t.EntryIcon;
                 curGetItemListSlots.Add(newGetItemSlot);
             }
         }
@@ -475,7 +475,7 @@ namespace BLINK.RPGBuilder.Managers
             if (curSearch.Length > 0 && !string.IsNullOrEmpty(curSearch) && !string.IsNullOrWhiteSpace(curSearch))
                 foreach (var t in allNPCs)
                 {
-                    var itemNameToCheck = t.entryName;
+                    var itemNameToCheck = t.EntryName;
                     itemNameToCheck = itemNameToCheck.ToLower();
                     curSearch = curSearch.ToLower();
 
@@ -490,8 +490,8 @@ namespace BLINK.RPGBuilder.Managers
                 var newGetItemSlot = Instantiate(spawnNPCSlotPrefab, npcParent);
                 var newGetItemSlotRef = newGetItemSlot.GetComponent<NPCSpawnSlotHolder>();
                 newGetItemSlotRef.thisNPC = t;
-                newGetItemSlotRef.icon.sprite = t.entryIcon;
-                newGetItemSlotRef.nameText.text = t.entryName;
+                newGetItemSlotRef.icon.sprite = t.EntryIcon;
+                newGetItemSlotRef.nameText.text = t.EntryName;
                 curSpawnNPCListSlots.Add(newGetItemSlot);
             }
         }
@@ -517,7 +517,7 @@ namespace BLINK.RPGBuilder.Managers
             if (curSearch.Length > 0 && !string.IsNullOrEmpty(curSearch) && !string.IsNullOrWhiteSpace(curSearch))
                 foreach (var t in allNPCs)
                 {
-                    var itemNameToCheck = t.entryName;
+                    var itemNameToCheck = t.EntryName;
                     itemNameToCheck = itemNameToCheck.ToLower();
                     curSearch = curSearch.ToLower();
 
@@ -532,7 +532,7 @@ namespace BLINK.RPGBuilder.Managers
                 var newGetItemSlot = Instantiate(statSlotPrefab, npcParent);
                 var newGetItemSlotRef = newGetItemSlot.GetComponent<DevStatSlotHolder>();
                 newGetItemSlotRef.thisStat = t;
-                newGetItemSlotRef.nameText.text = t.entryName;
+                newGetItemSlotRef.nameText.text = t.EntryName;
                 curStatListSlot.Add(newGetItemSlot);
             }
         }

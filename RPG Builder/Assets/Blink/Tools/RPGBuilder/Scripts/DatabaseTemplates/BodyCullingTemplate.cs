@@ -11,8 +11,8 @@ namespace BLINK.RPGBuilder.Templates
         
         public void UpdateEntryData(BodyCullingTemplate newEntryData)
         {
-            entryName = newEntryData.entryName;
-            entryFileName = newEntryData.entryFileName;
+            EntryName = newEntryData.EntryName;
+            EntryFileName = newEntryData.EntryFileName;
             HiddenBodyParts = newEntryData.HiddenBodyParts;
         }
     }

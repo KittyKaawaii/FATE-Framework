@@ -15,9 +15,9 @@ namespace BLINK.RPGBuilder.UIElements
 
         public void Init(RPGRace thisRace, int id)
         {
-            raceName.text = thisRace.entryDisplayName;
+            raceName.text = thisRace.EntryDisplayName;
             raceID = id;
-            icon.sprite = thisRace.entryIcon;
+            icon.sprite = thisRace.EntryIcon;
         }
 
         public void ClickSelect()

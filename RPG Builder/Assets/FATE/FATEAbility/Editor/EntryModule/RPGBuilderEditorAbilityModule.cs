@@ -102,12 +102,12 @@ namespace FATE.FATEAbility.Editor.EntryModule
 
         public override bool SaveConditionsMet()
         {
-            if (string.IsNullOrEmpty(currentEntry.entryName))
+            if (string.IsNullOrEmpty(currentEntry.EntryName))
             {
                 RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
                 return false;
             }
-            if (ContainsInvalidCharacters(currentEntry.entryName))
+            if (ContainsInvalidCharacters(currentEntry.EntryName))
             {
                 RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
                 return false;
@@ -168,15 +168,15 @@ namespace FATE.FATEAbility.Editor.EntryModule
             {
                 GUILayout.Space(5);
                 RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, false);
-                currentEntry.entryIcon =
-                    RPGBuilderEditorFields.DrawIcon(currentEntry.entryIcon, 100, 100);
+                currentEntry.EntryIcon =
+                    RPGBuilderEditorFields.DrawIcon(currentEntry.EntryIcon, 100, 100);
                 GUILayout.BeginVertical();
                 RPGBuilderEditorFields.DrawID(currentEntry.ID);
-                currentEntry.entryName = RPGBuilderEditorFields.DrawHorizontalTextField("Name",
-                    "", RPGBuilderEditor.Instance.FieldHeight, currentEntry.entryName);
-                currentEntry.entryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
+                currentEntry.EntryName = RPGBuilderEditorFields.DrawHorizontalTextField("Name",
+                    "", RPGBuilderEditor.Instance.FieldHeight, currentEntry.EntryName);
+                currentEntry.EntryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
                     "Display Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.entryDisplayName);
+                    currentEntry.EntryDisplayName);
                 currentEntry.learnedByDefault =
                     RPGBuilderEditorFields.DrawHorizontalToggle("Known",
                         "Is this currentAbilityEntry automatically known?",
@@ -1603,10 +1603,10 @@ namespace FATE.FATEAbility.Editor.EntryModule
                             };
 
                             EditorGUILayout.BeginHorizontal();
-                            GUILayout.Box(currentEntry.entryIcon != null ? currentEntry.entryIcon.texture : RPGBuilderEditor.Instance.EditorData.defaultEntryIcon.texture,
+                            GUILayout.Box(currentEntry.EntryIcon != null ? currentEntry.EntryIcon.texture : RPGBuilderEditor.Instance.EditorData.defaultEntryIcon.texture,
                                 RPGBuilderEditor.Instance.EditorSkin.GetStyle("CustomImage"), GUILayout.Width(40),
                                 GUILayout.Height(40));
-                            EditorGUILayout.LabelField(currentEntry.entryName + " Base Text", tooltipTitleStyle,
+                            EditorGUILayout.LabelField(currentEntry.EntryName + " Base Text", tooltipTitleStyle,
                                 GUILayout.Height(40));
                             EditorGUILayout.EndHorizontal();
                             currentEntry.ranks[i].TooltipText =
@@ -1623,10 +1623,10 @@ namespace FATE.FATEAbility.Editor.EntryModule
                                 if (effect != null)
                                 {
                                     EditorGUILayout.BeginHorizontal();
-                                    GUILayout.Box(effect.entryIcon != null ? effect.entryIcon.texture : RPGBuilderEditor.Instance.EditorData.defaultEntryIcon.texture,
+                                    GUILayout.Box(effect.EntryIcon != null ? effect.EntryIcon.texture : RPGBuilderEditor.Instance.EditorData.defaultEntryIcon.texture,
                                         RPGBuilderEditor.Instance.EditorSkin.GetStyle("CustomImage"), GUILayout.Width(40),
                                         GUILayout.Height(40));
-                                    EditorGUILayout.LabelField(effect.entryName + " (Effect Applied)", tooltipTitleStyle,
+                                    EditorGUILayout.LabelField(effect.EntryName + " (Effect Applied)", tooltipTitleStyle,
                                         GUILayout.Height(40));
                                     EditorGUILayout.EndHorizontal();
                                     currentEntry.ranks[i].effectsApplied[index].tooltipText =
@@ -1691,11 +1691,11 @@ namespace FATE.FATEAbility.Editor.EntryModule
             foreach (var entry in allEntries)
             {
                 EditorUtility.SetDirty(entry);
-                entry.entryName = entry._name;
+                entry.EntryName = entry._name;
                 AssetDatabase.RenameAsset(RPGBuilderEditor.Instance.EditorData.ResourcePath + 
-                                          RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.entryName + AssetNameSuffix);
-                entry.entryDisplayName = entry.displayName;
-                entry.entryIcon = entry.icon;
+                                          RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.EntryName + AssetNameSuffix);
+                entry.EntryDisplayName = entry.displayName;
+                entry.EntryIcon = entry.icon;
                 EditorUtility.SetDirty(entry);
             }
 

@@ -8,8 +8,8 @@ public class RPGBWeaponSlot : RPGBuilderDatabaseEntry
     
     public void UpdateEntryData(RPGBWeaponSlot newEntryData)
     {
-        entryName = newEntryData.entryName;
-        entryFileName = newEntryData.entryFileName;
-        entryDisplayName = newEntryData.entryDisplayName;
+        EntryName = newEntryData.EntryName;
+        EntryFileName = newEntryData.EntryFileName;
+        EntryDisplayName = newEntryData.EntryDisplayName;
     }
 }

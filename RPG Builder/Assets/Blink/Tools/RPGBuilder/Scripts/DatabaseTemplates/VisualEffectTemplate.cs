@@ -17,8 +17,8 @@ namespace BLINK.RPGBuilder.Templates
         
         public void UpdateEntryData(VisualEffectTemplate newEntryData)
         {
-            entryName = newEntryData.entryName;
-            entryFileName = newEntryData.entryFileName;
+            EntryName = newEntryData.EntryName;
+            EntryFileName = newEntryData.EntryFileName;
             Prefabs = newEntryData.Prefabs;
             SoundTemplates = newEntryData.SoundTemplates;
             ParentSoundToPrefab = newEntryData.ParentSoundToPrefab;

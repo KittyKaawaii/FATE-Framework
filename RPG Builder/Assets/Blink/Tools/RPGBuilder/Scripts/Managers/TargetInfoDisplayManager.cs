@@ -59,8 +59,8 @@ namespace BLINK.RPGBuilder.Managers
             }
             else
             {
-                if(targetNameText != null) targetNameText.text = GameState.playerEntity.GetTarget().GetNPCData().entryDisplayName;
-                if(targetIcon != null) targetIcon.sprite = GameState.playerEntity.GetTarget().GetNPCData().entryIcon;
+                if(targetNameText != null) targetNameText.text = GameState.playerEntity.GetTarget().GetNPCData().EntryDisplayName;
+                if(targetIcon != null) targetIcon.sprite = GameState.playerEntity.GetTarget().GetNPCData().EntryIcon;
                 if(targetLevelText != null) targetLevelText.text = GameState.playerEntity.GetTarget().GetLevel().ToString();
             }
             

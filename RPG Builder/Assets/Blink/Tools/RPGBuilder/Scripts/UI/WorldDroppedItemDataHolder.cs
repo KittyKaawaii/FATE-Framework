@@ -40,7 +40,7 @@ namespace BLINK.RPGBuilder.UIElements
             thisItemGO = itemGO;
 
             BackgroundBorder.color = itemREF.ItemRarity.color;
-            NameText.text = itemREF.entryDisplayName;
+            NameText.text = itemREF.EntryDisplayName;
             NameText.color = itemREF.ItemRarity.color;
             thisItem = itemREF;
             thisWorldDroppedItemREF = thisItemGO.GetComponent<WorldDroppedItem>();

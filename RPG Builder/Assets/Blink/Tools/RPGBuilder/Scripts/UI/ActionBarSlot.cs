@@ -59,7 +59,7 @@ public class ActionBarSlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
         cooldownText.text = "";
         cooldownOverlay.fillAmount = 0;
         icon.enabled = true;
-        icon.sprite = thisAb.entryIcon;
+        icon.sprite = thisAb.EntryIcon;
         background.enabled = false;
         stackText.enabled = false;
         UpdateKeyText();
@@ -74,7 +74,7 @@ public class ActionBarSlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
         cooldownText.text = "";
         cooldownOverlay.fillAmount = 0;
         icon.enabled = true;
-        icon.sprite = thisItem.entryIcon;
+        icon.sprite = thisItem.EntryIcon;
         background.enabled = true;
         
         Sprite itemQualitySprite = item.ItemRarity.background;
@@ -166,10 +166,10 @@ public class ActionBarSlot : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
         switch (contentType)
         {
             case CharacterEntries.ActionBarSlotContentType.Ability:
-                curDraggedSlot.GetComponent<Image>().sprite = thisAb.entryIcon;
+                curDraggedSlot.GetComponent<Image>().sprite = thisAb.EntryIcon;
                 break;
             case CharacterEntries.ActionBarSlotContentType.Item:
-                curDraggedSlot.GetComponent<Image>().sprite = thisItem.entryIcon;
+                curDraggedSlot.GetComponent<Image>().sprite = thisItem.EntryIcon;
                 break;
         }
     }

@@ -20,7 +20,7 @@ namespace BLINK.RPGBuilder.UIElements
         public void UpdateCurrencySlot()
         {
             if (currency == null) return;
-            currencyIcon.sprite = currency.entryIcon;
+            currencyIcon.sprite = currency.EntryIcon;
             amountText.text = Character.Instance.getCurrencyAmount(currency).ToString();
         }
     }

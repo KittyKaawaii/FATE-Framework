@@ -8,9 +8,9 @@ public class RPGBNPCFamily : RPGBuilderDatabaseEntry
     
     public void UpdateEntryData(RPGBNPCFamily newEntryData)
     {
-        entryName = newEntryData.entryName;
-        entryFileName = newEntryData.entryFileName;
-        entryDisplayName = newEntryData.entryDisplayName;
+        EntryName = newEntryData.EntryName;
+        EntryFileName = newEntryData.EntryFileName;
+        EntryDisplayName = newEntryData.EntryDisplayName;
         icon = newEntryData.icon;
         color = newEntryData.color;
     }

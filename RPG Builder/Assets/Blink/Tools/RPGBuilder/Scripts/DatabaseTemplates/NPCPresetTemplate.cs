@@ -33,9 +33,9 @@ namespace BLINK.RPGBuilder.Templates
         
         public void UpdateEntryData(NPCPresetTemplate newEntryData)
         {
-            entryName = newEntryData.entryName;
-            entryFileName = newEntryData.entryFileName;
-            entryIcon = newEntryData.entryIcon;
+            EntryName = newEntryData.EntryName;
+            EntryFileName = newEntryData.EntryFileName;
+            EntryIcon = newEntryData.EntryIcon;
             
             Prefab = newEntryData.Prefab;
             Position = newEntryData.Position;

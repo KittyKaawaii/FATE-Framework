@@ -17,8 +17,8 @@ namespace BLINK.RPGBuilder.UIElements
         
         public void InitSlot(RPGTalentTree cbtTree)
         {
-            combatTreeBackground.sprite = cbtTree.entryIcon;
-            combatTreeName.text = cbtTree.entryDisplayName;
+            combatTreeBackground.sprite = cbtTree.EntryIcon;
+            combatTreeName.text = cbtTree.EntryDisplayName;
             thisTree = cbtTree;
 
             animator.SetBool("glowing", Character.Instance.getTreePointsAmountByPoint(cbtTree.treePointAcceptedID) > 0);

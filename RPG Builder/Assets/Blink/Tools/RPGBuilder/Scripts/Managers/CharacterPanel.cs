@@ -160,11 +160,11 @@ namespace BLINK.RPGBuilder.Managers
         private void InitCharacterInfo ()
         {
             CharacterNameText.text = Character.Instance.CharacterData.CharacterName;
-            RaceNameText.text = "Race: " + GameDatabase.Instance.GetRaces()[Character.Instance.CharacterData.RaceID].entryDisplayName;
+            RaceNameText.text = "Race: " + GameDatabase.Instance.GetRaces()[Character.Instance.CharacterData.RaceID].EntryDisplayName;
 
             if (!GameDatabase.Instance.GetCharacterSettings().NoClasses)
             {
-                ClassNameText.text = "Class: " + GameDatabase.Instance.GetClasses()[Character.Instance.CharacterData.ClassID].entryDisplayName;
+                ClassNameText.text = "Class: " + GameDatabase.Instance.GetClasses()[Character.Instance.CharacterData.ClassID].EntryDisplayName;
             }
             else
             {
@@ -261,7 +261,7 @@ namespace BLINK.RPGBuilder.Managers
                 if (t == null) continue;
                 var statTitle = Instantiate(StatTitlePrefab, StatTextsParent);
                 statTextGO.Add(statTitle);
-                statTitle.GetComponent<TextMeshProUGUI>().text = t.entryDisplayName;
+                statTitle.GetComponent<TextMeshProUGUI>().text = t.EntryDisplayName;
 
                 foreach (var t1 in GameState.playerEntity.GetStats())
                 {
@@ -301,7 +301,7 @@ namespace BLINK.RPGBuilder.Managers
         private void ShowStatTooltipPanel(RPGStat stat)
         {
             StatTooltipCG.alpha = 1;
-            StatTooltipText.text = stat.entryDescription;
+            StatTooltipText.text = stat.EntryDescription;
         }
 
         private void HideStatTooltipPanel()

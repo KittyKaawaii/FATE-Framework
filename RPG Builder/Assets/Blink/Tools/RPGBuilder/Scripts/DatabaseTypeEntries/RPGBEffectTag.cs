@@ -8,8 +8,8 @@ public class RPGBEffectTag : RPGBuilderDatabaseEntry
     
     public void UpdateEntryData(RPGBEffectTag newEntryData)
     {
-        entryName = newEntryData.entryName;
-        entryFileName = newEntryData.entryFileName;
-        entryDisplayName = newEntryData.entryDisplayName;
+        EntryName = newEntryData.EntryName;
+        EntryFileName = newEntryData.EntryFileName;
+        EntryDisplayName = newEntryData.EntryDisplayName;
     }
 }

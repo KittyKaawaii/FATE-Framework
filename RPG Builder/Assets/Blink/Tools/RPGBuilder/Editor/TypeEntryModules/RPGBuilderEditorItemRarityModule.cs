@@ -64,12 +64,12 @@ public class RPGBuilderEditorItemRarityModule : RPGBuilderEditorModule
 
     public override bool SaveConditionsMet()
     {
-        if (string.IsNullOrEmpty(currentEntry.entryName))
+        if (string.IsNullOrEmpty(currentEntry.EntryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
             return false;
         }
-        if (ContainsInvalidCharacters(currentEntry.entryName))
+        if (ContainsInvalidCharacters(currentEntry.EntryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
             return false;
@@ -120,12 +120,12 @@ public class RPGBuilderEditorItemRarityModule : RPGBuilderEditorModule
             GUILayout.ExpandHeight(true));
 
         RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
-        currentEntry.entryName = RPGBuilderEditorFields.DrawHorizontalTextField("Item Rarity Name",
-            "", RPGBuilderEditor.Instance.FieldHeight + 15, currentEntry.entryName);
-        currentEntry.entryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
+        currentEntry.EntryName = RPGBuilderEditorFields.DrawHorizontalTextField("Item Rarity Name",
+            "", RPGBuilderEditor.Instance.FieldHeight + 15, currentEntry.EntryName);
+        currentEntry.EntryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
             "Display Name", "", RPGBuilderEditor.Instance.FieldHeight,
-            currentEntry.entryDisplayName);
-        currentEntry.entryFileName = currentEntry.entryName + AssetNameSuffix;
+            currentEntry.EntryDisplayName);
+        currentEntry.EntryFileName = currentEntry.EntryName + AssetNameSuffix;
         currentEntry.color = RPGBuilderEditorFields.DrawHorizontalColorField("Color", "The color used for Item Rarity UI",
             RPGBuilderEditor.Instance.FieldHeight, currentEntry.color);
         currentEntry.background = RPGBuilderEditorFields.DrawHorizontalSpriteField("Item Background", "The background image used when displaying items in the game UI",

@@ -221,13 +221,13 @@ namespace FATE.FATEDialogue.Runtime.UI
             
             foreach (var keyword in GameDatabase.Instance.GetTextKeywords().Values)
             {
-                switch (keyword.entryName)
+                switch (keyword.EntryName)
                 {
                     case "[player_name]":
-                        message = message.Replace( keyword.entryName, Character.Instance.CharacterData.CharacterName);
+                        message = message.Replace( keyword.EntryName, Character.Instance.CharacterData.CharacterName);
                         break;
                     case "[player_level]":
-                        message = message.Replace( keyword.entryName, Character.Instance.CharacterData.Level.ToString());
+                        message = message.Replace( keyword.EntryName, Character.Instance.CharacterData.Level.ToString());
                         break;
                 }
             }

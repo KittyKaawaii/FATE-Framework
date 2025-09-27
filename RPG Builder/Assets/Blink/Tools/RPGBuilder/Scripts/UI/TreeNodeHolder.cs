@@ -52,7 +52,7 @@ namespace BLINK.RPGBuilder.UIElements
             switch (nodeDATA.type)
             {
                 case RPGTalentTree.TalentTreeNodeType.ability:
-                    icon.sprite = nodeDATA.ability.entryIcon;
+                    icon.sprite = nodeDATA.ability.EntryIcon;
                     background.sprite = null;
                     thisAb = nodeDATA.ability;
                     rank = RPGBuilderUtilities.GetCharacterAbilityRank(nodeDATA.ability.ID);
@@ -64,7 +64,7 @@ namespace BLINK.RPGBuilder.UIElements
 
                     break;
                 case RPGTalentTree.TalentTreeNodeType.recipe:
-                    icon.sprite = nodeDATA.recipe.entryIcon;
+                    icon.sprite = nodeDATA.recipe.EntryIcon;
                     thisRecipe = nodeDATA.recipe;
                     rank = RPGBuilderUtilities.getRecipeRank(nodeDATA.recipe.ID);
                     isKnown = RPGBuilderUtilities.isRecipeKnown(nodeDATA.recipe.ID);
@@ -75,7 +75,7 @@ namespace BLINK.RPGBuilder.UIElements
                     background.sprite = GameDatabase.Instance.GetItems()[rankREF2.allCraftedItems[0].craftedItemID].ItemRarity.background;
                     break;
                 case RPGTalentTree.TalentTreeNodeType.resourceNode:
-                    icon.sprite = nodeDATA.resourceNode.entryIcon;
+                    icon.sprite = nodeDATA.resourceNode.EntryIcon;
                     thisResourceNode = nodeDATA.resourceNode;
                     rank = RPGBuilderUtilities.getResourceNodeRank(nodeDATA.resourceNode.ID);
                     isKnown = RPGBuilderUtilities.isResourceNodeKnown(nodeDATA.resourceNode.ID);
@@ -86,7 +86,7 @@ namespace BLINK.RPGBuilder.UIElements
                     background.sprite = GameDatabase.Instance.GetItems()[GameDatabase.Instance.GetLootTables()[rankREF3.lootTableID].lootItems[0].itemID].ItemRarity.background;
                     break;
                 case RPGTalentTree.TalentTreeNodeType.bonus:
-                    icon.sprite = nodeDATA.bonus.entryIcon;
+                    icon.sprite = nodeDATA.bonus.EntryIcon;
                     background.sprite = null;
                     thisBonus = nodeDATA.bonus;
                     rank = RPGBuilderUtilities.getBonusRank(nodeDATA.bonus.ID);
@@ -284,7 +284,7 @@ namespace BLINK.RPGBuilder.UIElements
             curDraggedAbility = Instantiate(draggedNodeImage, transform.position,
                 Quaternion.identity);
             curDraggedAbility.transform.SetParent(UIEvents.Instance.draggedSlotParent);
-            curDraggedAbility.GetComponent<Image>().sprite = thisAb.entryIcon;
+            curDraggedAbility.GetComponent<Image>().sprite = thisAb.EntryIcon;
         }
 
         public void OnDrag(PointerEventData eventData)

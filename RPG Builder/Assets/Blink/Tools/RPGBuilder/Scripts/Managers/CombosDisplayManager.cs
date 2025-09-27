@@ -42,9 +42,9 @@ public class CombosDisplayManager : MonoBehaviour
         GameObject newComboSlot = Instantiate(comboSlotPrefab, comboSlotsParent);
         
         activeCombo.UISlotREF = newComboSlot.GetComponent<ComboSlot>();
-        activeCombo.UISlotREF.abilityIcon.sprite = abREF.entryIcon;
+        activeCombo.UISlotREF.abilityIcon.sprite = abREF.EntryIcon;
         activeCombo.UISlotREF.expireTimeBar.fillAmount = 1;
-        activeCombo.UISlotREF.abilityNameText.text = abREF.entryDisplayName;
+        activeCombo.UISlotREF.abilityNameText.text = abREF.EntryDisplayName;
         activeCombo.UISlotREF.expireTimeText.text = comboEntry.expireTime + "s";
         activeCombo.UISlotREF.KeyText.text = GetKeybindText(key);
 
@@ -63,9 +63,9 @@ public class CombosDisplayManager : MonoBehaviour
         activeCombo.curTime = activeCombo.expireTime;
         activeCombo.keyRequired = key;
 
-        activeCombo.UISlotREF.abilityIcon.sprite = abREF.entryIcon;
+        activeCombo.UISlotREF.abilityIcon.sprite = abREF.EntryIcon;
         activeCombo.UISlotREF.expireTimeBar.fillAmount = 1;
-        activeCombo.UISlotREF.abilityNameText.text = abREF.entryDisplayName;
+        activeCombo.UISlotREF.abilityNameText.text = abREF.EntryDisplayName;
         activeCombo.UISlotREF.expireTimeText.text =
             activeCombo.expireTime + "s";
         activeCombo.UISlotREF.KeyText.text = GetKeybindText(key);
@@ -80,7 +80,7 @@ public class CombosDisplayManager : MonoBehaviour
     {
         foreach (var abSlot in ActionBarManager.Instance.actionBarSlots.Where(abSlot => abSlot.contentType == CharacterEntries.ActionBarSlotContentType.Ability).Where(abSlot => abSlot.ThisAbility.ID == GameState.playerEntity.GetActiveCombos()[activeComboIndex].initialAbilityID))
         {
-            abSlot.icon.sprite = abREF.entryIcon;
+            abSlot.icon.sprite = abREF.EntryIcon;
         }
     }
 
@@ -88,7 +88,7 @@ public class CombosDisplayManager : MonoBehaviour
     {
         foreach (var abSlot in ActionBarManager.Instance.actionBarSlots.Where(abSlot => abSlot.contentType == CharacterEntries.ActionBarSlotContentType.Ability).Where(abSlot => abSlot.ThisAbility.ID == abilityID))
         {
-            abSlot.icon.sprite = abSlot.ThisAbility.entryIcon;
+            abSlot.icon.sprite = abSlot.ThisAbility.EntryIcon;
         }
     }
 

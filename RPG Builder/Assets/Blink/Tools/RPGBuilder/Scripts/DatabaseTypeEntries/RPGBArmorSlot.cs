@@ -8,8 +8,8 @@ public class RPGBArmorSlot : RPGBuilderDatabaseEntry
     
     public void UpdateEntryData(RPGBArmorSlot newEntryData)
     {
-        entryName = newEntryData.entryName;
-        entryFileName = newEntryData.entryFileName;
-        entryDisplayName = newEntryData.entryDisplayName;
+        EntryName = newEntryData.EntryName;
+        EntryFileName = newEntryData.EntryFileName;
+        EntryDisplayName = newEntryData.EntryDisplayName;
     }
 }

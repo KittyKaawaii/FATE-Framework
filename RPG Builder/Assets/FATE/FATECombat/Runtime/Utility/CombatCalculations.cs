@@ -194,7 +194,7 @@ namespace FATE.FATECombat.Runtime.Utility
         private static SecondaryDamageResult GetSecondaryTypeBonus(CombatEntity casterEntity, CombatEntity targetEntity, RPGEffect.RPGEffectRankData effectRank)
         {
             SecondaryDamageResult result = new SecondaryDamageResult();
-            if (casterEntity == null || effectRank.customDamageType == null || effectRank.customDamageType.entryName == "NONE") return result;
+            if (casterEntity == null || effectRank.customDamageType == null || effectRank.customDamageType.EntryName == "NONE") return result;
 
             float secondaryDamage = CombatUtilities.GetTotalOfStatFunction(casterEntity, RPGStat.STAT_TYPE.DAMAGE, effectRank.customDamageType);
         

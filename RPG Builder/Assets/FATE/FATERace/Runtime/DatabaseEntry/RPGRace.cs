@@ -80,11 +80,11 @@ namespace FATE.FATERace.Runtime.DatabaseEntry
         public void UpdateEntryData(RPGRace newEntryData)
         {
             ID = newEntryData.ID;
-            entryName = newEntryData.entryName;
-            entryFileName = newEntryData.entryFileName;
-            entryDisplayName = newEntryData.entryDisplayName;
-            entryIcon = newEntryData.entryIcon;
-            entryDescription = newEntryData.entryDescription;
+            EntryName = newEntryData.EntryName;
+            EntryFileName = newEntryData.EntryFileName;
+            EntryDisplayName = newEntryData.EntryDisplayName;
+            EntryIcon = newEntryData.EntryIcon;
+            EntryDescription = newEntryData.EntryDescription;
 
             Genders = newEntryData.Genders;
             availableClasses = newEntryData.availableClasses;

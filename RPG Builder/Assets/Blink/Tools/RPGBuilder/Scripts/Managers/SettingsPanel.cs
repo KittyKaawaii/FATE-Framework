@@ -63,7 +63,7 @@ namespace BLINK.RPGBuilder.Managers
             foreach (var category in GameDatabase.Instance.GetActionKeyCategories().Values)
             {
                 GameObject categoryGO = Instantiate(keybindCategoryPrefab, keybindsParent);
-                categoryGO.GetComponentInChildren<TextMeshProUGUI>().text = category.entryDisplayName;
+                categoryGO.GetComponentInChildren<TextMeshProUGUI>().text = category.EntryDisplayName;
 
                 foreach (var actionKey in GameDatabase.Instance.GetGeneralSettings().actionKeys)
                 {

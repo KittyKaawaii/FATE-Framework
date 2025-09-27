@@ -23,7 +23,7 @@ namespace FATE.FATEQuest.Runtime.UI
         {
             panelType = _type;
             icon.sprite = stateIcon;
-            questNameText.text = quest.entryDisplayName;
+            questNameText.text = quest.EntryDisplayName;
             background.color = bgColor;
             thisQuest = quest;
         }

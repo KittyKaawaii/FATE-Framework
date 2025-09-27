@@ -24,9 +24,9 @@ namespace BLINK.RPGBuilder.UIElements
             thisItem = item;
             thisCurrency = currency;
             thisCost = cost;
-            itemIcon.sprite = thisItem.entryIcon;
+            itemIcon.sprite = thisItem.EntryIcon;
             background.sprite = thisItem.ItemRarity.background;
-            ItemNameText.text = thisItem.entryDisplayName;
+            ItemNameText.text = thisItem.EntryDisplayName;
             var costText = thisCost.ToString();
             if (currency.convertToCurrencyID != -1)
             {
@@ -37,17 +37,17 @@ namespace BLINK.RPGBuilder.UIElements
                     {
                         var convertedCurrencyCount = thisCost / thisCurrency.AmountToConvert;
                         var remaining = thisCost % thisCurrency.AmountToConvert;
-                        costText = convertedCurrencyCount + " " + currencyREF.entryDisplayName + " " + remaining + " " +
-                                   thisCurrency.entryDisplayName;
+                        costText = convertedCurrencyCount + " " + currencyREF.EntryDisplayName + " " + remaining + " " +
+                                   thisCurrency.EntryDisplayName;
                     }
                     else
                     {
-                        costText = thisCost + " " + thisCurrency.entryDisplayName;
+                        costText = thisCost + " " + thisCurrency.EntryDisplayName;
                     }
                 }
                 else
                 {
-                    costText = thisCost + " " + thisCurrency.entryDisplayName;
+                    costText = thisCost + " " + thisCurrency.EntryDisplayName;
                 }
             }
 

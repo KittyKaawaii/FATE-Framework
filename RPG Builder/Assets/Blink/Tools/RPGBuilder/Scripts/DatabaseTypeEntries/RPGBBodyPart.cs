@@ -7,7 +7,7 @@ public class RPGBBodyPart : RPGBuilderDatabaseEntry
 {
     public void UpdateEntryData(RPGBBodyPart newEntryData)
     {
-        entryName = newEntryData.entryName;
-        entryFileName = newEntryData.entryFileName;
+        EntryName = newEntryData.EntryName;
+        EntryFileName = newEntryData.EntryFileName;
     }
 }

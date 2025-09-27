@@ -12,8 +12,8 @@ namespace BLINK.RPGBuilder.Templates
 
         public void UpdateEntryData(WeaponTransformTemplate newEntryData)
         {
-            entryName = newEntryData.entryName;
-            entryFileName = newEntryData.entryFileName;
+            EntryName = newEntryData.EntryName;
+            EntryFileName = newEntryData.EntryFileName;
 
             WeaponTransforms = new List<WeaponTransform>();
             for (var index = 0; index < newEntryData.WeaponTransforms.Count; index++)

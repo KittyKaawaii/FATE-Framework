@@ -58,7 +58,7 @@ public class ShapeshiftingSlotsDisplayManager : MonoBehaviour
             GameObject newShapeshiftSlot = Instantiate(shapeshiftSlotPrefab, transform);
             ShapeshiftSlot slotREF = newShapeshiftSlot.GetComponent<ShapeshiftSlot>();
             slotREF.ThisAbility = abREF;
-            slotREF.icon.sprite = abREF.entryIcon;
+            slotREF.icon.sprite = abREF.EntryIcon;
             slots.Add(slotREF);
         }
 

@@ -77,11 +77,11 @@ namespace FATE.FATEQuest.Runtime.DatabaseEntry
         public void UpdateEntryData(RPGQuest newEntryData)
         {
             ID = newEntryData.ID;
-            entryName = newEntryData.entryName;
-            entryFileName = newEntryData.entryFileName;
-            entryDisplayName = newEntryData.entryDisplayName;
-            entryIcon = newEntryData.entryIcon;
-            entryDescription = newEntryData.entryDescription;
+            EntryName = newEntryData.EntryName;
+            EntryFileName = newEntryData.EntryFileName;
+            EntryDisplayName = newEntryData.EntryDisplayName;
+            EntryIcon = newEntryData.EntryIcon;
+            EntryDescription = newEntryData.EntryDescription;
         
             ObjectiveText = newEntryData.ObjectiveText;
             ProgressText = newEntryData.ProgressText;

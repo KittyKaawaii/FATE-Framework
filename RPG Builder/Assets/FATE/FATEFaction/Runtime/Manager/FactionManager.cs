@@ -5,6 +5,7 @@ using FATE.FATEAbility.Runtime.Data;
 using FATE.FATEAbility.Runtime.DatabaseEntry;
 using FATE.FATECombat.Runtime.Data;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
+using FATE.FATEFaction.Runtime.DatabaseTypeEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -101,10 +102,10 @@ namespace FATE.FATEFaction.Runtime.Manager
 
         public CombatData.EntityAlignment GetAlignment(RPGFaction otherFaction, RPGBFactionStance currentStance)
         {
-            foreach (var stance in otherFaction.factionStances)
+            foreach (var stance in otherFaction.FactionStances)
             {
                 if(stance.FactionStance != currentStance) continue;
-                return stance.AlignementToPlayer;
+                return stance.AlignmentToPlayer;
             }
 
             return CombatData.EntityAlignment.Neutral;
@@ -118,14 +119,14 @@ namespace FATE.FATEFaction.Runtime.Manager
                 foreach (var faction in Character.Instance.CharacterData.Factions)
                 {
                     if(faction.ID != otherFaction.ID) continue;
-                    return GameDatabase.Instance.GetFactions()[faction.ID].factionStances[faction.stanceIndex].FactionStance;
+                    return GameDatabase.Instance.GetFactions()[faction.ID].FactionStances[faction.stanceIndex].FactionStance;
                 }
             }
             else
             {
-                foreach (var interaction in entity.GetFaction().factionInteractions)
+                foreach (var interaction in entity.GetFaction().FactionInteractions)
                 {
-                    if(interaction.factionID != otherFaction.ID) continue;
+                    if(interaction.FactionID != otherFaction.ID) continue;
                     return interaction.DefaultFactionStance;
                 }
             }
@@ -156,7 +157,7 @@ namespace FATE.FATEFaction.Runtime.Manager
 
                             if (amountToRemove > pointsRemaining)
                             {
-                                faction.currentPoint = factionREF.factionStances[faction.stanceIndex - 1].pointsRequired - 1;
+                                faction.currentPoint = factionREF.FactionStances[faction.stanceIndex - 1].PointsRequired - 1;
                                 faction.stanceIndex--;
                                 amountToRemove -= pointsRemaining + 1;
                                 CombatEvents.Instance.OnPlayerFactionStanceChanged(factionREF);
@@ -184,7 +185,7 @@ namespace FATE.FATEFaction.Runtime.Manager
             {
                 if (faction.ID != factionID) continue;
                 RPGFaction factionREF = GameDatabase.Instance.GetFactions()[factionID];
-                if (factionREF.factionStances[faction.stanceIndex].pointsRequired - faction.currentPoint > amount)
+                if (factionREF.FactionStances[faction.stanceIndex].PointsRequired - faction.currentPoint > amount)
                 {
                     faction.currentPoint += amount;
                 }
@@ -195,7 +196,7 @@ namespace FATE.FATEFaction.Runtime.Manager
                         int amountToAdd = amount;
                         while (amountToAdd > 0)
                         {
-                            var pointsRemaining = factionREF.factionStances[faction.stanceIndex].pointsRequired - faction.currentPoint;
+                            var pointsRemaining = factionREF.FactionStances[faction.stanceIndex].PointsRequired - faction.currentPoint;
 
                             if (amountToAdd >= pointsRemaining)
                             {
@@ -213,7 +214,7 @@ namespace FATE.FATEFaction.Runtime.Manager
                     }
                     else
                     {
-                        faction.currentPoint = factionREF.factionStances[faction.stanceIndex].pointsRequired;
+                        faction.currentPoint = factionREF.FactionStances[faction.stanceIndex].PointsRequired;
                     }
                 }
                 
@@ -236,7 +237,7 @@ namespace FATE.FATEFaction.Runtime.Manager
             foreach (var characterFaction in Character.Instance.CharacterData.Factions)
             {
                 if(characterFaction.ID != faction.ID) continue;
-                return (characterFaction.stanceIndex+1) < GameDatabase.Instance.GetFactions()[faction.ID].factionStances.Count;
+                return (characterFaction.stanceIndex+1) < GameDatabase.Instance.GetFactions()[faction.ID].FactionStances.Count;
             }
 
             return false;

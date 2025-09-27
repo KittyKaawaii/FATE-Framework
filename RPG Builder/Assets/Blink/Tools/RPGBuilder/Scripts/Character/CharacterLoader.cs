@@ -54,7 +54,7 @@ public class CharacterLoader : MonoBehaviour
 
     private bool IsCurrentSceneValid()
     {
-        return GameDatabase.Instance.GetGameScenes().Values.Any(gameScene => gameScene.entryName == SceneManager.GetActiveScene().name);
+        return GameDatabase.Instance.GetGameScenes().Values.Any(gameScene => gameScene.EntryName == SceneManager.GetActiveScene().name);
     }
     
     

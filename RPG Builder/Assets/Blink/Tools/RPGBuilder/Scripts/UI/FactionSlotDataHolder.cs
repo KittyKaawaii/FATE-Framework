@@ -18,13 +18,13 @@ public class FactionSlotDataHolder : MonoBehaviour
     public void Init(CharacterEntries.FactionEntry factionEntry)
     {
         RPGFaction factionREF = GameDatabase.Instance.GetFactions()[factionEntry.ID];
-        factionIcon.sprite = factionREF.entryIcon;
+        factionIcon.sprite = factionREF.EntryIcon;
 
-        factionNameText.text = factionREF.entryDisplayName;
-        if(factionDescriptionText!=null)factionDescriptionText.text = factionREF.entryDescription;
-        if (factionREF.factionStances.Count > 0)
+        factionNameText.text = factionREF.EntryDisplayName;
+        if(factionDescriptionText!=null)factionDescriptionText.text = factionREF.EntryDescription;
+        if (factionREF.FactionStances.Count > 0)
         {
-            int pointsRequired = factionREF.factionStances[factionEntry.stanceIndex].pointsRequired;
+            int pointsRequired = factionREF.FactionStances[factionEntry.stanceIndex].PointsRequired;
             factionXPText.text = factionEntry.currentPoint + " / " + pointsRequired;
             factionProgressBar.fillAmount = (float) ((float) factionEntry.currentPoint / (float) pointsRequired);
         }

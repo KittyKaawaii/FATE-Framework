@@ -88,7 +88,7 @@ public class SpellbookPanel : DisplayPanel
             var slotREF = newSpellbookSlot.GetComponent<SpellbookSlot>();
             curSpellbookSlots.Add(slotREF);
 
-            slotREF.icon.sprite = spellbook.spellbook.entryIcon;
+            slotREF.icon.sprite = spellbook.spellbook.EntryIcon;
             slotREF.thisSpellbook = spellbook.spellbook;
         }
 
@@ -104,7 +104,7 @@ public class SpellbookPanel : DisplayPanel
         if (selectedSpellbook == null) return;
         ClearAllSpellbookNodeSlots();
 
-        if (titleText != null) titleText.text = selectedSpellbook.entryDisplayName;
+        if (titleText != null) titleText.text = selectedSpellbook.EntryDisplayName;
 
         foreach (var node in selectedSpellbook.nodeList)
         {
@@ -116,9 +116,9 @@ public class SpellbookPanel : DisplayPanel
             if (node.nodeType == RPGSpellbook.SpellbookNodeType.ability)
             {
                 RPGAbility abilityREF = GameDatabase.Instance.GetAbilities()[node.abilityID];
-                slotREF.icon.sprite = abilityREF.entryIcon;
+                slotREF.icon.sprite = abilityREF.EntryIcon;
                 slotREF.thisAbility = abilityREF;
-                slotREF.nodeName.text = abilityREF.entryDisplayName;
+                slotREF.nodeName.text = abilityREF.EntryDisplayName;
 
                 unlockLevel = (int) GameModifierManager.Instance.GetValueAfterGameModifier(
                     RPGGameModifier.CategoryType.Combat + "+" +
@@ -129,9 +129,9 @@ public class SpellbookPanel : DisplayPanel
             else
             {
                 RPGBonus bonusREF = GameDatabase.Instance.GetBonuses()[node.bonusID];
-                slotREF.icon.sprite = bonusREF.entryIcon;
+                slotREF.icon.sprite = bonusREF.EntryIcon;
                 slotREF.thisBonus = bonusREF;
-                slotREF.nodeName.text = bonusREF.entryDisplayName;
+                slotREF.nodeName.text = bonusREF.EntryDisplayName;
 
                 unlockLevel = (int) GameModifierManager.Instance.GetValueAfterGameModifier(
                     RPGGameModifier.CategoryType.Combat + "+" +

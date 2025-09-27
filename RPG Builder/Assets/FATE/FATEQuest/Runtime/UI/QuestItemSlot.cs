@@ -37,7 +37,7 @@ namespace FATE.FATEQuest.Runtime.UI
         {
             selectedBorder.enabled = false;
             thisItem = item;
-            icon.sprite = item.entryIcon;
+            icon.sprite = item.EntryIcon;
             background.sprite = item.ItemRarity.background;
             var curstack = count;
             stackText.text = curstack.ToString();
@@ -49,7 +49,7 @@ namespace FATE.FATEQuest.Runtime.UI
             selectedBorder.enabled = false;
             thisType = type;
             thisItem = item;
-            icon.sprite = item.entryIcon;
+            icon.sprite = item.EntryIcon;
             background.sprite = item.ItemRarity.background;
             var curstack = count;
             stackText.text = curstack.ToString();
@@ -61,7 +61,7 @@ namespace FATE.FATEQuest.Runtime.UI
             selectedBorder.enabled = false;
             thisType = type;
             thisCurrency = currency;
-            icon.sprite = currency.entryIcon;
+            icon.sprite = currency.EntryIcon;
             background.enabled = false;
             var curstack = count;
             stackText.text = curstack.ToString();
@@ -73,7 +73,7 @@ namespace FATE.FATEQuest.Runtime.UI
             selectedBorder.enabled = false;
             thisType = type;
             thisTreePoint = treePoint;
-            icon.sprite = treePoint.entryIcon;
+            icon.sprite = treePoint.EntryIcon;
             background.enabled = false;
             var curstack = count;
             stackText.text = curstack.ToString();
@@ -95,7 +95,7 @@ namespace FATE.FATEQuest.Runtime.UI
             thisRewardDATA = rewardDATA;
             selectedBorder.enabled = false;
             thisType = type;
-            icon.sprite = GameDatabase.Instance.GetFactions()[rewardDATA.factionID].entryIcon;
+            icon.sprite = GameDatabase.Instance.GetFactions()[rewardDATA.factionID].EntryIcon;
             background.enabled = false;
             var curstack = amount;
             stackText.text = curstack.ToString();
@@ -106,7 +106,7 @@ namespace FATE.FATEQuest.Runtime.UI
             thisRewardDATA = rewardDATA;
             selectedBorder.enabled = false;
             thisType = type;
-            icon.sprite = GameDatabase.Instance.GetWeaponTemplates()[rewardDATA.weaponTemplateID].entryIcon;
+            icon.sprite = GameDatabase.Instance.GetWeaponTemplates()[rewardDATA.weaponTemplateID].EntryIcon;
             background.enabled = false;
             var curstack = amount;
             stackText.text = curstack.ToString();

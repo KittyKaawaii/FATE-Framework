@@ -107,7 +107,7 @@ namespace FATE.FATEDatabase.Editor.EntryModule
         }
         public virtual RPGBuilderDatabaseEntry GetEntryByName(string entryName)
         {
-            return databaseEntries.FirstOrDefault(entry => entry.entryName == entryName);
+            return databaseEntries.FirstOrDefault(entry => entry.EntryName == entryName);
         }
         public virtual int GetEntryIndexByID(int ID)
         {
@@ -122,7 +122,7 @@ namespace FATE.FATEDatabase.Editor.EntryModule
         {
             for (int i = 0; i < databaseEntries.Count; i++)
             {
-                if (databaseEntries[i].entryName == entryName) return i;
+                if (databaseEntries[i].EntryName == entryName) return i;
             }
 
             return -1;

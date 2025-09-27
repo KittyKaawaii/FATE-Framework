@@ -4,26 +4,27 @@ using FATE.FATECustomAttribute.Runtime.AttributeParam;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.Data;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace FATE.FATEFaction.Runtime.DatabaseEntry
 {
     public class RPGFaction : RPGBuilderDatabaseEntry
     {
-        [ReadOnlyField]public List<FactionStanceData> factionStances = new();
+        [FormerlySerializedAs("factionStances"),ReadOnlyFieldWithName("Отношения")]public List<FactionStanceData> FactionStances = new();
 
-        [ReadOnlyField]public List<FactionInteractionData> factionInteractions = new();
+        [FormerlySerializedAs("factionInteractions"),ReadOnlyFieldWithName("Отношения фракций")]public List<FactionInteractionData> FactionInteractions = new();
     
         public void UpdateEntryData(RPGFaction newEntryData)
         {
             ID = newEntryData.ID;
-            entryName = newEntryData.entryName;
-            entryFileName = newEntryData.entryFileName;
-            entryDisplayName = newEntryData.entryDisplayName;
-            entryIcon = newEntryData.entryIcon;
-            entryDescription = newEntryData.entryDescription;
+            EntryName = newEntryData.EntryName;
+            EntryFileName = newEntryData.EntryFileName;
+            EntryDisplayName = newEntryData.EntryDisplayName;
+            EntryIcon = newEntryData.EntryIcon;
+            EntryDescription = newEntryData.EntryDescription;
         
-            factionStances = newEntryData.factionStances;
-            factionInteractions = newEntryData.factionInteractions;
+            FactionStances = newEntryData.FactionStances;
+            FactionInteractions = newEntryData.FactionInteractions;
         }
     }
 

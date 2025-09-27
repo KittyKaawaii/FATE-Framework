@@ -63,12 +63,12 @@ public class RPGBuilderEditorBodyPartModule : RPGBuilderEditorModule
 
     public override bool SaveConditionsMet()
     {
-        if (string.IsNullOrEmpty(currentEntry.entryName))
+        if (string.IsNullOrEmpty(currentEntry.EntryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
             return false;
         }
-        if (ContainsInvalidCharacters(currentEntry.entryName))
+        if (ContainsInvalidCharacters(currentEntry.EntryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
             return false;
@@ -119,9 +119,9 @@ public class RPGBuilderEditorBodyPartModule : RPGBuilderEditorModule
             GUILayout.ExpandHeight(true));
 
         RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
-        currentEntry.entryName = RPGBuilderEditorFields.DrawHorizontalTextField("Body Part Name",
-            "", RPGBuilderEditor.Instance.FieldHeight + 15, currentEntry.entryName);
-        currentEntry.entryFileName = currentEntry.entryName + AssetNameSuffix;
+        currentEntry.EntryName = RPGBuilderEditorFields.DrawHorizontalTextField("Body Part Name",
+            "", RPGBuilderEditor.Instance.FieldHeight + 15, currentEntry.EntryName);
+        currentEntry.EntryFileName = currentEntry.EntryName + AssetNameSuffix;
         RPGBuilderEditorUtility.EndHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
 
         serialObj.ApplyModifiedProperties();

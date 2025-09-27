@@ -30,7 +30,7 @@ namespace BLINK.RPGBuilder.DisplayHandler
             curItem = item;
             itemDataID = dataID;
             RPGBuilderUtilities.EnableCG(itemCG);
-            icon.sprite = item.entryIcon;
+            icon.sprite = item.EntryIcon;
             background.enabled = true;
             background.sprite = item.ItemRarity.background;
         }
@@ -73,7 +73,7 @@ namespace BLINK.RPGBuilder.DisplayHandler
             curDraggedItem = Instantiate(InventoryManager.Instance.draggedItemImage, transform.position,
                 Quaternion.identity);
             curDraggedItem.transform.SetParent(InventoryManager.Instance.draggedItemParent);
-            curDraggedItem.GetComponent<Image>().sprite = curItem.entryIcon;
+            curDraggedItem.GetComponent<Image>().sprite = curItem.EntryIcon;
         }
 
         public void OnDrag(PointerEventData eventData)

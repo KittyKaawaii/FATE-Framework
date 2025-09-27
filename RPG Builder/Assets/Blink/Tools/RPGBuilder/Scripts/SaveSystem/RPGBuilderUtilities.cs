@@ -201,7 +201,7 @@ public static class RPGBuilderUtilities
     public static RPGCurrency getCurrencyByName(string name)
     {
         foreach (var t in GameDatabase.Instance.GetCurrencies().Values)
-            if (t.entryName == name)
+            if (t.EntryName == name)
                 return t;
 
         return null;
@@ -210,7 +210,7 @@ public static class RPGBuilderUtilities
     public static RPGTreePoint getTreePointByName(string name)
     {
         foreach (var t in GameDatabase.Instance.GetPoints().Values)
-            if (t.entryName == name)
+            if (t.EntryName == name)
                 return t;
 
         return null;
@@ -219,7 +219,7 @@ public static class RPGBuilderUtilities
     public static RPGFaction getFactionByName(string name)
     {
         foreach (var t in GameDatabase.Instance.GetFactions().Values)
-            if (t.entryName == name)
+            if (t.EntryName == name)
                 return t;
 
         return null;
@@ -228,7 +228,7 @@ public static class RPGBuilderUtilities
     public static RPGSkill getSkillByName(string name)
     {
         foreach (var t in GameDatabase.Instance.GetSkills().Values)
-            if (t.entryName == name)
+            if (t.EntryName == name)
                 return t;
 
         return null;
@@ -237,7 +237,7 @@ public static class RPGBuilderUtilities
     public static RPGWeaponTemplate getWeaponTemplateByName(string name)
     {
         foreach (var t in GameDatabase.Instance.GetWeaponTemplates().Values)
-            if (t.entryName == name)
+            if (t.EntryName == name)
                 return t;
 
         return null;
@@ -324,7 +324,7 @@ public static class RPGBuilderUtilities
     public static RPGGameScene GetGameSceneFromName(string sceneName)
     {
         foreach (var t in GameDatabase.Instance.GetGameScenes().Values)
-            if (t.entryName == sceneName)
+            if (t.EntryName == sceneName)
                 return t;
 
         return null;
@@ -900,14 +900,14 @@ public static class RPGBuilderUtilities
             rdmItemID = itemREF.randomStats.Count > 0 ? GenerateRandomItemStats(itemID) : -1,
             id = Character.Instance.CharacterData.nextAvailableItemID,
             state = state,
-            itemName = itemREF.entryName
+            itemName = itemREF.EntryName
         };
 
         foreach (var t in itemREF.sockets)
         {
             CharacterEntries.ItemSocketEntry newSocket = new CharacterEntries.ItemSocketEntry
             {
-                GemSocketType = t.GemSocketType.entryName, gemItemID = -1
+                GemSocketType = t.GemSocketType.EntryName, gemItemID = -1
             };
             newItemEntry.sockets.Add(newSocket);
         }
@@ -1228,7 +1228,7 @@ public static class RPGBuilderUtilities
         InventoryManager.Instance.AddItem(itemID, amountPossibleToAdd, equipped, itemDataID != -1 ? itemDataID : HandleNewItemDATA(itemID,
             equipped ? CharacterEntries.ItemEntryState.Equipped : CharacterEntries.ItemEntryState.InBag));
         
-        if(showItemGain) UIEvents.Instance.OnShowItemGainMessage(GameDatabase.Instance.GetItems()[itemID].entryDisplayName + " x" + amountPossibleToAdd);
+        if(showItemGain) UIEvents.Instance.OnShowItemGainMessage(GameDatabase.Instance.GetItems()[itemID].EntryDisplayName + " x" + amountPossibleToAdd);
         return amount - amountPossibleToAdd;
     }
     public static int GetAllSlotsNeeded(List<InventoryManager.TemporaryLootItemData> craftlist)
@@ -1453,7 +1453,7 @@ public static class RPGBuilderUtilities
         for (var index = 0; index < list.Count; index++)
         {
             var gender = list[index];
-            if (gender.Gender.entryName != genderName) continue;
+            if (gender.Gender.EntryName != genderName) continue;
             return index;
         }
 

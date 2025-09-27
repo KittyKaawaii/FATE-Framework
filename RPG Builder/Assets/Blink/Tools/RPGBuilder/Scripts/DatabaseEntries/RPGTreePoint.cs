@@ -43,11 +43,11 @@ public class RPGTreePoint : RPGBuilderDatabaseEntry
     public void UpdateEntryData(RPGTreePoint newEntryData)
     {
         ID = newEntryData.ID;
-        entryName = newEntryData.entryName;
-        entryFileName = newEntryData.entryFileName;
-        entryDisplayName = newEntryData.entryDisplayName;
-        entryIcon = newEntryData.entryIcon;
-        entryDescription = newEntryData.entryDescription;
+        EntryName = newEntryData.EntryName;
+        EntryFileName = newEntryData.EntryFileName;
+        EntryDisplayName = newEntryData.EntryDisplayName;
+        EntryIcon = newEntryData.EntryIcon;
+        EntryDescription = newEntryData.EntryDescription;
         
         startAmount = newEntryData.startAmount;
         maxPoints = newEntryData.maxPoints;

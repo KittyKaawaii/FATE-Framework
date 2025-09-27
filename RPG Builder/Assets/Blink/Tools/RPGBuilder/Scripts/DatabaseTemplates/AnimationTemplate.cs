@@ -23,8 +23,8 @@ namespace BLINK.RPGBuilder.Templates
         
         public void UpdateEntryData(AnimationTemplate newEntryData)
         {
-            entryName = newEntryData.entryName;
-            entryFileName = newEntryData.entryFileName;
+            EntryName = newEntryData.EntryName;
+            EntryFileName = newEntryData.EntryFileName;
             ParameterType = newEntryData.ParameterType;
             EntryParameterType = newEntryData.EntryParameterType;
             ParameterName = newEntryData.ParameterName;

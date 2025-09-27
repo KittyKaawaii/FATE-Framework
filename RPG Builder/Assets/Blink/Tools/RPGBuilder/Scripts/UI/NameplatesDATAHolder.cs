@@ -356,7 +356,7 @@ namespace BLINK.RPGBuilder.UIElements
 
         public void UpdateTexts()
         {
-            NameText.text = thisEntity.GetNPCData().entryDisplayName;
+            NameText.text = thisEntity.GetNPCData().EntryDisplayName;
         }
 
         public void InitCasting(RPGAbility thisAbility)
@@ -367,7 +367,7 @@ namespace BLINK.RPGBuilder.UIElements
             {
                 curCastTime = 0;
                 MaxCastTime = rankREF.castTime;
-                InitCastBar(thisAbility.entryDisplayName);
+                InitCastBar(thisAbility.EntryDisplayName);
             }
             else
             {
@@ -385,7 +385,7 @@ namespace BLINK.RPGBuilder.UIElements
             {
                 curChannelTime = rankREF.channelTime;
                 maxChannelTime = rankREF.channelTime;
-                InitCastBar(thisAbility.entryDisplayName);
+                InitCastBar(thisAbility.EntryDisplayName);
             }
             else
             {

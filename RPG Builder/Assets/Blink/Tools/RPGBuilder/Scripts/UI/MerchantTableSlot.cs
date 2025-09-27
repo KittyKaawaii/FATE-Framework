@@ -18,7 +18,7 @@ public class MerchantTableSlot : MonoBehaviour
         merchantEntity = entity;
         merchantTableID = ID;
         table = GameDatabase.Instance.GetMerchantTables()[merchantTableID];
-        Title.text = table.entryDisplayName;
+        Title.text = table.EntryDisplayName;
     }
 
     public void ShowMerchantTable()

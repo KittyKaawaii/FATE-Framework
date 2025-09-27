@@ -41,10 +41,10 @@ namespace BLINK.RPGBuilder.Managers
             switch (curType)
             {
                 case ConfirmationPopupType.deleteItem:
-                    if(PopupText != null) PopupText.text = "Do you want to delete " + item.entryDisplayName + " x" + count + "?";
+                    if(PopupText != null) PopupText.text = "Do you want to delete " + item.EntryDisplayName + " x" + count + "?";
                     break;
                 case ConfirmationPopupType.sellItem:
-                    if(PopupText != null) PopupText.text = "Do you want to sell " + item.entryDisplayName + " x" + count + "?";
+                    if(PopupText != null) PopupText.text = "Do you want to sell " + item.EntryDisplayName + " x" + count + "?";
                     break;
             }
             itemREF = item;

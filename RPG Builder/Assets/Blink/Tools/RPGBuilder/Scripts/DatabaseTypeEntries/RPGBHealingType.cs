@@ -6,9 +6,9 @@ public class RPGBHealingType : RPGBuilderDatabaseEntry
     public Color color = Color.white;
     public void UpdateEntryData(RPGBHealingType newEntryData)
     {
-        entryName = newEntryData.entryName;
-        entryFileName = newEntryData.entryFileName;
-        entryDisplayName = newEntryData.entryDisplayName;
+        EntryName = newEntryData.EntryName;
+        EntryFileName = newEntryData.EntryFileName;
+        EntryDisplayName = newEntryData.EntryDisplayName;
         color = newEntryData.color;
     }
 }

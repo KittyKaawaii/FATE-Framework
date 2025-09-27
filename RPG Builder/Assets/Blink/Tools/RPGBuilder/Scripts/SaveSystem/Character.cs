@@ -160,9 +160,9 @@ namespace BLINK.RPGBuilder.Characters
 
         private void CheckFirstTimeRegionEntered(RegionTemplate regionData)
         {
-            var currentIndex = regionAlreadyEnteredBefore(regionData.entryName);
+            var currentIndex = regionAlreadyEnteredBefore(regionData.EntryName);
             if (currentIndex != -1) return;
-            var newDATA = new CharacterEntries.RegionEnteredEntry {regionName = regionData.entryName};
+            var newDATA = new CharacterEntries.RegionEnteredEntry {regionName = regionData.EntryName};
             CharacterData.EnteredRegions.Add(newDATA);
         }
 
@@ -632,7 +632,7 @@ namespace BLINK.RPGBuilder.Characters
                     if (!npc.IsPersistentNPC()) continue;
                     CombatData.PersistentNPCEntry persistentNpcEntry = new CombatData.PersistentNPCEntry
                     {
-                        NPCName = npc.GetNPCData().entryName,
+                        NPCName = npc.GetNPCData().EntryName,
                         ID = npc.GetNPCData().ID,
                         position = npc.transform.position,
                         rotation = npc.transform.eulerAngles
@@ -644,7 +644,7 @@ namespace BLINK.RPGBuilder.Characters
 
                         CombatData.VitalityStatEntry savedState = new CombatData.VitalityStatEntry
                         {
-                            StatName = stat.stat.entryName,
+                            StatName = stat.stat.EntryName,
                             StatID = stat.stat.ID,
                             value = stat.currentValue,
                         };

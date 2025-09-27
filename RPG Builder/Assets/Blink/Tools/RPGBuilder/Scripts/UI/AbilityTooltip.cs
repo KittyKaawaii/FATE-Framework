@@ -64,8 +64,8 @@ namespace BLINK.RPGBuilder.UI
         {
             RPGBuilderUtilities.EnableCG(thisCG);
 
-            abilityNameText.text = ability.entryDisplayName;
-            icon.sprite = ability.entryIcon;
+            abilityNameText.text = ability.EntryDisplayName;
+            icon.sprite = ability.EntryIcon;
 
             GenerateTooltip(entity, ability, rank);
         }
@@ -179,7 +179,7 @@ namespace BLINK.RPGBuilder.UI
                     addText += " %";
                 }
 
-                description += $"\n{statREF.entryDisplayName} {modifierText} by {addText}";
+                description += $"\n{statREF.EntryDisplayName} {modifierText} by {addText}";
             }
 
             SpawnAbilityTooltipElement(AbilityTooltipElement.ABILITY_TOOLTIP_ELEMENT_TYPE.Description, description);
@@ -190,8 +190,8 @@ namespace BLINK.RPGBuilder.UI
             //lastAbility = ability;
             RPGBuilderUtilities.EnableCG(thisCG);
 
-            abilityNameText.text = bonus.entryDisplayName;
-            icon.sprite = bonus.entryIcon;
+            abilityNameText.text = bonus.EntryDisplayName;
+            icon.sprite = bonus.EntryIcon;
 
             GenerateBonusTooltip(bonus);
         }
@@ -199,8 +199,8 @@ namespace BLINK.RPGBuilder.UI
         {
             RPGBuilderUtilities.EnableCG(thisCG);
 
-            abilityNameText.text = effect.entryDisplayName;
-            icon.sprite = effect.entryIcon;
+            abilityNameText.text = effect.EntryDisplayName;
+            icon.sprite = effect.EntryIcon;
         }
         
         string getTargetText(RPGCombatDATA.TARGET_TYPE targetType)
@@ -254,11 +254,11 @@ namespace BLINK.RPGBuilder.UI
         private string getSecondaryDamageType(RPGEffect effect, RPGEffect.RPGEffectRankData rank)
         {
             var secondaryDamageType = "";
-            if (rank.customDamageType != null) secondaryDamageType = rank.customDamageType.entryName;
+            if (rank.customDamageType != null) secondaryDamageType = rank.customDamageType.EntryName;
 
             foreach (var t in GameDatabase.Instance.GetStats().Values)
-                if (t.entryName == rank.customDamageType.entryName)
-                    secondaryDamageType = t.entryDisplayName;
+                if (t.EntryName == rank.customDamageType.EntryName)
+                    secondaryDamageType = t.EntryDisplayName;
 
             return secondaryDamageType;
         }

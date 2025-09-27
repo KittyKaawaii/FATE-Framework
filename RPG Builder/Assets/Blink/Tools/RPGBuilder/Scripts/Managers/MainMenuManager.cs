@@ -236,7 +236,7 @@ namespace BLINK.RPGBuilder.Managers
             currentlySelectedRace = Character.Instance.CharacterData.RaceID;
             if (GameDatabase.Instance.GetRaces()[firstRace].Genders.Count > 0 && GameDatabase.Instance.GetRaces()[firstRace].Genders[0].Gender != null)
             {
-                Character.Instance.CharacterData.Gender = GameDatabase.Instance.GetRaces()[firstRace].Genders[0].Gender.entryName;
+                Character.Instance.CharacterData.Gender = GameDatabase.Instance.GetRaces()[firstRace].Genders[0].Gender.EntryName;
             }
             
             foreach (var race in GameDatabase.Instance.GetRaces().Values)
@@ -354,7 +354,7 @@ namespace BLINK.RPGBuilder.Managers
                 ClassSlotHolder slot = genderSlot.GetComponent<ClassSlotHolder>();
                 slot.classIndex = index;
                 if(slot.icon != null) slot.icon.sprite = gender.Icon;
-                if(slot.className != null) slot.className.text = gender.Gender.entryDisplayName;
+                if(slot.className != null) slot.className.text = gender.Gender.EntryDisplayName;
                 curGenderSlots.Add(slot);
             }
 
@@ -373,8 +373,8 @@ namespace BLINK.RPGBuilder.Managers
             
             HighlightRaceSlot();
 
-            raceInfoDescriptionText.text = raceREF.entryDescription;
-            raceNameText.text = raceREF.entryDisplayName;
+            raceInfoDescriptionText.text = raceREF.EntryDescription;
+            raceNameText.text = raceREF.EntryDisplayName;
 
             if (curPlayerModel != null)
             {
@@ -412,7 +412,7 @@ namespace BLINK.RPGBuilder.Managers
                 InitStartingItemsVisual(appearanceREF);
             }
 
-            Character.Instance.CharacterData.Gender = currentlySelectedGender.entryName;
+            Character.Instance.CharacterData.Gender = currentlySelectedGender.EntryName;
 
             curPlayerModel.transform.SetParent(characterModelSpot);
             curPlayerModel.transform.localPosition = Vector3.zero;
@@ -480,8 +480,8 @@ namespace BLINK.RPGBuilder.Managers
                         GameDatabase.Instance.GetItems()[classREF.startItems[i].itemID],
                         appearanceREF, i);
             
-            classInfoDescriptionText.text = classREF.entryDescription;
-            classNameText.text = classREF.entryDisplayName;
+            classInfoDescriptionText.text = classREF.EntryDescription;
+            classNameText.text = classREF.EntryDisplayName;
             
             InitStatAllocation();
         }
@@ -623,7 +623,7 @@ namespace BLINK.RPGBuilder.Managers
             {
                 CharacterEntries.AbilityEntry newAb = new CharacterEntries.AbilityEntry
                 {
-                    name = ab.entryName, ID = ab.ID, rank = -1, known = false
+                    name = ab.EntryName, ID = ab.ID, rank = -1, known = false
                 };
                 Character.Instance.CharacterData.Abilities.Add(newAb);
             }
@@ -631,7 +631,7 @@ namespace BLINK.RPGBuilder.Managers
             {
                 CharacterEntries.RecipeEntry newAb = new CharacterEntries.RecipeEntry
                 {
-                    name = recipe.entryName, ID = recipe.ID, rank = -1, known = false
+                    name = recipe.EntryName, ID = recipe.ID, rank = -1, known = false
                 };
                 Character.Instance.CharacterData.Recipes.Add(newAb);
             }
@@ -639,7 +639,7 @@ namespace BLINK.RPGBuilder.Managers
             {
                 CharacterEntries.ResourceNodeEntry newAb = new CharacterEntries.ResourceNodeEntry
                 {
-                    name = resourceNode.entryName, ID = resourceNode.ID, rank = -1, known = false
+                    name = resourceNode.EntryName, ID = resourceNode.ID, rank = -1, known = false
                 };
                 Character.Instance.CharacterData.Resources.Add(newAb);
             }
@@ -647,7 +647,7 @@ namespace BLINK.RPGBuilder.Managers
             {
                 CharacterEntries.BonusEntry newAb = new CharacterEntries.BonusEntry
                 {
-                    name = bonus.entryName,
+                    name = bonus.EntryName,
                     ID = bonus.ID,
                     rank = -1,
                     known = false,
@@ -660,19 +660,19 @@ namespace BLINK.RPGBuilder.Managers
             {
                 CharacterEntries.FactionEntry newFaction = new CharacterEntries.FactionEntry
                 {
-                    name = faction.entryName, ID = faction.ID
+                    name = faction.EntryName, ID = faction.ID
                 };
                 var factionInteractions =
                     GameDatabase.Instance.GetFactions()[
-                        GameDatabase.Instance.GetRaces()[Character.Instance.CharacterData.RaceID].factionID].factionInteractions;
+                        GameDatabase.Instance.GetRaces()[Character.Instance.CharacterData.RaceID].factionID].FactionInteractions;
                 foreach (var interaction in factionInteractions)
                 {
-                    if (interaction.factionID != faction.ID) continue;
-                    newFaction.currentPoint = interaction.startingPoints;
+                    if (interaction.FactionID != faction.ID) continue;
+                    newFaction.currentPoint = interaction.StartingPoints;
 
-                    for (var stance = 0; stance < faction.factionStances.Count; stance++)
+                    for (var stance = 0; stance < faction.FactionStances.Count; stance++)
                     {
-                        if (faction.factionStances[stance].FactionStance == interaction.DefaultFactionStance)
+                        if (faction.FactionStances[stance].FactionStance == interaction.DefaultFactionStance)
                         {
                             newFaction.stanceIndex = stance;
                         }
@@ -898,10 +898,10 @@ namespace BLINK.RPGBuilder.Managers
             GameModifierSlotDataHolder slotRef = slot.GetComponent<GameModifierSlotDataHolder>();
             slotList.Add(slotRef);
             slotRef.thisModifier = gameModifierRef;
-            slotRef.nameText.text = gameModifierRef.entryDisplayName;
-            if (gameModifierRef.entryIcon != null)
+            slotRef.nameText.text = gameModifierRef.EntryDisplayName;
+            if (gameModifierRef.EntryIcon != null)
             {
-                slotRef.icon.sprite = gameModifierRef.entryIcon;
+                slotRef.icon.sprite = gameModifierRef.EntryIcon;
             }
             else
             {
@@ -993,7 +993,7 @@ namespace BLINK.RPGBuilder.Managers
         {
             // ADD TO CHARACTER DATA
             CharacterEntries.GameModifierEntry newGameModEntry = new CharacterEntries.GameModifierEntry();
-            newGameModEntry.name = gameModifier.entryName;
+            newGameModEntry.name = gameModifier.EntryName;
             newGameModEntry.ID = gameModifier.ID;
             Character.Instance.CharacterData.GameModifiers.Add(newGameModEntry);
             RPGBuilderUtilities.setGameModifierOnState(gameModifier.ID, true);

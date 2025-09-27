@@ -280,7 +280,7 @@ namespace BLINK.RPGBuilder.Combat
             {
                 var newAttributeToLoad = new CombatData.CombatEntityStat
                 {
-                    name = t.entryName,
+                    name = t.EntryName,
                     stat = t,
                     currentMinValue = t.minValue,
                     currentValue = t.baseValue,
