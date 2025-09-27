@@ -6,8 +6,6 @@ using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UIElements;
 using BLINK.RPGBuilder.Utility;
-using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
@@ -264,7 +262,7 @@ namespace BLINK.RPGBuilder.UI
         }
 
 
-        public void InitCastingBar(CombatEntity entity, RPGAbility ability, RPGAbilityRankData abilityRank, float castDuration)
+        public void InitCastingBar(CombatEntity entity, RPGAbility ability, RPGAbility.RPGAbilityRankData abilityRank, float castDuration)
         {
             if (!abilityRank.castBarVisible) return;
             foreach (var t in AllNameplates)

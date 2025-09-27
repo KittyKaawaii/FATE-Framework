@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using FATE.FATESave.Runtime.Template;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.WorldPersistence

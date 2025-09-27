@@ -1,5 +1,4 @@
-﻿using FATE.FATEAttribute.Runtime.Attribute;
-using FATE.FATEDatabase.Runtime.DatabaseEntry;
+﻿using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace FATE.FATEQuest.Runtime.DatabaseEntry

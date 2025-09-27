@@ -6,22 +6,16 @@ using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.LogicMono;
-using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
 using FATE.FATEClass.Runtime.DatabaseEntry;
-using FATE.FATECombat.Runtime.Utility;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATECurrency.Runtime.DatabaseEntry;
 using FATE.FATEDialogue.Runtime.Node;
-using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using FATE.FATEInventory.Runtime.Manager;
-using FATE.FATEItem.Runtime.Data;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATERace.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
-using FATE.FATETalentTree.Runtime.DatabaseEntity;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
@@ -347,7 +341,7 @@ public static class RPGBuilderUtilities
 
         return -1;
     }
-    public static RPGAbilityRankData GetCharacterAbilityRank(RPGAbility ability)
+    public static RPGAbility.RPGAbilityRankData GetCharacterAbilityRank(RPGAbility ability)
     {
         foreach (var t in Character.Instance.CharacterData.Abilities)
         {
@@ -1277,11 +1271,11 @@ public static class RPGBuilderUtilities
 
         return -1;
     }
-    public static int getShapeshiftingTagEffectID(RPGAbilityRankData rankREF)
+    public static int getShapeshiftingTagEffectID(RPGAbility.RPGAbilityRankData rankREF)
     {
         foreach (var tag in rankREF.tagsData)
         {
-            if(tag.tag != AbilityTags.Shapeshifting) continue;
+            if(tag.tag != RPGAbility.ABILITY_TAGS.shapeshifting) continue;
             return tag.effectID;
         }
 
@@ -1297,11 +1291,11 @@ public static class RPGBuilderUtilities
 
         return -1;
     }
-    public static int getStealthTagEffectID(RPGAbilityRankData rankREF)
+    public static int getStealthTagEffectID(RPGAbility.RPGAbilityRankData rankREF)
     {
         foreach (var tag in rankREF.tagsData)
         {
-            if(tag.tag != AbilityTags.Stealth) continue;
+            if(tag.tag != RPGAbility.ABILITY_TAGS.stealth) continue;
             return tag.effectID;
         }
 

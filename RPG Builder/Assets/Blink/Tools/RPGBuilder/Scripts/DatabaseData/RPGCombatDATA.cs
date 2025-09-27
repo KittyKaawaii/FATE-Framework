@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using FATE.FATEAttribute.Runtime.Attribute;
+using BLINK.RPGBuilder.AI;
 using UnityEngine;
 
 public class RPGCombatDATA : ScriptableObject

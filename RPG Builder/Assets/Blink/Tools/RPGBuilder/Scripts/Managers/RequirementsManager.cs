@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
-using FATE.FATECombat.Runtime.Utility;
 using FATE.FATEFaction.Runtime.Manager;
 using FATE.FATEInventory.Runtime.Manager;
-using FATE.FATERegion.Runtime.Manager;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Managers

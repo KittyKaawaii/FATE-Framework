@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEDialogue.Runtime.Node.Utility;
 using UnityEditor;
 using UnityEngine;
 using XNode;

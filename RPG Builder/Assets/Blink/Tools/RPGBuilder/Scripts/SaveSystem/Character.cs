@@ -6,17 +6,12 @@ using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.WorldPersistence;
-using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATECombat.Runtime.Data;
-using FATE.FATECombat.Runtime.Manager;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATECurrency.Runtime.DatabaseEntry;
 using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
-using FATE.FATESave.Runtime.Template;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -235,8 +230,8 @@ namespace BLINK.RPGBuilder.Characters
 
         public bool isAbilityCDReady(RPGAbility ab)
         {
-            if (ab.abilityType == AbilityType.PlayerAutoAttack) return false;
-            return ab.abilityType == AbilityType.PlayerActionAbility
+            if (ab.abilityType == RPGAbility.AbilityType.PlayerAutoAttack) return false;
+            return ab.abilityType == RPGAbility.AbilityType.PlayerActionAbility
                 ? CombatManager.Instance.actionAbIsReady(ab)
                 : CharacterData.Abilities.Where(t => t.ID == ab.ID).Any(t => t.NextTimeUse == 0);
         }
@@ -246,10 +241,10 @@ namespace BLINK.RPGBuilder.Characters
             RPGAbility ab = GameDatabase.Instance.GetAbilities()[ID];
             switch (ab.abilityType)
             {
-                case AbilityType.PlayerAutoAttack:
+                case RPGAbility.AbilityType.PlayerAutoAttack:
                     GameState.playerEntity.InitAACooldown(duration);
                     break;
-                case AbilityType.PlayerActionAbility:
+                case RPGAbility.AbilityType.PlayerActionAbility:
                     GameState.playerEntity.InitActionAbilityCooldown(ID, duration);
                     break;
                 default:

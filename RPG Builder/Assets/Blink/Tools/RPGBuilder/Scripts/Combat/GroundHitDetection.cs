@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATECombat.Runtime.Manager;
-using FATE.FATECombat.Runtime.Utility;
 using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -20,7 +16,7 @@ namespace BLINK.RPGBuilder.LogicMono
         private float activationDelay;
     
         private int cachedMaxUnitHit;
-        private RPGAbilityRankData rankREF;
+        private RPGAbility.RPGAbilityRankData rankREF;
 
         private CombatEntity ownerNode;
         

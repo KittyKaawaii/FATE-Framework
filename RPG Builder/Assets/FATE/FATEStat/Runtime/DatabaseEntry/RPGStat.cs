@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
-using FATE.FATEEffect.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace FATE.FATEStat.Runtime.DatabaseEntry
@@ -65,7 +61,7 @@ namespace FATE.FATEStat.Runtime.DatabaseEntry
             [EffectID] public int effectID = -1;
             public int effectRank;
             public RPGCombatDATA.TARGET_TYPE targetType;
-            public AbilityTags tagType;
+            public RPGAbility.ABILITY_TAGS tagType;
             public float chance = 100f;
         }
     

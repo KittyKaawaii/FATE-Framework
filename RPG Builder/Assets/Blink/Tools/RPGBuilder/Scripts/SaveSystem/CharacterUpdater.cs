@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATEClass.Runtime.Data;
 using FATE.FATEClass.Runtime.DatabaseEntry;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATECurrency.Runtime.DatabaseEntry;
@@ -11,7 +9,6 @@ using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATELeveling.Runtime.DatabaseEntry;
 using FATE.FATERace.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;
-using FATE.FATETalentTree.Runtime.DatabaseEntity;
 using UnityEngine;
 
 public static class CharacterUpdater
@@ -47,7 +44,7 @@ public static class CharacterUpdater
 
         foreach (var t1 in Character.Instance.CharacterData.Skills)
         {
-            foreach (TalentTreesDATA t in GameDatabase.Instance.GetSkills()[t1.skillID].talentTrees)
+            foreach (RPGSkill.TalentTreesDATA t in GameDatabase.Instance.GetSkills()[t1.skillID].talentTrees)
             {
                 if (!characterHasTalentTree(t.talentTreeID, Character.Instance))
                 {

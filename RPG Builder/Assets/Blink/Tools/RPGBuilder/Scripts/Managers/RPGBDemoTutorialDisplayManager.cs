@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEInput.Runtime.Manager;
 using TMPro;
 using UnityEngine;
 

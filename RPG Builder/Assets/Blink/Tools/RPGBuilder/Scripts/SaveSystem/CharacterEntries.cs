@@ -2,10 +2,7 @@
 using UnityEngine;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.WorldPersistence;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATEItem.Runtime.Data;
 using FATE.FATEQuest.Runtime.Manager;
-using FATE.FATETalentTree.Runtime.DatabaseEntity;
 
 public class CharacterEntries
 {

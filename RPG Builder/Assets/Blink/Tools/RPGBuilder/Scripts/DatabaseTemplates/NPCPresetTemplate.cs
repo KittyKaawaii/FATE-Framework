@@ -1,4 +1,4 @@
-﻿using FATE.FATEAI.Runtime.Data;
+﻿using BLINK.RPGBuilder.AI;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 using UnityEngine.AI;

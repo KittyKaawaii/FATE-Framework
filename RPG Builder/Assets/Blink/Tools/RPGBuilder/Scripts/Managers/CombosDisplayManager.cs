@@ -6,10 +6,6 @@ using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATECombat.Runtime.Data;
-using FATE.FATECombo.Runtime.DatabaseEntry;
-using FATE.FATECombo.Runtime.UI;
 using UnityEngine;
 
 public class CombosDisplayManager : MonoBehaviour

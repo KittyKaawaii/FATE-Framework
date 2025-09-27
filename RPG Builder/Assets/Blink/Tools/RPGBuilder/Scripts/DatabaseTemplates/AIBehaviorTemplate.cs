@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using FATE.FATEAI.Runtime.Data;
-using FATE.FATEAI.Runtime.State;
-using FATE.FATEAI.Runtime.Template;
+using BLINK.RPGBuilder.AI;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 
 namespace BLINK.RPGBuilder.Templates

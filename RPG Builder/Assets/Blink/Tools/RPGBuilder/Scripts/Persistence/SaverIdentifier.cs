@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using FATE.FATESave.Runtime.Saver;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

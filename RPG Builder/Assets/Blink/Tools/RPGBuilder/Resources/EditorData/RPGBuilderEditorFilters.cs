@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
 using FATE.FATEClass.Runtime.DatabaseEntry;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATECurrency.Runtime.DatabaseEntry;
 using FATE.FATEDialogue.Runtime.DatabaseEntry;
-using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEEnchantment.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using FATE.FATEGathering.Runtime.DatabaseEntry;
@@ -19,7 +17,6 @@ using FATE.FATERace.Runtime.DatabaseEntry;
 using FATE.FATEShop.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
-using FATE.FATETalentTree.Runtime.DatabaseEntity;
 using UnityEngine;
 
 public class RPGBuilderEditorFilters : ScriptableObject

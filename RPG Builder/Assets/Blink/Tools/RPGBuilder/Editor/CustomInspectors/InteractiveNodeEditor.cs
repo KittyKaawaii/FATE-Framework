@@ -7,7 +7,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATELoot.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;

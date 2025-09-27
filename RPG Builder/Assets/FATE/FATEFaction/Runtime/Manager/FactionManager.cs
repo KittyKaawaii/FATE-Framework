@@ -1,9 +1,6 @@
 ﻿using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATECombat.Runtime.Data;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using UnityEngine;
@@ -33,7 +30,7 @@ namespace FATE.FATEFaction.Runtime.Manager
             public string errorMessage;
         }
 
-        public CanHitResult AttackerCanHitTarget(RPGAbilityRankData abilityRank, CombatEntity attackerEntity, CombatEntity targetEntity)
+        public CanHitResult AttackerCanHitTarget(RPGAbility.RPGAbilityRankData abilityRank, CombatEntity attackerEntity, CombatEntity targetEntity)
         {
             CanHitResult hitResult = new CanHitResult();
             CombatData.EntityAlignment targetAlignment = GetCombatNodeAlignment(attackerEntity, targetEntity);

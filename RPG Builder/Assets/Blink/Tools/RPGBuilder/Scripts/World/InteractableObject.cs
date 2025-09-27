@@ -7,8 +7,6 @@ using BLINK.RPGBuilder.UIElements;
 using BLINK.RPGBuilder.WorldPersistence;
 using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
-using FATE.FATELeveling.Runtime.Manager;
-using FATE.FATEQuest.Runtime.Manager;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

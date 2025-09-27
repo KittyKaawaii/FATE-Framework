@@ -1,8 +1,5 @@
 ﻿using System;
 using BLINK.RPGBuilder.Combat;
-using FATE.FATECombat.Runtime.Data;
-using FATE.FATECombat.Runtime.Manager;
-using FATE.FATECombat.Runtime.Utility;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

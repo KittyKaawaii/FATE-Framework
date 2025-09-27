@@ -1,23 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using BLINK.RPGBuilder.AI;
 using BLINK.RPGBuilder.Data;
 using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.World;
-using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATEAI.Runtime.Entity;
-using FATE.FATECombat.Runtime.Data;
-using FATE.FATECombat.Runtime.Manager;
-using FATE.FATECombat.Runtime.Utility;
-using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
-using FATE.FATESpawn.Runtime.Spawner;
-using FATE.FATESpecies.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -87,7 +79,7 @@ namespace BLINK.RPGBuilder.Combat
         public RPGSpecies GetSpecies() { return species;}
         
         protected CombatEntity LatestAttacker;
-        protected RPGAbilityRankData LatestAbilityRankHit;
+        protected RPGAbility.RPGAbilityRankData LatestAbilityRankHit;
         protected Dictionary<int, CombatData.CombatEntityStat> Stats = new Dictionary<int, CombatData.CombatEntityStat>();
         public Dictionary<int, CombatData.CombatEntityStat> GetStats ()
         {
@@ -128,8 +120,8 @@ namespace BLINK.RPGBuilder.Combat
         protected float TargetInteractionTime;
         protected Vector3 CurrentProjectileClickPos;
         
-        protected RPGAbilityRankData CurrentAbilityCastedCurRank;
-        public RPGAbilityRankData GetCurrentAbilityCastedRank() {return CurrentAbilityCastedCurRank;}
+        protected RPGAbility.RPGAbilityRankData CurrentAbilityCastedCurRank;
+        public RPGAbility.RPGAbilityRankData GetCurrentAbilityCastedRank() {return CurrentAbilityCastedCurRank;}
         protected RPGAbility CurrentAbilityCasted;
         protected CombatEntity CurrentTargetCasted;
         public CombatEntity GetCurrentTargetCasted() {return CurrentTargetCasted;}
@@ -522,7 +514,7 @@ namespace BLINK.RPGBuilder.Combat
 
         #region COMBAT EVENTS
 
-        public virtual void InitAbility(RPGAbility ab, RPGAbilityRankData rank)
+        public virtual void InitAbility(RPGAbility ab, RPGAbility.RPGAbilityRankData rank)
         {
             
         }
@@ -531,7 +523,7 @@ namespace BLINK.RPGBuilder.Combat
             
         }
         
-        public virtual void TakeDamage(CombatCalculations.DamageResult result, RPGAbilityRankData abilityRank,
+        public virtual void TakeDamage(CombatCalculations.DamageResult result, RPGAbility.RPGAbilityRankData abilityRank,
             int alteredStatID)
         {
             if (Dead) return;
@@ -665,12 +657,12 @@ namespace BLINK.RPGBuilder.Combat
             }
         }
         
-        public virtual void InitStandTime(RPGAbilityRankData rank)
+        public virtual void InitStandTime(RPGAbility.RPGAbilityRankData rank)
         {
             
         }
         
-        public virtual void InitCastSlow(RPGAbilityRankData rank)
+        public virtual void InitCastSlow(RPGAbility.RPGAbilityRankData rank)
         {
             
         }
@@ -689,7 +681,7 @@ namespace BLINK.RPGBuilder.Combat
         {
             
         }
-        public virtual void InitStealth(bool showActionBar, List<AbilityEffectsApplied> nestedEffects)
+        public virtual void InitStealth(bool showActionBar, List<RPGAbility.AbilityEffectsApplied> nestedEffects)
         {
             
         }
@@ -799,7 +791,7 @@ namespace BLINK.RPGBuilder.Combat
             }
         }
         
-        public virtual void InitGroundAbility(RPGAbility ability, RPGAbilityRankData rank)
+        public virtual void InitGroundAbility(RPGAbility ability, RPGAbility.RPGAbilityRankData rank)
         {
             CurrentAbilityCasted = ability;
             CurrentAbilityCastedCurRank = rank;
@@ -972,7 +964,7 @@ namespace BLINK.RPGBuilder.Combat
         
         #region COMBAT INFO
 
-        public virtual RPGAbilityRankData GetCurrentAbilityRank(RPGAbility ability, bool abMustBeKnown)
+        public virtual RPGAbility.RPGAbilityRankData GetCurrentAbilityRank(RPGAbility ability, bool abMustBeKnown)
         {
             return null;
         }
@@ -982,11 +974,11 @@ namespace BLINK.RPGBuilder.Combat
             return false;
         }
         
-        public virtual void StartAbilityCooldown(RPGAbilityRankData rank, int abilityID)
+        public virtual void StartAbilityCooldown(RPGAbility.RPGAbilityRankData rank, int abilityID)
         {
         }
         
-        public virtual void SetProjectileRotation(GameObject projectile, RPGAbilityRankData rank, float yOffset)
+        public virtual void SetProjectileRotation(GameObject projectile, RPGAbility.RPGAbilityRankData rank, float yOffset)
         {
             
         }
@@ -1046,7 +1038,7 @@ namespace BLINK.RPGBuilder.Combat
         #region LOCKED STATES
 
         #region Casting Logic
-        public virtual void InitCasting(RPGAbility thisAbility, RPGAbilityRankData rankREF)
+        public virtual void InitCasting(RPGAbility thisAbility, RPGAbility.RPGAbilityRankData rankREF)
         {
             EffectTriggered = false;
             Casting = true;
@@ -1087,7 +1079,7 @@ namespace BLINK.RPGBuilder.Combat
         #endregion
         
         #region Channeling Logic
-        public virtual void InitChanneling(RPGAbility thisAbility, RPGAbilityRankData rankREF)
+        public virtual void InitChanneling(RPGAbility thisAbility, RPGAbility.RPGAbilityRankData rankREF)
         {
             Channeling = true;
             CurrentAbilityCasted = thisAbility;
@@ -1168,7 +1160,7 @@ namespace BLINK.RPGBuilder.Combat
             LeapHeight = 0;
             LeapSpeed = 0;
 
-            if (CurrentAbilityCastedCurRank.targetType == TARGET_TYPES.GROUND_LEAP && CurrentAbilityCastedCurRank.extraAbilityExecutedID != -1)
+            if (CurrentAbilityCastedCurRank.targetType == RPGAbility.TARGET_TYPES.GROUND_LEAP && CurrentAbilityCastedCurRank.extraAbilityExecutedID != -1)
             {
                 CombatManager.Instance.InitExtraAbility(this, GameDatabase.Instance.GetAbilities()[CurrentAbilityCastedCurRank.extraAbilityExecutedID]);
             }

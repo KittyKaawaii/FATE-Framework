@@ -1,7 +1,5 @@
 ﻿using System;
 using BLINK.RPGBuilder.Combat;
-using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,7 +27,7 @@ public class CharacterCastingBar : MonoBehaviour
         CombatEvents.StoppedCastingAbility -= ResetCastBar;
     }
 
-    protected virtual void InitCastingBar(CombatEntity entity, RPGAbility ability, RPGAbilityRankData abilityRank, float castDuration)
+    protected virtual void InitCastingBar(CombatEntity entity, RPGAbility ability, RPGAbility.RPGAbilityRankData abilityRank, float castDuration)
     {
         if (!entity.IsPlayer()) return;
         if (!abilityRank.castBarVisible) return;

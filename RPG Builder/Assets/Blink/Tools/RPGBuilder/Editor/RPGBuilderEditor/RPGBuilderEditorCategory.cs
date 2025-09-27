@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using FATE.FATEDatabase.Editor.EntryModule;
 using UnityEngine;
 
 public class RPGBuilderEditorCategory : ScriptableObject

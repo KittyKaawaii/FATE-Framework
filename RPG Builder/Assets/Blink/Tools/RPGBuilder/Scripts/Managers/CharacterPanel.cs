@@ -4,7 +4,6 @@ using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Data;
 using BLINK.RPGBuilder.DisplayHandler;
 using BLINK.RPGBuilder.UIElements;
-using FATE.FATEInput.Runtime.Manager;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.UI;

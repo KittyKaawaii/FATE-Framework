@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using BLINK.RPGBuilder.Characters;
@@ -8,12 +9,6 @@ using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.Utility;
 using BLINK.RPGBuilder.World;
-using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATECombat.Runtime.Data;
-using FATE.FATECombat.Runtime.Manager;
-using FATE.FATECombat.Runtime.Utility;
-using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.Manager;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
@@ -369,7 +364,7 @@ namespace BLINK.RPGBuilder.Combat
             return Time.time >= _nextAutoAttack;
         }
         
-        public override RPGAbilityRankData GetCurrentAbilityRank(RPGAbility ability, bool abMustBeKnown)
+        public override RPGAbility.RPGAbilityRankData GetCurrentAbilityRank(RPGAbility ability, bool abMustBeKnown)
         {
             int rankIndex = RPGBuilderUtilities.GetCharacterAbilityRank(ability.ID);
             if (!abMustBeKnown || IsShapeshifted()) rankIndex = 0;
@@ -381,7 +376,7 @@ namespace BLINK.RPGBuilder.Combat
             return Character.Instance.isAbilityCDReady(ability);
         }
 
-        public override void StartAbilityCooldown(RPGAbilityRankData rank, int abilityID)
+        public override void StartAbilityCooldown(RPGAbility.RPGAbilityRankData rank, int abilityID)
         {
             var finalCD = rank.cooldown;
             float cdrecoveryspeed = CombatUtilities.GetTotalOfStatType(this, RPGStat.STAT_TYPE.CD_RECOVERY_SPEED);
@@ -399,7 +394,7 @@ namespace BLINK.RPGBuilder.Combat
                 foreach (var ab in GameDatabase.Instance.GetAbilities().Values)
                 {
                     if(!CombatUtilities.IsAbilityKnown(ab.ID)) continue;
-                    RPGAbilityRankData thisRankREF = ab.ranks[RPGBuilderUtilities.GetCharacterAbilityRank(ab.ID)];
+                    RPGAbility.RPGAbilityRankData thisRankREF = ab.ranks[RPGBuilderUtilities.GetCharacterAbilityRank(ab.ID)];
                     if (!thisRankREF.isSharingCooldown || thisRankREF.abilityCooldownTag.entryName != rank.abilityCooldownTag.entryName) continue;
                     float thisCD = thisRankREF.cooldown - (thisRankREF.cooldown * cdrecoveryspeed);
                     Character.Instance.InitAbilityCooldown(ab.ID, thisCD);
@@ -407,7 +402,7 @@ namespace BLINK.RPGBuilder.Combat
             }
         }
         
-        public override void SetProjectileRotation(GameObject projectile, RPGAbilityRankData rank, float yOffset)
+        public override void SetProjectileRotation(GameObject projectile, RPGAbility.RPGAbilityRankData rank, float yOffset)
         {
             Ray ray;
             switch (controllerEssentials.GETControllerType())
@@ -496,7 +491,7 @@ namespace BLINK.RPGBuilder.Combat
 
         #region COMBAT EVENTS
 
-        public override void TakeDamage(CombatCalculations.DamageResult result, RPGAbilityRankData abilityRank, int alteredStatID)
+        public override void TakeDamage(CombatCalculations.DamageResult result, RPGAbility.RPGAbilityRankData abilityRank, int alteredStatID)
         {
             base.TakeDamage(result, abilityRank, alteredStatID);
 
@@ -665,7 +660,7 @@ namespace BLINK.RPGBuilder.Combat
             appearance.HandleAnimatorOverride();
         }
 
-        public override void InitCasting(RPGAbility thisAbility, RPGAbilityRankData rankREF)
+        public override void InitCasting(RPGAbility thisAbility, RPGAbility.RPGAbilityRankData rankREF)
         {
             base.InitCasting(thisAbility, rankREF);
             
@@ -681,8 +676,8 @@ namespace BLINK.RPGBuilder.Combat
 
         protected override void CastingCompleted()
         {
-            if ((CurrentAbilityCastedCurRank.targetType == TARGET_TYPES.TARGET_PROJECTILE ||
-                 CurrentAbilityCastedCurRank.targetType == TARGET_TYPES.TARGET_INSTANT)
+            if ((CurrentAbilityCastedCurRank.targetType == RPGAbility.TARGET_TYPES.TARGET_PROJECTILE ||
+                 CurrentAbilityCastedCurRank.targetType == RPGAbility.TARGET_TYPES.TARGET_INSTANT)
                 && CurrentTargetCasted.IsDead())
             {
                 UIEvents.Instance.OnShowAlertMessage("The target is dead!", 3);
@@ -712,7 +707,7 @@ namespace BLINK.RPGBuilder.Combat
             
         }
 
-        public override void InitChanneling(RPGAbility thisAbility, RPGAbilityRankData rankREF)
+        public override void InitChanneling(RPGAbility thisAbility, RPGAbility.RPGAbilityRankData rankREF)
         {
             base.InitChanneling(thisAbility, rankREF);
             CombatEvents.Instance.OnStartedChannelingAbility(this, thisAbility, rankREF, rankREF.channelTime);
@@ -783,7 +778,7 @@ namespace BLINK.RPGBuilder.Combat
             }
         }
         
-        public override void InitStealth(bool showActionBar, List<AbilityEffectsApplied> nestedEffects)
+        public override void InitStealth(bool showActionBar, List<RPGAbility.AbilityEffectsApplied> nestedEffects)
         {
             Stealth = true;
                 CombatManager.Instance.DestroyStealthNodeCombatEntities(this);
@@ -947,12 +942,12 @@ namespace BLINK.RPGBuilder.Combat
             base.InterruptCastActions();
         }
 
-        public override void InitStandTime(RPGAbilityRankData rank)
+        public override void InitStandTime(RPGAbility.RPGAbilityRankData rank)
         {
             controllerEssentials.InitStandTime(rank.standTimeDuration);
         }
         
-        public override void InitCastSlow(RPGAbilityRankData rank)
+        public override void InitCastSlow(RPGAbility.RPGAbilityRankData rank)
         {
             controllerEssentials.InitCastMoveSlow(rank.castSpeedSlowAmount, rank.castSpeedSlowTime, rank.castSpeedSlowRate);
         }
@@ -1057,7 +1052,7 @@ namespace BLINK.RPGBuilder.Combat
             CombatEvents.Instance.OnPlayerStartedActiveBlocking();
         }
 
-        public override void InitGroundAbility(RPGAbility ability, RPGAbilityRankData rank)
+        public override void InitGroundAbility(RPGAbility ability, RPGAbility.RPGAbilityRankData rank)
         {
             base.InitGroundAbility(ability, rank);
             indicatorManagerRef.ShowIndicator(rank.groundRadius * 1.25f, rank.groundRange);
@@ -1086,9 +1081,9 @@ namespace BLINK.RPGBuilder.Combat
             _nextAutoAttack = Time.time + nextAA;
         }
         
-        private void InitCurrentClickPos(RPGAbilityRankData rankRef)
+        private void InitCurrentClickPos(RPGAbility.RPGAbilityRankData rankRef)
         {
-            if (rankRef.targetType != TARGET_TYPES.PROJECTILE || !rankRef.projectileShootOnClickPosition) return;
+            if (rankRef.targetType != RPGAbility.TARGET_TYPES.PROJECTILE || !rankRef.projectileShootOnClickPosition) return;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             var plane = new Plane(Vector3.up, new Vector3(0, transform.position.y + rankRef.effectPositionOffset.y, 0));
             if (plane.Raycast(ray, out var distance))

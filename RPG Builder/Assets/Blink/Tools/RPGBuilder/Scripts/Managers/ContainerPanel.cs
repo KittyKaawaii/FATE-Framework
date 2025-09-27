@@ -4,7 +4,6 @@ using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UIElements;
 using BLINK.RPGBuilder.WorldPersistence;
-using FATE.FATEInput.Runtime.Manager;
 using UnityEngine;
 
 public class ContainerPanel : DisplayPanel

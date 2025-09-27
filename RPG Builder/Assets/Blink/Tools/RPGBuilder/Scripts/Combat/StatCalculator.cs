@@ -6,9 +6,6 @@ using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Data;
 using BLINK.RPGBuilder.Managers;
 using FATE.FATEClass.Runtime.DatabaseEntry;
-using FATE.FATECombat.Runtime.Data;
-using FATE.FATECombat.Runtime.Utility;
-using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEEnchantment.Runtime.DatabaseEntry;
 using FATE.FATERace.Runtime.DatabaseEntry;
 using FATE.FATESkill.Runtime.DatabaseEntry;
@@ -23,64 +20,55 @@ namespace BLINK.RPGBuilder.Logic
         private class TemporaryStatsDATA
         {
             public RPGStat stat;
-
             public float value;
         }
-
+        
         private static List<TemporaryStatsDATA> tempStatList = new List<TemporaryStatsDATA>();
 
         public enum TemporaryStatSourceType
         {
             none,
-
             item,
-
             effect,
-
             bonus,
-
             shapeshifting,
-
             mount
         }
-
+        
         public class TemporaryActiveGearSetsDATA
         {
             public RPGGearSet gearSet;
-
             public int activeTierIndex;
         }
 
         public class VitalityStatState
         {
             public int statID;
-
             public float percent;
         }
-
+        
         public class CustomStatsGroup
         {
             public List<CombatData.CustomStatValues> stats = new List<CombatData.CustomStatValues>();
-
             public int level;
         }
-
+        
         private static void TriggerStatEvents(CombatEntity combatEntity, int statID)
         {
-            CombatEvents.Instance.OnStatValueChanged(combatEntity, combatEntity.GetStats()[statID].stat,
+            CombatEvents.Instance.OnStatValueChanged(combatEntity, combatEntity.GetStats()[statID].stat, 
                 combatEntity.GetStats()[statID].currentValue, combatEntity.GetStats()[statID].currentMaxValue);
         }
-
+        
         public static void TriggerMovementSpeedChange(CombatEntity combatEntity)
         {
             CombatEvents.Instance.OnMovementSpeedChanged(combatEntity, CombatUtilities.GetTotalOfStatType(combatEntity, RPGStat.STAT_TYPE.MOVEMENT_SPEED));
         }
-
+        
         public static void ResetPlayerStatsAfterRespawn()
         {
             foreach (var playerStat in GameState.playerEntity.GetStats().Where(t => t.Value.stat.isVitalityStat))
             {
-                playerStat.Value.currentValue = (int)(playerStat.Value.currentMaxValue * (playerStat.Value.stat.startPercentage / 100f));
+                playerStat.Value.currentValue = (int)(playerStat.Value.currentMaxValue * (playerStat.Value.stat.startPercentage/100f));
                 TriggerStatEvents(GameState.playerEntity, playerStat.Value.stat.ID);
             }
         }
@@ -88,12 +76,11 @@ namespace BLINK.RPGBuilder.Logic
         public static void UpdateLevelUpStats()
         {
             int statsAffectingMovementSpeed = 0;
-
+            
             var thisRace = GameDatabase.Instance.GetRaces()[Character.Instance.CharacterData.RaceID];
             foreach (var raceStat in thisRace.CustomStats)
             {
-                HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[raceStat.statID], GameState.playerEntity.GetStats()[raceStat.statID], raceStat.valuePerLevel, raceStat.Percent,
-                    TemporaryStatSourceType.none);
+                HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[raceStat.statID], GameState.playerEntity.GetStats()[raceStat.statID], raceStat.valuePerLevel, raceStat.Percent, TemporaryStatSourceType.none);
                 TriggerStatEvents(GameState.playerEntity, raceStat.statID);
                 if (RPGBuilderUtilities.StatAffectsMoveSpeed(GameState.playerEntity.GetStats()[raceStat.statID].stat)) statsAffectingMovementSpeed++;
             }
@@ -103,8 +90,7 @@ namespace BLINK.RPGBuilder.Logic
                 var thisClass = GameDatabase.Instance.GetClasses()[Character.Instance.CharacterData.ClassID];
                 foreach (var classStat in thisClass.CustomStats)
                 {
-                    HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[classStat.statID], GameState.playerEntity.GetStats()[classStat.statID], classStat.valuePerLevel,
-                        classStat.Percent, TemporaryStatSourceType.none);
+                    HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[classStat.statID], GameState.playerEntity.GetStats()[classStat.statID], classStat.valuePerLevel, classStat.Percent, TemporaryStatSourceType.none);
                     TriggerStatEvents(GameState.playerEntity, classStat.statID);
                     if (RPGBuilderUtilities.StatAffectsMoveSpeed(GameState.playerEntity.GetStats()[classStat.statID].stat)) statsAffectingMovementSpeed++;
                 }
@@ -114,33 +100,31 @@ namespace BLINK.RPGBuilder.Logic
             {
                 foreach (var speciesStat in GameDatabase.Instance.GetSpecies()[thisRace.speciesID].CustomStats)
                 {
-                    HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[speciesStat.statID], GameState.playerEntity.GetStats()[speciesStat.statID], speciesStat.valuePerLevel,
-                        speciesStat.Percent, TemporaryStatSourceType.none);
+                    HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[speciesStat.statID], GameState.playerEntity.GetStats()[speciesStat.statID], speciesStat.valuePerLevel, speciesStat.Percent, TemporaryStatSourceType.none);
                     TriggerStatEvents(GameState.playerEntity, speciesStat.statID);
                     if (RPGBuilderUtilities.StatAffectsMoveSpeed(GameState.playerEntity.GetStats()[speciesStat.statID].stat)) statsAffectingMovementSpeed++;
                 }
             }
-
+            
             ResetLinkedStats(GameState.playerEntity, true);
             ProcessLinkedStats(GameState.playerEntity, true);
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(GameState.playerEntity);
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(GameState.playerEntity);
             CombatEvents.Instance.OnStatsChanged(GameState.playerEntity);
         }
 
-
+        
         public static void UpdateWeaponTemplateLevelUpStats(int weaponTemplateID)
         {
             var wpTemplate = GameDatabase.Instance.GetWeaponTemplates()[weaponTemplateID];
             int statsAffectingMovementSpeed = 0;
             int statChanged = 0;
-
+            
             foreach (var weaponTemplateStat in wpTemplate.CustomStats.Where(weaponTemplateStat => weaponTemplateStat.valuePerLevel != 0))
             {
-                HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[weaponTemplateStat.statID], GameState.playerEntity.GetStats()[weaponTemplateStat.statID],
-                    weaponTemplateStat.valuePerLevel, weaponTemplateStat.Percent, TemporaryStatSourceType.none);
-
+                HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[weaponTemplateStat.statID], GameState.playerEntity.GetStats()[weaponTemplateStat.statID], weaponTemplateStat.valuePerLevel, weaponTemplateStat.Percent, TemporaryStatSourceType.none);
+                
                 TriggerStatEvents(GameState.playerEntity, weaponTemplateStat.statID);
-
+                
                 if (RPGBuilderUtilities.StatAffectsMoveSpeed(GameState.playerEntity.GetStats()[weaponTemplateStat.statID].stat)) statsAffectingMovementSpeed++;
                 statChanged++;
             }
@@ -153,21 +137,20 @@ namespace BLINK.RPGBuilder.Logic
                 CombatEvents.Instance.OnStatsChanged(GameState.playerEntity);
             }
         }
-
-
+        
+        
         public static void UpdateSkillLevelUpStats(int skillID)
         {
             var thisSkill = GameDatabase.Instance.GetSkills()[skillID];
             int statsAffectingMovementSpeed = 0;
             int statChanged = 0;
-
+            
             foreach (var skillStat in thisSkill.CustomStats.Where(skillStat => skillStat.valuePerLevel != 0))
             {
-                HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[skillStat.statID], GameState.playerEntity.GetStats()[skillStat.statID], skillStat.valuePerLevel, skillStat.Percent,
-                    TemporaryStatSourceType.none);
-
+                HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[skillStat.statID], GameState.playerEntity.GetStats()[skillStat.statID], skillStat.valuePerLevel, skillStat.Percent, TemporaryStatSourceType.none);
+                
                 TriggerStatEvents(GameState.playerEntity, skillStat.statID);
-
+                
                 if (RPGBuilderUtilities.StatAffectsMoveSpeed(GameState.playerEntity.GetStats()[skillStat.statID].stat)) statsAffectingMovementSpeed++;
                 statChanged++;
             }
@@ -176,18 +159,18 @@ namespace BLINK.RPGBuilder.Logic
             {
                 ResetLinkedStats(GameState.playerEntity, true);
                 ProcessLinkedStats(GameState.playerEntity, true);
-                if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(GameState.playerEntity);
+                if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(GameState.playerEntity);
                 CombatEvents.Instance.OnStatsChanged(GameState.playerEntity);
             }
         }
-
+        
         public static void UpdateStatAllocation(int statID, int amount)
         {
             HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[statID], GameState.playerEntity.GetStats()[statID], amount, false, TemporaryStatSourceType.none);
-
+            
             TriggerStatEvents(GameState.playerEntity, statID);
             CombatEvents.Instance.OnStatsChanged(GameState.playerEntity);
-
+            
             ResetLinkedStats(GameState.playerEntity, true);
             ProcessLinkedStats(GameState.playerEntity, true);
             if (RPGBuilderUtilities.StatAffectsMoveSpeed(GameState.playerEntity.GetStats()[statID].stat)) TriggerMovementSpeedChange(GameState.playerEntity);
@@ -197,64 +180,59 @@ namespace BLINK.RPGBuilder.Logic
         {
             List<CustomStatsGroup> CustomStatsGroups = new List<CustomStatsGroup>();
             RPGRace raceEntry = GameDatabase.Instance.GetRaces()[Character.Instance.CharacterData.RaceID];
-            CustomStatsGroup raceStats = new CustomStatsGroup { level = Character.Instance.CharacterData.Level };
+            CustomStatsGroup raceStats = new CustomStatsGroup {level = Character.Instance.CharacterData.Level};
             foreach (var customStat in raceEntry.CustomStats)
             {
                 raceStats.stats.Add(customStat);
             }
-
             CustomStatsGroups.Add(raceStats);
-
+            
             foreach (var skill in Character.Instance.CharacterData.Skills)
             {
                 RPGSkill skillEntry = GameDatabase.Instance.GetSkills()[skill.skillID];
-                CustomStatsGroup skillStats = new CustomStatsGroup { level = RPGBuilderUtilities.getSkillLevel(skill.skillID) };
+                CustomStatsGroup skillStats = new CustomStatsGroup {level = RPGBuilderUtilities.getSkillLevel(skill.skillID)};
                 foreach (var customStat in skillEntry.CustomStats)
                 {
                     skillStats.stats.Add(customStat);
                 }
-
                 CustomStatsGroups.Add(skillStats);
             }
-
+            
             foreach (var weaponTemplate in Character.Instance.CharacterData.WeaponTemplates)
             {
                 RPGWeaponTemplate weaponTemplateEntry = GameDatabase.Instance.GetWeaponTemplates()[weaponTemplate.weaponTemplateID];
-                CustomStatsGroup weaponTemplateStats = new CustomStatsGroup { level = RPGBuilderUtilities.getWeaponTemplateLevel(weaponTemplate.weaponTemplateID) };
+                CustomStatsGroup weaponTemplateStats = new CustomStatsGroup {level = RPGBuilderUtilities.getWeaponTemplateLevel(weaponTemplate.weaponTemplateID)};
                 foreach (var customStat in weaponTemplateEntry.CustomStats)
                 {
                     weaponTemplateStats.stats.Add(customStat);
                 }
-
                 CustomStatsGroups.Add(weaponTemplateStats);
             }
-
+            
             if (!GameDatabase.Instance.GetCharacterSettings().NoClasses)
             {
                 RPGClass classEntry = GameDatabase.Instance.GetClasses()[Character.Instance.CharacterData.ClassID];
-                CustomStatsGroup classStats = new CustomStatsGroup { level = Character.Instance.CharacterData.Level };
+                CustomStatsGroup classStats = new CustomStatsGroup {level = Character.Instance.CharacterData.Level};
                 foreach (var customStat in classEntry.CustomStats)
                 {
                     classStats.stats.Add(customStat);
                 }
-
                 CustomStatsGroups.Add(classStats);
             }
 
             if (raceEntry.speciesID != -1)
             {
-                CustomStatsGroup speciesStats = new CustomStatsGroup { level = Character.Instance.CharacterData.Level };
+                CustomStatsGroup speciesStats = new CustomStatsGroup {level = Character.Instance.CharacterData.Level};
                 foreach (var customStat in GameDatabase.Instance.GetSpecies()[raceEntry.speciesID].CustomStats)
                 {
                     speciesStats.stats.Add(customStat);
                 }
-
                 CustomStatsGroups.Add(speciesStats);
             }
-
+            
             return CustomStatsGroups;
         }
-
+        
         public static void InitCharacterStats()
         {
             List<VitalityStatState> vitalityStatStates = GetVitalityStatsStates(GameState.playerEntity);
@@ -272,66 +250,61 @@ namespace BLINK.RPGBuilder.Logic
                     {
                         GameState.playerEntity.GetStats()[stat.statID].currentMinValue = stat.minValue;
                     }
-
                     if (stat.overrideMaxValue)
                     {
                         GameState.playerEntity.GetStats()[stat.statID].currentMaxValue = stat.maxValue;
                     }
-
-                    HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[stat.statID], GameState.playerEntity.GetStats()[stat.statID], amount, stat.Percent,
-                        TemporaryStatSourceType.none);
+                    
+                    HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[stat.statID], GameState.playerEntity.GetStats()[stat.statID], amount, stat.Percent, TemporaryStatSourceType.none);
                 }
             }
-
+            
             foreach (var allocatedStat in Character.Instance.CharacterData.AllocatedStats)
             {
-                HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[allocatedStat.statID], GameState.playerEntity.GetStats()[allocatedStat.statID],
-                    allocatedStat.value + allocatedStat.valueGame, false, TemporaryStatSourceType.none);
+                HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[allocatedStat.statID], GameState.playerEntity.GetStats()[allocatedStat.statID], allocatedStat.value+allocatedStat.valueGame, false, TemporaryStatSourceType.none);
             }
-
+            
             foreach (var playerStat in GameState.playerEntity.GetStats())
             {
                 CombatData.CombatEntityStat temp = GameModifierManager.Instance.GetStatValueAfterGameModifier("Combat+Stat+Settings", playerStat.Value, -1, true);
-
+                
                 if (playerStat.Value.stat.isVitalityStat)
                 {
-                    playerStat.Value.currentValue = temp.currentMaxValue * (playerStat.Value.stat.startPercentage / 100f);
+                    playerStat.Value.currentValue = temp.currentMaxValue * (playerStat.Value.stat.startPercentage/100f);
                 }
                 else
                 {
                     playerStat.Value.currentValue = temp.currentValue;
                 }
-
+                
                 if (playerStat.Value.stat.minCheck)
                 {
                     float statOverride = GameModifierManager.Instance.GetStatOverrideModifier(RPGGameModifier.CategoryType.Combat + "+" +
-                                                                                              RPGGameModifier.CombatModuleType.Stat + "+" +
-                                                                                              RPGGameModifier.StatModifierType.MinOverride, playerStat.Value.stat.ID);
+                        RPGGameModifier.CombatModuleType.Stat + "+" +
+                        RPGGameModifier.StatModifierType.MinOverride, playerStat.Value.stat.ID);
                     playerStat.Value.currentValue = statOverride != -1 ? statOverride : temp.currentValue;
                 }
-
                 if (playerStat.Value.stat.maxCheck)
                 {
                     float statOverride = GameModifierManager.Instance.GetStatOverrideModifier(RPGGameModifier.CategoryType.Combat + "+" +
-                                                                                              RPGGameModifier.CombatModuleType.Stat + "+" +
-                                                                                              RPGGameModifier.StatModifierType.MaxOverride, playerStat.Value.stat.ID);
+                        RPGGameModifier.CombatModuleType.Stat + "+" +
+                        RPGGameModifier.StatModifierType.MaxOverride, playerStat.Value.stat.ID);
                     playerStat.Value.currentMaxValue = statOverride != -1 ? statOverride : temp.currentMaxValue;
                 }
-
+                
                 HandleStat(GameState.playerEntity, playerStat.Value.stat, playerStat.Value, 0, false, TemporaryStatSourceType.none);
             }
-
+            
             ResetLinkedStats(GameState.playerEntity, false);
             ProcessLinkedStats(GameState.playerEntity, false);
             TriggerMovementSpeedChange(GameState.playerEntity);
 
             ApplyVitalityStatsStates(vitalityStatStates, GameState.playerEntity);
-
+            
             foreach (var stat in GameState.playerEntity.GetStats().Values)
             {
                 TriggerStatEvents(GameState.playerEntity, stat.stat.ID);
             }
-
             CombatEvents.Instance.OnStatsChanged(GameState.playerEntity);
         }
 
@@ -346,14 +319,12 @@ namespace BLINK.RPGBuilder.Logic
                 {
                     newValue = 1;
                 }
-
-                CombatUtilities.SetCurrentStatValue(entity, statREF.ID, (int)newValue);
+                CombatUtilities.SetCurrentStatValue(entity, statREF.ID, (int) newValue);
 
                 ClampStat(statREF, entity);
 
                 TriggerStatEvents(entity, statREF.ID);
             }
-
             CombatEvents.Instance.OnStatsChanged(entity);
         }
 
@@ -361,11 +332,11 @@ namespace BLINK.RPGBuilder.Logic
         {
             foreach (var playerStat in GameState.playerEntity.GetStats().Where(playerStat => playerStat.Value.stat.isVitalityStat))
             {
-                playerStat.Value.currentValue = (int)(playerStat.Value.currentMaxValue * (playerStat.Value.stat.startPercentage / 100f));
+                playerStat.Value.currentValue = (int)(playerStat.Value.currentMaxValue * (playerStat.Value.stat.startPercentage/100f));
             }
         }
 
-        private static List<TemporaryStatsDATA> AddStatsToTemp(List<TemporaryStatsDATA> tempList, RPGStat statREF, float value)
+        private static List<TemporaryStatsDATA> AddStatsToTemp (List<TemporaryStatsDATA> tempList, RPGStat statREF, float value)
         {
             foreach (var t in tempList.Where(t => t.stat == statREF))
             {
@@ -373,12 +344,12 @@ namespace BLINK.RPGBuilder.Logic
                 return tempList;
             }
 
-            TemporaryStatsDATA newTempStatData = new TemporaryStatsDATA { stat = statREF, value = value };
+            TemporaryStatsDATA newTempStatData = new TemporaryStatsDATA {stat = statREF, value = value};
             tempList.Add(newTempStatData);
             return tempList;
         }
 
-        public static void HandleStat(CombatEntity combatEntity, RPGStat stat, CombatData.CombatEntityStat entityStatData, float amount, bool isPercent, TemporaryStatSourceType sourceType)
+        public static void HandleStat(CombatEntity combatEntity, RPGStat stat, CombatData.CombatEntityStat entityStatData,  float amount, bool isPercent, TemporaryStatSourceType sourceType)
         {
             float addedValue = amount;
             if (isPercent)
@@ -418,14 +389,14 @@ namespace BLINK.RPGBuilder.Logic
             ClampStat(stat, combatEntity);
         }
 
-        public static void ProcessLinkedStats(CombatEntity entity, bool triggerEvents)
+        public static void ProcessLinkedStats (CombatEntity entity, bool triggerEvents)
         {
             foreach (var stat in entity.GetStats().Values)
             {
                 foreach (var bonus in stat.stat.statBonuses)
                 {
-                    if (bonus.statType != RPGStat.STAT_TYPE.VITALITY_BONUS) continue;
-                    if (bonus.statID == -1) continue;
+                    if(bonus.statType != RPGStat.STAT_TYPE.VITALITY_BONUS) continue;
+                    if(bonus.statID == -1) continue;
                     RPGStat linkedStat = GameDatabase.Instance.GetStats()[bonus.statID];
                     if (!linkedStat.isVitalityStat) continue;
                     float addedValue = stat.currentValue * bonus.modifyValue;
@@ -442,8 +413,8 @@ namespace BLINK.RPGBuilder.Logic
                 }
             }
         }
-
-        public static void ResetLinkedStats(CombatEntity entity, bool triggerEvents)
+        
+        public static void ResetLinkedStats (CombatEntity entity, bool triggerEvents)
         {
             int statsAffectingMovementSpeed = 0;
             foreach (var linkedStat in entity.GetStats().Where(t2 => t2.Value.valueFromLinkedStats != 0))
@@ -465,13 +436,13 @@ namespace BLINK.RPGBuilder.Logic
                     TriggerStatEvents(entity, linkedStat.Value.stat.ID);
                     CombatEvents.Instance.OnStatsChanged(entity);
                 }
-
+                
                 if (RPGBuilderUtilities.StatAffectsMoveSpeed(entity.GetStats()[linkedStat.Value.stat.ID].stat)) statsAffectingMovementSpeed++;
             }
-
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(entity);
+            
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(entity);
         }
-
+        
 
         private static void ResetItemStats()
         {
@@ -495,14 +466,14 @@ namespace BLINK.RPGBuilder.Logic
 
                 statFromItem.Value.valueFromItem = 0;
                 ClampStat(statFromItem.Value.stat, GameState.playerEntity);
-
+                
                 TriggerStatEvents(GameState.playerEntity, statFromItem.Value.stat.ID);
                 CombatEvents.Instance.OnStatsChanged(GameState.playerEntity);
-
+                
                 if (RPGBuilderUtilities.StatAffectsMoveSpeed(GameState.playerEntity.GetStats()[statFromItem.Value.stat.ID].stat)) statsAffectingMovementSpeed++;
             }
-
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(GameState.playerEntity);
+            
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(GameState.playerEntity);
         }
 
         private static void ResetBonusStats()
@@ -513,9 +484,9 @@ namespace BLINK.RPGBuilder.Logic
                 if (statFromBonus.Value.stat.isVitalityStat)
                 {
                     float statOverride = GameModifierManager.Instance.GetStatOverrideModifier(RPGGameModifier.CategoryType.Combat + "+" +
-                                                                                              RPGGameModifier.CombatModuleType.Stat + "+" +
-                                                                                              RPGGameModifier.StatModifierType.MaxOverride, statFromBonus.Value.stat.ID);
-
+                        RPGGameModifier.CombatModuleType.Stat + "+" +
+                        RPGGameModifier.StatModifierType.MaxOverride, statFromBonus.Value.stat.ID);
+                    
                     if (statOverride != -1) statFromBonus.Value.currentMaxValue = statOverride;
                     else statFromBonus.Value.currentMaxValue -= statFromBonus.Value.valueFromBonus;
                 }
@@ -523,23 +494,23 @@ namespace BLINK.RPGBuilder.Logic
                 {
                     statFromBonus.Value.currentValue -= statFromBonus.Value.valueFromBonus;
                 }
-
+                
                 statFromBonus.Value.valueFromBonus = 0;
                 ClampStat(statFromBonus.Value.stat, GameState.playerEntity);
-
+                
                 TriggerStatEvents(GameState.playerEntity, statFromBonus.Value.stat.ID);
                 CombatEvents.Instance.OnStatsChanged(GameState.playerEntity);
-
+                
                 if (RPGBuilderUtilities.StatAffectsMoveSpeed(GameState.playerEntity.GetStats()[statFromBonus.Value.stat.ID].stat)) statsAffectingMovementSpeed++;
             }
-
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(GameState.playerEntity);
+            
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(GameState.playerEntity);
         }
 
         private static void ResetEffectsStats(CombatEntity combatEntity)
         {
             int statsAffectingMovementSpeed = 0;
-
+            
             foreach (var statFromEffect in combatEntity.GetStats().Where(t2 => t2.Value.valueFromEffect != 0))
             {
                 if (statFromEffect.Value.stat.isVitalityStat)
@@ -548,7 +519,7 @@ namespace BLINK.RPGBuilder.Logic
                         RPGGameModifier.CategoryType.Combat + "+" +
                         RPGGameModifier.CombatModuleType.Stat + "+" +
                         RPGGameModifier.StatModifierType.MaxOverride, statFromEffect.Value.stat.ID);
-
+                    
                     if (statOverride != -1) statFromEffect.Value.currentMaxValue = statOverride;
                     else statFromEffect.Value.currentMaxValue -= statFromEffect.Value.valueFromEffect;
                 }
@@ -559,27 +530,27 @@ namespace BLINK.RPGBuilder.Logic
 
                 statFromEffect.Value.valueFromEffect = 0;
                 ClampStat(statFromEffect.Value.stat, combatEntity);
-
+                
                 TriggerStatEvents(combatEntity, statFromEffect.Value.stat.ID);
                 CombatEvents.Instance.OnStatsChanged(combatEntity);
                 if (RPGBuilderUtilities.StatAffectsMoveSpeed(combatEntity.GetStats()[statFromEffect.Value.stat.ID].stat)) statsAffectingMovementSpeed++;
             }
-
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
+            
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
         }
 
         public static void ResetShapeshiftingStats(CombatEntity combatEntity)
         {
             int statsAffectingMovementSpeed = 0;
-
+            
             foreach (var statFromShapeshifting in combatEntity.GetStats().Where(t2 => t2.Value.valueFromShapeshifting != 0))
             {
                 if (statFromShapeshifting.Value.stat.isVitalityStat)
                 {
                     float statOverride = GameModifierManager.Instance.GetStatOverrideModifier(RPGGameModifier.CategoryType.Combat + "+" +
-                                                                                              RPGGameModifier.CombatModuleType.Stat + "+" +
-                                                                                              RPGGameModifier.StatModifierType.MaxOverride, statFromShapeshifting.Value.stat.ID);
-
+                        RPGGameModifier.CombatModuleType.Stat + "+" +
+                        RPGGameModifier.StatModifierType.MaxOverride, statFromShapeshifting.Value.stat.ID);
+                    
                     if (statOverride != -1) statFromShapeshifting.Value.currentMaxValue = statOverride;
                     else statFromShapeshifting.Value.currentMaxValue -= statFromShapeshifting.Value.valueFromShapeshifting;
                 }
@@ -587,31 +558,30 @@ namespace BLINK.RPGBuilder.Logic
                 {
                     statFromShapeshifting.Value.currentValue -= statFromShapeshifting.Value.valueFromShapeshifting;
                 }
-
                 statFromShapeshifting.Value.valueFromShapeshifting = 0;
                 ClampStat(statFromShapeshifting.Value.stat, combatEntity);
-
+                
                 TriggerStatEvents(combatEntity, statFromShapeshifting.Value.stat.ID);
                 CombatEvents.Instance.OnStatsChanged(combatEntity);
-
+                
                 if (RPGBuilderUtilities.StatAffectsMoveSpeed(combatEntity.GetStats()[statFromShapeshifting.Value.stat.ID].stat)) statsAffectingMovementSpeed++;
             }
-
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
+            
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
         }
-
+        
         public static void ResetMountStats(CombatEntity combatEntity)
         {
             int statsAffectingMovementSpeed = 0;
-
+            
             foreach (var statFromMount in combatEntity.GetStats().Where(t2 => t2.Value.valueFromMount != 0))
             {
                 if (statFromMount.Value.stat.isVitalityStat)
                 {
                     float statOverride = GameModifierManager.Instance.GetStatOverrideModifier(RPGGameModifier.CategoryType.Combat + "+" +
-                                                                                              RPGGameModifier.CombatModuleType.Stat + "+" +
-                                                                                              RPGGameModifier.StatModifierType.MaxOverride, statFromMount.Value.stat.ID);
-
+                        RPGGameModifier.CombatModuleType.Stat + "+" +
+                        RPGGameModifier.StatModifierType.MaxOverride, statFromMount.Value.stat.ID);
+                    
                     if (statOverride != -1) statFromMount.Value.currentMaxValue = statOverride;
                     else statFromMount.Value.currentMaxValue -= statFromMount.Value.valueFromMount;
                 }
@@ -619,25 +589,22 @@ namespace BLINK.RPGBuilder.Logic
                 {
                     statFromMount.Value.currentValue -= statFromMount.Value.valueFromMount;
                 }
-
                 statFromMount.Value.valueFromMount = 0;
                 ClampStat(statFromMount.Value.stat, combatEntity);
-
+                
                 TriggerStatEvents(combatEntity, statFromMount.Value.stat.ID);
                 CombatEvents.Instance.OnStatsChanged(combatEntity);
-
+                
                 if (RPGBuilderUtilities.StatAffectsMoveSpeed(combatEntity.GetStats()[statFromMount.Value.stat.ID].stat)) statsAffectingMovementSpeed++;
             }
-
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
+            
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
         }
 
         private static List<EconomyData.EquippedItemData> getAllEquippedItems()
         {
-            List<EconomyData.EquippedItemData> allItems = (from t in GameState.playerEntity.equippedArmors
-                where t.item != null
-                select new EconomyData.EquippedItemData { item = t.item, itemDataID = t.temporaryItemDataID }).ToList();
-            allItems.AddRange(from t in GameState.playerEntity.equippedWeapons where t.item != null select new EconomyData.EquippedItemData { item = t.item, itemDataID = t.temporaryItemDataID });
+            List<EconomyData.EquippedItemData> allItems = (from t in GameState.playerEntity.equippedArmors where t.item != null select new EconomyData.EquippedItemData {item = t.item, itemDataID = t.temporaryItemDataID}).ToList();
+            allItems.AddRange(from t in GameState.playerEntity.equippedWeapons where t.item != null select new EconomyData.EquippedItemData {item = t.item, itemDataID = t.temporaryItemDataID});
 
             return allItems;
         }
@@ -656,14 +623,14 @@ namespace BLINK.RPGBuilder.Logic
                 };
                 newVitStatState.percent *= 100;
                 if (newVitStatState.percent < 1) newVitStatState.percent = 1;
-                newVitStatState.percent = (int)newVitStatState.percent;
+                newVitStatState.percent = (int) newVitStatState.percent;
                 vitStates.Add(newVitStatState);
             }
 
             return vitStates;
         }
 
-
+        
         public static void CalculateItemStats()
         {
             tempStatList.Clear();
@@ -675,7 +642,7 @@ namespace BLINK.RPGBuilder.Logic
             {
                 foreach (var equippedItemStat in equippedItem.item.stats)
                 {
-                    HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[equippedItemStat.statID], GameState.playerEntity.GetStats()[equippedItemStat.statID],
+                    HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[equippedItemStat.statID], GameState.playerEntity.GetStats()[equippedItemStat.statID], 
                         equippedItemStat.amount, equippedItemStat.isPercent, TemporaryStatSourceType.item);
                 }
 
@@ -688,7 +655,7 @@ namespace BLINK.RPGBuilder.Logic
                         foreach (var itemRandomStat in equippedItem.item.randomStats)
                         {
                             foreach (var randomizedItemStat in Character.Instance.CharacterData.RandomizedItems[rdmItemIndex]
-                                         .randomStats)
+                                .randomStats)
                             {
                                 HandleStat(GameState.playerEntity,
                                     GameDatabase.Instance.GetStats()[itemRandomStat.statID],
@@ -705,7 +672,7 @@ namespace BLINK.RPGBuilder.Logic
                             GameDatabase.Instance.GetEnchantments()[thisItemEntry.enchantmentID];
                         if (enchantmentREF == null) continue;
                         foreach (var enchantmentStat in enchantmentREF
-                                     .enchantmentTiers[thisItemEntry.enchantmentTierIndex].stats)
+                            .enchantmentTiers[thisItemEntry.enchantmentTierIndex].stats)
                         {
                             HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[enchantmentStat.statID],
                                 GameState.playerEntity.GetStats()[enchantmentStat.statID],
@@ -713,26 +680,20 @@ namespace BLINK.RPGBuilder.Logic
                         }
                     }
 
-                    foreach (var gemStat in from socket in thisItemEntry.sockets
-                             where socket.gemItemID != -1
-                             select GameDatabase.Instance.GetItems()[socket.gemItemID]
-                             into gemItemRef
-                             where gemItemRef != null
-                             from gemStat in gemItemRef.gemData.gemStats
-                             select gemStat)
+                    foreach (var gemStat in from socket in thisItemEntry.sockets where socket.gemItemID != -1 select GameDatabase.Instance.GetItems()[socket.gemItemID] into gemItemRef where gemItemRef != null from gemStat in gemItemRef.gemData.gemStats select gemStat)
                     {
                         HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[gemStat.statID], GameState.playerEntity.GetStats()[gemStat.statID],
                             gemStat.amount, gemStat.isPercent, TemporaryStatSourceType.item);
                     }
                 }
             }
-
+            
             List<TemporaryActiveGearSetsDATA> activeGearSets = getActiveGearSets(allEquippedItems);
             foreach (var gearSet in activeGearSets)
             {
                 for (int i = 0; i < gearSet.gearSet.gearSetTiers.Count; i++)
                 {
-                    if (i > gearSet.activeTierIndex) break;
+                    if(i > gearSet.activeTierIndex) break;
                     foreach (var gearSetStat in gearSet.gearSet.gearSetTiers[i].gearSetTierStats)
                     {
                         HandleStat(GameState.playerEntity, GameDatabase.Instance.GetStats()[gearSetStat.statID],
@@ -745,9 +706,9 @@ namespace BLINK.RPGBuilder.Logic
             ProcessTempStatList(TemporaryStatSourceType.item, GameState.playerEntity);
             ResetLinkedStats(GameState.playerEntity, true);
             ProcessLinkedStats(GameState.playerEntity, true);
-
+            
             ApplyVitalityStatsStates(vitalityStatStates, GameState.playerEntity);
-
+            
             TriggerMovementSpeedChange(GameState.playerEntity);
         }
 
@@ -757,10 +718,10 @@ namespace BLINK.RPGBuilder.Logic
             ResetBonusStats();
             int statsAffectingMovementSpeed = HandleStatList(GameState.playerEntity, TemporaryStatSourceType.bonus);
             ProcessTempStatList(TemporaryStatSourceType.bonus, GameState.playerEntity);
-
+            
             ResetLinkedStats(GameState.playerEntity, true);
             ProcessLinkedStats(GameState.playerEntity, true);
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(GameState.playerEntity);
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(GameState.playerEntity);
         }
 
         public static void CalculateEffectsStats(CombatEntity combatEntity)
@@ -769,10 +730,10 @@ namespace BLINK.RPGBuilder.Logic
             ResetEffectsStats(combatEntity);
             int statsAffectingMovementSpeed = HandleStatList(combatEntity, TemporaryStatSourceType.effect);
             ProcessTempStatList(TemporaryStatSourceType.effect, combatEntity);
-
+            
             ResetLinkedStats(combatEntity, true);
             ProcessLinkedStats(combatEntity, true);
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
         }
 
         public static void CalculateShapeshiftingStats(CombatEntity combatEntity)
@@ -781,22 +742,22 @@ namespace BLINK.RPGBuilder.Logic
             ResetShapeshiftingStats(combatEntity);
             int statsAffectingMovementSpeed = HandleStatList(combatEntity, TemporaryStatSourceType.shapeshifting);
             ProcessTempStatList(TemporaryStatSourceType.shapeshifting, combatEntity);
-
+            
             ResetLinkedStats(combatEntity, true);
             ProcessLinkedStats(combatEntity, true);
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
         }
-
+        
         public static void CalculateMountStats(CombatEntity combatEntity)
         {
             tempStatList.Clear();
             ResetMountStats(combatEntity);
             int statsAffectingMovementSpeed = HandleStatList(combatEntity, TemporaryStatSourceType.mount);
             ProcessTempStatList(TemporaryStatSourceType.mount, combatEntity);
-
+            
             ResetLinkedStats(combatEntity, true);
             ProcessLinkedStats(combatEntity, true);
-            if (statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
+            if(statsAffectingMovementSpeed > 0) TriggerMovementSpeedChange(combatEntity);
         }
 
         private static int HandleStatList(CombatEntity combatEntity, TemporaryStatSourceType sourceType)
@@ -809,29 +770,27 @@ namespace BLINK.RPGBuilder.Logic
                 case TemporaryStatSourceType.effect:
                     foreach (var effect in combatEntity.GetStates())
                     {
-                        if (effect.stateEffect.effectType != RPGEffect.EFFECT_TYPE.Stat) continue;
+                        if(effect.stateEffect.effectType != RPGEffect.EFFECT_TYPE.Stat) continue;
                         foreach (var statEffectsData in effect.effectRank.statEffectsData)
                         {
                             statEffects.Add(statEffectsData);
                         }
                     }
-
                     break;
                 case TemporaryStatSourceType.bonus:
                     foreach (var bonus in Character.Instance.CharacterData.Bonuses)
                     {
-                        if (!bonus.On) continue;
-                        foreach (var statEffectsData in GameDatabase.Instance.GetBonuses()[bonus.ID].ranks[bonus.rank - 1].statEffectsData)
+                        if(!bonus.On) continue;
+                        foreach (var statEffectsData in GameDatabase.Instance.GetBonuses()[bonus.ID].ranks[bonus.rank-1].statEffectsData)
                         {
                             statEffects.Add(statEffectsData);
                         }
                     }
-
                     break;
                 case TemporaryStatSourceType.shapeshifting:
                     foreach (var effect in combatEntity.GetStates())
                     {
-                        if (effect.stateEffect.effectType != RPGEffect.EFFECT_TYPE.Shapeshifting) continue;
+                        if(effect.stateEffect.effectType != RPGEffect.EFFECT_TYPE.Shapeshifting) continue;
                         foreach (var statEffectsData in effect.effectRank.statEffectsData)
                         {
                             statEffects.Add(statEffectsData);
@@ -839,12 +798,11 @@ namespace BLINK.RPGBuilder.Logic
 
                         break;
                     }
-
                     break;
                 case TemporaryStatSourceType.mount:
                     foreach (var effect in combatEntity.GetStates())
                     {
-                        if (effect.stateEffect.effectType != RPGEffect.EFFECT_TYPE.Mount) continue;
+                        if(effect.stateEffect.effectType != RPGEffect.EFFECT_TYPE.Mount) continue;
                         foreach (var statEffectsData in effect.effectRank.statEffectsData)
                         {
                             statEffects.Add(statEffectsData);
@@ -852,7 +810,6 @@ namespace BLINK.RPGBuilder.Logic
 
                         break;
                     }
-
                     break;
             }
 
@@ -873,7 +830,7 @@ namespace BLINK.RPGBuilder.Logic
             {
                 float addedValue;
                 CombatData.CombatEntityStat entityStatData = combatEntity.GetStats()[temporaryStat.stat.ID];
-
+                
                 if (temporaryStat.stat.isVitalityStat)
                 {
                     addedValue = entityStatData.currentValue * (temporaryStat.value / 100);
@@ -882,7 +839,7 @@ namespace BLINK.RPGBuilder.Logic
                         RPGGameModifier.CategoryType.Combat + "+" +
                         RPGGameModifier.CombatModuleType.Stat + "+" +
                         RPGGameModifier.StatModifierType.MaxOverride, entityStatData.stat.ID);
-
+                    
                     if (statOverride != -1) entityStatData.currentMaxValue = statOverride;
                     else entityStatData.currentMaxValue += addedValue;
                 }
@@ -912,7 +869,7 @@ namespace BLINK.RPGBuilder.Logic
                 }
 
                 ClampStat(temporaryStat.stat, combatEntity);
-
+                
                 TriggerStatEvents(combatEntity, temporaryStat.stat.ID);
                 CombatEvents.Instance.OnStatsChanged(combatEntity);
             }
@@ -935,7 +892,7 @@ namespace BLINK.RPGBuilder.Logic
 
             return activeGearSets;
         }
-
+        
         private static bool ContainsGearSet(RPGGearSet newGearSet, List<TemporaryActiveGearSetsDATA> allActiveGearSets)
         {
             foreach (var activeGearSet in allActiveGearSets)
@@ -949,7 +906,7 @@ namespace BLINK.RPGBuilder.Logic
         public static void ClampStat(RPGStat stat, CombatEntity combatEntity)
         {
             CombatData.CombatEntityStat nodeStat = combatEntity.GetStats()[stat.ID];
-
+            
             if (stat.minCheck && nodeStat.currentValue < getMinValue(nodeStat)) nodeStat.currentValue = (int)nodeStat.currentMinValue;
             if (stat.maxCheck && nodeStat.currentValue > getMaxValue(nodeStat)) nodeStat.currentValue = (int)nodeStat.currentMaxValue;
         }
@@ -957,16 +914,16 @@ namespace BLINK.RPGBuilder.Logic
         private static float getMinValue(CombatData.CombatEntityStat nodeStat)
         {
             float statOverride = GameModifierManager.Instance.GetStatOverrideModifier(RPGGameModifier.CategoryType.Combat + "+" +
-                                                                                      RPGGameModifier.CombatModuleType.Stat + "+" +
-                                                                                      RPGGameModifier.StatModifierType.MinOverride, nodeStat.stat.ID);
+                RPGGameModifier.CombatModuleType.Stat + "+" +
+                RPGGameModifier.StatModifierType.MinOverride, nodeStat.stat.ID);
             return statOverride != -1 ? statOverride : nodeStat.currentMinValue;
         }
 
         private static float getMaxValue(CombatData.CombatEntityStat nodeStat)
         {
             float statOverride = GameModifierManager.Instance.GetStatOverrideModifier(RPGGameModifier.CategoryType.Combat + "+" +
-                                                                                      RPGGameModifier.CombatModuleType.Stat + "+" +
-                                                                                      RPGGameModifier.StatModifierType.MaxOverride, nodeStat.stat.ID);
+                RPGGameModifier.CombatModuleType.Stat + "+" +
+                RPGGameModifier.StatModifierType.MaxOverride, nodeStat.stat.ID);
             return statOverride != -1 ? statOverride : nodeStat.currentMaxValue;
         }
     }

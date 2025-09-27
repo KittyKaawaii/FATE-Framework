@@ -2,14 +2,10 @@
 using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UI;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATEAbility.Runtime.Manager;
-using FATE.FATECombat.Runtime.Utility;
 using FATE.FATECrafting.Runtime.DatabaseEntry;
 using FATE.FATECrafting.Runtime.Manager;
 using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.UI;
-using FATE.FATETalentTree.Runtime.DatabaseEntity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;

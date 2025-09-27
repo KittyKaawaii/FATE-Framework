@@ -5,9 +5,6 @@ using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.LogicMono;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UIElements;
-using FATE.FATEAbility.Runtime.Data;
-using FATE.FATEAbility.Runtime.DatabaseEntry;
-using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEditor;
@@ -60,7 +57,7 @@ namespace BLINK.RPGBuilder.UI
             RPGBuilderUtilities.DisableCG(thisCG);
         }
         
-        private void ShowAbilityTooltip(CombatEntity entity, RPGAbility ability, RPGAbilityRankData rank)
+        private void ShowAbilityTooltip(CombatEntity entity, RPGAbility ability, RPGAbility.RPGAbilityRankData rank)
         {
             RPGBuilderUtilities.EnableCG(thisCG);
 
@@ -70,7 +67,7 @@ namespace BLINK.RPGBuilder.UI
             GenerateTooltip(entity, ability, rank);
         }
 
-        private void GenerateTooltip(CombatEntity entity, RPGAbility ability, RPGAbilityRankData rank)
+        private void GenerateTooltip(CombatEntity entity, RPGAbility ability, RPGAbility.RPGAbilityRankData rank)
         {
             ClearAllAbilityTooltipElements();
 
@@ -87,14 +84,14 @@ namespace BLINK.RPGBuilder.UI
             SpawnAbilityTooltipElement(AbilityTooltipElement.ABILITY_TOOLTIP_ELEMENT_TYPE.Description, description);
         }
 
-        private string GenerateBaseTooltipText(CombatEntity entity, RPGAbility ability, RPGAbilityRankData rank)
+        private string GenerateBaseTooltipText(CombatEntity entity, RPGAbility ability, RPGAbility.RPGAbilityRankData rank)
         {
             string text = rank.TooltipText;
             
             return text;
         }
 
-        private string GenerateEffectAppliedTooltipText(CombatEntity entity, RPGAbility ability, AbilityEffectsApplied effectApplied)
+        private string GenerateEffectAppliedTooltipText(CombatEntity entity, RPGAbility ability, RPGAbility.AbilityEffectsApplied effectApplied)
         {
             string fullText = effectApplied.tooltipText;
             string temporaryText = effectApplied.tooltipText;
@@ -128,10 +125,10 @@ namespace BLINK.RPGBuilder.UI
             return newResult;
         }
 
-        private string ConvertKeywordToDescription(CombatEntity entity, RPGAbility ability, AbilityEffectsApplied effectApplied, string keyword)
+        private string ConvertKeywordToDescription(CombatEntity entity, RPGAbility ability, RPGAbility.AbilityEffectsApplied effectApplied, string keyword)
         {
             string text = "";
-            RPGEffect effect = GameDatabase.Instance.GetEffects()[effectApplied.EffectID];
+            RPGEffect effect = GameDatabase.Instance.GetEffects()[effectApplied.effectID];
             RPGEffect.RPGEffectRankData rank = effect.ranks[effectApplied.effectRank];
             switch (keyword)
             {
