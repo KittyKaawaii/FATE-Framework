@@ -127,7 +127,7 @@ namespace FATE.FATEInteraction.Runtime.UI
                 {
                     GameObject newOptionSlot = Instantiate(TextOptionPrefab, TextOptionsParent);
                     NPCInteractionTextOption option = newOptionSlot.GetComponent<NPCInteractionTextOption>();
-                    option.Initialize(GameDatabase.Instance.GetMerchantTables()[merchantTable.MerchantTableID].EntryDisplayName, merchantTable.MerchantTableID, this);
+                    option.Initialize(GameDatabase.Instance.GetMerchantTables()[merchantTable.MerchantTableID].entryDisplayName, merchantTable.MerchantTableID, this);
                     option.Type = NPCInteractionOptionType.MerchantTable;
                     optionSlots.Add(option);
                 }
@@ -172,8 +172,8 @@ namespace FATE.FATEInteraction.Runtime.UI
             }
             
             entity = interactedEntity;
-            if(NPCNameText != null) NPCNameText.text = entity.GetNPCData().EntryDisplayName;
-            if(NPCIcon != null) NPCIcon.sprite = entity.GetNPCData().EntryIcon;
+            if(NPCNameText != null) NPCNameText.text = entity.GetNPCData().entryDisplayName;
+            if(NPCIcon != null) NPCIcon.sprite = entity.GetNPCData().entryIcon;
             Show();
             WorldEvents.Instance.OnPlayerTalkedToNPC(interactedEntity.GetNPCData(), true);
         }

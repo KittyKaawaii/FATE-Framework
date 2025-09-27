@@ -104,7 +104,7 @@ public class RPGBuilderEditorPersistenceSettingsModule : RPGBuilderEditorModule
                 RPGBuilderEditorModule gameScenesModule = RPGBuilderEditorUtility.GetModuleByName("Game Scenes");
                 foreach (var gameScene in gameScenesModule.databaseEntries)
                 {
-                    if (gameScene.EntryName != SceneManager.GetActiveScene().name) continue;
+                    if (gameScene.entryName != SceneManager.GetActiveScene().name) continue;
                     currentGameScene = (RPGGameScene) gameScene;
                 }
 
@@ -145,7 +145,7 @@ public class RPGBuilderEditorPersistenceSettingsModule : RPGBuilderEditorModule
                             false);
                         
                         EditorGUILayout.LabelField("<color=cyan>" +
-                            currentGameScene.EntryName + "</color> has " + persistentObjects.Length + " persistent objects",
+                            currentGameScene.entryName + "</color> has " + persistentObjects.Length + " persistent objects",
                             RPGBuilderEditor.Instance.EditorSkin.GetStyle("CenteredText"));
                         RPGBuilderEditorUtility.EndHorizontalMargin(RPGBuilderEditor.Instance.CenteredMargin - 25,
                             false);

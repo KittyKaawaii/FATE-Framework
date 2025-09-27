@@ -69,7 +69,7 @@ public class AnimationsManager : MonoBehaviour
                 }
                 else
                 {
-                    if(entity != null) Debug.LogError(entity.name + " tried to play an animation with a missing parameter. Name=" + anim.Template.EntryName);
+                    if(entity != null) Debug.LogError(entity.name + " tried to play an animation with a missing parameter. Name=" + anim.Template.entryName);
                 }
                 break;
             case AnimationEntryParameterType.Sequence:
@@ -80,7 +80,7 @@ public class AnimationsManager : MonoBehaviour
                 }
                 else
                 {
-                    if(entity != null) Debug.LogError(entity.name + " tried to play an animation with a missing parameter. Name=" + anim.Template.EntryName);
+                    if(entity != null) Debug.LogError(entity.name + " tried to play an animation with a missing parameter. Name=" + anim.Template.entryName);
                 }
                 break;
         }

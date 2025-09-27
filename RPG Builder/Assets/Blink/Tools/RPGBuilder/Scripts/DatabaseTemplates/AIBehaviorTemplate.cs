@@ -52,8 +52,8 @@ namespace BLINK.RPGBuilder.Templates
         
         public void UpdateEntryData(AIBehaviorTemplate newEntryData)
         {
-            EntryName = newEntryData.EntryName;
-            EntryFileName = newEntryData.EntryFileName;
+            entryName = newEntryData.entryName;
+            entryFileName = newEntryData.entryFileName;
             CanAggroAlly = newEntryData.CanAggroAlly;
             CanAggroNeutral = newEntryData.CanAggroNeutral;
             CanAggroEnemy = newEntryData.CanAggroEnemy;

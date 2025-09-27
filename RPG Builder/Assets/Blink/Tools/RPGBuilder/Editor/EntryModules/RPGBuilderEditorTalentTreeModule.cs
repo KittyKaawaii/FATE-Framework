@@ -71,12 +71,12 @@ public class RPGBuilderEditorTalentTreeModule : RPGBuilderEditorModule
 
     public override bool SaveConditionsMet()
     {
-        if (string.IsNullOrEmpty(currentEntry.EntryName))
+        if (string.IsNullOrEmpty(currentEntry.entryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
             return false;
         }
-        if (ContainsInvalidCharacters(currentEntry.EntryName))
+        if (ContainsInvalidCharacters(currentEntry.entryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
             return false;
@@ -134,7 +134,7 @@ public class RPGBuilderEditorTalentTreeModule : RPGBuilderEditorModule
                     var ability = RPGBuilderEditorUtility.GetEntryByID(t.abilityID, "Ability");
                     if (!nodeIsNull && ability != null)
                     {
-                        nodeName2 = ability.EntryName;
+                        nodeName2 = ability.entryName;
                         nodeName2 = nodeName2.ToLower();
                     }
 
@@ -145,7 +145,7 @@ public class RPGBuilderEditorTalentTreeModule : RPGBuilderEditorModule
                     var recipe = RPGBuilderEditorUtility.GetEntryByID(t.recipeID, "Recipe");
                     if (!nodeIsNull && recipe != null)
                     {
-                        nodeName2 = recipe.EntryName;
+                        nodeName2 = recipe.entryName;
                         nodeName2 = nodeName2.ToLower();
                     }
 
@@ -156,7 +156,7 @@ public class RPGBuilderEditorTalentTreeModule : RPGBuilderEditorModule
                     var resource = RPGBuilderEditorUtility.GetEntryByID(t.resourceNodeID, "Resource");
                     if (!nodeIsNull && resource != null)
                     {
-                        nodeName2 = resource.EntryName;
+                        nodeName2 = resource.entryName;
                         nodeName2 = nodeName2.ToLower();
                     }
 
@@ -167,7 +167,7 @@ public class RPGBuilderEditorTalentTreeModule : RPGBuilderEditorModule
                     var bonusREF = RPGBuilderEditorUtility.GetEntryByID(t.bonusID, "Bonus");
                     if (!nodeIsNull && bonusREF != null)
                     {
-                        nodeName2 = bonusREF.EntryName;
+                        nodeName2 = bonusREF.entryName;
                         nodeName2 = nodeName2.ToLower();
                     }
 
@@ -213,15 +213,15 @@ public class RPGBuilderEditorTalentTreeModule : RPGBuilderEditorModule
         {
             GUILayout.Space(10);
             RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, false);
-            currentEntry.EntryIcon = RPGBuilderEditorFields.DrawIcon(currentEntry.EntryIcon, 100, 100);
+            currentEntry.entryIcon = RPGBuilderEditorFields.DrawIcon(currentEntry.entryIcon, 100, 100);
             GUILayout.BeginVertical();
             RPGBuilderEditorFields.DrawID( currentEntry.ID);
-            currentEntry.EntryName =
-                RPGBuilderEditorFields.DrawHorizontalTextField("Name", "", RPGBuilderEditor.Instance.FieldHeight, currentEntry.EntryName);
-            currentEntry.EntryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField("Display Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                currentEntry.EntryDisplayName);
-            currentEntry.EntryFileName = RPGBuilderEditorFields.DrawFileNameField("File Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                currentEntry.EntryName + AssetNameSuffix);
+            currentEntry.entryName =
+                RPGBuilderEditorFields.DrawHorizontalTextField("Name", "", RPGBuilderEditor.Instance.FieldHeight, currentEntry.entryName);
+            currentEntry.entryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField("Display Name", "", RPGBuilderEditor.Instance.FieldHeight,
+                currentEntry.entryDisplayName);
+            currentEntry.entryFileName = RPGBuilderEditorFields.DrawFileNameField("File Name", "", RPGBuilderEditor.Instance.FieldHeight,
+                currentEntry.entryName + AssetNameSuffix);
             
             currentEntry.treePointAcceptedID = RPGBuilderEditorFields.DrawDatabaseEntryField(currentEntry.treePointAcceptedID, "Point", "Point Type", "");
             
@@ -380,12 +380,12 @@ public class RPGBuilderEditorTalentTreeModule : RPGBuilderEditorModule
         foreach (var entry in allEntries)
         {
             EditorUtility.SetDirty(entry);
-             entry.EntryName = entry._name;
+             entry.entryName = entry._name;
              AssetDatabase.RenameAsset(RPGBuilderEditor.Instance.EditorData.ResourcePath + 
-             RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.EntryName + AssetNameSuffix);
-             entry.EntryFileName = entry.EntryName + AssetNameSuffix;
-            entry.EntryDisplayName = entry.displayName;
-            entry.EntryIcon = entry.icon;
+             RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.entryName + AssetNameSuffix);
+             entry.entryFileName = entry.entryName + AssetNameSuffix;
+            entry.entryDisplayName = entry.displayName;
+            entry.entryIcon = entry.icon;
             EditorUtility.SetDirty(entry);
         }
         

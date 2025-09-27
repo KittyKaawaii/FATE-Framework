@@ -31,8 +31,8 @@ namespace BLINK.RPGBuilder.Templates
 
         public void UpdateEntryData(SoundTemplate newEntryData)
         {
-            EntryName = newEntryData.EntryName;
-            EntryFileName = newEntryData.EntryFileName;
+            entryName = newEntryData.entryName;
+            entryFileName = newEntryData.entryFileName;
             Sounds = newEntryData.Sounds;
             MixerGroup = newEntryData.MixerGroup;
             BypassEffects = newEntryData.BypassEffects;

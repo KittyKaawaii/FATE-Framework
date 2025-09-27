@@ -130,7 +130,7 @@ namespace FATE.FATECombat.Runtime.Manager
         {
             return new CombatData.CombatEntityStateEffect
             {
-                stateName = effect.EntryName,
+                stateName = effect.entryName,
                 casterEntity = casterInfo,
                 stateMaxDuration = effect.duration,
                 stateCurDuration = 0,
@@ -392,7 +392,7 @@ namespace FATE.FATECombat.Runtime.Manager
                     ActivationType.Start, targetEntity.transform);
             }
 
-            var newState = GenerateNewState(effect, state.EffectRank, null, effect.EntryIcon);
+            var newState = GenerateNewState(effect, state.EffectRank, null, effect.entryIcon);
             newState.curStack = state.curStack;
             newState.stateCurDuration = state.stateCurDuration;
 
@@ -2104,7 +2104,7 @@ namespace FATE.FATECombat.Runtime.Manager
             foreach (var t in closestUnits)
             {
                 if (effect.isState)
-                    StartCoroutine(InitEntityState(casterInfo, t, effect, effectRank, effect.EntryIcon, 0));
+                    StartCoroutine(InitEntityState(casterInfo, t, effect, effectRank, effect.entryIcon, 0));
                 else
                     StartCoroutine(EFFECTS_LOGIC(effect, effect.ranks[effectRank], casterInfo, t, rankREF, 0));
             }
@@ -2142,7 +2142,7 @@ namespace FATE.FATECombat.Runtime.Manager
                 if (!(rdmEffectChance <= effectApplied.chance)) continue;
                 if (thisEffect.isState)
                     StartCoroutine(InitEntityState(casterInfo, effectApplied.target == RPGCombatDATA.TARGET_TYPE.Target ? targetInfo : casterInfo,
-                        thisEffect, effectApplied.effectRank, thisEffect.EntryIcon, effectApplied.delay));
+                        thisEffect, effectApplied.effectRank, thisEffect.entryIcon, effectApplied.delay));
                 else
                     StartCoroutine(EFFECTS_LOGIC(thisEffect, GameDatabase.Instance.GetEffects()[effectApplied.EffectID].ranks[effectApplied.effectRank], casterInfo,
                         effectApplied.target == RPGCombatDATA.TARGET_TYPE.Target ? targetInfo : casterInfo, rankREF, effectApplied.delay));
@@ -2164,7 +2164,7 @@ namespace FATE.FATECombat.Runtime.Manager
                 if (!(rdmEffectChance <= t.chance)) continue;
                 if (thisEffect.isState)
                     StartCoroutine(InitEntityState(casterInfo, casterInfo,
-                        thisEffect, t.effectRank, thisEffect.EntryIcon, t.delay));
+                        thisEffect, t.effectRank, thisEffect.entryIcon, t.delay));
                 else
                     StartCoroutine(EFFECTS_LOGIC(thisEffect, GameDatabase.Instance.GetEffects()[t.EffectID].ranks[t.effectRank], casterInfo,
                         casterInfo, rankREF, t.delay));
@@ -2174,7 +2174,7 @@ namespace FATE.FATECombat.Runtime.Manager
         public void ExecuteEffect(CombatEntity casterInfo, CombatEntity targetInfo, RPGEffect effect, int effectRank, RPGAbilityRankData abilityRank, float delay)
         {
             if (effect.isState)
-                StartCoroutine(InitEntityState(casterInfo, targetInfo, effect, effectRank, effect.EntryIcon, delay));
+                StartCoroutine(InitEntityState(casterInfo, targetInfo, effect, effectRank, effect.entryIcon, delay));
             else
                 StartCoroutine(EFFECTS_LOGIC(effect, effect.ranks[effectRank], casterInfo, targetInfo, abilityRank, delay));
         }
@@ -2364,7 +2364,7 @@ namespace FATE.FATECombat.Runtime.Manager
             GameObject logicTemplate = GetAILogicTemplate(npcData);
             if (logicTemplate == null) return null;
             GameObject newNPC = Instantiate(logicTemplate, spawnPos, rotation);
-            newNPC.name = npcData.EntryName;
+            newNPC.name = npcData.entryName;
             
             CombatEntity entity = newNPC.GetComponent<CombatEntity>();
             if (entity == null)
@@ -2397,7 +2397,7 @@ namespace FATE.FATECombat.Runtime.Manager
                 return GameDatabase.Instance.GetCombatSettings().DefaultAILogicTemplate;
             }
 
-            Debug.LogError("Could not find an AI Logic Template for " + npcData.EntryName);
+            Debug.LogError("Could not find an AI Logic Template for " + npcData.entryName);
             return null;
         }
     }

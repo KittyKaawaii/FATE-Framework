@@ -156,7 +156,7 @@ namespace FATE.FATECrafting.Runtime.UI
                 var slotREF = newRecipeSlot.GetComponent<CraftingItemSlotHolder>();
                 var itemREF = GameDatabase.Instance.GetItems()[t.componentItemID];
                 var owned = RPGBuilderUtilities.getItemCount(itemREF) >= t.count;
-                slotREF.InitSlot(itemREF.EntryIcon, owned, t.count, itemREF);
+                slotREF.InitSlot(itemREF.entryIcon, owned, t.count, itemREF);
             }
 
             foreach (var t in rankREF.allCraftedItems)
@@ -165,7 +165,7 @@ namespace FATE.FATECrafting.Runtime.UI
                 curItemsCraftedSlots.Add(newRecipeSlot);
                 var slotREF = newRecipeSlot.GetComponent<CraftingItemSlotHolder>();
                 var itemREF = GameDatabase.Instance.GetItems()[t.craftedItemID];
-                slotREF.InitSlot(itemREF.EntryIcon, true, t.count, itemREF);
+                slotREF.InitSlot(itemREF.entryIcon, true, t.count, itemREF);
             }
 
             castBarFill.fillAmount = 0;
@@ -190,7 +190,7 @@ namespace FATE.FATECrafting.Runtime.UI
         {
             ClearAllRecipeSlots();
             curStation = station;
-            craftingHeaderText.text = station.EntryDisplayName;
+            craftingHeaderText.text = station.entryDisplayName;
             var recipeList = new List<RPGCraftingRecipe>();
             foreach (var skillRef in station.craftSkills.Select(t1 =>
                 GameDatabase.Instance.GetSkills()[t1.craftSkillID]))

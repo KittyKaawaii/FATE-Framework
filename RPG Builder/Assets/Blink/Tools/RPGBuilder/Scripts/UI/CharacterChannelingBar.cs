@@ -36,7 +36,7 @@ public class CharacterChannelingBar : MonoBehaviour
         if (!abilityRank.castBarVisible) return;
         RPGBuilderUtilities.EnableCG(thisCG);
         if(channelingBarImage != null) channelingBarImage.fillAmount = 0f / 1f;
-        if(abilityNameText != null) abilityNameText.text = ability.EntryDisplayName;
+        if(abilityNameText != null) abilityNameText.text = ability.entryDisplayName;
         if(channelTimeText != null) channelTimeText.text = 0 + "";
         currentChannelDuration = castDuration;
         isChanneling = true;

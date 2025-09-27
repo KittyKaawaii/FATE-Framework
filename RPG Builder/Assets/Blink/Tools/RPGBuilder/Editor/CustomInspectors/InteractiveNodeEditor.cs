@@ -118,7 +118,7 @@ public class InteractiveNodeEditor : Editor
 
                     var requirementNumber = a + 1;
                     string effectName = "";
-                    if (NodeReference.effectsData[a].effect != null) effectName = NodeReference.effectsData[a].effect.EntryName;
+                    if (NodeReference.effectsData[a].effect != null) effectName = NodeReference.effectsData[a].effect.entryName;
                     EditorGUILayout.LabelField("" + requirementNumber + ": " + effectName,
                         GUILayout.Width(150));
                     EditorGUILayout.EndHorizontal();
@@ -183,7 +183,7 @@ public class InteractiveNodeEditor : Editor
                     var requirementNumber = a + 1;
                     string effectName = "";
                     if (NodeReference.treePointsData[a].treePoint != null)
-                        effectName = NodeReference.treePointsData[a].treePoint.EntryName;
+                        effectName = NodeReference.treePointsData[a].treePoint.entryName;
                     EditorGUILayout.LabelField("" + requirementNumber + ": " + effectName,
                         GUILayout.Width(150));
                     EditorGUILayout.EndHorizontal();
@@ -250,7 +250,7 @@ public class InteractiveNodeEditor : Editor
 
                     var requirementNumber = a + 1;
                     string effectName = "";
-                    if (NodeReference.skillExpData[a].skill != null) effectName = NodeReference.skillExpData[a].skill.EntryName;
+                    if (NodeReference.skillExpData[a].skill != null) effectName = NodeReference.skillExpData[a].skill.entryName;
                     EditorGUILayout.LabelField("" + requirementNumber + ": " + effectName,
                         GUILayout.Width(150));
                     EditorGUILayout.EndHorizontal();
@@ -296,7 +296,7 @@ public class InteractiveNodeEditor : Editor
 
                     var requirementNumber = a + 1;
                     string effectName = "";
-                    if (NodeReference.taskData[a].task != null) effectName = NodeReference.taskData[a].task.EntryName;
+                    if (NodeReference.taskData[a].task != null) effectName = NodeReference.taskData[a].task.entryName;
                     EditorGUILayout.LabelField("" + requirementNumber + ": " + effectName,
                         GUILayout.Width(150));
                     EditorGUILayout.EndHorizontal();
@@ -341,7 +341,7 @@ public class InteractiveNodeEditor : Editor
                     var requirementNumber = a + 1;
                     string effectName = "";
                     if (NodeReference.containerTablesData[a].lootTable != null)
-                        effectName = NodeReference.containerTablesData[a].lootTable.EntryName;
+                        effectName = NodeReference.containerTablesData[a].lootTable.entryName;
                     EditorGUILayout.LabelField("" + requirementNumber + ": " + effectName,
                         GUILayout.Width(150));
                     EditorGUILayout.EndHorizontal();

@@ -134,7 +134,7 @@ public class ContainerObjectInspector : Editor
                 RPGBuilderEditorUtility.StartHorizontalMargin(marginValue, true);
                 EditorGUILayout.LabelField(Container.VisualEfects[a].VisualEntry.Template == null
                     ? "- Select Template -"
-                    : Container.VisualEfects[a].VisualEntry.Template.EntryName, SmallTitle);
+                    : Container.VisualEfects[a].VisualEntry.Template.entryName, SmallTitle);
                 EditorGUILayout.BeginHorizontal();
                 Container.VisualEfects[a].ActivationType =
                     (ActivationType) EditorGUILayout.EnumPopup("Activate On",
@@ -252,7 +252,7 @@ public class ContainerObjectInspector : Editor
 
                 EditorGUILayout.LabelField(Container.Animations[a].AnimationEntry.Template == null
                     ? "- Select Template -"
-                    : Container.Animations[a].AnimationEntry.Template.EntryName, SmallTitle);
+                    : Container.Animations[a].AnimationEntry.Template.entryName, SmallTitle);
                 Container.Animations[a].ActivationType =
                     (ActivationType) EditorGUILayout.EnumPopup("Activate On",
                         Container.Animations[a].ActivationType);
@@ -314,7 +314,7 @@ public class ContainerObjectInspector : Editor
 
                 EditorGUILayout.LabelField(Container.Sounds[a].SoundEntry.Template == null
                     ? "- Select Template -"
-                    : Container.Sounds[a].SoundEntry.Template.EntryName, SmallTitle);
+                    : Container.Sounds[a].SoundEntry.Template.entryName, SmallTitle);
                 Container.Sounds[a].ActivationType =
                     (ActivationType) EditorGUILayout.EnumPopup("Activate On",
                         Container.Sounds[a].ActivationType);

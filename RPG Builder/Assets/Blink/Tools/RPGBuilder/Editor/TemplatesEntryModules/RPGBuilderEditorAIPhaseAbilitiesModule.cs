@@ -66,12 +66,12 @@ public class RPGBuilderEditorAIPhaseAbilitiesModule : RPGBuilderEditorModule
 
     public override bool SaveConditionsMet()
     {
-        if (string.IsNullOrEmpty(currentEntry.EntryName))
+        if (string.IsNullOrEmpty(currentEntry.entryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
             return false;
         }
-        if (ContainsInvalidCharacters(currentEntry.EntryName))
+        if (ContainsInvalidCharacters(currentEntry.entryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
             return false;
@@ -122,9 +122,9 @@ public class RPGBuilderEditorAIPhaseAbilitiesModule : RPGBuilderEditorModule
             GUILayout.ExpandHeight(true));
 
         RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
-        currentEntry.EntryName = RPGBuilderEditorFields.DrawHorizontalTextField("Name",
-            "", RPGBuilderEditor.Instance.FieldHeight + 15, currentEntry.EntryName);
-        currentEntry.EntryFileName = currentEntry.EntryName + AssetNameSuffix;
+        currentEntry.entryName = RPGBuilderEditorFields.DrawHorizontalTextField("Name",
+            "", RPGBuilderEditor.Instance.FieldHeight + 15, currentEntry.entryName);
+        currentEntry.entryFileName = currentEntry.entryName + AssetNameSuffix;
         
         RPGBuilderEditorFields.DrawTitleLabelExpanded("Ability List", "", true);
         currentEntry.CheckMaxAbilities = RPGBuilderEditorFields.DrawHorizontalToggle("Limited amount?", "",

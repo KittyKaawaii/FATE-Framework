@@ -920,7 +920,7 @@ namespace FATE.FATEDatabase.Editor.Manager
 
             SelectDatabaseEntry(0, false);
             CurrentEditorModule.Initialize();
-            if(CurrentEntry != null) CurrentEntryCachedName = CurrentEntry.EntryFileName;
+            if(CurrentEntry != null) CurrentEntryCachedName = CurrentEntry.entryFileName;
 
             if (!newModule.IsSettingModule)
             {
@@ -936,7 +936,7 @@ namespace FATE.FATEDatabase.Editor.Manager
         {
             CurrentEntryIndex = newIndex;
             if (instantiateEntry) CurrentEditorModule.InstantiateCurrentEntry(CurrentEntryIndex);
-            if(CurrentEntry != null) CurrentEntryCachedName = CurrentEntry.EntryFileName;
+            if(CurrentEntry != null) CurrentEntryCachedName = CurrentEntry.entryFileName;
             GUI.FocusControl(null);
         }
     
@@ -965,7 +965,7 @@ namespace FATE.FATEDatabase.Editor.Manager
 
                 if (!isInjectingEntry)
                 {
-                    CompleteEntrySave(module, entryFile, currentFileName, savedEntry.EntryFileName);
+                    CompleteEntrySave(module, entryFile, currentFileName, savedEntry.entryFileName);
                     module.OnSave();
                 }
             }
@@ -1013,7 +1013,7 @@ namespace FATE.FATEDatabase.Editor.Manager
             if (entryFile != null)
             {
                 module.UpdateEntryData(entryFile);
-                CompleteEntrySave(module, entryFile, CurrentEntryCachedName, savedEntry.EntryFileName);
+                CompleteEntrySave(module, entryFile, CurrentEntryCachedName, savedEntry.entryFileName);
             }
             else
             {
@@ -1021,14 +1021,14 @@ namespace FATE.FATEDatabase.Editor.Manager
             }
 
             if (!module.IsSettingModule) RequestEntryListRedraw();
-            UpdateEditorViewAfterSavingEntry(module, savedEntry.EntryFileName);
+            UpdateEditorViewAfterSavingEntry(module, savedEntry.entryFileName);
         }
 
         public void GenerateTypeEntry(RPGBuilderEditorModule module, RPGBuilderDatabaseEntry savedEntry)
         {
             AssetDatabase.CreateAsset(savedEntry,
                 EditorData.ResourcePath + EditorSettings.DatabasePath +
-                module.AssetFolderName + "/" + savedEntry.EntryFileName + ".asset");
+                module.AssetFolderName + "/" + savedEntry.entryFileName + ".asset");
         }
 
         public RPGBuilderDatabaseEntry GenerateAndGetTypeEntry(RPGBuilderEditorModule module, RPGBuilderDatabaseEntry savedEntry)
@@ -1037,17 +1037,17 @@ namespace FATE.FATEDatabase.Editor.Manager
             RPGBuilderDatabaseEntry existingEntryFile = (RPGBuilderDatabaseEntry) AssetDatabase.LoadAssetAtPath(
                 EditorData.ResourcePath +
                 EditorSettings.DatabasePath +
-                module.AssetFolderName + "/" + savedEntry.EntryFileName + ".asset", typeof(RPGBuilderDatabaseEntry));
+                module.AssetFolderName + "/" + savedEntry.entryFileName + ".asset", typeof(RPGBuilderDatabaseEntry));
 
             if (existingEntryFile != null) return existingEntryFile;
 
             AssetDatabase.CreateAsset(savedEntry,
                 EditorData.ResourcePath + EditorSettings.DatabasePath +
-                module.AssetFolderName + "/" + savedEntry.EntryFileName + ".asset");
+                module.AssetFolderName + "/" + savedEntry.entryFileName + ".asset");
 
             return (RPGBuilderDatabaseEntry) AssetDatabase.LoadAssetAtPath(
                 EditorData.ResourcePath + EditorSettings.DatabasePath +
-                module.AssetFolderName + "/" + savedEntry.EntryFileName + ".asset", typeof(RPGBuilderDatabaseEntry));
+                module.AssetFolderName + "/" + savedEntry.entryFileName + ".asset", typeof(RPGBuilderDatabaseEntry));
         }
 
         private void DuplicateDatabaseEntry(RPGBuilderEditorModule module, RPGBuilderDatabaseEntry duplicatedEntry)
@@ -1071,7 +1071,7 @@ namespace FATE.FATEDatabase.Editor.Manager
 
             string availablePath = AssetDatabase.GenerateUniqueAssetPath(EditorData.ResourcePath +
                                                                          EditorSettings.DatabasePath +
-                                                                         module.AssetFolderName + "/" + duplicatedEntry.EntryName + module.AssetNameSuffix + ".asset");
+                                                                         module.AssetFolderName + "/" + duplicatedEntry.entryName + module.AssetNameSuffix + ".asset");
             var newID = GenerateNewEntryID();
             AssetDatabase.CopyAsset(
                 EditorData.ResourcePath + EditorSettings.DatabasePath + module.AssetFolderName + "/" + CurrentEntryCachedName +
@@ -1093,9 +1093,9 @@ namespace FATE.FATEDatabase.Editor.Manager
                                                         module.AssetFolderName + "/", "");
             newEntryName = newEntryName.Replace(module.AssetNameSuffix, "");
             newEntryName = newEntryName.Replace(".asset", "");;
-            duplicatedFile.EntryName = newEntryName;
-            duplicatedFile.EntryFileName = newEntryName + module.AssetNameSuffix;
-            AssetDatabase.RenameAsset(availablePath, duplicatedFile.EntryFileName);
+            duplicatedFile.entryName = newEntryName;
+            duplicatedFile.entryFileName = newEntryName + module.AssetNameSuffix;
+            AssetDatabase.RenameAsset(availablePath, duplicatedFile.entryFileName);
             duplicatedFile.ID = newID;
 
             EditorUtility.SetDirty(entryFile);
@@ -1132,7 +1132,7 @@ namespace FATE.FATEDatabase.Editor.Manager
 
             string availablePath = AssetDatabase.GenerateUniqueAssetPath(EditorSettings.ResourcePath +
                                                                          EditorSettings.DatabasePath +
-                                                                         module.AssetFolderName + "/" + duplicatedEntry.EntryName + module.AssetNameSuffix + ".asset");
+                                                                         module.AssetFolderName + "/" + duplicatedEntry.entryName + module.AssetNameSuffix + ".asset");
             AssetDatabase.CopyAsset(EditorSettings.ResourcePath + EditorSettings.DatabasePath + module.AssetFolderName + "/" + CurrentEntryCachedName +
                                     ".asset", availablePath);
 
@@ -1153,17 +1153,17 @@ namespace FATE.FATEDatabase.Editor.Manager
                                                         module.AssetFolderName + "/", "");
             newEntryName = newEntryName.Replace(module.AssetNameSuffix, "");
             newEntryName = newEntryName.Replace(".asset", "");
-            duplicatedFile.EntryName = newEntryName;
-            duplicatedFile.EntryFileName = newEntryName + module.AssetNameSuffix;
+            duplicatedFile.entryName = newEntryName;
+            duplicatedFile.entryFileName = newEntryName + module.AssetNameSuffix;
 
-            AssetDatabase.RenameAsset(availablePath, duplicatedFile.EntryFileName);
+            AssetDatabase.RenameAsset(availablePath, duplicatedFile.entryFileName);
 
             EditorUtility.SetDirty(entryFile);
             EditorUtility.SetDirty(duplicatedFile);
             AssetActionsAfterCreate();
 
             CurrentEditorModule.LoadEntries();
-            SelectDatabaseEntry(module.GetEntryIndexByName(duplicatedFile.EntryName), true);
+            SelectDatabaseEntry(module.GetEntryIndexByName(duplicatedFile.entryName), true);
 
             CachedEntryListScroll = EntryListScroll;
             RequestFilterCheck();
@@ -1282,7 +1282,7 @@ namespace FATE.FATEDatabase.Editor.Manager
 
             foreach (var entry in CurrentEditorModule.databaseEntries)
             {
-                AddEntryToDisplayList(entry.ID, entry.EntryName, CurrentEditorModule.ShowIconInList, entry.EntryIcon);
+                AddEntryToDisplayList(entry.ID, entry.entryName, CurrentEditorModule.ShowIconInList, entry.entryIcon);
             }
         }
 
@@ -2033,7 +2033,7 @@ namespace FATE.FATEDatabase.Editor.Manager
         {
             AssetDatabase.CreateAsset(createdEntry,
                 EditorData.ResourcePath + EditorSettings.DatabasePath +
-                module.AssetFolderName + "/" + createdEntry.EntryFileName + ".asset");
+                module.AssetFolderName + "/" + createdEntry.entryFileName + ".asset");
             AssetActionsAfterCreate();
         }
 
@@ -2050,7 +2050,7 @@ namespace FATE.FATEDatabase.Editor.Manager
             module.LoadEntries();
             for (int i = 0; i < module.databaseEntries.Count; i++)
             {
-                if (module.databaseEntries[i].EntryFileName == fileName) CurrentEntryIndex = i;
+                if (module.databaseEntries[i].entryFileName == fileName) CurrentEntryIndex = i;
             }
             SelectDatabaseEntry(CurrentEntryIndex, true);
 
@@ -2062,7 +2062,7 @@ namespace FATE.FATEDatabase.Editor.Manager
             bool any = false;
             foreach (var entry in module.databaseEntries)
             {
-                if (entry.ID != newEntry.ID && entry.EntryName == newEntry.EntryName)
+                if (entry.ID != newEntry.ID && entry.entryName == newEntry.entryName)
                 {
                     any = true;
                     break;
@@ -2074,7 +2074,7 @@ namespace FATE.FATEDatabase.Editor.Manager
     
         private bool IsTypeNameAvailable(RPGBuilderEditorModule module, RPGBuilderDatabaseEntry newEntry)
         {
-            RPGBuilderDatabaseEntry entryFile = GetEntryFile(module, newEntry.EntryFileName);
+            RPGBuilderDatabaseEntry entryFile = GetEntryFile(module, newEntry.entryFileName);
             if (entryFile != null)
             {
                 return CurrentEntryIndex != -1;

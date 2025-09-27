@@ -10,8 +10,8 @@ namespace BLINK.RPGBuilder.Templates
         
         public void UpdateEntryData(RequirementsTemplate newEntryData)
         {
-            EntryName = newEntryData.EntryName;
-            EntryFileName = newEntryData.EntryFileName;
+            entryName = newEntryData.entryName;
+            entryFileName = newEntryData.entryFileName;
 
             Requirements = new List<RequirementsData.RequirementGroup>();
             for (var index = 0; index < newEntryData.Requirements.Count; index++)

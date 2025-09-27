@@ -328,7 +328,7 @@ namespace FATE.FATEInventory.Runtime.Manager
                 
                 if (weaponEquipped1 == null && weaponEquipped2 == null)
                 {
-                    if (itemToEquip.WeaponSlot.EntryName == "OFF HAND")
+                    if (itemToEquip.WeaponSlot.entryName == "OFF HAND")
                     {
                         EquippedInIndex = 1;
                         HandVisual = 2;
@@ -340,7 +340,7 @@ namespace FATE.FATEInventory.Runtime.Manager
                     }
                 } else if (weaponEquipped1 != null && weaponEquipped2 == null)
                 {
-                    switch (itemToEquip.WeaponSlot.EntryName)
+                    switch (itemToEquip.WeaponSlot.entryName)
                     {
                         case "TWO HAND":
                         case "MAIN HAND":
@@ -350,8 +350,8 @@ namespace FATE.FATEInventory.Runtime.Manager
                             HandVisual = 1;
                             break;
                         }
-                        case "ANY HAND" when weaponEquipped1.WeaponSlot.EntryName == "MAIN HAND" ||
-                                             weaponEquipped1.WeaponSlot.EntryName == "ANY HAND":
+                        case "ANY HAND" when weaponEquipped1.WeaponSlot.entryName == "MAIN HAND" ||
+                                             weaponEquipped1.WeaponSlot.entryName == "ANY HAND":
                         {
                             EquippedInIndex = 1;
                             HandVisual = 2;
@@ -364,7 +364,7 @@ namespace FATE.FATEInventory.Runtime.Manager
                             break;
                         case "OFF HAND":
                         {
-                            if (weaponEquipped1.WeaponSlot.EntryName == "TWO HAND") UnequipItem(weaponEquipped1, 1);
+                            if (weaponEquipped1.WeaponSlot.entryName == "TWO HAND") UnequipItem(weaponEquipped1, 1);
                             EquippedInIndex = 1;
                             HandVisual = 2;
                             break;
@@ -372,7 +372,7 @@ namespace FATE.FATEInventory.Runtime.Manager
                     }
                 } else if (weaponEquipped1 == null && weaponEquipped2 != null)
                 {
-                    switch (itemToEquip.WeaponSlot.EntryName)
+                    switch (itemToEquip.WeaponSlot.entryName)
                     {
                         case "TWO HAND":
                         {
@@ -398,7 +398,7 @@ namespace FATE.FATEInventory.Runtime.Manager
                     }
                 } else if (weaponEquipped1 != null && weaponEquipped2 != null)
                 {
-                    switch (itemToEquip.WeaponSlot.EntryName)
+                    switch (itemToEquip.WeaponSlot.entryName)
                     {
                         case "TWO HAND":
                         {

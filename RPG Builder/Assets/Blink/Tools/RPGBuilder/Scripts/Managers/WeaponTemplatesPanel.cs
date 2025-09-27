@@ -106,8 +106,8 @@ namespace BLINK.RPGBuilder.Managers
         private void UpdateWeaponView(RPGWeaponTemplate weaponTemplate, int newLevel)
         {
             if (curSelectedWeaponTemplate != weaponTemplate.ID) return;
-            weaponTemplateName.text = weaponTemplate.EntryDisplayName;
-            weaponDescriptionText.text = weaponTemplate.EntryDescription;
+            weaponTemplateName.text = weaponTemplate.entryDisplayName;
+            weaponDescriptionText.text = weaponTemplate.entryDescription;
             RPGLevelsTemplate levelTemplateREF =
                 GameDatabase.Instance.GetLevels()[weaponTemplate.levelTemplateID];
             weaponLevelText.text = newLevel + " / " + levelTemplateREF.levels;

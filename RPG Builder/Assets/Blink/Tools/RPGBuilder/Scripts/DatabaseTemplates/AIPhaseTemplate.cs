@@ -19,8 +19,8 @@ namespace BLINK.RPGBuilder.Templates
         
         public void UpdateEntryData(AIPhaseTemplate newEntryData)
         {
-            EntryName = newEntryData.EntryName;
-            EntryFileName = newEntryData.EntryFileName;
+            entryName = newEntryData.entryName;
+            entryFileName = newEntryData.entryFileName;
             TransitionDuration = newEntryData.TransitionDuration;
             EnterPhaseRequirementsTemplate = newEntryData.EnterPhaseRequirementsTemplate;
             PotentialBehaviors = newEntryData.PotentialBehaviors;

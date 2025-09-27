@@ -65,12 +65,12 @@ public class RPGBuilderEditorWeaponHandSlotModule : RPGBuilderEditorModule
 
     public override bool SaveConditionsMet()
     {
-        if (string.IsNullOrEmpty(currentEntry.EntryName))
+        if (string.IsNullOrEmpty(currentEntry.entryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
             return false;
         }
-        if (ContainsInvalidCharacters(currentEntry.EntryName))
+        if (ContainsInvalidCharacters(currentEntry.entryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
             return false;
@@ -122,13 +122,13 @@ public class RPGBuilderEditorWeaponHandSlotModule : RPGBuilderEditorModule
 
         RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
         EditorGUI.BeginDisabledGroup(true);
-        currentEntry.EntryName = RPGBuilderEditorFields.DrawHorizontalTextField("Weapon Hand Slot",
-            "", RPGBuilderEditor.Instance.FieldHeight + 15, currentEntry.EntryName);
+        currentEntry.entryName = RPGBuilderEditorFields.DrawHorizontalTextField("Weapon Hand Slot",
+            "", RPGBuilderEditor.Instance.FieldHeight + 15, currentEntry.entryName);
         EditorGUI.EndDisabledGroup();
-        currentEntry.EntryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
+        currentEntry.entryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
             "Display Name", "", RPGBuilderEditor.Instance.FieldHeight,
-            currentEntry.EntryDisplayName);
-        currentEntry.EntryFileName = currentEntry.EntryName + AssetNameSuffix;
+            currentEntry.entryDisplayName);
+        currentEntry.entryFileName = currentEntry.entryName + AssetNameSuffix;
         RPGBuilderEditorUtility.EndHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
 
         serialObj.ApplyModifiedProperties();

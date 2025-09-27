@@ -10,7 +10,6 @@ using FATE.FATEDialogue.Runtime.DatabaseEntry;
 using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEEnchantment.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATEFaction.Runtime.DatabaseTypeEntry;
 using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATELeveling.Runtime.DatabaseEntry;
@@ -390,14 +389,14 @@ namespace BLINK.RPGBuilder.Managers
             Dialogues = Resources.LoadAll<RPGDialogue>(editorDATA.RPGBDatabasePath + "Dialogues").ToDictionary(t => t.ID, t => t);
             GameModifiers = Resources.LoadAll<RPGGameModifier>(editorDATA.RPGBDatabasePath + "GameModifiers").ToDictionary(t => t.ID, t => t);
             
-            Genders = Resources.LoadAll<RPGBGender>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.EntryName, t => t);
-            ArmorSlots = Resources.LoadAll<RPGBArmorSlot>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.EntryName, t => t);
-            WeaponSlots = Resources.LoadAll<RPGBWeaponSlot>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.EntryName, t => t);
-            FactionStances = Resources.LoadAll<RPGBFactionStance>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.EntryName, t => t);
-            TextKeywords = Resources.LoadAll<RPGBTextKeyword>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.EntryName, t => t);
-            GemSocketTypes = Resources.LoadAll<RPGBGemSocketType>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.EntryName, t => t);
-            StatCategories = Resources.LoadAll<RPGBStatCategory>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.EntryName, t => t);
-            ActionKeyCategories = Resources.LoadAll<RPGBActionKeyCategory>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.EntryName, t => t);
+            Genders = Resources.LoadAll<RPGBGender>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.entryName, t => t);
+            ArmorSlots = Resources.LoadAll<RPGBArmorSlot>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.entryName, t => t);
+            WeaponSlots = Resources.LoadAll<RPGBWeaponSlot>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.entryName, t => t);
+            FactionStances = Resources.LoadAll<RPGBFactionStance>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.entryName, t => t);
+            TextKeywords = Resources.LoadAll<RPGBTextKeyword>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.entryName, t => t);
+            GemSocketTypes = Resources.LoadAll<RPGBGemSocketType>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.entryName, t => t);
+            StatCategories = Resources.LoadAll<RPGBStatCategory>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.entryName, t => t);
+            ActionKeyCategories = Resources.LoadAll<RPGBActionKeyCategory>(editorDATA.RPGBDatabasePath + "Types").ToDictionary(t => t.entryName, t => t);
 
             HealthStat = GetStats()[CombatSettings.HealthStatID];
             if(CharacterSettings.SprintStatDrainID != -1) SprintDrainStat = GetStats()[CharacterSettings.SprintStatDrainID];

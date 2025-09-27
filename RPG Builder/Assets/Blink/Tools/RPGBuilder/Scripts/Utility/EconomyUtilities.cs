@@ -404,7 +404,7 @@ public static class EconomyUtilities
 
             var lootBagRef = lootbag.GetComponent<LootBag>();
             lootBagRef.lootData = lootData;
-            lootBagRef.lootBagName = npc.EntryDisplayName + "'s Loot";
+            lootBagRef.lootBagName = npc.entryDisplayName + "'s Loot";
             GameEvents.Instance.DestroyGameobject(lootbag, npc.LootBagDuration);
             
         }

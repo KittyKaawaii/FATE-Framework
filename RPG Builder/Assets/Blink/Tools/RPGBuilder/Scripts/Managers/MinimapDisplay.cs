@@ -37,7 +37,7 @@ namespace BLINK.RPGBuilder.Managers
             curGameScene = currentGameScene;
             minimapImage.sprite = currentGameScene.minimapImage;
             Initialized = true;
-            regionName.text = RPGBuilderUtilities.GetGameSceneFromName(SceneManager.GetActiveScene().name).EntryDisplayName;
+            regionName.text = RPGBuilderUtilities.GetGameSceneFromName(SceneManager.GetActiveScene().name).entryDisplayName;
             RPGBuilderUtilities.EnableCG(thisCG);
         }
         
@@ -50,7 +50,7 @@ namespace BLINK.RPGBuilder.Managers
         {
             if (regionName != null)
             {
-                regionName.text = region.EntryDisplayName;
+                regionName.text = region.entryDisplayName;
             }
         }
 

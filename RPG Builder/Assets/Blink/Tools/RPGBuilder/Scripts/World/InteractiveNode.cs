@@ -560,7 +560,7 @@ namespace BLINK.RPGBuilder.World
 
         public string getInteractableName()
         {
-            return nodeType == InteractiveNodeType.resourceNode ? resourceNodeData.EntryDisplayName : interactableName;
+            return nodeType == InteractiveNodeType.resourceNode ? resourceNodeData.entryDisplayName : interactableName;
         }
 
         public bool isReadyToInteract()

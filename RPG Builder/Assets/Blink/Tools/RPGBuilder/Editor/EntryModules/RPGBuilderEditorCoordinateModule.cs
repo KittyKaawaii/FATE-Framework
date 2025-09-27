@@ -64,12 +64,12 @@ public class RPGBuilderEditorCoordinateModule : RPGBuilderEditorModule
 
     public override bool SaveConditionsMet()
     {
-        if (string.IsNullOrEmpty(currentEntry.EntryName))
+        if (string.IsNullOrEmpty(currentEntry.entryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
             return false;
         }
-        if (ContainsInvalidCharacters(currentEntry.EntryName))
+        if (ContainsInvalidCharacters(currentEntry.entryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
             return false;
@@ -125,17 +125,17 @@ public class RPGBuilderEditorCoordinateModule : RPGBuilderEditorModule
             GUILayout.Space(10);
             RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
             RPGBuilderEditorFields.DrawID(currentEntry.ID);
-            currentEntry.EntryName =
+            currentEntry.entryName =
                 RPGBuilderEditorFields.DrawHorizontalTextField("Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.EntryName);
-            currentEntry.EntryDisplayName =
+                    currentEntry.entryName);
+            currentEntry.entryDisplayName =
                 RPGBuilderEditorFields.DrawHorizontalTextField("Display Name", "",
                     RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.EntryDisplayName);
-            currentEntry.EntryFileName = RPGBuilderEditorFields.DrawFileNameField(
+                    currentEntry.entryDisplayName);
+            currentEntry.entryFileName = RPGBuilderEditorFields.DrawFileNameField(
                 "File Name", "",
                 RPGBuilderEditor.Instance.FieldHeight,
-                currentEntry.EntryName + AssetNameSuffix);
+                currentEntry.entryName + AssetNameSuffix);
             RPGBuilderEditorUtility.EndHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
         }
 
@@ -192,11 +192,11 @@ public class RPGBuilderEditorCoordinateModule : RPGBuilderEditorModule
                 RPGBuilderEditor.Instance.EditorSettings.ResourcePath +
                 RPGBuilderEditor.Instance.EditorSettings.DatabasePath + AssetFolderName +"/" + entry._fileName + ".asset");
             
-            entry.EntryName = entry._name;
+            entry.entryName = entry._name;
             AssetDatabase.RenameAsset(RPGBuilderEditor.Instance.EditorSettings.ResourcePath + 
-                                      RPGBuilderEditor.Instance.EditorSettings.DatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.EntryName + AssetNameSuffix);
-            entry.EntryFileName = entry.EntryName + AssetNameSuffix;
-            entry.EntryDisplayName = entry.displayName;
+                                      RPGBuilderEditor.Instance.EditorSettings.DatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.entryName + AssetNameSuffix);
+            entry.entryFileName = entry.entryName + AssetNameSuffix;
+            entry.entryDisplayName = entry.displayName;
             
             EditorUtility.SetDirty(entry);
         }

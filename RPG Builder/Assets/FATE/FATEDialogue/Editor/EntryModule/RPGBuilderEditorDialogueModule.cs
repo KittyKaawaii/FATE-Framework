@@ -70,12 +70,12 @@ namespace FATE.FATEDialogue.Editor.EntryModule
 
         public override bool SaveConditionsMet()
         {
-            if (string.IsNullOrEmpty(currentEntry.EntryName))
+            if (string.IsNullOrEmpty(currentEntry.entryName))
             {
                 RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
                 return false;
             }
-            if (ContainsInvalidCharacters(currentEntry.EntryName))
+            if (ContainsInvalidCharacters(currentEntry.entryName))
             {
                 RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
                 return false;
@@ -131,19 +131,19 @@ namespace FATE.FATEDialogue.Editor.EntryModule
                 GUILayout.Space(10);
                 RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
                 RPGBuilderEditorFields.DrawID(currentEntry.ID);
-                currentEntry.EntryName =
+                currentEntry.entryName =
                     RPGBuilderEditorFields.DrawHorizontalTextField("Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                        currentEntry.EntryName);
-                currentEntry.EntryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
+                        currentEntry.entryName);
+                currentEntry.entryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
                     "Display Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.EntryDisplayName);
-                currentEntry.EntryFileName = RPGBuilderEditorFields.DrawFileNameField(
+                    currentEntry.entryDisplayName);
+                currentEntry.entryFileName = RPGBuilderEditorFields.DrawFileNameField(
                     "File Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.EntryName + AssetNameSuffix);
-                currentEntry.EntryDescription =
+                    currentEntry.entryName + AssetNameSuffix);
+                currentEntry.entryDescription =
                     RPGBuilderEditorFields.DrawHorizontalDescriptionField("Description", "",
                         RPGBuilderEditor.Instance.FieldHeight,
-                        currentEntry.EntryDescription);
+                        currentEntry.entryDescription);
                 RPGBuilderEditorUtility.EndHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
             }
 
@@ -166,7 +166,7 @@ namespace FATE.FATEDialogue.Editor.EntryModule
                             GUILayout.MinWidth(150),
                             GUILayout.ExpandWidth(true)))
                     {
-                        if (string.IsNullOrEmpty(currentEntry.EntryName))
+                        if (string.IsNullOrEmpty(currentEntry.entryName))
                         {
                             EditorUtility.DisplayDialog("Warning", "The name cannot be empty", "OK");
                             return;
@@ -175,7 +175,7 @@ namespace FATE.FATEDialogue.Editor.EntryModule
                         var existingGraph = (RPGDialogueGraph) AssetDatabase.LoadAssetAtPath(
                             RPGBuilderEditor.Instance.EditorData.ResourcePath +
                             RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + "DialoguesExternalData/" +
-                            currentEntry.EntryFileName + "_GRAPH" + ".asset",
+                            currentEntry.entryFileName + "_GRAPH" + ".asset",
                             typeof(RPGDialogueGraph));
                         if (existingGraph != null)
                         {
@@ -191,7 +191,7 @@ namespace FATE.FATEDialogue.Editor.EntryModule
                             AssetDatabase.CreateAsset(newDialogueGraph,
                                 RPGBuilderEditor.Instance.EditorData.ResourcePath +
                                 RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + "DialoguesExternalData/" +
-                                currentEntry.EntryFileName + "_GRAPH" + ".asset");
+                                currentEntry.entryFileName + "_GRAPH" + ".asset");
 
                             AssetDatabase.SaveAssets();
                             AssetDatabase.Refresh();
@@ -199,7 +199,7 @@ namespace FATE.FATEDialogue.Editor.EntryModule
                             var createdGraph = (RPGDialogueGraph) AssetDatabase.LoadAssetAtPath(
                                 RPGBuilderEditor.Instance.EditorData.ResourcePath +
                                 RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + "DialoguesExternalData/" +
-                                currentEntry.EntryFileName + "_GRAPH" + ".asset",
+                                currentEntry.entryFileName + "_GRAPH" + ".asset",
                                 typeof(RPGDialogueGraph));
 
                             EditorUtility.SetDirty(newDialogueGraph);
@@ -249,12 +249,12 @@ namespace FATE.FATEDialogue.Editor.EntryModule
             foreach (var entry in allEntries)
             {
                 EditorUtility.SetDirty(entry);
-                entry.EntryName = entry._name;
+                entry.entryName = entry._name;
                 AssetDatabase.RenameAsset(RPGBuilderEditor.Instance.EditorData.ResourcePath + 
-                                          RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.EntryName + AssetNameSuffix);
-                entry.EntryFileName = entry.EntryName + AssetNameSuffix;
-                entry.EntryDisplayName = entry.displayName;
-                entry.EntryDescription = entry.description;
+                                          RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.entryName + AssetNameSuffix);
+                entry.entryFileName = entry.entryName + AssetNameSuffix;
+                entry.entryDisplayName = entry.displayName;
+                entry.entryDescription = entry.description;
                 EditorUtility.SetDirty(entry);
             }
         

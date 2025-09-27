@@ -42,11 +42,11 @@ namespace FATE.FATEClass.Runtime.DatabaseEntry
         public void UpdateEntryData(RPGClass newEntryData)
         {
             ID = newEntryData.ID;
-            EntryName = newEntryData.EntryName;
-            EntryFileName = newEntryData.EntryFileName;
-            EntryDisplayName = newEntryData.EntryDisplayName;
-            EntryIcon = newEntryData.EntryIcon;
-            EntryDescription = newEntryData.EntryDescription;
+            entryName = newEntryData.entryName;
+            entryFileName = newEntryData.entryFileName;
+            entryDisplayName = newEntryData.entryDisplayName;
+            entryIcon = newEntryData.entryIcon;
+            entryDescription = newEntryData.entryDescription;
         
             CustomStats = newEntryData.CustomStats;
             UseStatListTemplate = newEntryData.UseStatListTemplate;

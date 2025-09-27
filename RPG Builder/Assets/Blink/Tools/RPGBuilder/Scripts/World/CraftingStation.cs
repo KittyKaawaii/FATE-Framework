@@ -69,7 +69,7 @@ namespace BLINK.RPGBuilder.World
 
         public string getInteractableName()
         {
-            return station.EntryDisplayName;
+            return station.entryDisplayName;
         }
 
         public bool isReadyToInteract()

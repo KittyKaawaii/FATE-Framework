@@ -413,11 +413,11 @@ namespace BLINK.RPGBuilder.Managers
                 case RequirementsData.RequirementType.Gender:
                     if (requirement.Comparison == RequirementsData.Comparison.Equal)
                     {
-                        return Character.Instance.CharacterData.Gender == requirement.Gender.EntryName;
+                        return Character.Instance.CharacterData.Gender == requirement.Gender.entryName;
                     }
                     else if (requirement.Comparison == RequirementsData.Comparison.Different)
                     {
-                        return Character.Instance.CharacterData.Gender != requirement.Gender.EntryName;
+                        return Character.Instance.CharacterData.Gender != requirement.Gender.entryName;
                     }
 
                     break;

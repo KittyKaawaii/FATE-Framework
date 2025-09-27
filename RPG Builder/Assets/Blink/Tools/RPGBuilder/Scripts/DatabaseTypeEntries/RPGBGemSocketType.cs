@@ -7,8 +7,8 @@ public class RPGBGemSocketType : RPGBuilderDatabaseEntry
 {
     public void UpdateEntryData(RPGBGemSocketType newEntryData)
     {
-        EntryName = newEntryData.EntryName;
-        EntryFileName = newEntryData.EntryFileName;
-        EntryDisplayName = newEntryData.EntryDisplayName;
+        entryName = newEntryData.entryName;
+        entryFileName = newEntryData.entryFileName;
+        entryDisplayName = newEntryData.entryDisplayName;
     }
 }

@@ -84,11 +84,11 @@ namespace BLINK.RPGBuilder.Managers
                 case RPGTask.TASK_TYPE.useItem:
                 case RPGTask.TASK_TYPE.talkToNPC:
                 case RPGTask.TASK_TYPE.reachWeaponTemplateLevel:
-                    objText += trackedQuest[trackedQuestIndex].objectives[objectiveID].task.EntryDescription;
+                    objText += trackedQuest[trackedQuestIndex].objectives[objectiveID].task.entryDescription;
                     break;
                 case RPGTask.TASK_TYPE.killNPC:
                 case RPGTask.TASK_TYPE.getItem:
-                    objText += trackedQuest[trackedQuestIndex].objectives[objectiveID].task.EntryDescription + ": " +
+                    objText += trackedQuest[trackedQuestIndex].objectives[objectiveID].task.entryDescription + ": " +
                                Character.Instance.getQuestDATA(quest).objectives[objectiveID].currentProgressValue + " / " +
                                Character.Instance.getQuestDATA(quest).objectives[objectiveID].maxProgressValue;
                     break;
@@ -111,7 +111,7 @@ namespace BLINK.RPGBuilder.Managers
             var slot = newTrackedQuestSlot.GetComponent<QuestTrackerSlotHolder>();
             slot.InitSlot(quest);
             newTrackedQuest.slotREF = slot;
-            slot.questNameText.text = quest.EntryDisplayName;
+            slot.questNameText.text = quest.entryDisplayName;
 
             for (var i = 0; i < quest.objectives.Count; i++)
             {
@@ -135,11 +135,11 @@ namespace BLINK.RPGBuilder.Managers
                     case RPGTask.TASK_TYPE.useItem:
                     case RPGTask.TASK_TYPE.talkToNPC:
                     case RPGTask.TASK_TYPE.reachWeaponTemplateLevel:
-                        objText += newObjective.task.EntryDescription;
+                        objText += newObjective.task.entryDescription;
                         break;
                     case RPGTask.TASK_TYPE.killNPC:
                     case RPGTask.TASK_TYPE.getItem:
-                        objText += newObjective.task.EntryDescription + ": " +
+                        objText += newObjective.task.entryDescription + ": " +
                                    Character.Instance.getQuestDATA(quest).objectives[i].currentProgressValue + " / " +
                                    Character.Instance.getQuestDATA(quest).objectives[i].maxProgressValue;
                         break;

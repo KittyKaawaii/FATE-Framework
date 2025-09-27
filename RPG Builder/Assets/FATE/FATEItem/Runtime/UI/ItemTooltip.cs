@@ -97,8 +97,8 @@ namespace FATE.FATEItem.Runtime.UI
 
             var currency = GameDatabase.Instance.GetCurrencies()[currencyID];
 
-            itemNameText.text = currency.EntryDisplayName;
-            icon.sprite = currency.EntryIcon;
+            itemNameText.text = currency.entryDisplayName;
+            icon.sprite = currency.entryIcon;
             itemBackground.enabled = false;
             itemSlotTypeText.text = "";
             itemTypeText.text = "";
@@ -112,7 +112,7 @@ namespace FATE.FATEItem.Runtime.UI
             var treePoint = GameDatabase.Instance.GetPoints()[ID];
 
             itemNameText.text = treePoint._displayName;
-            icon.sprite = treePoint.EntryIcon;
+            icon.sprite = treePoint.entryIcon;
             itemBackground.enabled = false;
             itemSlotTypeText.text = "";
             HandleShowTooltip();
@@ -131,7 +131,7 @@ namespace FATE.FATEItem.Runtime.UI
 
             var item = GameDatabase.Instance.GetItems()[itemID];
 
-            itemNameText.text = item.EntryDisplayName;
+            itemNameText.text = item.entryDisplayName;
             itemSlotTypeText.text = "";
             itemTypeText.text = "";
 
@@ -139,12 +139,12 @@ namespace FATE.FATEItem.Runtime.UI
             {
                 if (item.ItemType.EquipType == EconomyData.EquipFunction.Armor)
                 {
-                    itemTypeText.text = item.ArmorType.EntryDisplayName;
-                    itemSlotTypeText.text = item.ArmorSlot.EntryDisplayName;
+                    itemTypeText.text = item.ArmorType.entryDisplayName;
+                    itemSlotTypeText.text = item.ArmorSlot.entryDisplayName;
                 } else if (item.ItemType.EquipType == EconomyData.EquipFunction.Weapon)
                 {
-                    itemTypeText.text = item.WeaponType.EntryDisplayName;
-                    itemSlotTypeText.text = item.WeaponSlot.EntryDisplayName;
+                    itemTypeText.text = item.WeaponType.entryDisplayName;
+                    itemSlotTypeText.text = item.WeaponSlot.entryDisplayName;
                 }
             }
             else
@@ -152,7 +152,7 @@ namespace FATE.FATEItem.Runtime.UI
                 if (item.ItemType.ItemTypeFunction == EconomyData.ItemTypeFunction.Gem)
                 {
                     statsText.text = "Can be socketted to an armor or weapon.\n \n";
-                    statsText.text += "Socket Type: " + item.gemData.GemSocketType.EntryDisplayName + "\n";
+                    statsText.text += "Socket Type: " + item.gemData.GemSocketType.entryDisplayName + "\n";
                     
                     foreach (var stat in item.gemData.gemStats)
                     {
@@ -168,7 +168,7 @@ namespace FATE.FATEItem.Runtime.UI
                             percentText = "%";
                         }
 
-                        statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.EntryDisplayName);
+                        statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.entryDisplayName);
                     }
                     statsText.text = RPGBuilderUtilities.addLineBreak(statsText.text);
                 } else if (item.ItemType.ItemTypeFunction == EconomyData.ItemTypeFunction.Enchantment)
@@ -176,7 +176,7 @@ namespace FATE.FATEItem.Runtime.UI
                     if (item.enchantmentID != -1)
                     {
                         RPGEnchantment enchantmentREF = GameDatabase.Instance.GetEnchantments()[item.enchantmentID];
-                        statsText.text = "Apply the " + enchantmentREF.EntryDisplayName +
+                        statsText.text = "Apply the " + enchantmentREF.entryDisplayName +
                                          " Enchantment to an item. \n \n";
                         int tierIndex = 1;
                         foreach (var t in enchantmentREF.enchantmentTiers)
@@ -195,7 +195,7 @@ namespace FATE.FATEItem.Runtime.UI
                                     percentText = "%";
                                 }
 
-                                statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.EntryDisplayName);
+                                statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.entryDisplayName);
                             }
 
                             statsText.text = RPGBuilderUtilities.addLineBreak(statsText.text);
@@ -208,22 +208,22 @@ namespace FATE.FATEItem.Runtime.UI
                             switch (t.type)
                             {
                                 case RPGEnchantment.ApplyRequirementType.ItemType:
-                                    reqText = "Item Type required: " + t.ItemType.EntryDisplayName;
+                                    reqText = "Item Type required: " + t.ItemType.entryDisplayName;
                                     break;
                                 case RPGEnchantment.ApplyRequirementType.ItemRarity:
-                                    reqText = "Item Rarity required: " + t.ItemRarity.EntryDisplayName;
+                                    reqText = "Item Rarity required: " + t.ItemRarity.entryDisplayName;
                                     break;
                                 case RPGEnchantment.ApplyRequirementType.ArmorType:
-                                    reqText = "Armor Type required: " + t.ArmorType.EntryDisplayName;
+                                    reqText = "Armor Type required: " + t.ArmorType.entryDisplayName;
                                     break;
                                 case RPGEnchantment.ApplyRequirementType.ArmorSlot:
-                                    reqText = "Armor Slot required: " + t.ArmorSlot.EntryDisplayName;
+                                    reqText = "Armor Slot required: " + t.ArmorSlot.entryDisplayName;
                                     break;
                                 case RPGEnchantment.ApplyRequirementType.WeaponType:
-                                    reqText = "Weapon Type required: " + t.WeaponType.EntryDisplayName;
+                                    reqText = "Weapon Type required: " + t.WeaponType.entryDisplayName;
                                     break;
                                 case RPGEnchantment.ApplyRequirementType.WeaponSlot:
-                                    reqText = "Weapon Slot required: " + t.WeaponSlot.EntryDisplayName;
+                                    reqText = "Weapon Slot required: " + t.WeaponSlot.entryDisplayName;
                                     break;
                             }
                             requirementsText.text += RPGBuilderUtilities.addLineBreak(reqText);
@@ -235,7 +235,7 @@ namespace FATE.FATEItem.Runtime.UI
 
             if (!item.ItemType.CanBeEquipped)
             {
-                itemTypeText.text = item.ItemType.EntryDisplayName;
+                itemTypeText.text = item.ItemType.entryDisplayName;
             }
 
             Color itemQualityColor = item.ItemRarity.color;
@@ -243,7 +243,7 @@ namespace FATE.FATEItem.Runtime.UI
             itemQualityText.color = itemQualityColor;
             itemNameText.color = itemQualityColor;
             
-            icon.sprite = item.EntryIcon;
+            icon.sprite = item.entryIcon;
             itemBackground.enabled = true;
             itemBackground.sprite = item.ItemRarity.background;
 
@@ -269,7 +269,7 @@ namespace FATE.FATEItem.Runtime.UI
                     percentText = "%";
                 }
 
-                statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.EntryDisplayName);
+                statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.entryDisplayName);
             }
 
             CharacterEntries.ItemEntry itemEntry = RPGBuilderUtilities.GetItemDataFromDataID(itemDataID);
@@ -299,7 +299,7 @@ namespace FATE.FATEItem.Runtime.UI
                                 percentText = "%";
                             }
 
-                            statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.EntryDisplayName);
+                            statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.entryDisplayName);
                             rdmIndex++;
                         }
                     }
@@ -309,7 +309,7 @@ namespace FATE.FATEItem.Runtime.UI
                 {
                     RPGEnchantment enchantREF = GameDatabase.Instance.GetEnchantments()[itemEntry.enchantmentID];
                     statsText.text = RPGBuilderUtilities.addLineBreak(statsText.text);
-                    statsText.text += RPGBuilderUtilities.addLineBreak("<color=#00DB96> Enchanted: " + enchantREF.EntryDisplayName);
+                    statsText.text += RPGBuilderUtilities.addLineBreak("<color=#00DB96> Enchanted: " + enchantREF.entryDisplayName);
                     foreach (var t in enchantREF.enchantmentTiers[itemEntry.enchantmentTierIndex].stats)
                     {
                         float amt = t.amount;
@@ -323,7 +323,7 @@ namespace FATE.FATEItem.Runtime.UI
                         {
                             percentText = "%";
                         }
-                        statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.EntryDisplayName);
+                        statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.entryDisplayName);
                     }
 
                     statsText.text += "</color>";
@@ -339,7 +339,7 @@ namespace FATE.FATEItem.Runtime.UI
                         {
                             RPGItem gemItemREF = GameDatabase.Instance.GetItems()[socket.gemItemID];
                             if (gemItemREF == null) continue;
-                            statsText.text += RPGBuilderUtilities.addLineBreak(GameDatabase.Instance.GetGemSocketTypes()[socket.GemSocketType].EntryDisplayName + ": " + gemItemREF.EntryDisplayName);
+                            statsText.text += RPGBuilderUtilities.addLineBreak(GameDatabase.Instance.GetGemSocketTypes()[socket.GemSocketType].entryDisplayName + ": " + gemItemREF.entryDisplayName);
                             foreach (var v in gemItemREF.gemData.gemStats)
                             {
                                 float amt = v.amount;
@@ -353,30 +353,30 @@ namespace FATE.FATEItem.Runtime.UI
                                 {
                                     percentText = "%";
                                 }
-                                statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.EntryDisplayName);
+                                statsText.text += RPGBuilderUtilities.addLineBreak(modifierText + amt + percentText + " " + statREF.entryDisplayName);
                             }
                         }
                         else
                         {
-                            statsText.text += RPGBuilderUtilities.addLineBreak("<color=#575757>" + GameDatabase.Instance.GetGemSocketTypes()[socket.GemSocketType].EntryDisplayName + ": (Empty)</color>");
+                            statsText.text += RPGBuilderUtilities.addLineBreak("<color=#575757>" + GameDatabase.Instance.GetGemSocketTypes()[socket.GemSocketType].entryDisplayName + ": (Empty)</color>");
                         }
                     }
                     statsText.text += "</color>";
                 }
             }
             
-            descriptionText.text = item.EntryDescription;
+            descriptionText.text = item.entryDescription;
 
             if (item.sellCurrencyID != -1)
             {
                 RPGCurrency currencyREF = GameDatabase.Instance.GetCurrencies()[item.sellCurrencyID];
-                sellPriceText.text = item.sellPrice + " " + currencyREF.EntryDisplayName;
+                sellPriceText.text = item.sellPrice + " " + currencyREF.entryDisplayName;
             }
 
             RPGGearSet itemGearSet = RPGBuilderUtilities.getItemGearSet(item.ID);
             if (itemGearSet != null)
             {
-                gearSetText.text = itemGearSet.EntryDisplayName + ":";
+                gearSetText.text = itemGearSet.entryDisplayName + ":";
                 gearSetText.text = RPGBuilderUtilities.addLineBreak(gearSetText.text);
 
                 int curItemIndex = 1;
@@ -391,7 +391,7 @@ namespace FATE.FATEItem.Runtime.UI
                         gearSetText.text += "<color=#575757>";
                     }
 
-                    gearSetText.text += GameDatabase.Instance.GetItems()[t.itemID].EntryDisplayName + "</color>";
+                    gearSetText.text += GameDatabase.Instance.GetItems()[t.itemID].entryDisplayName + "</color>";
                     if (curItemIndex < itemGearSet.itemsInSet.Count) gearSetText.text += " - ";
                     curItemIndex++;
                 }
@@ -424,7 +424,7 @@ namespace FATE.FATEItem.Runtime.UI
                         {
                             percentText = "%";
                         }
-                        gearSetText.text += modifierText + t.amount + percentText + " " + statREF.EntryDisplayName;
+                        gearSetText.text += modifierText + t.amount + percentText + " " + statREF.entryDisplayName;
                         if (curTierStatIndex < itemGearSet.gearSetTiers[index].gearSetTierStats.Count) gearSetText.text += ", ";
                         curTierStatIndex++;
                     }
@@ -469,7 +469,7 @@ namespace FATE.FATEItem.Runtime.UI
                                     string modifierText = isGain ? "+" : "-";
                                     string percentText = isItemStatPercent(t.Value.stat.ID, item, itemEntry!= null ? itemEntry.rdmItemID : -1) ? "%" : "";
                                     statChangeText += AssignRequirementColor(isGain,
-                                        modifierText + diffAmt + percentText + " " + t.Value.stat.EntryDisplayName);
+                                        modifierText + diffAmt + percentText + " " + t.Value.stat.entryDisplayName);
                                     statChangeText = RPGBuilderUtilities.addLineBreak(statChangeText);
                                     if (isGain)
                                         statGains.Add(statChangeText);
@@ -484,7 +484,7 @@ namespace FATE.FATEItem.Runtime.UI
                                     string modifierText = "-";
                                     string percentText = isItemStatPercent(t.Value.stat.ID, item, itemEntry!= null ? itemEntry.rdmItemID : -1) ? "%" : "";
                                     statChangeText += AssignRequirementColor(false,
-                                        modifierText + armorPieceVal + percentText + " " + t.Value.stat.EntryDisplayName);
+                                        modifierText + armorPieceVal + percentText + " " + t.Value.stat.entryDisplayName);
                                     statChangeText = RPGBuilderUtilities.addLineBreak(statChangeText);
                                     statLosses.Add(statChangeText);
                                 }
@@ -530,7 +530,7 @@ namespace FATE.FATEItem.Runtime.UI
                                         string modifierText = isGain ? "+" : "-";
                                         string percentText = isItemStatPercent(t.Value.stat.ID, item, itemEntry!= null ? itemEntry.rdmItemID : -1) ? "%" : "";
                                         statChangeText += AssignRequirementColor(isGain,
-                                            modifierText + diffAmt + percentText + " " + t.Value.stat.EntryDisplayName);
+                                            modifierText + diffAmt + percentText + " " + t.Value.stat.entryDisplayName);
                                         statChangeText = RPGBuilderUtilities.addLineBreak(statChangeText);
                                         if (isGain)
                                             statGains.Add(statChangeText);
@@ -545,7 +545,7 @@ namespace FATE.FATEItem.Runtime.UI
                                         string modifierText = "-";
                                         string percentText = isItemStatPercent(t.Value.stat.ID, item, itemEntry!= null ? itemEntry.rdmItemID : -1) ? "%" : "";
                                         statChangeText += AssignRequirementColor(false,
-                                            modifierText + otherWeaponsStatVal + percentText + " " + t.Value.stat.EntryDisplayName);
+                                            modifierText + otherWeaponsStatVal + percentText + " " + t.Value.stat.entryDisplayName);
                                         statChangeText = RPGBuilderUtilities.addLineBreak(statChangeText);
                                         statLosses.Add(statChangeText);
                                     }
@@ -577,7 +577,7 @@ namespace FATE.FATEItem.Runtime.UI
                                         string modifierText = isGain ? "+" : "-";
                                         string percentText = isItemStatPercent(t.Value.stat.ID, item, itemEntry!= null ? itemEntry.rdmItemID : -1) ? "%" : "";
                                         statChangeText += AssignRequirementColor(isGain,
-                                            modifierText + diffAmt + percentText + " " + t.Value.stat.EntryDisplayName);
+                                            modifierText + diffAmt + percentText + " " + t.Value.stat.entryDisplayName);
                                         statChangeText = RPGBuilderUtilities.addLineBreak(statChangeText);
                                         if (isGain)
                                             statGains.Add(statChangeText);
@@ -592,7 +592,7 @@ namespace FATE.FATEItem.Runtime.UI
                                         string modifierText = "-";
                                         string percentText = isItemStatPercent(t.Value.stat.ID, item, itemEntry!= null ? itemEntry.rdmItemID : -1) ? "%" : "";
                                         statChangeText += AssignRequirementColor(false,
-                                            modifierText + weapon1StatVal + percentText + " " + t.Value.stat.EntryDisplayName);
+                                            modifierText + weapon1StatVal + percentText + " " + t.Value.stat.entryDisplayName);
                                         statChangeText = RPGBuilderUtilities.addLineBreak(statChangeText);
                                         statLosses.Add(statChangeText);
                                     }
@@ -624,7 +624,7 @@ namespace FATE.FATEItem.Runtime.UI
                                         string modifierText = isGain ? "+" : "-";
                                         string percentText = isItemStatPercent(t.Value.stat.ID, item, itemEntry!= null ? itemEntry.rdmItemID : -1) ? "%" : "";
                                         statChangeText += AssignRequirementColor(isGain,
-                                            modifierText + diffAmt + percentText + " " + t.Value.stat.EntryDisplayName);
+                                            modifierText + diffAmt + percentText + " " + t.Value.stat.entryDisplayName);
                                         statChangeText = RPGBuilderUtilities.addLineBreak(statChangeText);
                                         if (isGain)
                                             statGains.Add(statChangeText);
@@ -639,7 +639,7 @@ namespace FATE.FATEItem.Runtime.UI
                                         string modifierText = "-";
                                         string percentText = isItemStatPercent(t.Value.stat.ID, item, itemEntry!= null ? itemEntry.rdmItemID : -1) ? "%" : "";
                                         statChangeText += AssignRequirementColor(false,
-                                            modifierText + weapon1StatVal + percentText + " " + t.Value.stat.EntryDisplayName);
+                                            modifierText + weapon1StatVal + percentText + " " + t.Value.stat.entryDisplayName);
                                         statChangeText = RPGBuilderUtilities.addLineBreak(statChangeText);
                                         statLosses.Add(statChangeText);
                                     }
@@ -677,7 +677,7 @@ namespace FATE.FATEItem.Runtime.UI
                                         string modifierText = isGain ? "+" : "-";
                                         string percentText = isItemStatPercent(t.Value.stat.ID, item, itemEntry!= null ? itemEntry.rdmItemID : -1) ? "%" : "";
                                         statChangeText += AssignRequirementColor(isGain,
-                                            modifierText + diffAmt + percentText + " " + t.Value.stat.EntryDisplayName);
+                                            modifierText + diffAmt + percentText + " " + t.Value.stat.entryDisplayName);
                                         statChangeText = RPGBuilderUtilities.addLineBreak(statChangeText);
                                         if (isGain)
                                             statGains.Add(statChangeText);
@@ -692,7 +692,7 @@ namespace FATE.FATEItem.Runtime.UI
                                         string modifierText = "-";
                                         string percentText = isItemStatPercent(t.Value.stat.ID, item, itemEntry!= null ? itemEntry.rdmItemID : -1) ? "%" : "";
                                         statChangeText += AssignRequirementColor(false,
-                                            modifierText + weapon1StatVal + percentText + " " + t.Value.stat.EntryDisplayName);
+                                            modifierText + weapon1StatVal + percentText + " " + t.Value.stat.entryDisplayName);
                                         statChangeText = RPGBuilderUtilities.addLineBreak(statChangeText);
                                         statLosses.Add(statChangeText);
                                     }

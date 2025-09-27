@@ -15,8 +15,8 @@ namespace BLINK.RPGBuilder.UIElements
 
         public void Init(RPGClass thisClass, int index)
         {
-            icon.sprite = thisClass.EntryIcon;
-            className.text = thisClass.EntryDisplayName;
+            icon.sprite = thisClass.entryIcon;
+            className.text = thisClass.entryDisplayName;
             classIndex = index;
         }
 

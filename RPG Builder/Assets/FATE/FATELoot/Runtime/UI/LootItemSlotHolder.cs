@@ -25,10 +25,10 @@ namespace FATE.FATELoot.Runtime.UI
         {
             thisLootIndex = lootIndex;
             holder = bag;
-            itemIcon.sprite = holder.lootData[thisLootIndex].item.EntryIcon;
+            itemIcon.sprite = holder.lootData[thisLootIndex].item.entryIcon;
             background.sprite = holder.lootData[thisLootIndex].item.ItemRarity.background;
             itemStackText.text = holder.lootData[thisLootIndex].count.ToString();
-            itemNameText.text = holder.lootData[thisLootIndex].item.EntryDisplayName;
+            itemNameText.text = holder.lootData[thisLootIndex].item.entryDisplayName;
         }
 
 
@@ -72,7 +72,7 @@ namespace FATE.FATELoot.Runtime.UI
             curDraggedItem = Instantiate(InventoryManager.Instance.draggedItemImage, transform.position,
                 Quaternion.identity);
             curDraggedItem.transform.SetParent(InventoryManager.Instance.draggedItemParent);
-            curDraggedItem.GetComponent<Image>().sprite = holder.lootData[thisLootIndex].item.EntryIcon;
+            curDraggedItem.GetComponent<Image>().sprite = holder.lootData[thisLootIndex].item.entryIcon;
         }
 
         public void OnDrag(PointerEventData eventData)

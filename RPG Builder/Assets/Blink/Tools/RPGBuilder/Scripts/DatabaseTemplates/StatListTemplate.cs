@@ -14,8 +14,8 @@ namespace BLINK.RPGBuilder.Templates
         
         public void UpdateEntryData(StatListTemplate newEntryData)
         {
-            EntryName = newEntryData.EntryName;
-            EntryFileName = newEntryData.EntryFileName;
+            entryName = newEntryData.entryName;
+            entryFileName = newEntryData.entryFileName;
             CustomStats = newEntryData.CustomStats;
         }
         

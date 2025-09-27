@@ -267,7 +267,7 @@ namespace BLINK.RPGBuilder.Managers
             Show();
             ClearAllTiersData();
 
-            TreeNameText.text = tree.EntryDisplayName;
+            TreeNameText.text = tree.entryDisplayName;
 
             for (var i = 0; i < tree.TiersAmount; i++)
             {

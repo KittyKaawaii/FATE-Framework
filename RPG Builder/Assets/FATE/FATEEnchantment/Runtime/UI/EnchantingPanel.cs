@@ -144,7 +144,7 @@ namespace FATE.FATEEnchantment.Runtime.UI
             var enchantedItemSlot = Instantiate(itemSlotPrefab, enchantedItemParent);
             var slotREF = enchantedItemSlot.GetComponent<EnchantCostSlotHolder>();
             var itemREF = GameDatabase.Instance.GetItems()[item.ID];
-            slotREF.InitSlot(itemREF.EntryIcon, true, 0, itemREF, false, itemDataID);
+            slotREF.InitSlot(itemREF.entryIcon, true, 0, itemREF, false, itemDataID);
             
             curEnchantedItemData.item = item;
             curEnchantedItemData.itemDataID = itemDataID;
@@ -196,7 +196,7 @@ namespace FATE.FATEEnchantment.Runtime.UI
                 ClearAllCostSlots();
                 return;
             }
-            enchantmentNameText.text = enchantList[enchantmentIndex].enchantment.EntryDisplayName;
+            enchantmentNameText.text = enchantList[enchantmentIndex].enchantment.entryDisplayName;
             enchantTierStatBonusesText.text = "";
             enchantButton.interactable = true;
             ClearAllCostSlots();
@@ -274,7 +274,7 @@ namespace FATE.FATEEnchantment.Runtime.UI
                         var slotREF = newRecipeSlot.GetComponent<EnchantCostSlotHolder>();
                         var currencyREF = GameDatabase.Instance.GetCurrencies()[t.currencyID];
                         var owned = EconomyUtilities.HasEnoughCurrency(t.currencyID, t.amount);
-                        slotREF.InitSlot(currencyREF.EntryIcon, owned, t.amount, currencyREF, curEnchantedItemData.itemDataID);
+                        slotREF.InitSlot(currencyREF.entryIcon, owned, t.amount, currencyREF, curEnchantedItemData.itemDataID);
                     }
 
                     foreach (var t in enchantList[selectedEnchant].enchantment.enchantmentTiers[viewedTier].itemCosts)
@@ -284,7 +284,7 @@ namespace FATE.FATEEnchantment.Runtime.UI
                         var slotREF = newRecipeSlot.GetComponent<EnchantCostSlotHolder>();
                         var itemREF = GameDatabase.Instance.GetItems()[t.itemID];
                         var owned = RPGBuilderUtilities.getItemCount(itemREF) >= t.itemCount;
-                        slotREF.InitSlot(itemREF.EntryIcon, owned, t.itemCount, itemREF, true, curEnchantedItemData.itemDataID);
+                        slotREF.InitSlot(itemREF.entryIcon, owned, t.itemCount, itemREF, true, curEnchantedItemData.itemDataID);
                     }
                     
                     int curTierStatIndex = 1;
@@ -300,7 +300,7 @@ namespace FATE.FATEEnchantment.Runtime.UI
                         }
 
                         enchantTierStatBonusesText.text += modifierText + t.amount + percentText + " " +
-                                                           GameDatabase.Instance.GetStats()[t.statID].EntryDisplayName;
+                                                           GameDatabase.Instance.GetStats()[t.statID].entryDisplayName;
                         if (curTierStatIndex < enchantList[selectedEnchant].enchantment.enchantmentTiers[viewedTier].stats.Count)
                             enchantTierStatBonusesText.text += ", ";
                         curTierStatIndex++;

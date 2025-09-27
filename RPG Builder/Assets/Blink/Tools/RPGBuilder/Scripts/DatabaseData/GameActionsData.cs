@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEFaction.Runtime.DatabaseTypeEntry;
 using UnityEngine;
 
 public static class GameActionsData

@@ -33,11 +33,11 @@ namespace FATE.FATELoot.Runtime.DatabaseEntry
         public void UpdateEntryData(RPGLootTable newEntryData)
         {
             ID = newEntryData.ID;
-            EntryName = newEntryData.EntryName;
-            EntryFileName = newEntryData.EntryFileName;
-            EntryDisplayName = newEntryData.EntryDisplayName;
-            EntryIcon = newEntryData.EntryIcon;
-            EntryDescription = newEntryData.EntryDescription;
+            entryName = newEntryData.entryName;
+            entryFileName = newEntryData.entryFileName;
+            entryDisplayName = newEntryData.entryDisplayName;
+            entryIcon = newEntryData.entryIcon;
+            entryDescription = newEntryData.entryDescription;
         
             lootItems = newEntryData.lootItems;
             maxDroppedItems = newEntryData.maxDroppedItems;

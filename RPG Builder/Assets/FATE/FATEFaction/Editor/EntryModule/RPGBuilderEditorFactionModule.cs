@@ -7,7 +7,6 @@ using FATE.FATEDatabase.Editor.Utility;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.Data;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATEFaction.Runtime.DatabaseTypeEntry;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,10 +14,10 @@ namespace FATE.FATEFaction.Editor.EntryModule
 {
     public class RPGBuilderEditorFactionModule : RPGBuilderEditorModule
     {
-        private Dictionary<int, RPGFaction> entries = new();
+        private Dictionary<int, RPGFaction> entries = new Dictionary<int, RPGFaction>();
         private RPGFaction currentEntry;
 
-        private readonly List<RPGBuilderDatabaseEntry> allFactionStances = new();
+        private readonly List<RPGBuilderDatabaseEntry> allFactionStances = new List<RPGBuilderDatabaseEntry>();
 
         public override void Initialize()
         {
@@ -85,12 +84,12 @@ namespace FATE.FATEFaction.Editor.EntryModule
 
         public override bool SaveConditionsMet()
         {
-            if (string.IsNullOrEmpty(currentEntry.EntryName))
+            if (string.IsNullOrEmpty(currentEntry.entryName))
             {
                 RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
                 return false;
             }
-            if (ContainsInvalidCharacters(currentEntry.EntryName))
+            if (ContainsInvalidCharacters(currentEntry.entryName))
             {
                 RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
                 return false;
@@ -147,21 +146,21 @@ namespace FATE.FATEFaction.Editor.EntryModule
             {
                 GUILayout.Space(5);
                 RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, false);
-                currentEntry.EntryIcon = RPGBuilderEditorFields.DrawIcon(currentEntry.EntryIcon, 100, 100);
+                currentEntry.entryIcon = RPGBuilderEditorFields.DrawIcon(currentEntry.entryIcon, 100, 100);
                 GUILayout.BeginVertical();
                 RPGBuilderEditorFields.DrawID(currentEntry.ID);
-                currentEntry.EntryName =
+                currentEntry.entryName =
                     RPGBuilderEditorFields.DrawHorizontalTextField("Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                        currentEntry.EntryName);
-                currentEntry.EntryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField("Display Name", "",
+                        currentEntry.entryName);
+                currentEntry.entryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField("Display Name", "",
                     RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.EntryDisplayName);
-                currentEntry.EntryFileName = RPGBuilderEditorFields.DrawFileNameField("File Name", "",
+                    currentEntry.entryDisplayName);
+                currentEntry.entryFileName = RPGBuilderEditorFields.DrawFileNameField("File Name", "",
                     RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.EntryName + AssetNameSuffix);
-                currentEntry.EntryDescription = RPGBuilderEditorFields.DrawHorizontalDescriptionField("Description", "",
+                    currentEntry.entryName + AssetNameSuffix);
+                currentEntry.entryDescription = RPGBuilderEditorFields.DrawHorizontalDescriptionField("Description", "",
                     RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.EntryDescription);
+                    currentEntry.entryDescription);
                 GUILayout.EndVertical();
                 RPGBuilderEditorUtility.EndHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, false);
             }
@@ -175,41 +174,41 @@ namespace FATE.FATEFaction.Editor.EntryModule
                 GUILayout.Space(10);
                 if (RPGBuilderEditorFields.DrawHorizontalAddButton("Add Stance", true))
                 {
-                    currentEntry.FactionStances.Add(new FactionStanceData());
+                    currentEntry.factionStances.Add(new FactionStanceData());
                 }
 
                 var ThisList = serialObj.FindProperty("factionStances");
-                currentEntry.FactionStances =
+                currentEntry.factionStances =
                     RPGBuilderEditor.Instance.GetTargetObjectOfProperty(ThisList) as List<FactionStanceData>;
 
                 RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
-                for (var a = 0; a < currentEntry.FactionStances.Count; a++)
+                for (var a = 0; a < currentEntry.factionStances.Count; a++)
                 {
                     GUILayout.Space(10);
 
                     RPGBuilderEditorFields.DrawHorizontalLabel("Stance", "");
                     int weaponSlotIndex = EditorGUILayout.Popup(
                         RPGBuilderEditorUtility.GetTypeEntryIndex(allFactionStances,
-                            currentEntry.FactionStances[a].FactionStance),
+                            currentEntry.factionStances[a].FactionStance),
                         RPGBuilderEditorUtility.GetTypeEntriesAsStringArray(allFactionStances.ToArray()));
-                    currentEntry.FactionStances[a].FactionStance = (RPGBFactionStance) allFactionStances[weaponSlotIndex];
+                    currentEntry.factionStances[a].FactionStance = (RPGBFactionStance) allFactionStances[weaponSlotIndex];
                     if (RPGBuilderEditorFields.DrawSmallRemoveButton())
                     {
-                        currentEntry.FactionStances.RemoveAt(a);
+                        currentEntry.factionStances.RemoveAt(a);
                         return;
                     }
                     EditorGUILayout.EndHorizontal();
 
-                    currentEntry.FactionStances[a].AlignmentToPlayer =
+                    currentEntry.factionStances[a].AlignementToPlayer =
                         (CombatData.EntityAlignment) RPGBuilderEditorFields.DrawHorizontalEnum("Player Alignment", "The player alignment to this faction when this stance is active",
-                            (int)currentEntry.FactionStances[a].AlignmentToPlayer,
+                            (int)currentEntry.factionStances[a].AlignementToPlayer,
                             Enum.GetNames(typeof(CombatData.EntityAlignment)));
 
-                    currentEntry.FactionStances[a].PointsRequired =
+                    currentEntry.factionStances[a].pointsRequired =
                         RPGBuilderEditorFields.DrawHorizontalIntField("Points Required",
                             "The amount of points required to reach this stance",
                             RPGBuilderEditor.Instance.FieldHeight,
-                            currentEntry.FactionStances[a].PointsRequired);
+                            currentEntry.factionStances[a].pointsRequired);
                 }
 
                 RPGBuilderEditorUtility.EndHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
@@ -224,45 +223,45 @@ namespace FATE.FATEFaction.Editor.EntryModule
                 GUILayout.Space(10);
                 if (RPGBuilderEditorFields.DrawHorizontalAddButton("Add Interaction", true))
                 {
-                    currentEntry.FactionInteractions.Add(new FactionInteractionData());
+                    currentEntry.factionInteractions.Add(new FactionInteractionData());
                 }
 
                 var ThisList2 = serialObj.FindProperty("factionInteractions");
-                currentEntry.FactionInteractions =
+                currentEntry.factionInteractions =
                     RPGBuilderEditor.Instance.GetTargetObjectOfProperty(ThisList2) as
                         List<FactionInteractionData>;
 
                 GUILayout.Space(10);
                 RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
-                for (var a = 0; a < currentEntry.FactionInteractions.Count; a++)
+                for (var a = 0; a < currentEntry.factionInteractions.Count; a++)
                 {
                     GUILayout.Space(10);
                     if (RPGBuilderEditorFields.DrawHorizontalEntryRemoveButton(
-                            currentEntry.FactionInteractions[a].FactionID,
+                            currentEntry.factionInteractions[a].factionID,
                             "Faction"))
                     {
-                        currentEntry.FactionInteractions.RemoveAt(a);
+                        currentEntry.factionInteractions.RemoveAt(a);
                         return;
                     }
 
-                    currentEntry.FactionInteractions[a].FactionID = RPGBuilderEditorFields.DrawDatabaseEntryField(
-                        currentEntry.FactionInteractions[a].FactionID,
+                    currentEntry.factionInteractions[a].factionID = RPGBuilderEditorFields.DrawDatabaseEntryField(
+                        currentEntry.factionInteractions[a].factionID,
                         "Faction", "Faction", "");
 
                     RPGBuilderEditorFields.DrawHorizontalLabel("Stance", "");
                     int weaponSlotIndex = EditorGUILayout.Popup(
                         RPGBuilderEditorUtility.GetTypeEntryIndex(allFactionStances,
-                            currentEntry.FactionInteractions[a].DefaultFactionStance),
+                            currentEntry.factionInteractions[a].DefaultFactionStance),
                         RPGBuilderEditorUtility.GetTypeEntriesAsStringArray(allFactionStances.ToArray()));
-                    currentEntry.FactionInteractions[a].DefaultFactionStance =
+                    currentEntry.factionInteractions[a].DefaultFactionStance =
                         (RPGBFactionStance) allFactionStances[weaponSlotIndex];
                     EditorGUILayout.EndHorizontal();
 
-                    currentEntry.FactionInteractions[a].StartingPoints =
+                    currentEntry.factionInteractions[a].startingPoints =
                         RPGBuilderEditorFields.DrawHorizontalIntField("Start Points",
                             "The amount of points the stance start by default",
                             RPGBuilderEditor.Instance.FieldHeight,
-                            currentEntry.FactionInteractions[a].StartingPoints);
+                            currentEntry.factionInteractions[a].startingPoints);
 
                     GUILayout.Space(10);
                 }

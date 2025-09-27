@@ -9,9 +9,9 @@ public class RPGBItemType : RPGBuilderDatabaseEntry
         
     public void UpdateEntryData(RPGBItemType newEntryData)
     {
-        EntryName = newEntryData.EntryName;
-        EntryFileName = newEntryData.EntryFileName;
-        EntryDisplayName = newEntryData.EntryDisplayName;
+        entryName = newEntryData.entryName;
+        entryFileName = newEntryData.entryFileName;
+        entryDisplayName = newEntryData.entryDisplayName;
         CanBeEquipped = newEntryData.CanBeEquipped;
         EquipType = newEntryData.EquipType;
         ItemTypeFunction = newEntryData.ItemTypeFunction;

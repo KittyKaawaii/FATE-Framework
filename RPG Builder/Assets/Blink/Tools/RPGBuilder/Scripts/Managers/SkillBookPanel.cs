@@ -109,9 +109,9 @@ namespace BLINK.RPGBuilder.Managers
 
             ClearCurTreeSlots();
 
-            skillNameText.text = skill.EntryDisplayName;
-            skillIcon.sprite = skill.EntryIcon;
-            skillDescriptionText.text = skill.EntryDescription;
+            skillNameText.text = skill.entryDisplayName;
+            skillIcon.sprite = skill.entryIcon;
+            skillDescriptionText.text = skill.entryDescription;
             skillExperienceBar.fillAmount = RPGBuilderUtilities.getSkillEXPPercent(skill);
             skillLevelText.text = RPGBuilderUtilities.getSkillLevel(skill.ID) + " / " +
                                   GameDatabase.Instance.GetLevels()[skill.levelTemplateID].levels;

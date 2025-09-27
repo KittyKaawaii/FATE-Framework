@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
-public class RPGBWeaponHandSlot : RPGBuilderDatabaseEntry
+public class RPGBFactionStance : RPGBuilderDatabaseEntry
 {
+    public Color color = Color.white;
     
-    public void UpdateEntryData(RPGBWeaponHandSlot newEntryData)
+    public void UpdateEntryData(RPGBFactionStance newEntryData)
     {
         entryName = newEntryData.entryName;
         entryFileName = newEntryData.entryFileName;
         entryDisplayName = newEntryData.entryDisplayName;
+        color = newEntryData.color;
     }
 }

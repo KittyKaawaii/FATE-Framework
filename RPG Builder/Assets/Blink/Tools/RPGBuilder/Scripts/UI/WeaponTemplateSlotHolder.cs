@@ -17,7 +17,7 @@ namespace BLINK.RPGBuilder.UIElements
         public void InitSlot(RPGWeaponTemplate weaponTemplateREF)
         {
             thisWeaponTemplate = weaponTemplateREF;
-            icon.sprite = weaponTemplateREF.EntryIcon;
+            icon.sprite = weaponTemplateREF.entryIcon;
             progressBar.fillAmount = (float) RPGBuilderUtilities.getWeaponTemplateLevel(weaponTemplateREF.ID) /
                                      RPGBuilderUtilities.getWeaponTemplateMaxLevel(weaponTemplateREF.ID);
         }

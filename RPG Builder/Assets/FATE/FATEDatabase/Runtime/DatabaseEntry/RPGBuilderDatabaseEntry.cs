@@ -1,27 +1,23 @@
 ﻿using FATE.FATECustomAttribute.Runtime.AttributeParam;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace FATE.FATEDatabase.Runtime.DatabaseEntry
 {
 
     public abstract class RPGBuilderDatabaseEntry : ScriptableObject
     {
-        [Header("Для изменения значений перейдите в базу данных")] [ReadOnlyFieldWithName("")]
+        [Header("Для изменения значений перейдите в базу данных")] [ReadOnlyField]
         public int ID = -1;
-        [FormerlySerializedAs("entryName")] [ReadOnlyFieldWithName("Наименование")]
-        public string EntryName;
 
-        [FormerlySerializedAs("entryDisplayName"), ReadOnlyFieldWithName("Отображаемое имя")]
-        public string EntryDisplayName;
+        [DisplayName("Наименование")] [ReadOnlyField]
+        public string entryName;
 
-        [FormerlySerializedAs("entryDescription"), ReadOnlyFieldWithName("Описание")]
-        public string EntryDescription;
+        [HideInInspector] [ReadOnlyField] public string entryFileName;
 
-        [FormerlySerializedAs("entryIcon"), ReadOnlyFieldWithName("Иконка")]
-        public Sprite EntryIcon;
+        [ReadOnlyField] public string entryDisplayName;
 
-        [FormerlySerializedAs("entryFileName"), HideInInspector]
-        public string EntryFileName;
+        [ReadOnlyField] public Sprite entryIcon;
+
+        [ReadOnlyField] public string entryDescription;
     }
 }

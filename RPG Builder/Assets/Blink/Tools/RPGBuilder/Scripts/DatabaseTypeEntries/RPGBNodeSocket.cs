@@ -8,8 +8,8 @@ public class RPGBNodeSocket : RPGBuilderDatabaseEntry
     
     public void UpdateEntryData(RPGBNodeSocket newEntryData)
     {
-        EntryName = newEntryData.EntryName;
-        EntryFileName = newEntryData.EntryFileName;
-        EntryDisplayName = newEntryData.EntryDisplayName;
+        entryName = newEntryData.entryName;
+        entryFileName = newEntryData.entryFileName;
+        entryDisplayName = newEntryData.entryDisplayName;
     }
 }

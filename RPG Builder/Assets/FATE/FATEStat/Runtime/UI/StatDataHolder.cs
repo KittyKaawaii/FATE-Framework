@@ -17,9 +17,9 @@ namespace FATE.FATEStat.Runtime.UI
         { 
             statREF = statDataREF.stat;
             if (statREF.isVitalityStat)
-                statText.text = statREF.EntryDisplayName + ": " + statDataREF.currentMaxValue;
+                statText.text = statREF.entryDisplayName + ": " + statDataREF.currentMaxValue;
             else
-                statText.text = statREF.EntryDisplayName + ": " + statDataREF.currentValue;
+                statText.text = statREF.entryDisplayName + ": " + statDataREF.currentValue;
 
             if (statREF.isPercentStat)
             {
@@ -29,7 +29,7 @@ namespace FATE.FATEStat.Runtime.UI
 
         public void ShowStatTooltip()
         {
-            if(statREF.EntryDescription != "") UIEvents.Instance.OnShowCharacterPanelStatTooltip(statREF);
+            if(statREF.entryDescription != "") UIEvents.Instance.OnShowCharacterPanelStatTooltip(statREF);
         }
 
         public void HideStatTooltip()

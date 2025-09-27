@@ -400,7 +400,7 @@ namespace BLINK.RPGBuilder.Combat
                 {
                     if(!CombatUtilities.IsAbilityKnown(ab.ID)) continue;
                     RPGAbilityRankData thisRankREF = ab.ranks[RPGBuilderUtilities.GetCharacterAbilityRank(ab.ID)];
-                    if (!thisRankREF.isSharingCooldown || thisRankREF.abilityCooldownTag.EntryName != rank.abilityCooldownTag.EntryName) continue;
+                    if (!thisRankREF.isSharingCooldown || thisRankREF.abilityCooldownTag.entryName != rank.abilityCooldownTag.entryName) continue;
                     float thisCD = thisRankREF.cooldown - (thisRankREF.cooldown * cdrecoveryspeed);
                     Character.Instance.InitAbilityCooldown(ab.ID, thisCD);
                 }

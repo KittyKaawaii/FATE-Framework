@@ -108,7 +108,7 @@ public static class RPGBuilderJsonSaver
 
             CharacterEntries.StateEntry savedState = new CharacterEntries.StateEntry
             {
-                EffectName = state.stateEffect.EntryName,
+                EffectName = state.stateEffect.entryName,
                 EffectID = state.stateEffectID,
                 EffectRank = state.effectRankIndex,
                 curPulses = state.curPulses,
@@ -134,7 +134,7 @@ public static class RPGBuilderJsonSaver
 
             CombatData.VitalityStatEntry savedState = new CombatData.VitalityStatEntry
             {
-                StatName = stat.stat.EntryName,
+                StatName = stat.stat.entryName,
                 StatID = stat.stat.ID,
                 value = stat.currentValue,
             };

@@ -6,9 +6,9 @@ public class RPGBDamageType : RPGBuilderDatabaseEntry
     public Color color = Color.white;
     public void UpdateEntryData(RPGBDamageType newEntryData)
     {
-        EntryName = newEntryData.EntryName;
-        EntryFileName = newEntryData.EntryFileName;
-        EntryDisplayName = newEntryData.EntryDisplayName;
+        entryName = newEntryData.entryName;
+        entryFileName = newEntryData.entryFileName;
+        entryDisplayName = newEntryData.entryDisplayName;
         color = newEntryData.color;
     }
 }

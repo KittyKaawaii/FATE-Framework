@@ -21,7 +21,6 @@ using FATE.FATEDialogue.Runtime.DatabaseEntry;
 using FATE.FATEEffect.Runtime.DatabaseEntry;
 using FATE.FATEEnchantment.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATEFaction.Runtime.DatabaseTypeEntry;
 using FATE.FATEGathering.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATELeveling.Runtime.DatabaseEntry;
@@ -80,9 +79,9 @@ public class RPGBuilderEditorFields : Editor
     {
         RPGBuilderDatabaseEntry entryRef = RPGBuilderEditorUtility.GetEntryByID(ID, entryType);
         if(entryRef != null) {
-            GUILayout.Box(entryRef.EntryIcon.texture, RPGBuilderEditor.Instance.EditorSkin.GetStyle("CustomImage"), GUILayout.Width(20),GUILayout.Height(20));
+            GUILayout.Box(entryRef.entryIcon.texture, RPGBuilderEditor.Instance.EditorSkin.GetStyle("CustomImage"), GUILayout.Width(20),GUILayout.Height(20));
             GUILayout.Space(5);
-            DrawLabelExpanded(entryRef.EntryName, "");
+            DrawLabelExpanded(entryRef.entryName, "");
         }
         else
         {
@@ -148,15 +147,15 @@ public class RPGBuilderEditorFields : Editor
             {
                 if (module.ShowIconInList)
                 {
-                    GUILayout.Box(entryRef.EntryIcon != null
-                            ? entryRef.EntryIcon.texture
+                    GUILayout.Box(entryRef.entryIcon != null
+                            ? entryRef.entryIcon.texture
                             : RPGBuilderEditor.Instance.EditorData.defaultEntryIcon.texture,
                         RPGBuilderEditor.Instance.EditorSkin.GetStyle("CustomImage"),
                         GUILayout.Width(21), GUILayout.Height(21));
                     GUILayout.Space(4);
                 }
 
-                DrawTitleLabelExpanded(entryRef.EntryName, "");
+                DrawTitleLabelExpanded(entryRef.entryName, "");
             }
         }
         else
@@ -794,7 +793,7 @@ public class RPGBuilderEditorFields : Editor
                                 break;
                             case RequirementsData.ItemCondition.ItemType:
                                 EditorGUILayout.BeginHorizontal();
-                                DrawTitleLabelExpanded(requirement.ItemType.EntryName + " " + requirement.Ownership, "");
+                                DrawTitleLabelExpanded(requirement.ItemType.entryName + " " + requirement.Ownership, "");
                                 if (DrawSmallRemoveButton())
                                 {
                                     group.Requirements.Remove(requirement);
@@ -804,7 +803,7 @@ public class RPGBuilderEditorFields : Editor
 ;                                break;
                             case RequirementsData.ItemCondition.WeaponType:
                                 EditorGUILayout.BeginHorizontal();
-                                DrawTitleLabelExpanded(requirement.WeaponType.EntryName + " " + requirement.Ownership, "");
+                                DrawTitleLabelExpanded(requirement.WeaponType.entryName + " " + requirement.Ownership, "");
                                 if (DrawSmallRemoveButton())
                                 {
                                     group.Requirements.Remove(requirement);
@@ -814,7 +813,7 @@ public class RPGBuilderEditorFields : Editor
                                 break;
                             case RequirementsData.ItemCondition.WeaponSlot:
                                 EditorGUILayout.BeginHorizontal();
-                                DrawTitleLabelExpanded(requirement.WeaponSlot.EntryName + " " + requirement.Ownership, "");
+                                DrawTitleLabelExpanded(requirement.WeaponSlot.entryName + " " + requirement.Ownership, "");
                                 if (DrawSmallRemoveButton())
                                 {
                                     group.Requirements.Remove(requirement);
@@ -824,7 +823,7 @@ public class RPGBuilderEditorFields : Editor
                                 break;
                             case RequirementsData.ItemCondition.ArmorType:
                                 EditorGUILayout.BeginHorizontal();
-                                DrawTitleLabelExpanded(requirement.ArmorType.EntryName + " " + requirement.Ownership, "");
+                                DrawTitleLabelExpanded(requirement.ArmorType.entryName + " " + requirement.Ownership, "");
                                 if (DrawSmallRemoveButton())
                                 {
                                     group.Requirements.Remove(requirement);
@@ -834,7 +833,7 @@ public class RPGBuilderEditorFields : Editor
                                 break;
                             case RequirementsData.ItemCondition.ArmorSlot:
                                 EditorGUILayout.BeginHorizontal();
-                                DrawTitleLabelExpanded(requirement.ArmorSlot.EntryName + " " + requirement.Ownership, "");
+                                DrawTitleLabelExpanded(requirement.ArmorSlot.entryName + " " + requirement.Ownership, "");
                                 if (DrawSmallRemoveButton())
                                 {
                                     group.Requirements.Remove(requirement);
@@ -1982,7 +1981,7 @@ public class RPGBuilderEditorFields : Editor
                         WeaponSlot == "ANY HAND")
                     {
                         DrawTitleLabel((transforms[a].transformValues[u].gender != null ? 
-                            transforms[a].transformValues[u].gender.EntryName.ToUpper() :
+                            transforms[a].transformValues[u].gender.entryName.ToUpper() :
                             "- Select Gender -") + " | IN COMBAT | RIGHT HAND:","", 300);
                         GUILayout.Space(5);
                         GameObject sceneREF = null;
@@ -2017,7 +2016,7 @@ public class RPGBuilderEditorFields : Editor
                         GUILayout.Space(10);
                         DrawTitleLabel((
                             transforms[a].transformValues[u].gender != null ? 
-                                transforms[a].transformValues[u].gender.EntryName.ToUpper() :
+                                transforms[a].transformValues[u].gender.entryName.ToUpper() :
                                 "- Select Gender -") + " | OUT OF COMBAT | RIGHT HAND:", "", 300);
                         GUILayout.Space(5);
                         GameObject sceneREF2 = null;
@@ -2057,7 +2056,7 @@ public class RPGBuilderEditorFields : Editor
                         GUILayout.Space(15);
                         DrawTitleLabel((
                             transforms[a].transformValues[u].gender != null ? 
-                                transforms[a].transformValues[u].gender.EntryName.ToUpper() :
+                                transforms[a].transformValues[u].gender.entryName.ToUpper() :
                                 "- Select Gender -") + " | IN COMBAT | LEFT HAND:", "", 300);
                         GUILayout.Space(5);
                         GameObject sceneREF = null;
@@ -2094,7 +2093,7 @@ public class RPGBuilderEditorFields : Editor
                         GUILayout.Space(10);
                         DrawTitleLabel((
                             transforms[a].transformValues[u].gender != null ? 
-                                transforms[a].transformValues[u].gender.EntryName.ToUpper() :
+                                transforms[a].transformValues[u].gender.entryName.ToUpper() :
                                 "- Select Gender -") + " | OUT OF COMBAT | LEFT HAND:", "", 300);
                         GUILayout.Space(5);
                         GameObject sceneREF2 = null;

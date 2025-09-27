@@ -131,11 +131,11 @@ public class RPGBuilderEditorEconomySettingsModule : RPGBuilderEditorModule
                     RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
                     GUILayout.BeginHorizontal();
                     string elementName = currentEntry.weaponAnimatorOverrides[a].WeaponType1 != null ?
-                        currentEntry.weaponAnimatorOverrides[a].WeaponType1.EntryName : "";
+                        currentEntry.weaponAnimatorOverrides[a].WeaponType1.entryName : "";
                     if (currentEntry.weaponAnimatorOverrides[a].requireWeapon2)
                     {
                         elementName += " + " + (currentEntry.weaponAnimatorOverrides[a].WeaponType2 != null ?
-                            currentEntry.weaponAnimatorOverrides[a].WeaponType2.EntryName : "");
+                            currentEntry.weaponAnimatorOverrides[a].WeaponType2.entryName : "");
                     }
                     RPGBuilderEditorFields.DrawTitleLabelExpanded(elementName, "");
                     

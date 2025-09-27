@@ -62,18 +62,18 @@ namespace FATE.FATEDatabase.Editor.Utility
 
         public static Sprite GetEntryIcon(int ID, string entryType)
         {
-            return GetEntryByID(ID, entryType).EntryIcon;
+            return GetEntryByID(ID, entryType).entryIcon;
         }
     
         public static string[] GetTypeEntriesAsStringArray(RPGBuilderDatabaseEntry[] typeEntries)
         {
-            List<string> stringEntries = typeEntries.Select(typeEntry => typeEntry.EntryName).ToList();
+            List<string> stringEntries = typeEntries.Select(typeEntry => typeEntry.entryName).ToList();
             return stringEntries.ToArray();
         }
     
         public static string[] GetTypeEntriesAsStringArray(RPGBuilderDatabaseEntry[] typeEntries, bool reorder, string firstEntryName)
         {
-            List<string> stringEntries = typeEntries.Select(typeEntry => typeEntry.EntryName).ToList();
+            List<string> stringEntries = typeEntries.Select(typeEntry => typeEntry.entryName).ToList();
             if (!reorder || !string.IsNullOrEmpty(firstEntryName)) return stringEntries.ToArray();
             if (!stringEntries.Contains(firstEntryName)) return stringEntries.ToArray();
             stringEntries.RemoveAt(stringEntries.IndexOf(firstEntryName));

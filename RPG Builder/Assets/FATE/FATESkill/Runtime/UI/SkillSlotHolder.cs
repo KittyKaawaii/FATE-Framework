@@ -16,12 +16,12 @@ namespace FATE.FATESkill.Runtime.UI
 
         public void InitSlot(RPGSkill skill)
         {
-            skillIcon.sprite = skill.EntryIcon;
-            skillBackground.sprite = skill.EntryIcon;
+            skillIcon.sprite = skill.entryIcon;
+            skillBackground.sprite = skill.entryIcon;
             skillEXPBar.fillAmount = RPGBuilderUtilities.getSkillEXPPercent(skill);
             skillLevelText.text = RPGBuilderUtilities.getSkillLevel(skill.ID) + " / " +
                                   GameDatabase.Instance.GetLevels()[skill.levelTemplateID].levels;
-            skillNameText.text = skill.EntryDisplayName;
+            skillNameText.text = skill.entryDisplayName;
             thisSkill = skill;
             
             animator.SetBool("glowing", RPGBuilderUtilities.hasPointsToSpendInSkill(skill.ID));

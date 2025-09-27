@@ -68,7 +68,7 @@ namespace BLINK.RPGBuilder.LogicMono
             {
                 CharacterEntries.GameSceneEntry gameSceneEntry = new CharacterEntries.GameSceneEntry
                 {
-                    GameSceneName = GameDatabase.Instance.GetGameScenes()[GameSceneID].EntryName, GameSceneID = GameSceneID
+                    GameSceneName = GameDatabase.Instance.GetGameScenes()[GameSceneID].entryName, GameSceneID = GameSceneID
                 };
                 Character.Instance.CharacterData.GameScenes.Add(gameSceneEntry);
                 Character.Instance.CharacterData.GameSceneEntryIndex = Character.Instance.GetGameSceneIndexByID(GameSceneID);
@@ -99,7 +99,7 @@ namespace BLINK.RPGBuilder.LogicMono
         {
             foreach (var gameScene in GameDatabase.Instance.GetGameScenes().Values)
             {
-                if (gameScene.EntryName == sceneName) return true;
+                if (gameScene.entryName == sceneName) return true;
             }
 
             return false;
@@ -129,7 +129,7 @@ namespace BLINK.RPGBuilder.LogicMono
                 {
                     CharacterEntries.GameSceneEntry gameSceneEntry = new CharacterEntries.GameSceneEntry
                     {
-                        GameSceneName = gameScene.EntryName, GameSceneID = gameScene.ID
+                        GameSceneName = gameScene.entryName, GameSceneID = gameScene.ID
                     };
                     Character.Instance.CharacterData.GameScenes.Add(gameSceneEntry);
                     Character.Instance.CharacterData.GameSceneEntryIndex = Character.Instance.GetCurrentGameSceneIndex();

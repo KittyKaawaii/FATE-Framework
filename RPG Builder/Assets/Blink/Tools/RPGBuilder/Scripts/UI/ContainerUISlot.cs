@@ -39,7 +39,7 @@ public class ContainerUISlot : MonoBehaviour, IPointerClickHandler, IDragHandler
         thisItemDataID = itemDataID;
         container = containerObject;
         currentSlotIndex = slotIndex;
-        icon.sprite = item.EntryIcon;
+        icon.sprite = item.entryIcon;
         Sprite itemQualitySprite = item.ItemRarity.background;
         if (itemQualitySprite != null)
         {
@@ -95,7 +95,7 @@ public class ContainerUISlot : MonoBehaviour, IPointerClickHandler, IDragHandler
         curDraggedItem = Instantiate(InventoryManager.Instance.draggedItemImage, transform.position,
             Quaternion.identity);
         curDraggedItem.transform.SetParent(InventoryManager.Instance.draggedItemParent);
-        curDraggedItem.GetComponent<Image>().sprite = thisItem.EntryIcon;
+        curDraggedItem.GetComponent<Image>().sprite = thisItem.entryIcon;
     }
 
     public void OnDrag(PointerEventData eventData)

@@ -1,15 +1,14 @@
-using FATE.FATEFaction.Runtime.DatabaseTypeEntry;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace FATE.FATEFaction.Runtime.Data
 {
     [System.Serializable]
     public class FactionInteractionData
     {
-        [FormerlySerializedAs("factionID")] public int FactionID = -1;
+        public int factionID = -1;
 
+        [HideInInspector] public string defaultStance;
         public RPGBFactionStance DefaultFactionStance;
-        [FormerlySerializedAs("startingPoints")] public int StartingPoints;
+        public int startingPoints;
     }
 }

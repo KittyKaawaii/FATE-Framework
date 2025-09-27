@@ -64,12 +64,12 @@ public class RPGBuilderEditorLevelsModule : RPGBuilderEditorModule
 
     public override bool SaveConditionsMet()
     {
-        if (string.IsNullOrEmpty(currentEntry.EntryName))
+        if (string.IsNullOrEmpty(currentEntry.entryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
             return false;
         }
-        if (ContainsInvalidCharacters(currentEntry.EntryName))
+        if (ContainsInvalidCharacters(currentEntry.entryName))
         {
             RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
             return false;
@@ -127,10 +127,10 @@ public class RPGBuilderEditorLevelsModule : RPGBuilderEditorModule
             GUILayout.Space(10);
             RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
             RPGBuilderEditorFields.DrawID( currentEntry.ID);
-            currentEntry.EntryName =
-                RPGBuilderEditorFields.DrawHorizontalTextField("Name", "", RPGBuilderEditor.Instance.FieldHeight, currentEntry.EntryName);
-            currentEntry.EntryFileName = RPGBuilderEditorFields.DrawFileNameField("File Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                currentEntry.EntryName + AssetNameSuffix);
+            currentEntry.entryName =
+                RPGBuilderEditorFields.DrawHorizontalTextField("Name", "", RPGBuilderEditor.Instance.FieldHeight, currentEntry.entryName);
+            currentEntry.entryFileName = RPGBuilderEditorFields.DrawFileNameField("File Name", "", RPGBuilderEditor.Instance.FieldHeight,
+                currentEntry.entryName + AssetNameSuffix);
             RPGBuilderEditorUtility.EndHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
         }
 
@@ -211,10 +211,10 @@ public class RPGBuilderEditorLevelsModule : RPGBuilderEditorModule
                 RPGBuilderEditor.Instance.EditorSettings.ResourcePath +
                 RPGBuilderEditor.Instance.EditorSettings.DatabasePath + AssetFolderName +"/" + entry._fileName + ".asset");
             
-            entry.EntryName = entry._name;
+            entry.entryName = entry._name;
             AssetDatabase.RenameAsset(RPGBuilderEditor.Instance.EditorSettings.ResourcePath + 
-                                      RPGBuilderEditor.Instance.EditorSettings.DatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.EntryName + AssetNameSuffix);
-            entry.EntryFileName = entry.EntryName + AssetNameSuffix;
+                                      RPGBuilderEditor.Instance.EditorSettings.DatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.entryName + AssetNameSuffix);
+            entry.entryFileName = entry.entryName + AssetNameSuffix;
             
             EditorUtility.SetDirty(entry);
         }

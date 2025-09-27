@@ -68,12 +68,12 @@ namespace FATE.FATECrafting.Editor.EntryModule
 
         public override bool SaveConditionsMet()
         {
-            if (string.IsNullOrEmpty(currentEntry.EntryName))
+            if (string.IsNullOrEmpty(currentEntry.entryName))
             {
                 RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Name", "Enter a valid name", "OK");
                 return false;
             }
-            if (ContainsInvalidCharacters(currentEntry.EntryName))
+            if (ContainsInvalidCharacters(currentEntry.entryName))
             {
                 RPGBuilderEditorUtility.DisplayDialogueWindow("Invalid Characters", "The Name contains invalid characters", "OK");
                 return false;
@@ -131,19 +131,19 @@ namespace FATE.FATECrafting.Editor.EntryModule
             {
                 GUILayout.Space(10);
                 RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, false);
-                currentEntry.EntryIcon =
-                    RPGBuilderEditorFields.DrawIcon(currentEntry.EntryIcon, 100, 100);
+                currentEntry.entryIcon =
+                    RPGBuilderEditorFields.DrawIcon(currentEntry.entryIcon, 100, 100);
                 GUILayout.BeginVertical();
                 RPGBuilderEditorFields.DrawID(currentEntry.ID);
-                currentEntry.EntryName =
+                currentEntry.entryName =
                     RPGBuilderEditorFields.DrawHorizontalTextField("Name", "", RPGBuilderEditor.Instance.FieldHeight,
-                        currentEntry.EntryName);
-                currentEntry.EntryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField("Display Name",
+                        currentEntry.entryName);
+                currentEntry.entryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField("Display Name",
                     "", RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.EntryDisplayName);
-                currentEntry.EntryFileName = RPGBuilderEditorFields.DrawFileNameField("File Name", "",
+                    currentEntry.entryDisplayName);
+                currentEntry.entryFileName = RPGBuilderEditorFields.DrawFileNameField("File Name", "",
                     RPGBuilderEditor.Instance.FieldHeight,
-                    currentEntry.EntryName + AssetNameSuffix);
+                    currentEntry.entryName + AssetNameSuffix);
                 GUILayout.EndVertical();
                 RPGBuilderEditorUtility.EndHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, false);
             }
@@ -197,12 +197,12 @@ namespace FATE.FATECrafting.Editor.EntryModule
             foreach (var entry in allEntries)
             {
                 EditorUtility.SetDirty(entry);
-                entry.EntryName = entry._name;
+                entry.entryName = entry._name;
                 AssetDatabase.RenameAsset(RPGBuilderEditor.Instance.EditorData.ResourcePath + 
-                                          RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.EntryName + AssetNameSuffix);
-                entry.EntryFileName = entry.EntryName + AssetNameSuffix;
-                entry.EntryDisplayName = entry.displayName;
-                entry.EntryIcon = entry.icon;
+                                          RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.entryName + AssetNameSuffix);
+                entry.entryFileName = entry.entryName + AssetNameSuffix;
+                entry.entryDisplayName = entry.displayName;
+                entry.entryIcon = entry.icon;
                 EditorUtility.SetDirty(entry);
             }
         

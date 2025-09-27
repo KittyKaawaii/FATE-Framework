@@ -13,8 +13,8 @@ namespace BLINK.RPGBuilder.Templates
         
         public void UpdateEntryData(AIPhaseAbilitiesTemplate newEntryData)
         {
-            EntryName = newEntryData.EntryName;
-            EntryFileName = newEntryData.EntryFileName;
+            entryName = newEntryData.entryName;
+            entryFileName = newEntryData.entryFileName;
             CheckMaxAbilities = newEntryData.CheckMaxAbilities;
             MaxAbilities = newEntryData.MaxAbilities;
             Abilities = newEntryData.Abilities;

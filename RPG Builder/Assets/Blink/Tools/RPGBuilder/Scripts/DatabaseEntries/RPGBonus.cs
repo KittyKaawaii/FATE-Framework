@@ -48,11 +48,11 @@ public class RPGBonus : RPGBuilderDatabaseEntry
     public void UpdateEntryData(RPGBonus newEntryData)
     {
         ID = newEntryData.ID;
-        EntryName = newEntryData.EntryName;
-        EntryFileName = newEntryData.EntryFileName;
-        EntryDisplayName = newEntryData.EntryDisplayName;
-        EntryIcon = newEntryData.EntryIcon;
-        EntryDescription = newEntryData.EntryDescription;
+        entryName = newEntryData.entryName;
+        entryFileName = newEntryData.entryFileName;
+        entryDisplayName = newEntryData.entryDisplayName;
+        entryIcon = newEntryData.entryIcon;
+        entryDescription = newEntryData.entryDescription;
         
         ranks = newEntryData.ranks;
         learnedByDefault = newEntryData.learnedByDefault;

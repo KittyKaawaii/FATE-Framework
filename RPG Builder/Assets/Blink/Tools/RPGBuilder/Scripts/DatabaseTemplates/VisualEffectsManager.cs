@@ -69,7 +69,7 @@ public class VisualEffectsManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError(entity.name + " tried to play a sound with a missing Template. Name=" + visualEffect.Template.EntryName);
+                    Debug.LogError(entity.name + " tried to play a sound with a missing Template. Name=" + visualEffect.Template.entryName);
                 }
             }
 
@@ -82,7 +82,7 @@ public class VisualEffectsManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError(entity.name + " tried to spawn a Visual Effect with a missing Prefab. Name=" + visualEffect.Template.EntryName);
+            Debug.LogError(entity.name + " tried to spawn a Visual Effect with a missing Prefab. Name=" + visualEffect.Template.entryName);
         }
     }
     
@@ -114,7 +114,7 @@ public class VisualEffectsManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError(go.name + " tried to play a sound with a missing Template. Name=" + visualEffect.Template.EntryName);
+                    Debug.LogError(go.name + " tried to play a sound with a missing Template. Name=" + visualEffect.Template.entryName);
                 }
             }
 
@@ -122,7 +122,7 @@ public class VisualEffectsManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError(go.name + " tried to spawn a Visual Effect with a missing Prefab. Name=" + visualEffect.Template.EntryName);
+            Debug.LogError(go.name + " tried to spawn a Visual Effect with a missing Prefab. Name=" + visualEffect.Template.entryName);
         }
     }
 

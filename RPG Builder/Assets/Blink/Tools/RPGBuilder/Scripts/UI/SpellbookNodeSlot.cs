@@ -41,7 +41,7 @@ public class SpellbookNodeSlot : MonoBehaviour, IPointerClickHandler, IDragHandl
         curDraggedAbility = Instantiate(draggedNodeImage, transform.position,
             Quaternion.identity);
         curDraggedAbility.transform.SetParent(UIEvents.Instance.draggedSlotParent);
-        curDraggedAbility.GetComponent<Image>().sprite = thisAbility.EntryIcon;
+        curDraggedAbility.GetComponent<Image>().sprite = thisAbility.entryIcon;
     }
 
     public void OnDrag(PointerEventData eventData)

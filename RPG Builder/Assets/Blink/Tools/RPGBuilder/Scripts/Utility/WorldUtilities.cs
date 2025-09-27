@@ -19,32 +19,32 @@ public static class WorldUtilities
                     break;
                 case RPGTask.TASK_TYPE.getItem:
                     objectiveText += "Obtain " + task.taskValue + " " +
-                                     GameDatabase.Instance.GetItems()[task.itemToGetID].EntryDisplayName;
+                                     GameDatabase.Instance.GetItems()[task.itemToGetID].entryDisplayName;
                     break;
                 case RPGTask.TASK_TYPE.killNPC:
                     objectiveText += "Kill " + task.taskValue + " " +
-                                     GameDatabase.Instance.GetNPCs()[task.npcToKillID].EntryDisplayName;
+                                     GameDatabase.Instance.GetNPCs()[task.npcToKillID].entryDisplayName;
                     break;
                 case RPGTask.TASK_TYPE.learnAbility:
-                    objectiveText += "Learn the " + GameDatabase.Instance.GetAbilities()[task.abilityToLearnID].EntryDisplayName +
+                    objectiveText += "Learn the " + GameDatabase.Instance.GetAbilities()[task.abilityToLearnID].entryDisplayName +
                                      " ability";
                     break;
                 case RPGTask.TASK_TYPE.learnRecipe:
 
                     break;
                 case RPGTask.TASK_TYPE.reachLevel:
-                    objectiveText += "Reach " + GameDatabase.Instance.GetClasses()[task.classRequiredID].EntryDisplayName + " level " +
+                    objectiveText += "Reach " + GameDatabase.Instance.GetClasses()[task.classRequiredID].entryDisplayName + " level " +
                                      task.taskValue;
                     break;
                 case RPGTask.TASK_TYPE.reachSkillLevel:
-                    objectiveText += "Reach " + GameDatabase.Instance.GetSkills()[task.skillRequiredID].EntryDisplayName + " level " +
+                    objectiveText += "Reach " + GameDatabase.Instance.GetSkills()[task.skillRequiredID].entryDisplayName + " level " +
                                      task.taskValue;
                     break;
                 case RPGTask.TASK_TYPE.talkToNPC:
-                    objectiveText += "Talk to " + GameDatabase.Instance.GetNPCs()[task.npcToTalkToID].EntryDisplayName;
+                    objectiveText += "Talk to " + GameDatabase.Instance.GetNPCs()[task.npcToTalkToID].entryDisplayName;
                     break;
                 case RPGTask.TASK_TYPE.useItem:
-                    objectiveText += "Use the " + GameDatabase.Instance.GetItems()[task.itemToUseID].EntryDisplayName;
+                    objectiveText += "Use the " + GameDatabase.Instance.GetItems()[task.itemToUseID].entryDisplayName;
                     break;
             }
 
