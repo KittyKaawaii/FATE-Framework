@@ -1,6 +1,4 @@
 ﻿
-using FATE.FATEDatabase.Runtime.DatabaseEntry;
-
 public class RPGBuilderEditorImportDatabaseUtility : RPGBuilderDatabaseEntry
 {
     public string importDirectoryPath = "";

@@ -1,6 +1,5 @@
 ﻿using System;
 using BLINK.RPGBuilder.World;
-using FATE.FATECurrency.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using UnityEngine;
 

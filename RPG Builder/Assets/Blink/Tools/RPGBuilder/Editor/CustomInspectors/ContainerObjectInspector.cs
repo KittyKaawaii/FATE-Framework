@@ -5,7 +5,6 @@ using System.Reflection;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.World;
 using BLINK.RPGBuilder.WorldPersistence;
-using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEngine;
 

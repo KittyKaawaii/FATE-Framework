@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using FATE.FATERace.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.World

@@ -4,7 +4,6 @@ using System.Linq;
 using BLINK.RPGBuilder.UIElements;
 using BLINK.RPGBuilder.Utility;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATESkill.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEngine;
 

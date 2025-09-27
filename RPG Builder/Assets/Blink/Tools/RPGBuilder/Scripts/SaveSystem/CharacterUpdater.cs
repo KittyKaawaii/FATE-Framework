@@ -1,11 +1,7 @@
 ﻿using System.Linq;
 using BLINK.RPGBuilder.Characters;
 using BLINK.RPGBuilder.Managers;
-using FATE.FATECrafting.Runtime.DatabaseEntry;
-using FATE.FATECurrency.Runtime.DatabaseEntry;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
-using FATE.FATERace.Runtime.DatabaseEntry;
-using FATE.FATESkill.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public static class CharacterUpdater

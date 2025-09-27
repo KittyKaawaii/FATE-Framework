@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public class RPGCombo : RPGBuilderDatabaseEntry

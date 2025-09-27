@@ -1,6 +1,5 @@
 ﻿using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UI;
-using FATE.FATECurrency.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATEQuest.Runtime.DatabaseEntry;
 using TMPro;

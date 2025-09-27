@@ -1,5 +1,4 @@
-﻿using FATE.FATEDatabase.Runtime.DatabaseEntry;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RPGBItemRarity : RPGBuilderDatabaseEntry
 {

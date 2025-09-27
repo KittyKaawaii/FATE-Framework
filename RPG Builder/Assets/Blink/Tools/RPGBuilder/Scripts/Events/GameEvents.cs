@@ -4,8 +4,6 @@ using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Logic;
 using BLINK.RPGBuilder.Templates;
 using BLINK.RPGBuilder.UIElements;
-using FATE.FATECrafting.Runtime.DatabaseEntry;
-using FATE.FATESkill.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public class GameEvents : MonoBehaviour

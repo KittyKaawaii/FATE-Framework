@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
 public class RPGMerchantTable : RPGBuilderDatabaseEntry

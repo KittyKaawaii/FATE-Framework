@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEngine;
 using BindingFlags = System.Reflection.BindingFlags;

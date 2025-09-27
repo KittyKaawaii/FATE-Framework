@@ -1,6 +1,5 @@
 ﻿using BLINK.RPGBuilder.AI;
 using BLINK.RPGBuilder.Templates;
-using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;

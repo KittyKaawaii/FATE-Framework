@@ -1,5 +1,4 @@
 ﻿using BLINK.RPGBuilder.Managers;
-using FATE.FATECrafting.Runtime.DatabaseEntry;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.World

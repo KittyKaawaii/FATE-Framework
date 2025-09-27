@@ -7,7 +7,6 @@ using BLINK.RPGBuilder.Data;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.UIElements;
 using BLINK.RPGBuilder.World;
-using FATE.FATECurrency.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.DatabaseEntry;
 using FATE.FATENPC.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;

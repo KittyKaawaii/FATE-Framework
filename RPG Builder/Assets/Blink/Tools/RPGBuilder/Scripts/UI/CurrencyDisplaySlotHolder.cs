@@ -1,5 +1,4 @@
 ﻿using BLINK.RPGBuilder.Characters;
-using FATE.FATECurrency.Runtime.DatabaseEntry;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
