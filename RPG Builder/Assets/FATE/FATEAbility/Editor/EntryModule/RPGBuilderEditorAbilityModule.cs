@@ -177,6 +177,9 @@ namespace FATE.FATEAbility.Editor.EntryModule
                 currentEntry.entryDisplayName = RPGBuilderEditorFields.DrawHorizontalTextField(
                     "Display Name", "", RPGBuilderEditor.Instance.FieldHeight,
                     currentEntry.entryDisplayName);
+                currentEntry.entryFileName = RPGBuilderEditorFields.DrawFileNameField(
+                    "File Name", "", RPGBuilderEditor.Instance.FieldHeight,
+                    currentEntry.entryName + AssetNameSuffix);
                 currentEntry.learnedByDefault =
                     RPGBuilderEditorFields.DrawHorizontalToggle("Known",
                         "Is this currentAbilityEntry automatically known?",
@@ -1694,6 +1697,7 @@ namespace FATE.FATEAbility.Editor.EntryModule
                 entry.entryName = entry._name;
                 AssetDatabase.RenameAsset(RPGBuilderEditor.Instance.EditorData.ResourcePath + 
                                           RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.entryName + AssetNameSuffix);
+                entry.entryFileName = entry.entryName + AssetNameSuffix;
                 entry.entryDisplayName = entry.displayName;
                 entry.entryIcon = entry.icon;
                 EditorUtility.SetDirty(entry);

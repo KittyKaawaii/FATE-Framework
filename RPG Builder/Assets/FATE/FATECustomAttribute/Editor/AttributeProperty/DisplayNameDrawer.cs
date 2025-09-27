@@ -10,7 +10,7 @@ namespace FATE.FATECustomAttribute.Editor.AttributeProperty
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
 
-            if (attribute is DisplayNameAttribute displayName && !string.IsNullOrEmpty(displayName.label) && !string.IsNullOrWhiteSpace(displayName.label) && displayName.label != "")
+            if (attribute is DisplayNameAttribute displayName && (string.IsNullOrEmpty(label.text) || string.IsNullOrWhiteSpace(label.text)))
             {
                 label.text = displayName.label;
             }

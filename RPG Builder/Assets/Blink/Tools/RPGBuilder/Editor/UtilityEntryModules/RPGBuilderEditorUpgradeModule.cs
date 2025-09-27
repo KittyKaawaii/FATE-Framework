@@ -236,6 +236,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBDamageType newTypeEntry = CreateInstance<RPGBDamageType>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + damageTypesModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(damageTypesModule, newTypeEntry);
@@ -247,6 +248,8 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBNodeSocket newTypeEntry = CreateInstance<RPGBNodeSocket>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + nodeSocketsModule.AssetNameSuffix;
+
                         RPGBuilderEditor.Instance.GenerateTypeEntry(nodeSocketsModule, newTypeEntry);
                     }
 
@@ -267,6 +270,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBFactionStance newTypeEntry = CreateInstance<RPGBFactionStance>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + factionStancesModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(factionStancesModule, newTypeEntry);
@@ -278,6 +282,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBAbilityCooldownTag newTypeEntry = CreateInstance<RPGBAbilityCooldownTag>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + abilityCooldownTagsModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(abilityCooldownTagsModule, newTypeEntry);
@@ -289,6 +294,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBEffectTag newTypeEntry = CreateInstance<RPGBEffectTag>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + effectTagsModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(effectTagsModule, newTypeEntry);
@@ -312,6 +318,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                         var listEntry = economySettings.itemRarityList[index];
                         RPGBItemRarity newTypeEntry = CreateInstance<RPGBItemRarity>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + itemRaritiesModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
                         newTypeEntry.color = economySettings.itemRarityColorsList[index];
                         newTypeEntry.background = economySettings.itemRarityImagesList[index];
@@ -325,6 +332,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBItemType newTypeEntry = CreateInstance<RPGBItemType>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + itemTypesModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
                         
                         if (newTypeEntry.entryName == "ARMOR")
@@ -363,6 +371,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBWeaponType newTypeEntry = CreateInstance<RPGBWeaponType>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + weaponTypesModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(weaponTypesModule, newTypeEntry);
@@ -374,6 +383,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBArmorType newTypeEntry = CreateInstance<RPGBArmorType>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + armorTypesModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(armorTypesModule, newTypeEntry);
@@ -385,6 +395,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBArmorSlot newTypeEntry = CreateInstance<RPGBArmorSlot>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + armorSlotsModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(armorSlotsModule, newTypeEntry);
@@ -396,6 +407,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBWeaponHandSlot newTypeEntry = CreateInstance<RPGBWeaponHandSlot>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + weaponHandSlotsModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(weaponHandSlotsModule, newTypeEntry);
@@ -407,6 +419,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBGemSocketType newTypeEntry = CreateInstance<RPGBGemSocketType>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + gemSocketTypesModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(gemSocketTypesModule, newTypeEntry);
@@ -429,6 +442,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBActionKeyCategory newTypeEntry = CreateInstance<RPGBActionKeyCategory>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + actionKeyCategoriesModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(actionKeyCategoriesModule, newTypeEntry);
@@ -451,6 +465,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBStatCategory newTypeEntry = CreateInstance<RPGBStatCategory>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + statCategoriesModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(statCategoriesModule, newTypeEntry);
@@ -473,6 +488,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         RPGBTextKeyword newTypeEntry = CreateInstance<RPGBTextKeyword>();
                         newTypeEntry.entryName = listEntry;
+                        newTypeEntry.entryFileName = listEntry + textKeywordsModule.AssetNameSuffix;
                         newTypeEntry.entryDisplayName = listEntry;
 
                         RPGBuilderEditor.Instance.GenerateTypeEntry(textKeywordsModule, newTypeEntry);
@@ -489,11 +505,13 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                 RPGBuilderEditorModule genderModule = RPGBuilderEditorUtility.GetModuleByName("Genders");
                 RPGBGender maleGender = CreateInstance<RPGBGender>();
                 maleGender.entryName = "Male";
+                maleGender.entryFileName = "Male" + genderModule.AssetNameSuffix;
                 maleGender.entryDisplayName = "Male";
                 RPGBuilderEditor.Instance.GenerateTypeEntry(genderModule, maleGender);
                 
                 RPGBGender femaleGender = CreateInstance<RPGBGender>();
                 femaleGender.entryName = "Female";
+                femaleGender.entryFileName = "Female" + genderModule.AssetNameSuffix;
                 femaleGender.entryDisplayName = "Female";
                 RPGBuilderEditor.Instance.GenerateTypeEntry(genderModule, femaleGender);
                 genderModule.LoadEntries();
@@ -507,6 +525,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     {
                         WeaponTransformTemplate newWeaponTransform = CreateInstance<WeaponTransformTemplate>();
                         newWeaponTransform.entryName = item.name;
+                        newWeaponTransform.entryFileName = item.name + weaponTransformsModule.AssetNameSuffix;
                         newWeaponTransform.entryDisplayName = item.name;
 
                         WeaponTransform newWpTransform = new WeaponTransform();
@@ -597,6 +616,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                             EditorUtility.SetDirty(ability);
                             VisualEffectTemplate newTemplate = CreateInstance<VisualEffectTemplate>();
                             newTemplate.entryName = visualEffect.EffectGO.name;
+                            newTemplate.entryFileName = newTemplate.entryName + visualEffectsModule.AssetNameSuffix;
                             newTemplate.Prefabs.Add(visualEffect.EffectGO);
                             newTemplate.ParentSoundToPrefab = visualEffect.SoundParentedToEffect;
                             newTemplate.IsDestroyedOnDeath = visualEffect.isDestroyedOnDeath;
@@ -660,6 +680,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                             EditorUtility.SetDirty(effect);
                             VisualEffectTemplate newTemplate = CreateInstance<VisualEffectTemplate>();
                             newTemplate.entryName = visualEffect.EffectGO.name;
+                            newTemplate.entryFileName = newTemplate.entryName + visualEffectsModule.AssetNameSuffix;
                             newTemplate.Prefabs.Add(visualEffect.EffectGO);
                             newTemplate.ParentSoundToPrefab = visualEffect.SoundParentedToEffect;
                             newTemplate.IsDestroyedOnDeath = visualEffect.isDestroyedOnDeath;
@@ -735,6 +756,7 @@ public class RPGBuilderEditorUpgradeModule : RPGBuilderEditorModule
                     EditorUtility.SetDirty(NPC);
                     NPCPresetTemplate newTemplate = CreateInstance<NPCPresetTemplate>();
                     newTemplate.entryName = NPC.name;
+                    newTemplate.entryFileName = newTemplate.entryName + npcPresetsModule.AssetNameSuffix;
                     newTemplate.entryIcon = NPC.icon;
 
                     newTemplate.Position = NPC.modelPosition;
