@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEStat.Runtime.DatabaseEntry;
@@ -20,14 +22,14 @@ namespace FATE.FATESpecies.Runtime.DatabaseEntry
         [Serializable]
         public class SPECIES_STAT_DATA
         {
-            public int statID = -1;
+            [StatID] public int statID = -1;
             public float value;
         
             public List<RPGStat.VitalityActions> vitalityActions = new List<RPGStat.VitalityActions>();
         }
 
-        public List<SPECIES_STAT_DATA> stats = new List<SPECIES_STAT_DATA>();
-        public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
+        [RPGDataList] public List<SPECIES_STAT_DATA> stats = new List<SPECIES_STAT_DATA>();
+        [RPGDataList] public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
         public bool UseStatListTemplate;
         public StatListTemplate StatListTemplate;
     

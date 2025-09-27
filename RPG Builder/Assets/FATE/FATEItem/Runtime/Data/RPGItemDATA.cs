@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FATE.FATEAttribute.Runtime.Attribute;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -35,7 +36,7 @@ namespace FATE.FATEItem.Runtime.Data
         [System.Serializable]
         public class StartingItemsDATA
         {
-            public int itemID = -1;
+            [ItemID] public int itemID = -1;
             public int count = 1;
             public bool equipped;
         }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
 using FATE.FATEAbility.Runtime.Data;
+using FATE.FATEAbility.Runtime.DatabaseEntry;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -51,7 +53,7 @@ namespace FATE.FATEEffect.Runtime.DatabaseEntry
         [Serializable]
         public class STAT_EFFECTS_DATA
         {
-            public int statID = -1;
+            [StatID] public int statID = -1;
             public float statEffectModification;
             public bool isPercent;
         }
@@ -120,13 +122,13 @@ namespace FATE.FATEEffect.Runtime.DatabaseEntry
             public RPGBHealingType customHealingType;
 
             public int Damage;
-            public int alteredStatID = -1;
+            [StatID] public int alteredStatID = -1;
             public bool FlatCalculation;
             public bool CannotCrit;
             public bool removeStealth = true;
             public float skillModifier, weaponDamageModifier;
             public bool useWeapon1Damage = true, useWeapon2Damage = true;
-            public int skillModifierID = -1;
+            [SkillID] public int skillModifierID = -1;
             public float lifesteal;
             public float maxHealthModifier;
             public float missingHealthModifier;
@@ -135,23 +137,23 @@ namespace FATE.FATEEffect.Runtime.DatabaseEntry
 
             public int projectilesReflectedCount;
 
-            public int requiredEffectID = -1;
+            [EffectID] public int requiredEffectID = -1;
             public float requiredEffectDamageModifier;
 
-            public int damageStatID = -1;
+            [StatID] public int damageStatID = -1;
             public float damageStatModifier;
             public COST_TYPES hitValueType;
 
             public TELEPORT_TYPE teleportType;
-            public int gameSceneID = -1;
+            [GameSceneID] public int gameSceneID = -1;
             public Vector3 teleportPOS;
             public TELEPORT_DIRECTIONAL_TYPE teleportDirectionalType;
             public float teleportDirectionalDistance;
             public LayerMask teleportDirectionalBlockLayers;
 
-            public int lootTableID = -1;
+            [LootTableID] public int lootTableID = -1;
 
-            public int petNPCDataID = -1;
+            [NPCID] public int petNPCDataID = -1;
             public float petDuration = 60;
             public int petSPawnCount = 1;
             public bool petScaleWithCharacter;
@@ -182,17 +184,17 @@ namespace FATE.FATEEffect.Runtime.DatabaseEntry
             public int blockPowerFlat, blockHitCount = 1, blockMaxDamage, blockStatDecayAmount = 1;
             public BLOCK_DURATION_TYPE blockDurationType;
             public BLOCK_END_TYPE blockEndType;
-            public int blockStatID = -1;
+            [StatID] public int blockStatID = -1;
 
-            public List<string> blockedDamageTypes = new List<string>();
-            public List<RPGBDamageType> blockedCustomDamageTypes = new List<RPGBDamageType>();
+            [RPGDataList] public List<string> blockedDamageTypes = new List<string>();
+            [RPGDataList] public List<RPGBDamageType> blockedCustomDamageTypes = new List<RPGBDamageType>();
 
 
             public DISPEL_TYPE dispelType;
             public EFFECT_TYPE dispelEffectType;
             [HideInInspector] public string dispelEffectTag;
             public RPGBEffectTag DispelEffectTag;
-            public int dispelEffectID = -1;
+            [EffectID] public int dispelEffectID = -1;
 
             public GameObject shapeshiftingModel;
             public Vector3 shapeshiftingmodelPosition, shapeshiftingmodelScale = Vector3.one;
@@ -203,7 +205,7 @@ namespace FATE.FATEEffect.Runtime.DatabaseEntry
             public AnimatorUpdateMode shapeshiftingAnimatorUpdateMode = AnimatorUpdateMode.Normal;
             public AnimatorCullingMode shapeshiftingAnimatorCullingMode = AnimatorCullingMode.AlwaysAnimate;
             public bool shapeshiftingOverrideMainActionBar, canCameraAim;
-            public List<int> shapeshiftingActiveAbilities = new List<int>();
+            [RPGDataList] public List<int> shapeshiftingActiveAbilities = new List<int>();
             public bool shapeshiftingNoActionAbilities = true;
 
             public GameObject MountPrefab;
@@ -220,25 +222,29 @@ namespace FATE.FATEEffect.Runtime.DatabaseEntry
 
             public bool showStealthActionBar = true;
 
+            [RPGDataList]
             public List<AbilityEffectsApplied> nestedEffects = new List<AbilityEffectsApplied>();
 
 
-            public List<VisualEffectEntry> VisualEffectEntries = new List<VisualEffectEntry>();
-            public List<AnimationEntry> AnimationEntries = new List<AnimationEntry>();
-            public List<SoundEntry> SoundEntries = new List<SoundEntry>();
+            [RPGDataList] public List<VisualEffectEntry> VisualEffectEntries = new List<VisualEffectEntry>();
+            [RPGDataList] public List<AnimationEntry> AnimationEntries = new List<AnimationEntry>();
+            [RPGDataList] public List<SoundEntry> SoundEntries = new List<SoundEntry>();
 
 
+            [RPGDataList]
             public List<RPGCombatDATA.CombatVisualEffect> visualEffects = new List<RPGCombatDATA.CombatVisualEffect>();
 
-            public List<RPGCombatDATA.CombatVisualAnimation> visualAnimations = new List<RPGCombatDATA.CombatVisualAnimation>();
+            [RPGDataList]
+            public List<RPGCombatDATA.CombatVisualAnimation> visualAnimations =
+                new List<RPGCombatDATA.CombatVisualAnimation>();
 
-            public List<STAT_EFFECTS_DATA> statEffectsData = new List<STAT_EFFECTS_DATA>();
-            public List<GameActionsData.GameAction> GameActions = new List<GameActionsData.GameAction>();
+            [RPGDataList] public List<STAT_EFFECTS_DATA> statEffectsData = new List<STAT_EFFECTS_DATA>();
+            [RPGDataList] public List<GameActionsData.GameAction> GameActions = new List<GameActionsData.GameAction>();
             public bool UseGameActionsTemplate;
             public GameActionsTemplate GameActionsTemplate;
         }
 
-        public List<RPGEffectRankData> ranks = new List<RPGEffectRankData>();
+        [RPGDataList] public List<RPGEffectRankData> ranks = new List<RPGEffectRankData>();
 
 
         public void UpdateEntryData(RPGEffect newEntryData)

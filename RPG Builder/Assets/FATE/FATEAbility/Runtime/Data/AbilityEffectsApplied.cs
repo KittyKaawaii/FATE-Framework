@@ -1,4 +1,5 @@
 using System;
+using FATE.FATEAttribute.Runtime.Attribute;
 using UnityEngine.Serialization;
 
 namespace FATE.FATEAbility.Runtime.Data
@@ -6,7 +7,7 @@ namespace FATE.FATEAbility.Runtime.Data
     [Serializable]
     public class AbilityEffectsApplied
     {
-        [FormerlySerializedAs("effectID")] public int EffectID = -1;
+        [FormerlySerializedAs("effectID"),EffectID] public int EffectID = -1;
 
         public float chance = 100f;
 

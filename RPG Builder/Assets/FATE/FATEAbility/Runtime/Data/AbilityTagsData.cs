@@ -1,4 +1,5 @@
 using System;
+using FATE.FATEAttribute.Runtime.Attribute;
 
 namespace FATE.FATEAbility.Runtime.Data
 {
@@ -7,6 +8,6 @@ namespace FATE.FATEAbility.Runtime.Data
     {
         public AbilityTags tag;
 
-        public int effectID = -1;
+        [EffectID] public int effectID = -1;
     }
 }

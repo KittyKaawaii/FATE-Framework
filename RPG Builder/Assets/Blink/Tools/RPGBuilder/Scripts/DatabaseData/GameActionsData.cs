@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
 using UnityEngine;
 
 public static class GameActionsData
@@ -13,22 +14,22 @@ public static class GameActionsData
         public GameActionType type;
         public float chance = 100;
         
-        public int AbilityID = -1;
-        public int BonusID = -1;
-        public int RecipeID = -1;
-        public int ResourceID = -1;
-        public int EffectID = -1;
-        public int NPCID = -1;
-        public int FactionID = -1;
-        public int ItemID = -1;
-        public int CurrencyID = -1;
-        public int PointID = -1;
-        public int TalentTreeID = -1;
-        public int SkillID = -1;
-        public int WeaponTemplateID = -1;
-        public int QuestID = -1;
-        public int DialogueID = -1;
-        public int GameSceneID = -1;
+        [AbilityID] public int AbilityID = -1;
+        [BonusID] public int BonusID = -1;
+        [RecipeID] public int RecipeID = -1;
+        [ResourceID] public int ResourceID = -1;
+        [EffectID] public int EffectID = -1;
+        [NPCID] public int NPCID = -1;
+        [FactionID] public int FactionID = -1;
+        [ItemID] public int ItemID = -1;
+        [CurrencyID] public int CurrencyID = -1;
+        [PointID] public int PointID = -1;
+        [TalentTreeID] public int TalentTreeID = -1;
+        [SkillID] public int SkillID = -1;
+        [WeaponTemplateID] public int WeaponTemplateID = -1;
+        [QuestID] public int QuestID = -1;
+        [DialogueID] public int DialogueID = -1;
+        [GameSceneID] public int GameSceneID = -1;
 
         public AbilityAction AbilityAction;
         public NodeAction NodeAction;

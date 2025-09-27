@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -14,15 +15,15 @@ namespace FATE.FATECrafting.Runtime.DatabaseEntry
     
     
         public bool learnedByDefault;
-        public int craftingSkillID = -1;
-        public int craftingStationID = -1;
+        [SkillID] public int craftingSkillID = -1;
+        [CraftingStationID] public int craftingStationID = -1;
 
         [Serializable]
         public class CraftedItemsDATA
         {
             public float chance = 100f;
             public int count = 1;
-            public int craftedItemID = -1;
+            [ItemID] public int craftedItemID = -1;
         }
     
     
@@ -30,7 +31,7 @@ namespace FATE.FATECrafting.Runtime.DatabaseEntry
         public class ComponentsRequired
         {
             public int count = 1;
-            public int componentItemID = -1;
+            [ItemID] public int componentItemID = -1;
         }
     
     
@@ -42,10 +43,10 @@ namespace FATE.FATECrafting.Runtime.DatabaseEntry
             public int Experience;
             public float craftTime;
 
-            public List<CraftedItemsDATA> allCraftedItems = new List<CraftedItemsDATA>();
-            public List<ComponentsRequired> allComponents = new List<ComponentsRequired>();
+            [RPGDataList] public List<CraftedItemsDATA> allCraftedItems = new List<CraftedItemsDATA>();
+            [RPGDataList] public List<ComponentsRequired> allComponents = new List<ComponentsRequired>();
         }
-        public List<RPGCraftingRecipeRankData> ranks = new List<RPGCraftingRecipeRankData>();
+        [RPGDataList] public List<RPGCraftingRecipeRankData> ranks = new List<RPGCraftingRecipeRankData>();
 
         public void CopyEntryData(RPGCraftingRecipeRankData original, RPGCraftingRecipeRankData copied)
         {

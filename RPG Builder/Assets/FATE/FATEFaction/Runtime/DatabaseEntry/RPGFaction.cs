@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
@@ -26,19 +27,19 @@ namespace FATE.FATEFaction.Runtime.DatabaseEntry
             public CombatData.EntityAlignment AlignementToPlayer;
         }
 
-        public List<Faction_Stance_DATA> factionStances = new List<Faction_Stance_DATA>();
+        [RPGDataList] public List<Faction_Stance_DATA> factionStances = new List<Faction_Stance_DATA>();
     
         [System.Serializable]
         public class Faction_Interaction_DATA
         {
-            public int factionID = -1;
+            [FactionID] public int factionID = -1;
 
             [HideInInspector] public string defaultStance;
             public RPGBFactionStance DefaultFactionStance;
             public int startingPoints;
         }
 
-        public List<Faction_Interaction_DATA> factionInteractions = new List<Faction_Interaction_DATA>();
+        [RPGDataList] public List<Faction_Interaction_DATA> factionInteractions = new List<Faction_Interaction_DATA>();
     
         public void UpdateEntryData(RPGFaction newEntryData)
         {

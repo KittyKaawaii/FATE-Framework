@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FATE.FATEAttribute.Runtime.Attribute;
 using UnityEngine;
 
 namespace BLINK.RPGBuilder.Templates
@@ -79,7 +80,7 @@ namespace BLINK.RPGBuilder.Templates
     [System.Serializable]
     public class WeaponTransform
     {
-        public int raceID = -1;
+        [RaceID] public int raceID = -1;
 
         [System.Serializable]
         public class TransformValues
@@ -101,14 +102,14 @@ namespace BLINK.RPGBuilder.Templates
             public Vector3 RestScale2 = Vector3.one;
         }
 
-        public List<TransformValues> transformValues = new List<TransformValues>();
+        [RPGDataList] public List<TransformValues> transformValues = new List<TransformValues>();
     }
     
     [System.Serializable]
     public class HiddenBodyPart
     {
         public int raceID = -1;
-        public List<HiddenBodyPartValues> Values = new List<HiddenBodyPartValues>();
+        [RPGDataList] public List<HiddenBodyPartValues> Values = new List<HiddenBodyPartValues>();
     }
     
     [System.Serializable]

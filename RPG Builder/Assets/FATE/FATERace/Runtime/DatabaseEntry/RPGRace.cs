@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using BLINK.RPGBuilder.Combat;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEItem.Runtime.Data;
@@ -18,8 +20,8 @@ namespace FATE.FATERace.Runtime.DatabaseEntry
         public int startingSceneID = -1;
         public int startingPositionID = -1;
     
-        public int factionID = -1;
-        public int speciesID = -1;
+        [FactionID] public int factionID = -1;
+        [SpeciesID] public int speciesID = -1;
 
         public GameObject malePrefab;
         public Sprite maleIcon;
@@ -44,36 +46,36 @@ namespace FATE.FATERace.Runtime.DatabaseEntry
         [Serializable]
         public class RACE_CLASSES_DATA
         {
-            public int classID = -1;
+            [ClassID] public int classID = -1;
         }
 
-        public List<RACE_CLASSES_DATA> availableClasses = new List<RACE_CLASSES_DATA>();
+        [RPGDataList] public List<RACE_CLASSES_DATA> availableClasses = new List<RACE_CLASSES_DATA>();
 
     
         [Serializable]
         public class WEAPON_TEMPLATES_DATA
         {
-            public int weaponTemplateID = -1;
+            [WeaponTemplateID] public int weaponTemplateID = -1;
         }
 
-        public List<WEAPON_TEMPLATES_DATA> weaponTemplates = new List<WEAPON_TEMPLATES_DATA>();
+        [RPGDataList] public List<WEAPON_TEMPLATES_DATA> weaponTemplates = new List<WEAPON_TEMPLATES_DATA>();
     
         [Serializable]
         public class RACE_STATS_DATA
         {
-            public int statID = -1;
+            [StatID] public int statID = -1;
             public float amount;
             public bool isPercent;
         }
 
-        public List<RACE_STATS_DATA> stats = new List<RACE_STATS_DATA>();
-        public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
+        [RPGDataList] public List<RACE_STATS_DATA> stats = new List<RACE_STATS_DATA>();
+        [RPGDataList] public List<CombatData.CustomStatValues> CustomStats = new List<CombatData.CustomStatValues>();
         public bool UseStatListTemplate;
         public StatListTemplate StatListTemplate;
     
 
-        public List<RPGItemDATA.StartingItemsDATA> startItems = new List<RPGItemDATA.StartingItemsDATA>();
-        public List<RPGCombatDATA.ActionAbilityDATA> actionAbilities = new List<RPGCombatDATA.ActionAbilityDATA>();
+        [RPGDataList] public List<RPGItemDATA.StartingItemsDATA> startItems = new List<RPGItemDATA.StartingItemsDATA>();
+        [RPGDataList] public List<RPGCombatDATA.ActionAbilityDATA> actionAbilities = new List<RPGCombatDATA.ActionAbilityDATA>();
 
         public int allocationStatPoints;
         public List<CharacterEntries.AllocatedStatEntry> allocatedStatsEntries = new List<CharacterEntries.AllocatedStatEntry>();

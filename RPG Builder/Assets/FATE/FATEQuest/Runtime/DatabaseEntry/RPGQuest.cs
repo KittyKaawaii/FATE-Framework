@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -27,11 +28,11 @@ namespace FATE.FATEQuest.Runtime.DatabaseEntry
         [Serializable]
         public class QuestItemsGivenDATA
         {
-            public int itemID = -1;
+            [ItemID] public int itemID = -1;
             public int count;
         }
 
-        public List<QuestItemsGivenDATA> itemsGiven = new List<QuestItemsGivenDATA>();
+        [RPGDataList] public List<QuestItemsGivenDATA> itemsGiven = new List<QuestItemsGivenDATA>();
 
         public enum QuestObjectiveType
         {
@@ -42,11 +43,11 @@ namespace FATE.FATEQuest.Runtime.DatabaseEntry
         public class QuestObjectiveDATA
         {
             public QuestObjectiveType objectiveType;
-            public int taskID = -1;
+            [TaskID] public int taskID = -1;
             public float timeLimit;
         }
 
-        public List<QuestObjectiveDATA> objectives = new List<QuestObjectiveDATA>();
+        [RPGDataList] public List<QuestObjectiveDATA> objectives = new List<QuestObjectiveDATA>();
 
         public enum QuestRewardType
         {
@@ -62,17 +63,17 @@ namespace FATE.FATEQuest.Runtime.DatabaseEntry
         public class QuestRewardDATA
         {
             public QuestRewardType rewardType;
-            public int itemID = -1;
-            public int currencyID = -1;
-            public int treePointID = -1;
-            public int factionID = -1;
-            public int weaponTemplateID = -1;
+            [ItemID] public int itemID = -1;
+            [CurrencyID] public int currencyID = -1;
+            [PointID] public int treePointID = -1;
+            [FactionID] public int factionID = -1;
+            [WeaponTemplateID] public int weaponTemplateID = -1;
             public int count;
             public int Experience;
         }
 
-        public List<QuestRewardDATA> rewardsGiven = new List<QuestRewardDATA>();
-        public List<QuestRewardDATA> rewardsToPick = new List<QuestRewardDATA>();
+        [RPGDataList] public List<QuestRewardDATA> rewardsGiven = new List<QuestRewardDATA>();
+        [RPGDataList] public List<QuestRewardDATA> rewardsToPick = new List<QuestRewardDATA>();
 
         public void UpdateEntryData(RPGQuest newEntryData)
         {

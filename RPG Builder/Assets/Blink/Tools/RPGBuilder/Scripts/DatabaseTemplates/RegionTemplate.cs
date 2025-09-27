@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ namespace BLINK.RPGBuilder.Templates
         
         public GameObject cameraParticle;
         
-        public List<AudioClip> musicClips = new List<AudioClip>();
+        [RPGDataList] public List<AudioClip> musicClips = new List<AudioClip>();
         
         public bool combatEnabled;
         

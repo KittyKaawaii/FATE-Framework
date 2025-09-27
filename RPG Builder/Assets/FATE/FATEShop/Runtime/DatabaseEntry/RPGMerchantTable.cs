@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -14,12 +15,12 @@ namespace FATE.FATEShop.Runtime.DatabaseEntry
         [Serializable]
         public class ON_SALE_ITEMS_DATA
         {
-            public int itemID = -1;
-            public int currencyID = -1;
+            [ItemID] public int itemID = -1;
+            [CurrencyID] public int currencyID = -1;
             public int cost;
         }
 
-        public List<ON_SALE_ITEMS_DATA> onSaleItems = new List<ON_SALE_ITEMS_DATA>();
+        [RPGDataList] public List<ON_SALE_ITEMS_DATA> onSaleItems = new List<ON_SALE_ITEMS_DATA>();
 
         public void UpdateEntryData(RPGMerchantTable newEntryData)
         {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FATE.FATEAttribute.Runtime.Attribute;
 using UnityEngine;
 
 public class RPGCombatDATA : ScriptableObject
@@ -21,13 +22,13 @@ public class RPGCombatDATA : ScriptableObject
 
     public bool useAutomaticCombatState = true;
     
-    public int pointID = -1;
+    [PointID] public int pointID = -1;
     public bool spendAllStatPointsToCreateChar;
     public bool canDescreaseGameStatPoints;
     
-    public int healthStatID = -1;
+    [StatID] public int healthStatID = -1;
 
-    public int sprintStatDrainID = -1;
+    [StatID] public int sprintStatDrainID = -1;
     public int sprintStatDrainAmount;
     public float sprintStatDrainInterval;
     
@@ -64,7 +65,7 @@ public class RPGCombatDATA : ScriptableObject
     [System.Serializable]
     public class Faction_Reward_DATA
     {
-        public int factionID = -1;
+        [FactionID] public int factionID = -1;
 
         public int amount;
     }
@@ -75,7 +76,7 @@ public class RPGCombatDATA : ScriptableObject
         public ActionAbilityKeyType keyType;
         public KeyCode key;
         public string actionKeyName;
-        public int abilityID = -1;
+        [AbilityID] public int abilityID = -1;
     }
 
     public enum ActionAbilityKeyType

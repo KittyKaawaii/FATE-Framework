@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -24,17 +25,17 @@ public class RPGSpellbook : RPGBuilderDatabaseEntry
     {
         public SpellbookNodeType nodeType;
         public string nodeName;
-        public int abilityID = -1;
-        public int bonusID = -1;
+        [AbilityID] public int abilityID = -1;
+        [BonusID] public int bonusID = -1;
 
         public int unlockLevel = 1;
     }
-    public List<Node_DATA> nodeList = new List<Node_DATA>();
+    [RPGDataList] public List<Node_DATA> nodeList = new List<Node_DATA>();
     
     public class SpellBookData
     {
         public RPGSpellbook spellbook;
-        public int weaponTemplateID = -1;
+        [WeaponTemplateID] public int weaponTemplateID = -1;
     }
     
     public enum spellbookSourceType

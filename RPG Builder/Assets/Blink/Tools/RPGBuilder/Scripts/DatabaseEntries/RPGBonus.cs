@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Managers;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using FATE.FATEEffect.Runtime.DatabaseEntry;
 using UnityEngine;
@@ -22,13 +23,13 @@ public class RPGBonus : RPGBuilderDatabaseEntry
         public bool ShowedInEditor;
         public int unlockCost;
 
-        public List<RequirementsData.RequirementGroup> Requirements = new List<RequirementsData.RequirementGroup>();
+        [RPGDataList] public List<RequirementsData.RequirementGroup> Requirements = new List<RequirementsData.RequirementGroup>();
         public bool UseRequirementsTemplate;
         public RequirementsTemplate RequirementsTemplate;
 
-        public List<RPGEffect.STAT_EFFECTS_DATA> statEffectsData = new List<RPGEffect.STAT_EFFECTS_DATA>();
+        [RPGDataList] public List<RPGEffect.STAT_EFFECTS_DATA> statEffectsData = new List<RPGEffect.STAT_EFFECTS_DATA>();
     }
-    public List<RPGBonusRankDATA> ranks = new List<RPGBonusRankDATA>();
+    [RPGDataList] public List<RPGBonusRankDATA> ranks = new List<RPGBonusRankDATA>();
 
     public void CopyEntryData(RPGBonusRankDATA original, RPGBonusRankDATA copied)
     {

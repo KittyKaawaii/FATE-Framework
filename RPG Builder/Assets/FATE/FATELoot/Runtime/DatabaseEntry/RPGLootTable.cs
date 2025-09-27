@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Templates;
+using FATE.FATEAttribute.Runtime.Attribute;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
 using UnityEngine;
 
@@ -15,13 +16,13 @@ namespace FATE.FATELoot.Runtime.DatabaseEntry
         [Serializable]
         public class LOOT_ITEMS
         {
-            public int itemID = -1;
+            [ItemID] public int itemID = -1;
             public int min = 1;
             public int max = 1;
             public float dropRate = 100f;
         }
 
-        public List<LOOT_ITEMS> lootItems = new List<LOOT_ITEMS>();
+        [RPGDataList] public List<LOOT_ITEMS> lootItems = new List<LOOT_ITEMS>();
 
         public bool LimitDroppedItems;
         public int maxDroppedItems = 1;

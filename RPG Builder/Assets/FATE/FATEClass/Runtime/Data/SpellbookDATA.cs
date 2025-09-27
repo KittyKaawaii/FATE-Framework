@@ -1,4 +1,5 @@
 using System;
+using FATE.FATEAttribute.Runtime.Attribute;
 
 namespace FATE.FATEClass.Runtime.Data
 {
@@ -6,7 +7,7 @@ namespace FATE.FATEClass.Runtime.Data
     [Serializable]
     public class SpellbookDATA
     {
-        public int spellbookID = -1;
+        [SpellbookID] public int spellbookID = -1;
     }
 
 }
