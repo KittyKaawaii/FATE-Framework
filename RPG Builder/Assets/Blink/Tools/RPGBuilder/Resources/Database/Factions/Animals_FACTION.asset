@@ -18,6 +18,11 @@ MonoBehaviour:
   entryDisplayName: Animals
   entryIcon: {fileID: 21300000, guid: 78251da1960ddb941be2d261d12a1b0d, type: 3}
   entryDescription: Animals
+  _name: 
+  _fileName: 
+  displayName: 
+  description: 
+  icon: {fileID: 0}
   factionStances:
   - stance: 
     FactionStance: {fileID: 11400000, guid: a2530e37c92091642b659d4dcec5dbd5, type: 2}

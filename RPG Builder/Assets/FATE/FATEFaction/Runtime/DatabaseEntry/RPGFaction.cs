@@ -1,17 +1,44 @@
 using System.Collections.Generic;
 using BLINK.RPGBuilder.Combat;
-using FATE.FATECustomAttribute.Runtime.AttributeParam;
+using FATE.FATECombat.Runtime.Data;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
-using FATE.FATEFaction.Runtime.Data;
 using UnityEngine;
 
 namespace FATE.FATEFaction.Runtime.DatabaseEntry
 {
     public class RPGFaction : RPGBuilderDatabaseEntry
     {
-        [ReadOnlyField]public List<FactionStanceData> factionStances = new();
+        [HideInInspector] public string _name;
+        [HideInInspector] public string _fileName;
+        [HideInInspector] public string displayName;
+        [HideInInspector] public string description;
+        [HideInInspector] public Sprite icon;
+    
 
-        [ReadOnlyField]public List<FactionInteractionData> factionInteractions = new();
+        [System.Serializable]
+        public class Faction_Stance_DATA
+        {
+            [HideInInspector] public string stance;
+            public RPGBFactionStance FactionStance;
+            public int pointsRequired;
+
+            [HideInInspector] public RPGCombatDATA.ALIGNMENT_TYPE playerAlignment;
+            public CombatData.EntityAlignment AlignementToPlayer;
+        }
+
+        public List<Faction_Stance_DATA> factionStances = new List<Faction_Stance_DATA>();
+    
+        [System.Serializable]
+        public class Faction_Interaction_DATA
+        {
+            public int factionID = -1;
+
+            [HideInInspector] public string defaultStance;
+            public RPGBFactionStance DefaultFactionStance;
+            public int startingPoints;
+        }
+
+        public List<Faction_Interaction_DATA> factionInteractions = new List<Faction_Interaction_DATA>();
     
         public void UpdateEntryData(RPGFaction newEntryData)
         {
@@ -26,5 +53,4 @@ namespace FATE.FATEFaction.Runtime.DatabaseEntry
             factionInteractions = newEntryData.factionInteractions;
         }
     }
-
 }
