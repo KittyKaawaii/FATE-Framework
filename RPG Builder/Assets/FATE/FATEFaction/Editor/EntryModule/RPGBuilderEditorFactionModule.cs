@@ -5,6 +5,7 @@ using FATE.FATEDatabase.Editor.EntryModule;
 using FATE.FATEDatabase.Editor.Manager;
 using FATE.FATEDatabase.Editor.Utility;
 using FATE.FATEDatabase.Runtime.DatabaseEntry;
+using FATE.FATEFaction.Runtime.Data;
 using FATE.FATEFaction.Runtime.DatabaseEntry;
 using UnityEditor;
 using UnityEngine;
@@ -173,12 +174,12 @@ namespace FATE.FATEFaction.Editor.EntryModule
                 GUILayout.Space(10);
                 if (RPGBuilderEditorFields.DrawHorizontalAddButton("Add Stance", true))
                 {
-                    currentEntry.factionStances.Add(new RPGFaction.Faction_Stance_DATA());
+                    currentEntry.factionStances.Add(new FactionStanceData());
                 }
 
                 var ThisList = serialObj.FindProperty("factionStances");
                 currentEntry.factionStances =
-                    RPGBuilderEditor.Instance.GetTargetObjectOfProperty(ThisList) as List<RPGFaction.Faction_Stance_DATA>;
+                    RPGBuilderEditor.Instance.GetTargetObjectOfProperty(ThisList) as List<FactionStanceData>;
 
                 RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
                 for (var a = 0; a < currentEntry.factionStances.Count; a++)
@@ -222,13 +223,13 @@ namespace FATE.FATEFaction.Editor.EntryModule
                 GUILayout.Space(10);
                 if (RPGBuilderEditorFields.DrawHorizontalAddButton("Add Interaction", true))
                 {
-                    currentEntry.factionInteractions.Add(new RPGFaction.Faction_Interaction_DATA());
+                    currentEntry.factionInteractions.Add(new FactionInteractionData());
                 }
 
                 var ThisList2 = serialObj.FindProperty("factionInteractions");
                 currentEntry.factionInteractions =
                     RPGBuilderEditor.Instance.GetTargetObjectOfProperty(ThisList2) as
-                        List<RPGFaction.Faction_Interaction_DATA>;
+                        List<FactionInteractionData>;
 
                 GUILayout.Space(10);
                 RPGBuilderEditorUtility.StartHorizontalMargin(RPGBuilderEditor.Instance.LongHorizontalMargin, true);
@@ -274,72 +275,6 @@ namespace FATE.FATEFaction.Editor.EntryModule
             GUILayout.Space(25);
             GUILayout.EndScrollView();
 
-        }
-
-        public override void ConvertDatabaseEntriesAfterUpdate()
-        {
-            var allEntries =
-                Resources.LoadAll<RPGFaction>(RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName);
-            foreach (var entry in allEntries)
-            {
-                EditorUtility.SetDirty(entry);
-                entry.entryName = entry._name;
-                AssetDatabase.RenameAsset(RPGBuilderEditor.Instance.EditorData.ResourcePath + 
-                                          RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName + "/" + entry._fileName + ".asset", entry.entryName + AssetNameSuffix);
-                entry.entryFileName = entry.entryName + AssetNameSuffix;
-                entry.entryDisplayName = entry.displayName;
-                entry.entryIcon = entry.icon;
-                entry.entryDescription = entry.description;
-
-                foreach (var stance in entry.factionStances)
-                {
-                    if (stance.playerAlignment == RPGCombatDATA.ALIGNMENT_TYPE.ALLY)
-                        stance.AlignementToPlayer = CombatData.EntityAlignment.Ally;
-                    if (stance.playerAlignment == RPGCombatDATA.ALIGNMENT_TYPE.NEUTRAL)
-                        stance.AlignementToPlayer = CombatData.EntityAlignment.Neutral;
-                    if (stance.playerAlignment == RPGCombatDATA.ALIGNMENT_TYPE.ENEMY)
-                        stance.AlignementToPlayer = CombatData.EntityAlignment.Enemy;
-                }
-                EditorUtility.SetDirty(entry);
-            }
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-        }
-
-        public override void ConvertStringsToTypeEntries()
-        {
-            var allEntries = Resources.LoadAll<RPGFaction>(RPGBuilderEditor.Instance.EditorData.RPGBDatabasePath + AssetFolderName);
-            RPGBuilderEditorModule factionStances = RPGBuilderEditorUtility.GetModuleByName("Faction Stances");
-        
-            foreach (var entry in allEntries)
-            {
-                EditorUtility.SetDirty(entry);
-                {
-                    foreach (var stance in entry.factionStances)
-                    {
-                        RPGBuilderDatabaseEntry entryFile = factionStances.GetEntryByName(stance.stance);
-                        if (entryFile != null)
-                        {
-                            stance.FactionStance = (RPGBFactionStance) entryFile;
-                        }
-                    }
-
-                    foreach (var interaction in entry.factionInteractions)
-                    {
-                        RPGBuilderDatabaseEntry entryFile = factionStances.GetEntryByName(interaction.defaultStance);
-                        if (entryFile != null)
-                        {
-                            interaction.DefaultFactionStance = (RPGBFactionStance) entryFile;
-                        }
-                    }
-                }
-
-                EditorUtility.SetDirty(entry);
-            }
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
         }
     }
 }
